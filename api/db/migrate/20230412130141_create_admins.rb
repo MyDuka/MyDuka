@@ -4,6 +4,7 @@ class CreateAdmins < ActiveRecord::Migration[7.0]
       t.string :username
       t.string :email
       t.string :password_digest
+      t.integer :status
       t.belongs_to :merchant, null: false, foreign_key: true
 
       t.timestamps
