@@ -9,8 +9,8 @@ jobs:
   rspec:
     runs_on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-      - user: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.0'
-      - run: cd api && bundle install
+      uses: actions/checkout@v3
+      user: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0.0'
+      run: cd api && bundle install
