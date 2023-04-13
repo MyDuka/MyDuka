@@ -8,8 +8,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.decimal :buying_price
       t.string :selling_price_decimal
       t.string :supplier
-      t.belongs_to :admin, null: false, foreign_key: true
-      t.belongs_to :clerk, null: false, foreign_key: true
 
       t.timestamps
     end
