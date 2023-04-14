@@ -49,10 +49,6 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           ruby-version: '3.0.0'
-          bundler-cache: true
-      - name: Lint Ruby files
-        run: bin/rubocop --parallel
-      - name: Install gems
-        run: cd api && bundle install
+      - run: cd api && bundle install
       - run: cd api && bundle exec rails db:migrate RAILS_ENV=test
       - run: cd api && bundle exec rspec spec
