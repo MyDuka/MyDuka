@@ -14,5 +14,5 @@ jobs:
         with:
           ruby-version: '3.0.0'
       - run: cd api && bundle install
-      - run: cd api && bundle exec rails db:migrate RAILS_ENV=development
+      - run: cd api && bundle exec rails db:migrate
       - run: cd api && bundle exec rspec spec
