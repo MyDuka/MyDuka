@@ -34,6 +34,6 @@ jobs:
         with:
           ruby-version: '3.0.0'
       - run: cd api && bundle install
-      # - run: cd api && bundle exec rails db:create
-      - run: cd api && bundle exec rails db:migrate
+      - run: cd api && bundle exec rails db:setup
+      # - run: cd api && bundle exec rails db:migrate
       - run: cd api && bundle exec rspec spec
