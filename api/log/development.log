@@ -642,3 +642,61 @@ puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "58addd46498439b0246039134434c38aae6c70d3"], ["created_at", "2023-04-14 10:59:53.949539"], ["updated_at", "2023-04-14 10:59:53.949539"]]
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/ws" for ::1 at 2023-04-14 04:02:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 4 pending migrations:
+
+20230412125915_create_merchants.rb
+20230412130141_create_admins.rb
+20230412130221_create_clerks.rb
+20230413091537_create_products.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
