@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :received_items, only: [:index, :show, :update, :delete]
   resources :product_clerks
   resources :store_admins
-  resources :recieved_items
   resources :stores
-  resources :products
+  resources :products, only: [:index, :update, :show, :delete]
   resources :clerks
-  resources :admins, only: [:show, :update, :delete]
+  resources :admins, only: [:index,:show, :update, :delete]
   resources :merchants
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -33,6 +33,16 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#logout"
 
   get '/login/status', to: "sessions#login_status"
+
+  # product routes
+
+  post 'add/product/:id', to: "products#add_product"
+
+  # post 'update/product/:id', to "products#update_product"
+
+  # revieved item routes
+
+  post '/received/items/:id', to: "received_items#ri_add"
 
 
 
