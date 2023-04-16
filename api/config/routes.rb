@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :product_clerks
+  resources :store_admins
+  resources :recieved_items
+  resources :stores
   resources :products
   resources :clerks
   resources :admins, only: [:show, :update, :delete]
