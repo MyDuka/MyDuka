@@ -24,5 +24,7 @@ class ApplicationController < ActionController::API
         params.permit(:username, :password, :email) 
     end
 
+    # products methid
+
 
 end
