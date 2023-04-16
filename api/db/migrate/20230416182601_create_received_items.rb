@@ -1,7 +1,7 @@
-class CreateRecievedItems < ActiveRecord::Migration[7.0]
+class CreateReceivedItems < ActiveRecord::Migration[7.0]
   def change
-    create_table :recieved_items do |t|
-      t.integer :recieved
+    create_table :received_items do |t|
+      t.integer :received
       t.integer :payment_status
       t.integer :stocked
       t.integer :spoilt

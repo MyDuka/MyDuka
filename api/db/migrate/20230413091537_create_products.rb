@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :supplier
       t.decimal :buying_price
       t.decimal :selling_price
-      t.belongs_to :store, null: false, foreign_key: true
+      t.integer :store_id, null: false, foreign_key: true
 
 
       t.timestamps
