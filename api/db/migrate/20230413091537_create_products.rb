@@ -5,12 +5,10 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :type
       t.string :image
       t.string :supplier
-      t.integer :stocked
-      t.integer :received
-      t.integer :spoilt
-      t.integer  :payment
       t.decimal :buying_price
       t.decimal :selling_price
+      t.belongs_to :store, null: false, foreign_key: true
+
 
       t.timestamps
     end
