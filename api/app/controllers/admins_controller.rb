@@ -33,3 +33,10 @@ class AdminsController < ApplicationController
       admin.destroy
       render json: { message: "Admin deleted" }
     end
+
+    private
+    def admin_params
+      params.permit(:username, :email, :password_digest, :status)
+    end
+    
+    end
