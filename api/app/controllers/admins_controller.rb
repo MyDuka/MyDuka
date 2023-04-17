@@ -1,9 +1,12 @@
 class AdminsController < ApplicationController
+# before_action :merchant_authorize
+# skip_before_action 
 
-
-    def create 
+    def register 
+        merchant = Merchant.find(session[:merchant_id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
+            MerchantMailer.admin_registration(admin,merchant).deliver_now
             render json: admin, status: :created
         else 
             render json: { message: "registration failed", data: admin.errors}, status: :unprocessable_entity
@@ -43,7 +46,7 @@ class AdminsController < ApplicationController
     private
 
     def admin_params 
-        params.permit(:username, :email, :password, :status)
+        params.require(:admin).permit(:username, :email, :password, :status)
     end
 
 
