@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :received_items, only: [:index, :show, :update, :delete]
-  resources :product_clerks
+  resources :product_clerks, only: [:index, :create, :show, :delete]
   resources :store_admins
-  resources :stores
+  resources :stores, only: [:index, :show, :update, :delete]
   resources :products, only: [:index, :update, :show, :delete]
-  resources :clerks
+  resources :clerks, only: [:index, :update, :show, :delete]
   resources :admins, only: [:index,:show, :update, :delete]
   resources :merchants
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -15,17 +15,17 @@ Rails.application.routes.draw do
 
   # Admin routes
 
-  post '/register', to: "products#register"
+  post '/admin/register', to: "admins#register"
   
-  post '/admins/login', to: "sessions#admin_login"
+  post '/admin/login', to: "sessions#admin_login"
 
   # merchant routes
 
-  post '/merchants/login', to: "sessions#merchant_login"
+  post '/merchant/login', to: "sessions#merchant_login"
 
   # clerk routes
 
-  post 'clerks/login', to: "sessions#clerk_login"
+  post 'clerk/login', to: "sessions#clerk_login"
 
 
   # logout
@@ -38,11 +38,18 @@ Rails.application.routes.draw do
 
   post 'add/product/:id', to: "products#add_product"
 
-  # post 'update/product/:id', to "products#update_product"
 
   # revieved item routes
 
   post '/received/items/:id', to: "received_items#ri_add"
+
+  #  store routes
+
+  post '/add/store', to: "stores#add_store"
+
+  #  clerk routes 
+
+  post '/add/clerk', to: "clerks#add_client"
 
 
 
