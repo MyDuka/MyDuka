@@ -1,10 +1,19 @@
 class Clerk < ApplicationRecord
-    enum status: { active: 0, inactive: 1 }
-
+    # Associations
     belongs_to :admin
+    has_many :received_items
   
-    has_many :received_items, dependent: :destroy
+    # Devise modules
+    #devise :database_authenticatable, :recoverable, :rememberable, :validatable
   
-    validates :name, presence: true
-    #validates :email, presence: true, uniqueness: true
-end
+    # Validations
+    validates :email, presence: true, uniqueness: true, format: { with: Devise.email_regexp }
+  
+    # Methods
+    #def name
+      # You can define a method to return the name of the clerk based on the attributes in the model.
+      # For example, if you have a "first_name" and "last_name" attribute, you can do:
+     # "#{first_name} #{last_name}"
+    #end
+  end
+  
