@@ -59,13 +59,13 @@ class SessionsController < ApplicationController
 
         if admin 
             session.delete :admin_id
-            render json: {message: "admin logout"}, head :no_content
+            render json: {message: "admin logout"}
         elsif merchant
             session.delete :merchant_id
-            render json: {message: "merchant logout"}, head :no_content
+            render json: {message: "merchant logout"}
         elsif clerk
             session.delete :clerk_id
-            render json: {message: "clerk logout" }, head :no_content
+            render json: {message: "clerk logout" }
         else  
             render json: {message: "Please login first"}
         end
@@ -77,21 +77,32 @@ class SessionsController < ApplicationController
     
     def login_status
 
-        admin = Admin.find_by(id: session[:admin_id].to_i )
-        merchant = Merchant.find_by(id: session[:merchant_id].to_i)
-        clerk = Clerk.find_by(id: session[:clerk_id].to_i)
+        admin = Admin.find_by(id: session[:admin_id])
+        merchant = Merchant.find_by(id: session[:merchant_id])
+        # clerk = Clerk.find_by(id: session[:clerk_id])
 
-        if admin
-            render json: {message: "An admin logged", data: admin}
-        elsif merchant
-            render json: {message: "A merchant logged", data: merchant}
-        elsif clerk 
-            render json: {message: "A clerk logged", data: clerk}
-        else  
-            render json: { message: "No one is logged in"}
-        end
+        users = [[{type: "Administrator"},admin],[{type: "merchant"},merchant] ]
+
+        # if admin
+        #     render json: {message: "An admin logged", data: admin}
+        # elsif merchant
+        #     render json: {message: "A merchant logged", data: merchant}
+        # elsif clerk 
+        #     render json: {message: "A clerk logged", data: clerk}
+        # else  
+        #     render json: { message: "No one is logged in"}
+        # end
+
+        render json: {message:"Logged users", data: users}
 
 
+    end
+
+
+    private 
+
+    def merchant_params
+        params.require(:session).permit(:username, :password, :email)
     end
 
 
