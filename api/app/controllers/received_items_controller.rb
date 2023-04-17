@@ -35,6 +35,12 @@ class ReceivedItemsController < ApplicationController
 
     end
 
+    private 
+
+    def ri_params
+        params.permit(:received, :payment_status, :stocked, :spoilt) 
+    end
+
 
 
 
