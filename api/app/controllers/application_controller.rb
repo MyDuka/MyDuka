@@ -4,9 +4,9 @@ class ApplicationController < ActionController::API
 
     # merchants methods
 
-    def merchant 
-        merchant.find(session[:merchant_id].to_i)
-    end
+    # def merchant 
+    #     merchant.find(session[:merchant_id])
+    # end
 
     def merchant_params
         params.permit(:username, :password, :email)
@@ -50,10 +50,22 @@ class ApplicationController < ActionController::API
         params.permit(:name, :address)
     end
 
-    #  received items
+    #  received items methods
 
-    def ri_params
-        params.permit(:received, :payment_status, :stocked, :spoilt) 
+    # def ri_params
+    #     params.permit(:received, :payment_status, :stocked, :spoilt) 
+    # end
+
+    # store admin methods
+
+    def storeA_params 
+        params.permit(:store_id, :admin_id)
+    end
+
+    #  store params
+
+    def store_params 
+        params.permit(:name, :address)
     end
 
 
