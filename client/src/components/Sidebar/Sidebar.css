@@ -1,26 +1,9 @@
-.Clerk{
-    background: linear-gradient(
-        106.37deg,
-        #222122 29.63%,
-        #464545 51.55%,
-        #575657 90.85%
-      );
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Inter', sans-serif;
+/* .Clerk{
+    background-color: var(--purple);
 }
-
 .Clerk-glass{
-    display: grid;
-    height: 97%;
-    width: 97%;
-    border-radius: 1rem;
-    background-color: var(--glass);
-    overflow: hidden;
-    grid-template-columns: 15rem auto 20rem;
-}
+    background-color: var(--purple);
+} */
 
 .Sidebar{
     display: flex;
@@ -28,6 +11,8 @@
     position: relative;
     padding-top: 4rem;
     transition: all 300ms ease;
+    
+
 }
 
 label{
@@ -46,6 +31,8 @@ label{
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
+    
+    
 }
 
 .menuItem{
@@ -58,7 +45,8 @@ label{
     transition: all 300ms ease;
     font-size: 14px;
     border-radius: 0.7rem;
-    background: transparent;
+    
+    
 }
 
 .menuItem:hover{
@@ -97,3 +85,7 @@ span{
     color: var(--white);
     background: transparent;
 } 
+
+.signout{
+    margin-top: 25rem;
+}
