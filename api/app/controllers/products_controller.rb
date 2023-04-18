@@ -32,7 +32,8 @@ class ProductsController < ApplicationController
 
 
     def update
-        product = Product.find_by(id: params[:id])
+        clerk = Clerk.find_by(id: session(:clerk))
+        # product = Product.find_by(id: params[:id])
         if product
             product = Product.update(product_params)
             render json: {product, info: "Updated succesfully"},status: :ok
