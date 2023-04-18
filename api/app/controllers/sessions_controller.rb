@@ -116,9 +116,9 @@ class SessionsController < ApplicationController
 
         admin = Admin.find_by(id: session[:admin_id])
         merchant = Merchant.find_by(id: session[:merchant_id])
-        # clerk = Clerk.find_by(id: session[:clerk_id])
+        clerk = Clerk.find_by(id: session[:clerk_id])
 
-        users = [[{type: "Administrator"},admin],[{type: "merchant"},merchant] ]
+        users = [[{type: "Administrator"} ,admin],[{type: "merchant"}, merchant], [{type: "clerk"}, clerk] ]
 
         # if admin
         #     render json: {message: "An admin logged", data: admin}
