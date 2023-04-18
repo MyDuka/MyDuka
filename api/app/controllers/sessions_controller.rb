@@ -64,23 +64,49 @@ class SessionsController < ApplicationController
     # merchant, admin and clerk logout
 
     def logout
-        admin = Admin.find_by(id: session[:admin_id] )
-        merchant = Merchant.find_by(id: session[:merchant_id])
-        clerk = Clerk.find_by(id: session[:clerk_id])
-
-        if admin 
-            session.delete :admin_id
-            render json: {message: "admin logout"}
-        elsif merchant
+        
+        if merchant
             session.delete :merchant_id
             render json: {message: "merchant logout"}
-        elsif clerk
+        else  
+            render json: {message: "Please login first"}
+        end
+
+    end
+
+    def clerk_logout 
+        clerk = Clerk.find_by(id: session[:clerk_id])
+
+        if clerk
             session.delete :clerk_id
             render json: {message: "clerk logout" }
         else  
             render json: {message: "Please login first"}
         end
 
+    end
+
+
+    def admin_logout 
+        admin = Admin.find_by(id: session[:admin_id] )
+
+        if admin 
+            session.delete :admin_id
+            render json: {message: "admin logout"}
+        else  
+            render json: {message: "Please login first"}
+        end
+    end
+
+
+    def merchant_logout 
+        merchant = Merchant.find_by(id: session[:merchant_id])         
+        if merchant
+            session.delete :merchant_id
+            render json: {message: "merchant logout"}
+        else  
+            render json: {message: "Please login first"}
+        end
     end
 
 
