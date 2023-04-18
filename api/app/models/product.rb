@@ -1,3 +1,7 @@
 class Product < ApplicationRecord
-    enum payment: [PAID, UNPAID]
+
+    belongs_to :store
+    has_many :recieved_items
+    has_many :product_clerks
+ 
 end

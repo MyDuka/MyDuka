@@ -1,53 +1,72 @@
 class ClerksController < ApplicationController
-  before_action :authenticate_admin!, except: [:new, :create]
-  before_action :authenticate_clerk!, only: [:new, :create]
-  before_action :set_admin, only: [:new, :create]
-  before_action :set_clerk, only: [:show, :edit, :update, :destroy]
+before_action :admin_authorize
+skip_before_action 
 
-  def index
-    clerks = Clerk.all
-  end
+def index 
+    admin = Admin.find_by(id: session[:admin_id])
+    clerks = admin.clerks.all
+    render json: clerks, status: :ok
+end
 
-  def new
-    clerk = @admin.clerks.build
-  end
 
-  def create
-    clerk = @admin.clerks.build(clerk_params)
-
-    if clerk.save
-      # send an email invitation to the newly created clerk
-      #ClerkMailer.with(clerk: @clerk).invitation_email.deliver_now
-      
-      redirect_to @admin, notice: 'Clerk was successfully created.'
-    else
-      render 'new'
+def add_clerk
+    admin = Admin.find_by(id: session[:admin_id])
+    if admin
+    clerk = admin.clerks.create(clerk_params)
+    AdminMailer.clerk_registration(clerk,admin).deliver_now
+    render json: clerk, status: :created
+    else  
+        render json: {message:"unprocessible"}, status: :unprocessable_entity
     end
-  end
+end
 
-  def update
-    if clerk.update(clerk_params)
-      redirect_to @admin, notice: 'Clerk was successfully updated.'
-    else
-      render 'edit'
+def update 
+    admin = Admin.find_by(id: session[:admin_id])
+    if admin
+        clerk = admin.clerks.update(clerk_params)
+        render json: {message:"updated succesffuly",data: clerk}, status: :ok 
+    else  
+        render json: {message: "failed to update"}, status: :unprocessable_entity
     end
-  end
+end 
 
-  def destroy
-    clerk.destroy
-    redirect_to @admin, notice: 'Clerk was successfully destroyed.'
-  end
 
-  private
-    def set_admin
-      @admin = Admin.find(params[:admin_id])
+   # deactivates a clerk, done by admin
+   def clerk_activation 
+    admin = Admin.find_by(id: session[:admin_id]) 
+    if admin
+        clerk = admin.clerks.find_by(id: params[:id])
+        clerk.update(clerk_params[:status])
+        if clerk.status == "DEACTIVATED"
+            AdminMailer.clerk_deactivation(clerk,admin).deliver_now
+        elsif clerk.status == "ACTIVATED"
+            AdminMailer.clerk_activation(clerk,admin).deliver_now
+        end
+        render json: clerk, status: :ok
+    else  
+        render json: {message: "clerk not found"}, status: :unprocessable_entity
     end
 
-    def set_clerk
-      clerk = Clerk.find(params[:id])
+def show  
+    admin = Admin.find_by(id: session[:admin_id])
+    if admin 
+        clerk = admin.clerks.find_by(id: params[:id])
+        render json: clerk, status: :ok
+    else  
+        render json: {message: "Clerk not found."}, status: :not_found
     end
+end  
 
-    def clerk_params
-      params.require(:clerk).permit(:email, :password, :password_confirmation, :full_name)
-    end
+def destroy  
+    admin = Admin.find_by(id: session[:admin_id])
+    admin.clerks.find(id).destroy
+    head :no_content
+end
+
+private 
+
+def clerk_params 
+    params.permit(:username, :email, :password, :status)
+end
+end
 end
