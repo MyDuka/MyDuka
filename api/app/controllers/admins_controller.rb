@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
-# before_action :merchant_authorize
-# skip_before_action 
+before_action :merchant_authorize
+
 
     def register 
         merchant = Merchant.find(session[:merchant_id])
@@ -25,12 +25,24 @@ class AdminsController < ApplicationController
 
 
     def update
-        admin = merchant.admins.find_by(id: params[:id])
+        admin = Admin.find_by(id: session[:admin_id])
         if admin
             admin.update(admin_params)
             render json: {message: "updated successfully"}
         else  
             render json: {message: "failed"}, status: :unprocessable_entity
+        end
+    end
+
+    # deactivates an admin, done by merchant
+    def admin_activation
+        merchant = Merchant.find_by(id: session[:merchant_id])
+        if merchant
+            admin = merchant.admins.find_by(id: params[:id])
+            admin.update(admin_params[:status])
+            render json: admin, status: :ok
+        else  
+            render json: {message: "admin not found"}, status: :unprocessable_entity
         end
     end
 
