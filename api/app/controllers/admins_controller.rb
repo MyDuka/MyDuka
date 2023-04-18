@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
 before_action :merchant_authorize
+# skip_before_action
 
 
     def register 
