@@ -4,6 +4,7 @@ skip_before_action
 
 def index 
     admin = Admin.find_by(id: session[:admin_id])
+
     clerks = admin.clerks.all
     render json: clerks, status: :ok
 end
@@ -36,7 +37,7 @@ end
     admin = Admin.find_by(id: session[:admin_id]) 
     if admin
         clerk = admin.clerks.find_by(id: params[:id])
-        clerk.update(clerk_params[:status])
+        clerk.update(clerk_params)
         if clerk.status == "DEACTIVATED"
             AdminMailer.clerk_deactivation(clerk,admin).deliver_now
         elsif clerk.status == "ACTIVATED"
@@ -45,6 +46,7 @@ end
         render json: clerk, status: :ok
     else  
         render json: {message: "clerk not found"}, status: :unprocessable_entity
+    end
     end
 
 def show  
