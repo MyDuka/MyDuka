@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
         params.permit(:username, :password, :email)
     end
 
-    def merchant_authorization 
+    def merchant_authorize 
         render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :merchant_id
     end
 
