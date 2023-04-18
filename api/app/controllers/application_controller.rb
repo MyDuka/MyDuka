@@ -40,7 +40,7 @@ class ApplicationController < ActionController::API
     # products methods
 
     def products_params
-        params.permit(:name, :type, :buying_price, :selling_price, :supplier, :image)
+        params.permit(:name, :category, :buying_price, :selling_price, :supplier, :image)
     end
 
 
