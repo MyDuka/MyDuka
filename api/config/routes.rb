@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 
   # logout
 
-  delete '/logout', to: "sessions#logout"
+  delete '/admin/logout', to: "sessions#admin_logout"
+
+  delete '/merchant/logout', to: "sessions#merchant_logout"
+
+  delete '/clerk/logout', to: "sessions#clerk_logout"
 
   get '/login/status', to: "sessions#login_status"
 
