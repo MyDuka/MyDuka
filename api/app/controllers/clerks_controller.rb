@@ -37,6 +37,11 @@ end
     if admin
         clerk = admin.clerks.find_by(id: params[:id])
         clerk.update(clerk_params[:status])
+        if clerk.status == "DEACTIVATED"
+            AdminMailer.clerk_deactivation(clerk,admin).deliver_now
+        elsif clerk.status == "ACTIVATED"
+            AdminMailer.clerk_activation(clerk,admin).deliver_now
+        end
         render json: clerk, status: :ok
     else  
         render json: {message: "clerk not found"}, status: :unprocessable_entity
