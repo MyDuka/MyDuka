@@ -1,6 +1,6 @@
 class ClerksController < ApplicationController
 before_action :admin_authorize
-
+skip_before_action 
 
 def index 
     admin = Admin.find_by(id: session[:admin_id])
@@ -13,6 +13,7 @@ def add_clerk
     admin = Admin.find_by(id: session[:admin_id])
     if admin
     clerk = admin.clerks.create(clerk_params)
+    AdminMailer.clerk_registration(clerk,admin).deliver_now
     render json: clerk, status: :created
     else  
         render json: {message:"unprocessible"}, status: :unprocessable_entity
@@ -23,11 +24,23 @@ def update
     admin = Admin.find_by(id: session[:admin_id])
     if admin
         clerk = admin.clerks.update(clerk_params)
-        render json: {message:"updated succesffuly", clerk}, status: :ok 
+        render json: {message:"updated succesffuly",data: clerk}, status: :ok 
     else  
         render json: {message: "failed to update"}, status: :unprocessable_entity
     end
-end
+end 
+
+
+   # deactivates a clerk, done by admin
+   def clerk_activation 
+    admin = Admin.find_by(id: session[:admin_id]) 
+    if admin
+        clerk = admin.clerks.find_by(id: params[:id])
+        clerk.update(clerk_params[:status])
+        render json: clerk, status: :ok
+    else  
+        render json: {message: "clerk not found"}, status: :unprocessable_entity
+    end
 
 def show  
     admin = Admin.find_by(id: session[:admin_id])
