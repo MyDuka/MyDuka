@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   post '/received/items/:id', to: "received_items#ri_add"
 
+  put '/payment/status/:id', to: "received_items#payment_status"
+
   #  store routes
 
   post '/add/store', to: "stores#add_store"
@@ -57,7 +59,7 @@ Rails.application.routes.draw do
 
   post '/clerk/register', to: "clerks#add_clerk"
 
-  post '/clerk/activation', to: "clerks#clerk_activation"
+  put '/clerk/activation/:id', to: "clerks#clerk_activation"
 
 
 
