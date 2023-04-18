@@ -41,6 +41,11 @@ before_action :merchant_authorize
         if merchant
             admin = merchant.admins.find_by(id: params[:id])
             admin.update(admin_params[:status])
+            if admin.status == "DEACTIVATED"
+                MerchantMailer.admin_deactivation(merchant, admin).deliver_now
+            elsif clerk.status == "ACTIVATED"
+                MerchantMailer.admin_activation(merchant, admin).deliver_now
+            end
             render json: admin, status: :ok
         else  
             render json: {message: "admin not found"}, status: :unprocessable_entity
