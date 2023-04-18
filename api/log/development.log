@@ -14110,3 +14110,1073 @@ Did you mean?  password_digest
 app/views/merchant_mailer/admin_registration.html.erb:62
 app/mailers/merchant_mailer.rb:7:in `admin_registration'
 app/controllers/admins_controller.rb:9:in `register'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:31:27 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"rails", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"rails", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (2.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (40.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (42.7ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "rails"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 05:31:30.543448"], ["updated_at", "2023-04-18 05:31:30.543448"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 16.8ms | Allocations: 3137)
+  Rendered layout layouts/mailer.html.erb (Duration: 17.8ms | Allocations: 3228)
+MerchantMailer#admin_registration: processed outbound mail in 63.8ms
+Completed 500 Internal Server Error in 381ms (ActiveRecord: 1433.0ms | Allocations: 15836)
+
+
+  
+ActionView::Template::Error (undefined method `passwor_digest' for #<Admin id: 13, username: "rails", email: "felixkim09@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-18 05:31:30.543448000 +0000", updated_at: "2023-04-18 05:31:30.543448000 +0000">
+Did you mean?  password_digest
+               password_digest?
+               password_digest=):
+    59:     <ul  class="list">
+    60:     <li>Username: <%= @admin.username%></li>
+    61:     <li>Email: <%= @admin.email%></li>
+    62:     <li>Password: 1234<%=@admin.passwor_digest %></li>
+    63:     </ul>
+    64:     <br/>
+    65:     <p> Please make sure to change your password upon initial sign up</p>
+  
+app/views/merchant_mailer/admin_registration.html.erb:62
+app/mailers/merchant_mailer.rb:7:in `admin_registration'
+app/controllers/admins_controller.rb:9:in `register'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:32:13 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"rails", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"rails", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (0.6ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "rails"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 05:32:13.236361"], ["updated_at", "2023-04-18 05:32:13.236361"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 41.8ms | Allocations: 2705)
+  Rendered layout layouts/mailer.html.erb (Duration: 42.1ms | Allocations: 2794)
+MerchantMailer#admin_registration: processed outbound mail in 46.6ms
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 42.5ms | Allocations: 6293)
+
+
+  
+ActionView::Template::Error (undefined method `passwor_digest' for #<Admin id: 14, username: "rails", email: "felixkim09@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-18 05:32:13.236361000 +0000", updated_at: "2023-04-18 05:32:13.236361000 +0000">
+Did you mean?  password_digest
+               password_digest?
+               password_digest=):
+    59:     <ul  class="list">
+    60:     <li>Username: <%= @admin.username%></li>
+    61:     <li>Email: <%= @admin.email%></li>
+    62:     <li>Password: 1234<%=@admin.passwor_digest %></li>
+    63:     </ul>
+    64:     <br/>
+    65:     <p> Please make sure to change your password upon initial sign up</p>
+  
+app/views/merchant_mailer/admin_registration.html.erb:62
+app/mailers/merchant_mailer.rb:7:in `admin_registration'
+app/controllers/admins_controller.rb:9:in `register'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:32:45 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"rails", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"rails", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (1.9ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "rails"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 05:32:47.567096"], ["updated_at", "2023-04-18 05:32:47.567096"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (24.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 1.6ms | Allocations: 403)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.8ms | Allocations: 661)
+MerchantMailer#admin_registration: processed outbound mail in 10.3ms
+Delivered mail 643e2b7f9994f_396b27385970@kimathis-MacBook-Pro.local.mail (3615.6ms)
+Date: Mon, 17 Apr 2023 22:32:47 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <643e2b7f9994f_396b27385970@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear rails,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: rails</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3698ms (Views: 0.5ms | ActiveRecord: 38.9ms | Allocations: 16593)
+
+
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:34:32 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"JNM", "email"=>"jamnjeri@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"JNM", "email"=>"jamnjeri@gmail.com"}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (35.4ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JNM"], ["email", "jamnjeri@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 05:34:32.723208"], ["updated_at", "2023-04-18 05:34:32.723208"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (24.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 112)
+MerchantMailer#admin_registration: processed outbound mail in 3.5ms
+Delivered mail 643e2be8c204a_396b26fc602e@kimathis-MacBook-Pro.local.mail (3196.2ms)
+Date: Mon, 17 Apr 2023 22:34:32 -0700
+From: from@example.com
+To: jamnjeri@gmail.com
+Message-ID: <643e2be8c204a_396b26fc602e@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear JNM,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: JNM</li>
+    <li>Email: jamnjeri@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3274ms (Views: 0.8ms | ActiveRecord: 60.2ms | Allocations: 6876)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-17 22:37:09 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"JNM", "email"=>"jamnjeri@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"JNM", "email"=>"jamnjeri@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:80:in `login_status'
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:81:in `login_status'
+Completed 200 OK in 23ms (Views: 5.3ms | ActiveRecord: 1.4ms | Allocations: 1949)
+
+
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:46:42 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"Kevin Ngechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"Kevin Ngechu", "email"=>"kelvinngechu@gmail.com"}}
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 54.5ms | Allocations: 2153)
+
+
+  
+NoMethodError (undefined method `merchant_authorize' for #<AdminsController:0x00000000016a30>
+Did you mean?  merchant_authorization):
+  
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-17 22:47:12 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"Kevin Ngechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"Kevin Ngechu", "email"=>"kelvinngechu@gmail.com"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (1.7ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Kevin Ngechu"], ["email", "kelvinngechu@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 05:47:13.073052"], ["updated_at", "2023-04-18 05:47:13.073052"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 1.7ms | Allocations: 404)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.7ms | Allocations: 673)
+MerchantMailer#admin_registration: processed outbound mail in 17.7ms
+Delivered mail 643e2ee11b3c6_396c27385720@kimathis-MacBook-Pro.local.mail (4520.5ms)
+Date: Mon, 17 Apr 2023 22:47:13 -0700
+From: from@example.com
+To: kelvinngechu@gmail.com
+Message-ID: <643e2ee11b3c6_396c27385720@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear Kevin Ngechu,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: Kevin Ngechu</li>
+    <li>Email: kelvinngechu@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 4625ms (Views: 0.6ms | ActiveRecord: 130.8ms | Allocations: 27383)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 22:49:18 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/clerks_controller.rb:27: syntax error, unexpected '}', expecting =>
+...e:"updated succesffuly", clerk}, status: :ok 
+...                              ^
+):
+  
+app/controllers/clerks_controller.rb:27: syntax error, unexpected '}', expecting =>
+app/controllers/clerks_controller.rb:27: syntax error, unexpected '}', expecting =>
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 22:52:18 -0700
+  
+AbstractController::ActionNotFound (The action 'add_client' could not be found for ClerksController
+Did you mean?  add_clerk):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 22:53:02 -0700
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/clerk.rb:7:in `<class:Clerk>'
+app/models/clerk.rb:1:in `<main>'
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 22:54:21 -0700
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/clerk.rb:7:in `<class:Clerk>'
+app/models/clerk.rb:1:in `<main>'
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 22:59:15 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com"}}
+  [1m[36mAdmin Load (40.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a40d20c18>, params: {"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (412.7ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "KevinNgechu"], ["email", "kelvinngechu@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 05:59:16.740660"], ["updated_at", "2023-04-18 05:59:16.740660"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+Completed 500 Internal Server Error in 950ms (ActiveRecord: 736.6ms | Allocations: 26549)
+
+
+  
+NameError (uninitialized constant ClerksController::ClerkMailer):
+  
+app/controllers/clerks_controller.rb:16:in `add_clerk'
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 23:00:01 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a428bd750>, params: {"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"KevinNgechu", "email"=>"kelvinngechu@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (0.9ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "KevinNgechu"], ["email", "kelvinngechu@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 06:00:01.734857"], ["updated_at", "2023-04-18 06:00:01.734857"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 3.1ms | Allocations: 396)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.6ms | Allocations: 496)
+AdminMailer#clerk_registration: processed outbound mail in 15.7ms
+Delivered mail 643e31e1c6c2d_396b26fc617d@kimathis-MacBook-Pro.local.mail (4010.9ms)
+Date: Mon, 17 Apr 2023 23:00:01 -0700
+From: from@example.com
+To: kelvinngechu@gmail.com
+Message-ID: <643e31e1c6c2d_396b26fc617d@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear KevinNgechu,</p>
+    <p>We are glad to inform you that you have been registered by KevinNgechu</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: KevinNgechu</li>
+    <li>Email: kelvinngechu@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kim Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 4376ms (Views: 1.9ms | ActiveRecord: 61.3ms | Allocations: 31975)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 23:07:42 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"Cindy Muthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"Cindy Muthoni", "email"=>"cindymuthoni14@gmail.com"}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a40f6b8b0>, params: {"username"=>"Cindy Muthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"Cindy Muthoni", "email"=>"cindymuthoni14@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (42.9ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Cindy Muthoni"], ["email", "cindymuthoni14@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 06:07:42.880894"], ["updated_at", "2023-04-18 06:07:42.880894"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 1.8ms | Allocations: 434)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.7ms | Allocations: 691)
+AdminMailer#clerk_registration: processed outbound mail in 8.3ms
+Delivered mail 643e33aef216b_396b27106247@kimathis-MacBook-Pro.local.mail (3819.9ms)
+Date: Mon, 17 Apr 2023 23:07:42 -0700
+From: from@example.com
+To: cindymuthoni14@gmail.com
+Message-ID: <643e33aef216b_396b27106247@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear Cindy Muthoni,</p>
+    <p>We are glad to inform you that you have been registered by Cindy Muthoni</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: Cindy Muthoni</li>
+    <li>Email: cindymuthoni14@gmail.com</li>
+    <li>Password: 1234</li>
+    <li>Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kim Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 4196ms (Views: 1.2ms | ActiveRecord: 138.4ms | Allocations: 20322)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 23:13:04 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"CindyMuthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"CindyMuthoni", "email"=>"cindymuthoni14@gmail.com"}}
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a3d7883a8>, params: {"username"=>"CindyMuthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"CindyMuthoni", "email"=>"cindymuthoni14@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (1.3ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "CindyMuthoni"], ["email", "cindymuthoni14@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 06:13:05.266980"], ["updated_at", "2023-04-18 06:13:05.266980"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (43.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 2.1ms | Allocations: 440)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.8ms | Allocations: 698)
+AdminMailer#clerk_registration: processed outbound mail in 10.8ms
+Delivered mail 643e34f151a87_396b27246329@kimathis-MacBook-Pro.local.mail (3724.7ms)
+Date: Mon, 17 Apr 2023 23:13:05 -0700
+From: from@example.com
+To: cindymuthoni14@gmail.com
+Message-ID: <643e34f151a87_396b27246329@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear CindyMuthoni,</p>
+    <p>We are glad to inform you that you have been registered by CindyMuthoni</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: CindyMuthoni</li>
+    <li>Email: cindymuthoni14@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kim Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 4216ms (Views: 0.6ms | ActiveRecord: 46.7ms | Allocations: 8472)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-17 23:15:27 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"C.Muthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"C.Muthoni", "email"=>"cindymuthoni14@gmail.com"}}
+  [1m[36mAdmin Load (43.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a4369dfa0>, params: {"username"=>"C.Muthoni", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"C.Muthoni", "email"=>"cindymuthoni14@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (1.9ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "C.Muthoni"], ["email", "cindymuthoni14@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 06:15:28.000926"], ["updated_at", "2023-04-18 06:15:28.000926"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (41.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 3.4ms | Allocations: 444)
+  Rendered layout layouts/mailer.html.erb (Duration: 7.8ms | Allocations: 701)
+AdminMailer#clerk_registration: processed outbound mail in 12.8ms
+Delivered mail 643e358010b51_396b27386488@kimathis-MacBook-Pro.local.mail (3100.5ms)
+Date: Mon, 17 Apr 2023 23:15:28 -0700
+From: from@example.com
+To: cindymuthoni14@gmail.com
+Message-ID: <643e358010b51_396b27386488@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear C.Muthoni,</p>
+    <p>We are glad to inform you that you have been registered by C.Muthoni</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: C.Muthoni</li>
+    <li>Email: cindymuthoni14@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>kim</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3636ms (Views: 0.6ms | ActiveRecord: 87.0ms | Allocations: 8471)
+
+
