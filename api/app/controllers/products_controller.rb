@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
         store = Store.find_by(id: params[:id])
         
         if store
-            product = store.products.create(product_params) 
+            product = store.products.create(product_param) 
             render json: product, status: :created
         else 
             render json: {message: "Product not created"}, status: :unprocessable_entity
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
         if product
             render json: product, status: :ok
         else 
-            render json: {message: "Not Found", product.errors}, status: :unprocessable_entity
+            render json: {message: "Not Found"}, status: :unprocessable_entity
         end
     end
 
@@ -35,8 +35,8 @@ class ProductsController < ApplicationController
         clerk = Clerk.find_by(id: session(:clerk))
         # product = Product.find_by(id: params[:id])
         if product
-            product = Product.update(product_params)
-            render json: {product, info: "Updated succesfully"},status: :ok
+            product = Product.update(product_param)
+            render json: {data: product, info: "Updated succesfully"},status: :ok
 
         else  
             render json: {message: "Not updated"}, status: :unprocessable_entity
@@ -49,6 +49,12 @@ class ProductsController < ApplicationController
         product.destroy
         header :no_content
 
+    end
+
+    private 
+
+    def product_param
+        params.permit(:name, :category, :buying_price, :selling_price, :supplier, :image)
     end
 
 
