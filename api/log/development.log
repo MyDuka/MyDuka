@@ -15180,3 +15180,1342 @@ Content-Transfer-Encoding: 7bit
 Completed 201 Created in 3636ms (Views: 0.6ms | ActiveRecord: 87.0ms | Allocations: 8471)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-18 02:25:41 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.0ms | Allocations: 468)
+Completed 200 OK in 35ms (Views: 21.2ms | Allocations: 1451)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-18 02:25:49 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (30.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 475ms (Views: 461.2ms | ActiveRecord: 273.2ms | Allocations: 7415)
+
+
+Started POST "/login/status" for 127.0.0.1 at 2023-04-18 02:49:45 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login/status"):
+  
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 02:49:55 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"C.Mut", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"C.Mut", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+Completed 200 OK in 247ms (Views: 2.4ms | ActiveRecord: 98.0ms | Allocations: 14967)
+
+
+Started DELETE "/admin/logout" for 127.0.0.1 at 2023-04-18 02:50:39 -0700
+Processing by SessionsController#admin_logout as */*
+  Parameters: {"username"=>"C.Mut", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"C.Mut", "email"=>"cindymuthoni14@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:91:in `admin_logout'
+Completed 200 OK in 146ms (Views: 0.5ms | ActiveRecord: 12.8ms | Allocations: 10849)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 02:51:03 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"kim", "password"=>"[FILTERED]", "session"=>{"username"=>"kim", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a417d2878>, params: {"username"=>"kim", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kim", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a417d2878>, params: {"username"=>"kim", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kim", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (46.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'kim' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a417d2878>, params: {"username"=>"kim", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kim", "password"=>"[FILTERED]"}} }[0m
+Completed 200 OK in 301ms (Views: 2.0ms | ActiveRecord: 46.8ms | Allocations: 1735)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-18 04:08:28 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/clerks_controller.rb:73: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/clerks_controller.rb:73: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/clerks_controller.rb:73: syntax error, unexpected end-of-input, expecting `end'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "username": "base",
+  "email": "felixkim09@gmail.com"
+  "password": "1234"
+}
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-18 04:09:46 -0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "username": "base",
+  "email": "felixkim09@gmail.com"
+  "password": "1234"
+}
+Processing by ClerksController#add_clerk as */*
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+Completed 400 Bad Request in 205ms (ActiveRecord: 14.9ms | Allocations: 10888)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/clerks_controller.rb:70:in `clerk_params'
+app/controllers/clerks_controller.rb:15:in `add_clerk'
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-18 04:12:59 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"base", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"base", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a3d42e360>, params: {"username"=>"base", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"base", "email"=>"felixkim09@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (47.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (61.8ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "base"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 11:13:00.583952"], ["updated_at", "2023-04-18 11:13:00.583952"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 9.7ms | Allocations: 453)
+  Rendered layout layouts/mailer.html.erb (Duration: 11.2ms | Allocations: 710)
+AdminMailer#clerk_registration: processed outbound mail in 22.9ms
+Delivered mail 643e7b3ccaf3a_396b271065e5@kimathis-MacBook-Pro.local.mail (5487.6ms)
+Date: Tue, 18 Apr 2023 04:13:00 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <643e7b3ccaf3a_396b271065e5@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear base,</p>
+    <p>We are glad to inform you that you have been registered by base</p>
+    <p>Your role is to be a clerk of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: base</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign in</p>
+    <p>Best regards,</p>
+    <p>kim</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 6050ms (Views: 4.6ms | ActiveRecord: 257.2ms | Allocations: 20530)
+
+
+Started POST "/clerk/activation" for 127.0.0.1 at 2023-04-18 04:15:52 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/clerk/activation"):
+  
+Started PUT "/clerk/activation" for 127.0.0.1 at 2023-04-18 04:16:03 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (40.6ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" IS NULL LIMIT $2[0m  [["admin_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a430da6b8>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "clerk"=>{"status"=>1}} }[0m
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 158.4ms | Allocations: 9517)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:20:16 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "id"=>"6", "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.2ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a432dcbc8>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>1}} }[0m
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 21.2ms | Allocations: 11023)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/3" for 127.0.0.1 at 2023-04-18 04:21:02 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "id"=>"3", "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.6ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a43cd3168>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"3", "clerk"=>{"status"=>1}} }[0m
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 53.0ms | Allocations: 10775)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started GET "/clerks" for 127.0.0.1 at 2023-04-18 04:21:11 -0700
+Processing by ClerksController#index as */*
+  Parameters: {"status"=>1, "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:6:in `index'
+  [1m[36mClerk Load (0.5ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1[0m  [["admin_id", 1]]
+  ↳ app/controllers/clerks_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.8ms | Allocations: 2495)
+
+
+Started GET "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:22:17 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/clerk/activation/6"):
+  
+Started PATCH "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:22:37 -0700
+  
+ActionController::RoutingError (No route matches [PATCH] "/clerk/activation/6"):
+  
+Started PATCH "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:22:38 -0700
+  
+ActionController::RoutingError (No route matches [PATCH] "/clerk/activation/6"):
+  
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:22:44 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "id"=>"6", "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.5ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a43f5f210>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>1}} }[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.8ms | Allocations: 1683)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:23:29 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "id"=>"6", "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.3ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a429d7c08>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>1}} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+  [1m[36mClerk Update (24.3ms)[0m  [1m[33mUPDATE "clerks" SET "status" = $1, "updated_at" = $2 WHERE "clerks"."id" = $3[0m  [["status", 1], ["updated_at", "2023-04-18 11:23:30.035815"], ["id", 6]]
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+  [1m[36mTRANSACTION (25.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_deactivation.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_deactivation.html.erb within layouts/mailer (Duration: 3.6ms | Allocations: 384)
+  Rendered layout layouts/mailer.html.erb (Duration: 4.2ms | Allocations: 484)
+AdminMailer#clerk_deactivation: processed outbound mail in 13.7ms
+Delivered mail 643e7db220a63_396b271066bb@kimathis-MacBook-Pro.local.mail (3329.1ms)
+Date: Tue, 18 Apr 2023 04:23:30 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <643e7db220a63_396b271066bb@kimathis-MacBook-Pro.local.mail>
+Subject: Deactivation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Account Deactivation</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Deactivation Notification</h1>
+    <p>Dear base,</p>
+    <p>This is to inform you that your acount has been deactivated base</p>
+    <p>Your role as a clerk has been deacttivated. /p>
+    <br/>
+    <p>Please contact your administrator.</p>
+    <br/>
+    <p>Best regards,</p>
+    <p>kim</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 200 OK in 3491ms (Views: 0.5ms | ActiveRecord: 62.1ms | Allocations: 20535)
+
+
+Started POST "/clerk/login" for 127.0.0.1 at 2023-04-18 04:24:37 -0700
+Processing by SessionsController#clerk_login as */*
+  Parameters: {"username"=>"base", "password"=>"[FILTERED]", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: clerk_login, request: #<ActionDispatch::Request:0x00007f8a3d7cd3b8>, params: {"username"=>"base", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"clerk_login", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: clerk_login, request: #<ActionDispatch::Request:0x00007f8a3d7cd3b8>, params: {"username"=>"base", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"clerk_login", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mClerk Load (1.2ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE (username = 'base' OR email = NULL ) ORDER BY "clerks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:49:in `clerk_login'
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 1319)
+
+
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:32:09 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>0, "id"=>"6", "clerk"=>{"status"=>0}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (51.5ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a3f84cc38>, params: {"status"=>0, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>0}} }[0m
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 113.7ms | Allocations: 10790)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:36:33 -0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+"status": {status: 0}
+}
+Processing by ClerksController#clerk_activation as */*
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+Completed 400 Bad Request in 98ms (ActiveRecord: 13.1ms | Allocations: 10941)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/clerks_controller.rb:38:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:36:45 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>"{status: 0}", "id"=>"6", "clerk"=>{"status"=>"{status: 0}"}}
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.9ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a41556900>, params: {"status"=>"{status: 0}", "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>"{status: 0}"}} }[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.9ms | Allocations: 3612)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:37:04 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>0, "id"=>"6", "clerk"=>{"status"=>0}}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.6ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a4138a1d0>, params: {"status"=>0, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>0}} }[0m
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.2ms | Allocations: 1692)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:37:50 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>0, "id"=>"6", "clerk"=>{"status"=>0}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.4ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 60.2ms | Allocations: 10772)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/clerks_controller.rb:69:in `clerk_params'
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:38:21 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>0, "id"=>"6", "clerk"=>{"status"=>0}}
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (1.3ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a40d82cb0>, params: {"status"=>0, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>0}} }[0m
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 54.1ms | Allocations: 11546)
+
+
+  
+NoMethodError (undefined method `status' for #<ActionController::Parameters {"status"=>0} permitted: true>):
+  
+app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Started PUT "/clerk/activation/6" for 127.0.0.1 at 2023-04-18 04:38:48 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>0, "id"=>"6", "clerk"=>{"status"=>0}}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:36:in `clerk_activation'
+  [1m[36mClerk Load (0.7ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:38:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a3d7c7738>, params: {"status"=>0, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"6", "clerk"=>{"status"=>0}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+  [1m[36mClerk Update (41.5ms)[0m  [1m[33mUPDATE "clerks" SET "status" = $1, "updated_at" = $2 WHERE "clerks"."id" = $3[0m  [["status", 0], ["updated_at", "2023-04-18 11:38:48.775244"], ["id", 6]]
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+Completed 200 OK in 111ms (Views: 0.6ms | ActiveRecord: 54.5ms | Allocations: 13071)
+
+
+Started PUT "/clerk/login" for 127.0.0.1 at 2023-04-18 04:39:26 -0700
+  
+ActionController::RoutingError (No route matches [PUT] "/clerk/login"):
+  
+Started POST "/clerk/login" for 127.0.0.1 at 2023-04-18 04:39:32 -0700
+Processing by SessionsController#clerk_login as */*
+  Parameters: {"username"=>"base", "password"=>"[FILTERED]", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: clerk_login, request: #<ActionDispatch::Request:0x00007f8a40d1f8e0>, params: {"username"=>"base", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"clerk_login", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: clerk_login, request: #<ActionDispatch::Request:0x00007f8a40d1f8e0>, params: {"username"=>"base", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"clerk_login", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mClerk Load (0.7ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE (username = 'base' OR email = NULL ) ORDER BY "clerks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:49:in `clerk_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: clerk_login, request: #<ActionDispatch::Request:0x00007f8a40d1f8e0>, params: {"username"=>"base", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"clerk_login", "session"=>{"username"=>"base", "password"=>"[FILTERED]"}} }[0m
+Completed 200 OK in 266ms (Views: 1.1ms | ActiveRecord: 11.0ms | Allocations: 8036)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-18 04:43:17 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"Grace Aloo", "email"=>"graceaaloo@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"Grace Aloo", "email"=>"graceaaloo@gmail.com"}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:13:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a4303b090>, params: {"username"=>"Grace Aloo", "email"=>"graceaaloo@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"Grace Aloo", "email"=>"graceaaloo@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mClerk Create (7.9ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Grace Aloo"], ["email", "graceaaloo@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 1], ["created_at", "2023-04-18 11:43:18.006932"], ["updated_at", "2023-04-18 11:43:18.006932"]]
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:15:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 2.0ms | Allocations: 449)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.9ms | Allocations: 706)
+AdminMailer#clerk_registration: processed outbound mail in 10.3ms
+Delivered mail 643e8256b20d_396b273867f6@kimathis-MacBook-Pro.local.mail (3031.0ms)
+Date: Tue, 18 Apr 2023 04:43:18 -0700
+From: from@example.com
+To: graceaaloo@gmail.com
+Message-ID: <643e8256b20d_396b273867f6@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear Grace Aloo,</p>
+    <p>We are glad to inform you that you have been registered by Grace Aloo</p>
+    <p>Your role is to be a clerk of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: Grace Aloo</li>
+    <li>Email: graceaaloo@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign in</p>
+    <p>Best regards,</p>
+    <p>kim</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3329ms (Views: 0.5ms | ActiveRecord: 14.0ms | Allocations: 18908)
+
+
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 04:47:35 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/stores_controller.rb:6: syntax error, unexpected label, expecting '='
+...    render json; store, status: :ok
+...                        ^~~~~~~
+):
+  
+app/controllers/stores_controller.rb:6: syntax error, unexpected label, expecting '='
+app/controllers/stores_controller.rb:6: syntax error, unexpected label, expecting '='
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 04:48:20 -0700
+Processing by StoresController#add_store as */*
+  Parameters: {"name"=>"roots", "address"=>"industrial area, nairobi", "store"=>{"name"=>"roots", "address"=>"industrial area, nairobi"}}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 146.4ms | Allocations: 3740)
+
+
+  
+NameError (undefined local variable or method `sessions' for #<StoresController:0x0000000005c6e8>
+Did you mean?  session):
+  
+app/controllers/stores_controller.rb:19:in `add_store'
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 04:48:42 -0700
+Processing by StoresController#add_store as */*
+  Parameters: {"name"=>"roots", "address"=>"industrial area, nairobi", "store"=>{"name"=>"roots", "address"=>"industrial area, nairobi"}}
+  [1m[36mMerchant Load (41.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stores_controller.rb:19:in `add_store'
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 50.3ms | Allocations: 6566)
+
+
+  
+NoMethodError (undefined method `stores' for #<Merchant id: 1, username: "kimathi", email: "kimathi@mail.com", password_digest: [FILTERED], created_at: "2023-04-17 08:06:33.593632000 +0000", updated_at: "2023-04-17 08:06:33.593632000 +0000">):
+  
+app/controllers/stores_controller.rb:22:in `add_store'
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 04:49:50 -0700
+Processing by StoresController#add_store as */*
+  Parameters: {"name"=>"roots", "address"=>"industrial area, nairobi", "store"=>{"name"=>"roots", "address"=>"industrial area, nairobi"}}
+  [1m[36mMerchant Load (2.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stores_controller.rb:19:in `add_store'
+[31mUnpermitted parameter: :store. Context: { controller: StoresController, action: add_store, request: #<ActionDispatch::Request:0x00007f8a40e362b0>, params: {"name"=>"roots", "address"=>"industrial area, nairobi", "controller"=>"stores", "action"=>"add_store", "store"=>{"name"=>"roots", "address"=>"industrial area, nairobi"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stores_controller.rb:22:in `add_store'
+  [1m[36mStore Create (49.2ms)[0m  [1m[32mINSERT INTO "stores" ("name", "address", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "roots"], ["address", "industrial area, nairobi"], ["merchant_id", 1], ["created_at", "2023-04-18 11:49:50.686811"], ["updated_at", "2023-04-18 11:49:50.686811"]]
+  ↳ app/controllers/stores_controller.rb:22:in `add_store'
+  [1m[36mTRANSACTION (80.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stores_controller.rb:22:in `add_store'
+Completed 201 Created in 183ms (Views: 0.4ms | ActiveRecord: 156.3ms | Allocations: 21985)
+
+
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 05:18:25 -0700
+Processing by StoresController#add_store as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "store"=>{"name"=>"Puma"}}
+  [1m[36mMerchant Load (1.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stores_controller.rb:21:in `add_store'
+[31mUnpermitted parameters: :type, :image, :supplier, :buying_price, :selling_price, :store. Context: { controller: StoresController, action: add_store, request: #<ActionDispatch::Request:0x00007f8a4355ec70>, params: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"stores", "action"=>"add_store", "store"=>{"name"=>"Puma"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+  [1m[36mStore Create (36.9ms)[0m  [1m[32mINSERT INTO "stores" ("name", "address", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Puma"], ["address", nil], ["merchant_id", 1], ["created_at", "2023-04-18 12:18:25.912410"], ["updated_at", "2023-04-18 12:18:25.912410"]]
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+  [1m[36mTRANSACTION (41.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+Completed 201 Created in 182ms (Views: 1.5ms | ActiveRecord: 94.7ms | Allocations: 9249)
+
+
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:19:04 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:29: syntax error, unexpected '}', expecting =>
+...e: "Not Found", product.errors}, status: :unprocessable_enti...
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+...         render json: {product, info: "Updated succesfully"}...
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+...t, info: "Updated succesfully"},status: :ok
+...                              ^
+):
+  
+app/controllers/products_controller.rb:29: syntax error, unexpected '}', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+app/controllers/products_controller.rb:29: syntax error, unexpected '}', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:19:56 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+...         render json: {product, info: "Updated succesfully"}...
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+...t, info: "Updated succesfully"},status: :ok
+...                              ^
+):
+  
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:37:54 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+...         render json: {product, info: "Updated succesfully"}...
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+...t, info: "Updated succesfully"},status: :ok
+...                              ^
+):
+  
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+app/controllers/products_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:39: syntax error, unexpected '}', expecting `end'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:38:23 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (1.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 274.4ms | Allocations: 19747)
+
+
+  
+NameError (undefined local variable or method `product_params' for #<ProductsController:0x000000000741d0>
+Did you mean?  products_params
+               product_path):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:39:12 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 17.9ms | Allocations: 7425)
+
+
+  
+NameError (undefined local variable or method `product_params' for #<ProductsController:0x0000000006e2a8>
+Did you mean?  products_param
+               products_params
+               product_path):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:39:49 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 10.9ms | Allocations: 7529)
+
+
+  
+NameError (undefined local variable or method `product_param' for #<ProductsController:0x00000000074310>
+Did you mean?  products_param
+               products_params
+               product_path
+               products_path
+               product_url):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 05:41:16 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.9ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+[31mUnpermitted parameters: :id, :product. Context: { controller: ProductsController, action: add_product, request: #<ActionDispatch::Request:0x00007f8a40e3eaf0>, params: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"products", "action"=>"add_product", "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}} }[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 7.4ms | Allocations: 5487)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'shoes'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Product.inheritance_column to use another column for that information.):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReceivedItems (20230416182601)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (105.6ms)[0m  [1m[35mDROP TABLE "received_items"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416182601"]]
+  [1m[36mTRANSACTION (61.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductClerks (20230416122604)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.7ms)[0m  [1m[35mDROP TABLE "product_clerks"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416122604"]]
+  [1m[36mTRANSACTION (46.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStoreAdmins (20230416122311)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.1ms)[0m  [1m[35mDROP TABLE "store_admins"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416122311"]]
+  [1m[36mTRANSACTION (45.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStores (20230416115849)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE "stores"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416115849"]]
+  [1m[36mTRANSACTION (47.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230413091537)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.0ms)[0m  [1m[35mDROP TABLE "products"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230413091537"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230413091537)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "category" character varying, "image" character varying, "supplier" character varying, "buying_price" decimal, "selling_price" decimal, "store_id" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230413091537"]]
+  [1m[36mTRANSACTION (82.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20230416115849)
+  [1m[36mTRANSACTION (38.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "address" character varying, "merchant_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbde3f46c6"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE INDEX "index_stores_on_merchant_id" ON "stores" ("merchant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416115849"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStoreAdmins (20230416122311)
+  [1m[36mTRANSACTION (24.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "store_admins" ("id" bigserial primary key, "admin_id" bigint, "store_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_58c6914d3b"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+, CONSTRAINT "fk_rails_6823fce057"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_admin_id" ON "store_admins" ("admin_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_store_id" ON "store_admins" ("store_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122311"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductClerks (20230416122604)
+  [1m[36mTRANSACTION (24.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "product_clerks" ("id" bigserial primary key, "product_id" bigint, "clerk_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b821fd039f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_4047a615e4"
+FOREIGN KEY ("clerk_id")
+  REFERENCES "clerks" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_product_id" ON "product_clerks" ("product_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_clerk_id" ON "product_clerks" ("clerk_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122604"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceivedItems (20230416182601)
+  [1m[36mTRANSACTION (41.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE TABLE "received_items" ("id" bigserial primary key, "received" integer, "payment_status" integer, "stocked" integer, "spoilt" integer, "product_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_665a871b9e"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_received_items_on_product_id" ON "received_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416182601"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (41.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 08:40:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (3.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+Completed 422 Unprocessable Entity in 65ms (Views: 0.9ms | ActiveRecord: 3.5ms | Allocations: 3587)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 08:41:30 -0700
+Processing by SessionsController#login_status as */*
+  [1m[36mAdmin Load (43.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (23.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+Completed 200 OK in 139ms (Views: 5.0ms | ActiveRecord: 80.1ms | Allocations: 13401)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 08:42:44 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login_status as */*
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (10.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (42.2ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 232ms (Views: 24.1ms | ActiveRecord: 75.8ms | Allocations: 20210)
+
+
+Started POST "/add/store" for 127.0.0.1 at 2023-04-18 08:45:03 -0700
+Processing by StoresController#add_store as */*
+  Parameters: {"name"=>"rustic", "address"=>"Gitaru, arrowden, Waiyaki way", "store"=>{"name"=>"rustic", "address"=>"Gitaru, arrowden, Waiyaki way"}}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stores_controller.rb:21:in `add_store'
+[31mUnpermitted parameter: :store. Context: { controller: StoresController, action: add_store, request: #<ActionDispatch::Request:0x00007f8a40f5adf8>, params: {"name"=>"rustic", "address"=>"Gitaru, arrowden, Waiyaki way", "controller"=>"stores", "action"=>"add_store", "store"=>{"name"=>"rustic", "address"=>"Gitaru, arrowden, Waiyaki way"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+  [1m[36mStore Create (26.2ms)[0m  [1m[32mINSERT INTO "stores" ("name", "address", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "rustic"], ["address", "Gitaru, arrowden, Waiyaki way"], ["merchant_id", 1], ["created_at", "2023-04-18 15:45:03.108027"], ["updated_at", "2023-04-18 15:45:03.108027"]]
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stores_controller.rb:24:in `add_store'
+Completed 201 Created in 90ms (Views: 1.0ms | ActiveRecord: 51.0ms | Allocations: 4834)
+
+
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 08:45:50 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+[31mUnpermitted parameters: :id, :product. Context: { controller: ProductsController, action: add_product, request: #<ActionDispatch::Request:0x00007f8a43eb5cd8>, params: {"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"products", "action"=>"add_product", "id"=>"1", "product"=>{"name"=>"Puma", "type"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}} }[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 1136)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'shoes'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Product.inheritance_column to use another column for that information.):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 08:46:01 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+[31mUnpermitted parameters: :category, :id, :product. Context: { controller: ProductsController, action: add_product, request: #<ActionDispatch::Request:0x00007f8a4505e408>, params: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"products", "action"=>"add_product", "id"=>"1", "product"=>{"name"=>"Puma", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mProduct Create (96.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type", "image", "supplier", "buying_price", "selling_price", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Puma"], ["type", nil], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU"], ["supplier", "puma stores"], ["buying_price", "453.67"], ["selling_price", "678.89"], ["store_id", 1], ["created_at", "2023-04-18 15:46:01.718149"], ["updated_at", "2023-04-18 15:46:01.718149"]]
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 100.3ms | Allocations: 19109)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "type" of relation "products" does not exist
+LINE 1: INSERT INTO "products" ("name", "type", "image", "supplier",...
+                                        ^
+):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 08:48:06 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+[31mUnpermitted parameters: :category, :id, :product. Context: { controller: ProductsController, action: add_product, request: #<ActionDispatch::Request:0x00007f8a4121cd20>, params: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"products", "action"=>"add_product", "id"=>"1", "product"=>{"name"=>"Puma", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mProduct Create (42.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "type", "image", "supplier", "buying_price", "selling_price", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Puma"], ["type", nil], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU"], ["supplier", "puma stores"], ["buying_price", "453.67"], ["selling_price", "678.89"], ["store_id", 1], ["created_at", "2023-04-18 15:48:06.875112"], ["updated_at", "2023-04-18 15:48:06.875112"]]
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 60.8ms | Allocations: 23611)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "type" of relation "products" does not exist
+LINE 1: INSERT INTO "products" ("name", "type", "image", "supplier",...
+                                        ^
+):
+  
+app/controllers/products_controller.rb:16:in `add_product'
+Started POST "/add/product/1" for 127.0.0.1 at 2023-04-18 08:49:38 -0700
+Processing by ProductsController#add_product as */*
+  Parameters: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "id"=>"1", "product"=>{"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}}
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `add_product'
+[31mUnpermitted parameters: :id, :product. Context: { controller: ProductsController, action: add_product, request: #<ActionDispatch::Request:0x00007f8a3fc428d8>, params: {"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89, "controller"=>"products", "action"=>"add_product", "id"=>"1", "product"=>{"name"=>"Puma", "category"=>"shoes", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU", "supplier"=>"puma stores", "buying_price"=>453.67, "selling_price"=>678.89}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mProduct Create (48.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "category", "image", "supplier", "buying_price", "selling_price", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Puma"], ["category", "shoes"], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU"], ["supplier", "puma stores"], ["buying_price", "453.67"], ["selling_price", "678.89"], ["store_id", 1], ["created_at", "2023-04-18 15:49:38.408115"], ["updated_at", "2023-04-18 15:49:38.408115"]]
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:16:in `add_product'
+Completed 201 Created in 126ms (Views: 0.5ms | ActiveRecord: 62.0ms | Allocations: 22401)
+
+
+Started POST "/recieved/items/1" for 127.0.0.1 at 2023-04-18 09:13:23 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/recieved/items/1"):
+  
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:13:45 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:13: syntax error, unexpected '}', expecting =>
+...essage: "not found", ri.errors}, status: :not_found
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:13: syntax error, unexpected '}', expecting =>
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:13: syntax error, unexpected '}', expecting =>
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:15:04 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:22:16 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:25:53 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:25:55 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:29:12 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:30:12 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:32:26 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+...ct = Product.find_by(:id params[:id])
+...                         ^~~~~~
+/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...roduct.find_by(:id params[:id])
+...                              ^
+):
+  
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/received_items_controller.rb:28: syntax error, unexpected ')', expecting `end'
+Started POST "/received/items/1" for 127.0.0.1 at 2023-04-18 09:33:13 -0700
+Processing by ReceivedItemsController#ri_add as */*
+  Parameters: {"received"=>345, "payment_status"=>0, "stocked"=>564, "spoilt"=>456, "id"=>"1", "received_item"=>{"received"=>345, "payment_status"=>0, "stocked"=>564, "spoilt"=>456}}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:18:in `ri_add'
+[31mUnpermitted parameters: :id, :received_item. Context: { controller: ReceivedItemsController, action: ri_add, request: #<ActionDispatch::Request:0x00007f8a40d53410>, params: {"received"=>345, "payment_status"=>0, "stocked"=>564, "spoilt"=>456, "controller"=>"received_items", "action"=>"ri_add", "id"=>"1", "received_item"=>{"received"=>345, "payment_status"=>0, "stocked"=>564, "spoilt"=>456}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/received_items_controller.rb:20:in `ri_add'
+  [1m[36mReceivedItem Create (239.1ms)[0m  [1m[32mINSERT INTO "received_items" ("received", "payment_status", "stocked", "spoilt", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["received", 345], ["payment_status", 0], ["stocked", 564], ["spoilt", 456], ["product_id", 1], ["created_at", "2023-04-18 16:33:14.516009"], ["updated_at", "2023-04-18 16:33:14.516009"]]
+  ↳ app/controllers/received_items_controller.rb:20:in `ri_add'
+  [1m[36mTRANSACTION (44.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/received_items_controller.rb:20:in `ri_add'
+Completed 201 Created in 358ms (Views: 0.6ms | ActiveRecord: 600.2ms | Allocations: 24823)
+
+
+Started POST "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:39:18 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/payment/status/1"):
+  
+Started PUT "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:39:34 -0700
+Processing by ReceivedItemsController#payment_status as */*
+  Parameters: {"payment_status"=>0, "id"=>"1", "received_item"=>{"payment_status"=>0}}
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:38:in `payment_status'
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 22.0ms | Allocations: 7233)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/received_items_controller.rb:49:in `ri_params'
+app/controllers/received_items_controller.rb:40:in `payment_status'
+Started PUT "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:40:06 -0700
+Processing by ReceivedItemsController#payment_status as */*
+  Parameters: {"payment_status"=>0, "id"=>"1", "received_item"=>{"payment_status"=>0}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:38:in `payment_status'
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 51.5ms | Allocations: 19485)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/received_items_controller.rb:49:in `ri_params'
+app/controllers/received_items_controller.rb:40:in `payment_status'
+Started PUT "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:40:36 -0700
+Processing by ReceivedItemsController#payment_status as */*
+  Parameters: {"payment_status"=>0, "id"=>"1", "received_item"=>{"payment_status"=>0}}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:38:in `payment_status'
+[31mUnpermitted parameters: :id, :received_item. Context: { controller: ReceivedItemsController, action: payment_status, request: #<ActionDispatch::Request:0x00007f8a40e8ae28>, params: {"payment_status"=>0, "controller"=>"received_items", "action"=>"payment_status", "id"=>"1", "received_item"=>{"payment_status"=>0}} }[0m
+  [1m[36mReceivedItem Load (0.7ms)[0m  [1m[34mSELECT "received_items".* FROM "received_items" WHERE "received_items"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 57.2ms | Allocations: 9989)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Integer passed.):
+  
+app/controllers/received_items_controller.rb:40:in `payment_status'
+Started PUT "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:40:54 -0700
+Processing by ReceivedItemsController#payment_status as */*
+  Parameters: {"payment_status"=>0, "id"=>"1", "received_item"=>{"payment_status"=>0}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:38:in `payment_status'
+[31mUnpermitted parameters: :id, :received_item. Context: { controller: ReceivedItemsController, action: payment_status, request: #<ActionDispatch::Request:0x00007f8a435919b8>, params: {"payment_status"=>0, "controller"=>"received_items", "action"=>"payment_status", "id"=>"1", "received_item"=>{"payment_status"=>0}} }[0m
+  [1m[36mReceivedItem Load (0.5ms)[0m  [1m[34mSELECT "received_items".* FROM "received_items" WHERE "received_items"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+Completed 201 Created in 109ms (Views: 0.7ms | ActiveRecord: 9.1ms | Allocations: 23816)
+
+
+Started PUT "/payment/status/1" for 127.0.0.1 at 2023-04-18 09:41:00 -0700
+Processing by ReceivedItemsController#payment_status as */*
+  Parameters: {"payment_status"=>1, "id"=>"1", "received_item"=>{"payment_status"=>1}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/received_items_controller.rb:38:in `payment_status'
+[31mUnpermitted parameters: :id, :received_item. Context: { controller: ReceivedItemsController, action: payment_status, request: #<ActionDispatch::Request:0x00007f8a3fb867f0>, params: {"payment_status"=>1, "controller"=>"received_items", "action"=>"payment_status", "id"=>"1", "received_item"=>{"payment_status"=>1}} }[0m
+  [1m[36mReceivedItem Load (0.4ms)[0m  [1m[34mSELECT "received_items".* FROM "received_items" WHERE "received_items"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+  [1m[36mReceivedItem Update (0.7ms)[0m  [1m[33mUPDATE "received_items" SET "payment_status" = $1, "updated_at" = $2 WHERE "received_items"."id" = $3[0m  [["payment_status", 1], ["updated_at", "2023-04-18 16:41:00.827762"], ["id", 1]]
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+  [1m[36mTRANSACTION (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/received_items_controller.rb:40:in `payment_status'
+Completed 201 Created in 56ms (Views: 0.5ms | ActiveRecord: 42.3ms | Allocations: 3171)
+
+
