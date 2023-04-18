@@ -9,11 +9,15 @@ class SessionsController < ApplicationController
 
         admin = Admin.where(sql, {username: admin_params[:username], email: admin_params[:email]}).first
 
-        if admin&.authenticate(admin_params[:password])
-            session[:admin_id] = admin.id
-            render json: admin, status: :ok
-        else  
-            render json: {message: "Invalid username or password"}, status: :unprocessable_entity
+        if admin.status == "ACTIVE"
+            if admin&.authenticate(admin_params[:password])
+                session[:admin_id] = admin.id
+                render json: admin, status: :ok
+            else  
+                render json: {message: "Invalid username or password"}, status: :unprocessable_entity
+            end
+        elsif admin.status == "DEACTIVATED"
+            render json: {message: "Account deactivated"}
         end
   
     end
@@ -23,6 +27,8 @@ class SessionsController < ApplicationController
         sql = "username = :username OR email = :email "
 
         merchant = Merchant.where(sql, {username: merchant_params[:username], email: merchant_params[:email]}).first
+
+        
 
         if merchant&.authenticate(merchant_params[:password])
             session[:merchant_id] = merchant.id
@@ -34,17 +40,22 @@ class SessionsController < ApplicationController
     end
 
 
+    #  clerk login, check for status is 
+
     def clerk_login 
 
         sql = "username = :username OR email = :email "
 
         clerk = Clerk.where(sql, {username: clerk_params[:username], email: clerk_params[:email]}).first
-
-        if clerk&.authenticate(clerk_params[:password])
-            session[:clerk_id] = clerk.id
-            render json: clerk, status: :ok
-        else  
-            render json: {message: "Invalid username or password"}, status: :unprocessable_entity
+        if clerk.status == "ACTIVE"
+            if clerk&.authenticate(clerk_params[:password])
+                session[:clerk_id] = clerk.id
+                render json: clerk, status: :ok
+            else  
+                render json: {message: "Invalid username or password"}, status: :unprocessable_entity
+            end
+        elsif clerk.status == "DEACTIVATED"
+            render json: {message: "Account deactivated"}
         end
   
     end
