@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   
   post '/admin/login', to: "sessions#admin_login"
 
+  post '/admin/activation', to: "admins#admin_activation"
+
   # merchant routes
 
   post '/merchant/login', to: "sessions#merchant_login"
@@ -49,7 +51,9 @@ Rails.application.routes.draw do
 
   #  clerk routes 
 
-  post '/add/clerk', to: "clerks#add_client"
+  post '/clerk/register', to: "clerks#add_clerk"
+
+  post '/clerk/activation', to: "clerks#clerk_activation"
 
 
 
