@@ -103,8 +103,7 @@ RSpec.describe StoresController, type: :controller do
       end
     end
   
-    # describe "PUT update" do
-    #   context "when the merchant is authenticated" do
+
 
 end
        
