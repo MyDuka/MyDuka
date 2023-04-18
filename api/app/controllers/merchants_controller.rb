@@ -17,7 +17,7 @@ class MerchantsController < ApplicationController
     end
 
     def show 
-        merchant = Merchant.find_by(id: params[:id])
+        merchant = Merchant.find_by(id: params[:merchant_id])
         if merchant 
             render json: merchant, status: :ok 
         else  
