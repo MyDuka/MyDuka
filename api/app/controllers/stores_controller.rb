@@ -2,12 +2,14 @@ class StoresController < ApplicationController
 
 
     def index 
-        store = Store.all 
-        render json; store, status: :ok
+        merchant = Merchant.find(session[:merchant_id])
+        store = merchant.stores.all 
+        render json: store, status: :ok
     end
 
     def show 
-        store = Store.find_by(id: params[:id])
+        merchant = Merchant.find(session[:merchant_id])
+        store = merchant.stores.find_by(id: params[:id])
         if store 
             render json: store, status: :ok 
         else   
@@ -16,7 +18,7 @@ class StoresController < ApplicationController
     end
 
     def add_store
-        merchant = Merchant.find_by(id: sessions[:merchant_id])
+        merchant = Merchant.find_by(id: session[:merchant_id])
 
         if merchant
             store = merchant.stores.create(store_params)
@@ -28,7 +30,7 @@ class StoresController < ApplicationController
 
 
     def update 
-        merchant = Merchant.find_by(id: sessions[:merchant_id])
+        merchant = Merchant.find_by(id: session[:merchant_id])
         if merchant  
             store = merchant.store.update(store_params)
             render json: store, status: :ok
