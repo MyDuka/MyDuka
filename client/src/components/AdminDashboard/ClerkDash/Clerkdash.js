@@ -1,7 +1,7 @@
 import React from 'react'
 import './ClerkDash.css'
 import Cards from '../Cards/cards'
-import Table from '../Table/Table'
+import Table from '../../AdminDashboard/Table'
 
 
 const Clerkdash = () => {

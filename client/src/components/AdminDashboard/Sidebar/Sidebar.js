@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {UilSignOutAlt} from '@iconscout/react-unicons';
-import { SidebarData } from '../Data/Data';
+import { SidebarData } from '../AdminDashboard/Data/Data';
 import './Sidebar.css'
 
 

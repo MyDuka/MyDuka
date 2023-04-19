@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from '../Sidebar/Sidebar'
-import Clerkdash from '../ClerkDash/Clerkdash'
+import Sidebar from '../../AdminDashboard/Sidebar/Sidebar'
+import ClerkDash from '../../AdminDashboard/ClerkDash/Clerkdash'
 import './ClerkMain.css'
 
 const ClerkMain = () => {
@@ -8,7 +8,8 @@ const ClerkMain = () => {
     <div className='ClerkApp'>
         <div className='ClerkGlass'>
             <Sidebar/>
-            <Clerkdash />
+            {/* <Clerkdash /> */}
+            <ClerkDash />
 
         </div>
         
