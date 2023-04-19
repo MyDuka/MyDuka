@@ -5,7 +5,7 @@ import { tokens } from '../../../../theme'
 import {mockDataTeam} from '../../Data/mockData'
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import DoneIcon from '@mui/icons-material/Done';
 import Header from '../../../Header'
 
 const Team = () => {
@@ -19,18 +19,18 @@ const Team = () => {
         flex: 1,
         cellClassName: "name-column--cell",
       },
-      {
-        field: "age",
-        headerName: "Age",
-        type: "number",
-        headerAlign: "left",
-        align: "left",
-      },
-      {
-        field: "phone",
-        headerName: "Phone Number",
-        flex: 1,
-      },
+    //   {
+    //     field: "age",
+    //     headerName: "Age",
+    //     type: "number",
+    //     headerAlign: "left",
+    //     align: "left",
+    //   },
+    //   {
+    //     field: "phone",
+    //     headerName: "Phone Number",
+    //     flex: 1,
+    //   },
       {
         field: "email",
         headerName: "Email",
@@ -38,30 +38,29 @@ const Team = () => {
       },
       {
         field: "accessLevel",
-        headerName: "Access Level",
+        headerName: "Account Status ",
         flex: 1,
-        renderCell: ({ row: { access } }) => {
+        renderCell: ({ row: { status} }) => {
           return (
             <Box
               width="60%"
-              m="0 auto"
+              m="10 auto"
               p="5px"
               display="flex"
               justifyContent="center"
               backgroundColor={
-                access === "admin"
-                  ? colors.orangeAccent[200]
-                  : access === "manager"
-                  ? colors.orangeAccent[100]
-                  : colors.orangeAccent[300]
+                status === "active"
+                  ? colors.greenAccent[400]
+                  : status === "deactivated"
+                  ? colors.grey[100]
+                  : colors.grey[700]
               }
               borderRadius="4px"
             >
-              {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-              {access === "manager" && <SecurityOutlinedIcon />}
-              {access === "user" && <LockOpenOutlinedIcon />}
+              {status === "active" && <DoneIcon />}
+              {status === "de-activated" && <LockOpenOutlinedIcon />}
               <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-                {access}
+                {status}
               </Typography>
             </Box>
           );
@@ -71,10 +70,11 @@ const Team = () => {
   
     return (
       <Box m="20px">
-        <Header title="TEAM" subtitle="Managing the Team Members" />
+        <Header title="TEAM" subtitle="Manage Administrators" />
         <Box
           m="40px 0 0 0"
-          height="75vh"
+          height="65vh"
+          width="160vh"
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
@@ -83,7 +83,8 @@ const Team = () => {
               borderBottom: "none",
             },
             "& .name-column--cell": {
-              color: colors.greenAccent[300],
+              color: colors.grey[100],
+              fontSize: "13px",
             },
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: colors.purpleAccent[200],
