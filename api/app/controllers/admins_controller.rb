@@ -3,6 +3,14 @@ before_action :merchant_authorize
 # skip_before_action
 
 
+
+    def index 
+        merchant = Merchant.find_by(id: session[:merchant_id])
+        admins = merchant.admins.all
+        render json: admins, status: :ok
+    end
+
+
     def register 
         merchant = Merchant.find(session[:merchant_id])
         admin = merchant.admins.create(admin_params)
@@ -64,7 +72,7 @@ before_action :merchant_authorize
     private
 
     def admin_params 
-        params.require(:admin).permit(:username, :email, :password, :status)
+        params.permit(:username, :email, :password, :status)
     end
 
 

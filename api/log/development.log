@@ -16519,3 +16519,445 @@ Processing by ReceivedItemsController#payment_status as */*
 Completed 201 Created in 56ms (Views: 0.5ms | ActiveRecord: 42.3ms | Allocations: 3171)
 
 
+Started PUT "/admins" for 127.0.0.1 at 2023-04-18 23:50:19 -0700
+  
+ActionController::RoutingError (No route matches [PUT] "/admins"):
+  
+Started GET "/admins" for 127.0.0.1 at 2023-04-18 23:50:24 -0700
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for AdminsController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admins" for 127.0.0.1 at 2023-04-18 23:53:34 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/admins_controller.rb:10: syntax error, unexpected ';'
+... render json: admins, status: ;ok
+...                              ^
+):
+  
+app/controllers/admins_controller.rb:10: syntax error, unexpected ';'
+app/controllers/admins_controller.rb:10: syntax error, unexpected ';'
+Started GET "/admins" for 127.0.0.1 at 2023-04-18 23:53:53 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"payment_status"=>1, "admin"=>{}}
+  [1m[36mMerchant Load (26.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (123.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["merchant_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 360.0ms | Allocations: 11337)
+
+
+  [1m[36mCACHE Admin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["merchant_id", 1], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `All' for #<ActiveRecord::Associations::CollectionProxy [#<Admin id: 1, username: "kim", email: "kim@mail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 08:25:29.059016000 +0000", updated_at: "2023-04-17 08:25:29.059016000 +0000">, #<Admin id: 2, username: "jamila", email: "jamnjeri@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 12:32:03.631854000 +0000", updated_at: "2023-04-17 12:32:03.631854000 +0000">, #<Admin id: 3, username: "jamila", email: "jamnjeri@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 12:32:53.741623000 +0000", updated_at: "2023-04-17 12:32:53.741623000 +0000">, #<Admin id: 4, username: "jamila mathu", email: "jamnjeri@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 12:34:55.368188000 +0000", updated_at: "2023-04-17 12:34:55.368188000 +0000">, #<Admin id: 5, username: "jamila mathu", email: "jamnjeri@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 12:35:58.595104000 +0000", updated_at: "2023-04-17 12:35:58.595104000 +0000">, #<Admin id: 6, username: "Jamila M.", email: "jamnjeri@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 12:37:30.928906000 +0000", updated_at: "2023-04-17 12:37:30.928906000 +0000">, #<Admin id: 7, username: "Felix", email: "felixkim09@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 15:59:07.119868000 +0000", updated_at: "2023-04-17 15:59:07.119868000 +0000">, #<Admin id: 8, username: "dick", email: "dick.njoki@student.moringaschool.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 16:10:19.200291000 +0000", updated_at: "2023-04-17 16:10:19.200291000 +0000">, #<Admin id: 9, username: "dick", email: "felixkim09.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 17:24:54.806316000 +0000", updated_at: "2023-04-17 17:24:54.806316000 +0000">, #<Admin id: 10, username: "dick", email: "felixkim09@gmail.com", password_digest: [FILTERED], status: "ACTIVE", merchant_id: 1, created_at: "2023-04-17 17:25:09.857029000 +0000", updated_at: "2023-04-17 17:25:09.857029000 +0000">, ...]>
+Did you mean?  all?):
+  
+app/controllers/admins_controller.rb:9:in `index'
+  [1m[36mCACHE Admin Load (0.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["merchant_id", 1], ["LIMIT", 11]]
+Started GET "/admins" for 127.0.0.1 at 2023-04-18 23:54:36 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"payment_status"=>1, "admin"=>{}}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+Completed 200 OK in 80ms (Views: 31.3ms | ActiveRecord: 22.9ms | Allocations: 10562)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 23:54:59 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"payment_status"=>1, "session"=>{"payment_status"=>1}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (0.7ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 31ms (Views: 1.4ms | ActiveRecord: 4.7ms | Allocations: 8397)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 23:56:31 -0700
+Processing by SessionsController#login_status as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (18.9ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 123ms (Views: 1.4ms | ActiveRecord: 26.5ms | Allocations: 15540)
+
+
+Started GET "/admins" for 127.0.0.1 at 2023-04-18 23:58:26 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"payment_status"=>1, "admin"=>{}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+Completed 200 OK in 251ms (Views: 231.2ms | ActiveRecord: 58.2ms | Allocations: 7274)
+
+
+Started GET "/admin/register" for 127.0.0.1 at 2023-04-19 00:01:25 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/admin/register"):
+  
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-19 00:01:32 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"kn", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"kn", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+  [1m[36mTRANSACTION (43.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mAdmin Create (67.4ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "kn"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-19 07:01:32.782484"], ["updated_at", "2023-04-19 07:01:32.782484"]]
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mTRANSACTION (45.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 16.9ms | Allocations: 399)
+  Rendered layout layouts/mailer.html.erb (Duration: 26.5ms | Allocations: 656)
+MerchantMailer#admin_registration: processed outbound mail in 107.2ms
+Delivered mail 643f91cd23ddb_396c26e8582f@kimathis-MacBook-Pro.local.mail (3281.4ms)
+Date: Wed, 19 Apr 2023 00:01:33 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <643f91cd23ddb_396c26e8582f@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear kn,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: kn</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3793ms (Views: 0.5ms | ActiveRecord: 210.7ms | Allocations: 15870)
+
+
+Started GET "/admins" for 127.0.0.1 at 2023-04-19 00:01:51 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"username"=>"kn", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"kn", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (44.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+Completed 200 OK in 103ms (Views: 52.6ms | ActiveRecord: 44.8ms | Allocations: 3640)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2023-04-19 00:02:31 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/admin/login"):
+  
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-19 00:02:39 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"kn", "password"=>"[FILTERED]", "session"=>{"username"=>"kn", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d245260>, params: {"username"=>"kn", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kn", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d245260>, params: {"username"=>"kn", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kn", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (129.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'kn' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d245260>, params: {"username"=>"kn", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"kn", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 129.5ms | Allocations: 1336)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-19 00:12:48 -0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "username": "dfk",
+  "email": "dfkimathinjoki@gmail.com"
+  "password": "1234"
+}
+
+Processing by AdminsController#register as */*
+  [1m[36mMerchant Load (1.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+Completed 400 Bad Request in 113ms (ActiveRecord: 14.9ms | Allocations: 8388)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/admins_controller.rb:75:in `admin_params'
+app/controllers/admins_controller.rb:16:in `register'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-19 00:12:53 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"dfk", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"dfk", "email"=>"dfkimathinjoki@gmail.com"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+[31mUnpermitted parameter: :admin. Context: { controller: AdminsController, action: register, request: #<ActionDispatch::Request:0x00007f8a430821e8>, params: {"username"=>"dfk", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "controller"=>"admins", "action"=>"register", "admin"=>{"username"=>"dfk", "email"=>"dfkimathinjoki@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mAdmin Create (1.3ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "dfk"], ["email", "dfkimathinjoki@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-19 07:12:53.619765"], ["updated_at", "2023-04-19 07:12:53.619765"]]
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mTRANSACTION (43.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 8.6ms | Allocations: 402)
+  Rendered layout layouts/mailer.html.erb (Duration: 10.2ms | Allocations: 659)
+MerchantMailer#admin_registration: processed outbound mail in 31.6ms
+Delivered mail 643f9475b7f3e_396b273868b5@kimathis-MacBook-Pro.local.mail (3182.9ms)
+Date: Wed, 19 Apr 2023 00:12:53 -0700
+From: from@example.com
+To: dfkimathinjoki@gmail.com
+Message-ID: <643f9475b7f3e_396b273868b5@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear dfk,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: dfk</li>
+    <li>Email: dfkimathinjoki@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 3587ms (Views: 1.1ms | ActiveRecord: 45.2ms | Allocations: 13226)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-19 00:15:33 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"dfk", "password"=>"[FILTERED]", "session"=>{"username"=>"dfk", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d66f390>, params: {"username"=>"dfk", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"dfk", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d66f390>, params: {"username"=>"dfk", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"dfk", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (18.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'dfk' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007f8a3d66f390>, params: {"username"=>"dfk", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"dfk", "password"=>"[FILTERED]"}} }[0m
+Completed 200 OK in 493ms (Views: 2.5ms | ActiveRecord: 72.2ms | Allocations: 11625)
+
+
+Started POST "/admins" for 127.0.0.1 at 2023-04-19 00:15:42 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/admins"):
+  
+Started GET "/admins" for 127.0.0.1 at 2023-04-19 00:15:48 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"username"=>"dfk", "password"=>"[FILTERED]", "admin"=>{"username"=>"dfk"}}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+Completed 200 OK in 15ms (Views: 9.4ms | ActiveRecord: 1.7ms | Allocations: 4145)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-19 00:16:13 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"dfk", "password"=>"[FILTERED]", "session"=>{"username"=>"dfk", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (0.5ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 32ms (Views: 1.6ms | ActiveRecord: 6.1ms | Allocations: 8090)
+
+
