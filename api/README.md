@@ -1,4 +1,5 @@
-My Duka API
+# My Duka API
+
  My Duka is a basic API built with Ruby rails.
 
 It serves as a backend API link
@@ -48,32 +49,39 @@ View product.
 View  a particular: admin, clerk, merchant, product.
 
 
-MODELS
+# MODELS
+
 Database schema definitions.
 ## Admin
-Admin
-COLUMN	DATA TYPE	DESCRIPTION
-id	Integer	Unique identifier.
-username	Text	The name of the id.
-email	Text	The email of the admin.
-password_digest	String	The password of the admin.
-status Text The status of the admin.
-updated_at	Date	The date the hero was updated.
-created_at	Date	The date hero was created.
+
+
+| Column      | Data Type    | Description   |
+| :---        |    :----:   |          ---: |
+|id            |Integer     | Unique identifier |
+| username      | Text       | The name of the id   |
+| email   | Text        |The email of the admin      |
+|password_digest| String | The password of the admin|
+|status | Text | The status of the admin |
+|updated_at | Date | The date the hero was updated |
+|created_at | Date | The date hero was created |
 
 ## Clerk
 
-COLUMN	DATA TYPE	DESCRIPTION 
+| Column      | Data Type | Description     |
+| :---        |    :----:   |          ---: |
 ## Merchant
-id	Integer	Unique identifier.
-Title	String	todo title.
-Description	String	todo description.
-Priority	Integer	todo priority.
-Status	Integer	todo status.
-Priority	Integer	todo prority.
-updated_at	Date	The date the power was updated.
-createdAt	Date	The date the power was created.
-## Product 
+
+
+| Column      | Data Type    | Description   |
+| :---        |    :----:   |          ---: |
+|id           | Integer      | Unique identifier |
+| Title      | String       | todo title  |
+|Description |String        | todo description |
+|Priority  | Integer  | todo priority |
+|Status | Integer | todo status |
+|updated_at | Date | The date the power was updated|
+|created_at | Date | The date the power was created |
+# Product 
 ROUTES
 /admin
 Shows all admin.
@@ -93,7 +101,7 @@ Updates a clerk
 Updates a clerk
 /clerks
 Updates a clerk
-LICENSE
+## LICENSE
 This repository is distributed under the MIT License
 
 Copyright 2023 Cindy Muthoni
