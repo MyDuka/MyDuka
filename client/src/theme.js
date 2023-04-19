@@ -13,14 +13,15 @@ export const tokens = (mode) => ({
           500: "#666666",
           600: "#525252",
           700: "#3d3d3d",
-          800: "#2F2E2E",
+          800: "#21202A",
           900: "#141414",
         },
         primary: {
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#1e0127",
+          // 400: "#1e0127",
+          400: "#0C0D22",
           500: "#141b2d",
           600: "#101624",
           700: "#0c101b",
@@ -31,7 +32,7 @@ export const tokens = (mode) => ({
           100: "#dbf5ee",
           200: "#b7ebde",
           300: "#94e2cd",
-          400: "#70d8bd",
+          400: "#77a21C",
           500: "#4cceac",
           600: "#3da58a",
           700: "#2e7c67",
@@ -73,7 +74,7 @@ export const tokens = (mode) => ({
         },
         purpleAccent:{
           100: "#1e0127",
-          200: "#2e1229",
+          200: "#1D192C",
           300: "#7d699f",
           400: "#a58ccd",
           500: "#c1a2e8",
@@ -176,7 +177,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[500],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.orangeAccent[200],
             },
             neutral: {
               dark: colors.grey[700],
@@ -186,6 +187,7 @@ export const themeSettings = (mode) => {
             background: {
               default: colors.grey[800],
             },
+          
           }
         : {
             // palette values for light mode
@@ -193,7 +195,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[100],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.orangeAccent[200]
             },
             neutral: {
               dark: colors.grey[700],
@@ -203,6 +205,7 @@ export const themeSettings = (mode) => {
             background: {
               default: "#fcfcfc",
             },
+          
           }),
     },
     typography: {

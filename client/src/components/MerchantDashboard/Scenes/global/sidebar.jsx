@@ -16,7 +16,7 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -82,7 +82,7 @@ const MerchSidebar = () => {
                 ml="15px"
               >
                 {/* App Logo */}
-                <Typography variant="h5" color={colors.grey[100]} fontWeight="bold">
+                <Typography variant="h3" color={colors.grey[100]} fontWeight="bold">
                   MyDuka
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -100,20 +100,20 @@ const MerchSidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`https://i.pinimg.com/236x/e0/68/19/e0681909b5abf061e7904e8fce5fa97c.jpg`}
+                  src={`https://i.pinimg.com/564x/4b/0f/2b/4b0f2b65933a5a2320e564caa877abd1.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h6"
+                  variant="h4"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                   Jane Doe
                 </Typography>
-                <Typography variant="h6" color={colors.orangeAccent[500]}>
+                <Typography variant="h5" color={colors.orangeAccent[500]}>
                   Super Merchant
                 </Typography>
               </Box>
@@ -143,20 +143,20 @@ const MerchSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Contacts Information"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Invoices Balances"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h5"
@@ -172,7 +172,7 @@ const MerchSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
@@ -185,7 +185,7 @@ const MerchSidebar = () => {
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h5"
@@ -215,13 +215,14 @@ const MerchSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Geography Chart"
+            {/* <Item
+              title="Logout"
               to="/geography"
-              icon={<MapOutlinedIcon />}
+              icon={<ExitToAppIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
+            <ExitToAppIcon />
           </Box>
         </Menu>
       </ProSidebar>
