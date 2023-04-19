@@ -1,7 +1,7 @@
 .CompactCard{
     display: flex;
     flex: 1;
-    height: 10rem !important;
+    height: 7rem !important;
     width: 15rem;
     border-radius: 0.7rem;
     color: white;
@@ -15,10 +15,6 @@
       box-shadow: none !important;
   }
 
-  .parentContainer{
-    /* background:var(--grey) */
-    
-  }
   
   /* radialbar */
   .radialBar {
@@ -29,7 +25,7 @@
       gap: 1rem;
     }
     .CircularProgressbar {
-      width: 6rem !important;
+      width: 4rem !important;
       overflow: visible;
     }
     .CircularProgressbar-path {

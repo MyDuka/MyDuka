@@ -16,7 +16,7 @@
 }
 
 *{
-  
+  background: var(--grey);
   font-family: 'Montserrat', sans-serif;
   
 }

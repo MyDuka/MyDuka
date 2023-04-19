@@ -1,8 +1,8 @@
 import './App.css';
-import Login from './components/AdminLogin/Login';
 import Sidebar from './components/Sidebar/Sidebar';
 import Clerkdash from './components/ClerkDash/Clerkdash';
 import ClerkMain from './components/ClerkMain/ClerkMain';
+import MerchantLogin from './components/MerchantLogin/MerchantLogin';
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
             {/* <Sidebar />
             <Clerkdash /> */}
             {/* <Login /> */}
-            <ClerkMain />
+            {/* <ClerkMain /> */}
+            <MerchantLogin />
         </div>
   );
 }
