@@ -14,7 +14,7 @@ const Form = () => {
     };
   
     return (
-      <Box m="20px">
+      <Box m="20px" >
         <Header title="CREATE USER" subtitle="Create a New User Profile" />
   
         <Formik
@@ -38,6 +38,7 @@ const Form = () => {
                 sx={{
                   "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
                 }}
+                p="25px"
               >
                 <TextField
                   fullWidth
@@ -118,7 +119,7 @@ const Form = () => {
                   sx={{ gridColumn: "span 4" }}
                 />
               </Box>
-              <Box display="flex" justifyContent="end" mt="20px">
+              <Box display="flex" justifyContent="end" mt="10px" mr="20px">
                 <Button type="submit" color="secondary" variant="contained">
                   Create New User
                 </Button>
