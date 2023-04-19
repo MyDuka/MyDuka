@@ -94,6 +94,19 @@ Database schema definitions.
 
 | Column      | Data Type | Description     |
 | :---        |    :----:   |          ---: |
+|id            | integer    | unique idenitifier |
+|username    | text          | name of the clerk|
+|email     |  text     |email of the clerk |
+|password_digest |text    | password |
+
+## Store 
+
+| Column      | Data Type | Description     |
+| :---        |    :----:   |          ---: |
+|id           | Integer      | unique identifier |
+|name         | text         | name of the sore |
+|address       | text         | address of the store |
+
 ## Merchant
 
 
@@ -107,25 +120,16 @@ Database schema definitions.
 |updated_at | Date | The date the power was updated|
 |created_at | Date | The date the power was created |
 # Product 
-ROUTES
-/admin
-Shows all admin.
-/admins/login
-
-log in as an admin.
-/admin/login/check
-
-Checks a user login status.
-/users/logout
-Logout an admin
-/todos
-Shows all  clerk
-/clerk
-Updates a clerk
-/clerks
-Updates a clerk
-/clerks
-Updates a clerk
+ |Column      | Data Type    | Description   |
+| :---        |    :----:   |          ---: |
+|id           | Integer      | Unique identifier |
+| name     | text       | name of the product  |
+|type |text        | type of the product|
+|buying price | decimal  | buying price of the product |
+|Selling price | decimal | selling price of the product|
+|supplier | text |products supplier |
+|updated_at | Date | The date the product was updated|
+|created_at | Date | The date the product was created |
 ## LICENSE
 This repository is distributed under the MIT License
 
