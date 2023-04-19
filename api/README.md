@@ -79,7 +79,7 @@ ROUTES
 Shows all admin.
 /admins/login
 
-log in a admin.
+log in as an admin.
 /admin/login/check
 
 Checks a user login status.
