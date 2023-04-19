@@ -6,7 +6,6 @@ import useMediaquery from "@mui/material/useMediaQuery";
 import Header from '../../../Header';
 
 
-
 const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
   
@@ -96,7 +95,7 @@ const Form = () => {
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="Password"
+                  label="Address 1"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.address1}
@@ -105,7 +104,7 @@ const Form = () => {
                   helperText={touched.address1 && errors.address1}
                   sx={{ gridColumn: "span 4" }}
                 />
-                {/* <TextField
+                <TextField
                   fullWidth
                   variant="filled"
                   type="text"
@@ -117,10 +116,10 @@ const Form = () => {
                   error={!!touched.address2 && !!errors.address2}
                   helperText={touched.address2 && errors.address2}
                   sx={{ gridColumn: "span 4" }}
-                /> */}
+                />
               </Box>
               <Box display="flex" justifyContent="end" mt="20px">
-                <Button type="submit" color="orange" variant="contained">
+                <Button type="submit" color="secondary" variant="contained">
                   Create New User
                 </Button>
               </Box>
