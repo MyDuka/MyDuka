@@ -1,6 +1,7 @@
 require_relative '../../app/controllers/admins_controller'
 
 RSpec.describe AdminsController, type: :controller do
+    
     let(:merchant) { create(:merchant) }
     let(:admin) { create(:admin, merchant: merchant) }
   
