@@ -69,3 +69,17 @@ container {
     color: #ffffff;
     border: 3px solid #ff0000;
   }
+
+  .cadi{
+    width: 18rem;
+  }
+
+  #lista{
+    list-style-type: none;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+
+
+
