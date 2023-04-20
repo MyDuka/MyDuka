@@ -8,11 +8,10 @@ export default function LandingpageNavbar(){
         <nav className="navbar navbar-light bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand">
-                <img src="https://cdn5.vectorstock.com/i/1000x1000/15/24/target-icon-with-letter-c-logo-design-vector-24451524.jpg" alt="" width="30" height="24" className="d-inline-block align-text-top"/>
                     MyDuka
                 </a>
 
-                <div className="btn-group">
+                <div className="btn-group me">
                     <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         Login
                      </button>
