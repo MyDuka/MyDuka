@@ -16961,3 +16961,274 @@ Processing by SessionsController#login_status as */*
 Completed 200 OK in 32ms (Views: 1.6ms | ActiveRecord: 6.1ms | Allocations: 8090)
 
 
+Started GET "/clerks" for 127.0.0.1 at 2023-04-20 04:03:28 -0700
+Processing by ClerksController#index as */*
+  Parameters: {"username"=>"dfk", "password"=>"[FILTERED]", "clerk"=>{"username"=>"dfk"}}
+  [1m[36mAdmin Load (47.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:6:in `index'
+  [1m[36mClerk Load (43.2ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1[0m  [["admin_id", 19]]
+  ↳ app/controllers/clerks_controller.rb:9:in `index'
+Completed 200 OK in 1629ms (Views: 64.0ms | ActiveRecord: 664.1ms | Allocations: 4809)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-20 04:05:33 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com"}}
+  [1m[36mAdmin Load (2.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:14:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007f8a42aa3218>, params: {"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com"}} }[0m
+  [1m[36mTRANSACTION (45.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:16:in `add_clerk'
+  [1m[36mClerk Create (160.7ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "status", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "kev"], ["email", "kevin.ngechu@student.moringaschool.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["admin_id", 19], ["created_at", "2023-04-20 11:05:34.275868"], ["updated_at", "2023-04-20 11:05:34.275868"]]
+  ↳ app/controllers/clerks_controller.rb:16:in `add_clerk'
+  [1m[36mTRANSACTION (50.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:16:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 33.6ms | Allocations: 444)
+  Rendered layout layouts/mailer.html.erb (Duration: 34.3ms | Allocations: 544)
+AdminMailer#clerk_registration: processed outbound mail in 86.4ms
+Delivered mail 64411c80f087e_396b272469f0@kimathis-MacBook-Pro.local.mail (4347.7ms)
+Date: Thu, 20 Apr 2023 04:05:36 -0700
+From: from@example.com
+To: kevin.ngechu@student.moringaschool.com
+Message-ID: <64411c80f087e_396b272469f0@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear kev,</p>
+    <p>We are glad to inform you that you have been registered by kev</p>
+    <p>Your role is to be a clerk of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: kev</li>
+    <li>Email: kevin.ngechu@student.moringaschool.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign in</p>
+    <p>Best regards,</p>
+    <p>dfk</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 7960ms (Views: 1.1ms | ActiveRecord: 259.2ms | Allocations: 11134)
+
+
+Started POST "/login/status" for 127.0.0.1 at 2023-04-20 04:06:03 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login/status"):
+  
+Started GET "/login/status" for 127.0.0.1 at 2023-04-20 04:06:11 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com", "password"=>"[FILTERED]", "session"=>{"username"=>"kev", "email"=>"kevin.ngechu@student.moringaschool.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (52.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (3.0ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 1400ms (Views: 68.2ms | ActiveRecord: 116.3ms | Allocations: 16877)
+
+
+Started PUT "/clerk/activation/8" for 127.0.0.1 at 2023-04-20 04:07:25 -0700
+Processing by ClerksController#clerk_activation as */*
+  Parameters: {"status"=>1, "id"=>"8", "clerk"=>{"status"=>1}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:37:in `clerk_activation'
+  [1m[36mClerk Load (14.9ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."admin_id" = $1 AND "clerks"."id" = $2 LIMIT $3[0m  [["admin_id", 19], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:39:in `clerk_activation'
+[31mUnpermitted parameters: :id, :clerk. Context: { controller: ClerksController, action: clerk_activation, request: #<ActionDispatch::Request:0x00007f8a3fc7d9b0>, params: {"status"=>1, "controller"=>"clerks", "action"=>"clerk_activation", "id"=>"8", "clerk"=>{"status"=>1}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:40:in `clerk_activation'
+  [1m[36mClerk Update (26.7ms)[0m  [1m[33mUPDATE "clerks" SET "status" = $1, "updated_at" = $2 WHERE "clerks"."id" = $3[0m  [["status", 1], ["updated_at", "2023-04-20 11:07:25.416168"], ["id", 8]]
+  ↳ app/controllers/clerks_controller.rb:40:in `clerk_activation'
+  [1m[36mTRANSACTION (40.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:40:in `clerk_activation'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_deactivation.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_deactivation.html.erb within layouts/mailer (Duration: 2.0ms | Allocations: 375)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.6ms | Allocations: 472)
+AdminMailer#clerk_deactivation: processed outbound mail in 9.6ms
+Delivered mail 64411ced80333_396b26e87090@kimathis-MacBook-Pro.local.mail (3860.0ms)
+Date: Thu, 20 Apr 2023 04:07:25 -0700
+From: from@example.com
+To: kevin.ngechu@student.moringaschool.com
+Message-ID: <64411ced80333_396b26e87090@kimathis-MacBook-Pro.local.mail>
+Subject: Deactivation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Account Deactivation</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Deactivation Notification</h1>
+    <p>Dear kev,</p>
+    <p>This is to inform you that your acount has been deactivated kev</p>
+    <p>Your role as a clerk is on probation </p>
+    <br/>
+    <p>Please contact your administrator.</p>
+    <br/>
+    <p>Best regards,</p>
+    <p>dfk</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 200 OK in 4014ms (Views: 0.5ms | ActiveRecord: 82.5ms | Allocations: 7860)
+
+
