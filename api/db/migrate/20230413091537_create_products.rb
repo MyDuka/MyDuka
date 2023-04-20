@@ -4,10 +4,13 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :type
       t.string :image
-      t.integer :quantity
-      t.decimal :buying_price
-      t.string :selling_price_decimal
       t.string :supplier
+      t.integer :stocked
+      t.integer :received
+      t.integer :spoilt
+      t.integer  :payment
+      t.decimal :buying_price
+      t.decimal :selling_price
 
       t.timestamps
     end
