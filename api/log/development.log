@@ -15180,3 +15180,450 @@ Content-Transfer-Encoding: 7bit
 Completed 201 Created in 3636ms (Views: 0.6ms | ActiveRecord: 87.0ms | Allocations: 8471)
 
 
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMerchants (20230412125915)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412125915"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdmins (20230412130141)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying DEFAULT '12345', "status" integer DEFAULT 0, "merchant_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e611302e7a"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE INDEX "index_admins_on_merchant_id" ON "admins" ("merchant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412130141"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClerks (20230412130221)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "clerks" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying DEFAULT '12345', "status" integer DEFAULT 0, "admin_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_9b95c169fa"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE INDEX "index_clerks_on_admin_id" ON "clerks" ("admin_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412130221"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20230413091537)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "type" character varying, "image" character varying, "supplier" character varying, "buying_price" decimal, "selling_price" decimal, "store_id" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230413091537"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20230416115849)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "address" character varying, "merchant_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbde3f46c6"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE INDEX "index_stores_on_merchant_id" ON "stores" ("merchant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416115849"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStoreAdmins (20230416122311)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "store_admins" ("id" bigserial primary key, "admin_id" bigint, "store_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_58c6914d3b"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+, CONSTRAINT "fk_rails_6823fce057"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_admin_id" ON "store_admins" ("admin_id")[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_store_id" ON "store_admins" ("store_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122311"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductClerks (20230416122604)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "product_clerks" ("id" bigserial primary key, "product_id" bigint, "clerk_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b821fd039f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_4047a615e4"
+FOREIGN KEY ("clerk_id")
+  REFERENCES "clerks" ("id")
+)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_product_id" ON "product_clerks" ("product_id")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_clerk_id" ON "product_clerks" ("clerk_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122604"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceivedItems (20230416182601)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "received_items" ("id" bigserial primary key, "received" integer, "payment_status" integer, "stocked" integer, "spoilt" integer, "product_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_665a871b9e"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE INDEX "index_received_items_on_product_id" ON "received_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416182601"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-04-18 09:13:09.592021"], ["updated_at", "2023-04-18 09:13:09.592021"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE "api_development" ENCODING = 'unicode'[0m
+  [1m[35m (122.0ms)[0m  [1m[35mCREATE DATABASE "api_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-04-18 12:24:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.0ms | Allocations: 766)
+Completed 200 OK in 33ms (Views: 18.4ms | ActiveRecord: 0.0ms | Allocations: 6568)
+
+
+Started GET "/" for ::1 at 2023-04-18 12:24:07 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 449)
+Completed 200 OK in 30ms (Views: 22.9ms | ActiveRecord: 0.0ms | Allocations: 1143)
+
+
+Started GET "/" for ::1 at 2023-04-18 12:24:15 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 16)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 199)
+
+
+Started GET "/" for ::1 at 2023-04-18 12:24:34 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 16)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 198)
+
+
+Started GET "/merchants" for ::1 at 2023-04-18 12:24:57 +0300
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 14ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 3471)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-04-18 12:24:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/merchants" for 127.0.0.1 at 2023-04-18 12:26:28 +0300
+Processing by MerchantsController#index as */*
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 642)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-18 12:29:34 +0300
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"taiti", "email"=>"dennistaiti@gmail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"taiti", "email"=>"dennistaiti@gmail.com"}}
+[31mUnpermitted parameter: :merchant. Context: { controller: MerchantsController, action: create, request: #<ActionDispatch::Request:0x00007fa0e8031368>, params: {"username"=>"taiti", "email"=>"dennistaiti@gmail.com", "password"=>"[FILTERED]", "controller"=>"merchants", "action"=>"create", "merchant"=>{"username"=>"taiti", "email"=>"dennistaiti@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mMerchant Create (0.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "taiti"], ["email", "dennistaiti@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-18 09:29:35.261349"], ["updated_at", "2023-04-18 09:29:35.261349"]]
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (29.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+Completed 201 Created in 357ms (Views: 0.6ms | ActiveRecord: 36.5ms | Allocations: 18729)
+
+
+Started GET "/merchants" for ::1 at 2023-04-18 12:29:59 +0300
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 761)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-18 12:30:33 +0300
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"username"=>"taiti", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = 'taiti' OR email = NULL ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 303ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 1212)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-18 12:30:53 +0300
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"taiti", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:91:in `login_status'
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:92:in `login_status'
+Completed 200 OK in 73ms (Views: 0.7ms | ActiveRecord: 4.5ms | Allocations: 8038)
+
+
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-18 12:32:20 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "username": "taiti denis",
+  "email": "dennistaiti7@gmail.com"
+  "password": "1234"
+}
+Processing by AdminsController#register as */*
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+Completed 400 Bad Request in 59ms (ActiveRecord: 0.4ms | Allocations: 5086)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/admins_controller.rb:61:in `admin_params'
+app/controllers/admins_controller.rb:7:in `register'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-18 12:32:30 +0300
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"taiti denis", "email"=>"dennistaiti7@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"taiti denis", "email"=>"dennistaiti7@gmail.com"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mAdmin Create (1.3ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "taiti denis"], ["email", "dennistaiti7@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-18 09:32:30.688633"], ["updated_at", "2023-04-18 09:32:30.688633"]]
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:7:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 1.0ms | Allocations: 395)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.6ms | Allocations: 629)
+MerchantMailer#admin_registration: processed outbound mail in 23.9ms
+Delivered mail 643e63aec0c54_48e82724-454@user-HP-EliteBook-840-G4.mail (3958.0ms)
+Date: Tue, 18 Apr 2023 12:32:30 +0300
+From: from@example.com
+To: dennistaiti7@gmail.com
+Message-ID: <643e63aec0c54_48e82724-454@user-HP-EliteBook-840-G4.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear taiti denis,</p>
+    <p>We are glad to inform you that you have been registered by taiti</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: taiti denis</li>
+    <li>Email: dennistaiti7@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The taiti Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 4130ms (Views: 2.2ms | ActiveRecord: 8.5ms | Allocations: 74195)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:34:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0eccc6d40>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0eccc6d40>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0eccc6d40>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 6.8ms | Allocations: 44191)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:35:59 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec9dbe78>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec9dbe78>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec9dbe78>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.7ms | Allocations: 8014)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:12:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:37:42 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec86d618>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec86d618>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ec86d618>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.8ms | Allocations: 8025)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:37:44 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0d8eb2d70>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0d8eb2d70>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0d8eb2d70>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms | Allocations: 1054)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:37:44 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ecaa1448>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ecaa1448>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fa0ecaa1448>, params: {"username"=>"taiti denis", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms | Allocations: 1054)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:39:39 +0300
+  
+SyntaxError (/home/user/MyDuka/api/app/controllers/sessions_controller.rb:120: syntax error, unexpected local variable or method, expecting `end'
+... params.require(:session)permit(:username, :password, :email...
+...                         ^~~~~~
+):
+  
+app/controllers/sessions_controller.rb:120: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/sessions_controller.rb:120: syntax error, unexpected local variable or method, expecting `end'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:40:05 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.9ms | Allocations: 7768)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:40:58 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 4.8ms | Allocations: 7816)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:41:04 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 4.9ms | Allocations: 7857)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:44:45 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 4.5ms | Allocations: 7783)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-18 12:44:47 +0300
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"taiti denis", "password"=>"[FILTERED]", "session"=>{"username"=>"taiti denis", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'taiti denis' OR email = NULL ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 5.8ms | Allocations: 7811)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'

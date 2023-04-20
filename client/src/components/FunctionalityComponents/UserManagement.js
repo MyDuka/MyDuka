@@ -1,6 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Modal, Form, Input } from 'antd';
-import { createUser, getUsers, editUser, deleteUser } from '../../api/userApi';
+//import { createUser, getUsers, editUser, deleteUser } from '../../api/userApi';
+
+const API_URL = "http://localhost:3000/api/users";
+
+// Function to fetch all users
+export const getUsers = async () => {
+  const response = await fetch(API_URL);
+  const data = await response.json();
+  return data;
+};
+
+// Function to create a new user
+export const createUser = async (user) => {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
+  const data = await response.json();
+  return data;
+};
+
+// Function to update an existing user
+export const editUser = async (id, user) => {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
+  const data = await response.json();
+  return data;
+};
+
+// Function to delete an existing user
+export const deleteUser = async (id) => {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "DELETE",
+  });
+  const data = await response.json();
+  return data;
+};
+
+
+
 
 const UserManagementComponent = () => {
   const [users, setUsers] = useState([]);
