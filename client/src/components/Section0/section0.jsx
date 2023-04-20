@@ -15,7 +15,7 @@ const Landing = () => {
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span> Get Started a super merchant
+                <span></span> Get Started as a super merchant
             </button>
       
           </div>
