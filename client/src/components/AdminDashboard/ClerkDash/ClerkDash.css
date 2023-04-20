@@ -1,0 +1,35 @@
+.ClerkDash{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: var(--grey);
+}
+
+.cd-label{
+    color: var(--white);
+    font-family: inherit;
+    margin-left: 1rem;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    background: var(--purple);
+    width: 135vh
+    
+}
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .MainDash{
+        justify-content:flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .MainDash{
+        align-items: center;
+    }
+}
