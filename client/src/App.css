@@ -20,3 +20,12 @@
   font-family: 'Poppins', sans-serif;
   /* background: #171A24; */
 }
+
+
+.here{
+  display: block;
+}
+
+.nothere{
+  display:none;
+}

@@ -12,11 +12,25 @@ import Bar from "./components/MerchantDashboard/Scenes/bar/index.jsx";
 import Pie from "./components/MerchantDashboard/Scenes/pie/index.jsx";
 import Line from "./components/MerchantDashboard/Scenes/line/index.jsx";
 import LoginForm from "./components/AdminDashboard/AdminLogin/Login";
+import LandingpageNavbar from './components/landingpage/LandingpageNavbar';
+import ClerkLogin from './components/auth/ClerkLogin';
+import AdminLogin from './components/auth/AdminLogin';
+import MerchantLogin from './components/auth/MerchantLogin';
+import MerchantSignup from './components/auth/MerchantSignup';
 
 
 function App() {
   const [theme, colorMode] =useMode();
   const [isSidebar, setisSidebar] =useState(true);
+  
+  
+   const [vanish,setVanish] = useState("here")
+  
+
+  function gone(){
+    setVanish("nothere")
+  }
+
 
   return (
 //     <ColorModeContext.Provider value={colorMode}>
@@ -26,6 +40,8 @@ function App() {
 //                 <MerchSidebar isSidebar={isSidebar}/>
 //                 <main className='content'>
 //                     <Topbar setIsSidebar={setisSidebar}/>
+                       <LandingpageNavbar/> 
+                       
 //                     <Routes>
 //                         <Route path="/" element={<Dashboard />} />
 //                         <Route path="/team" element={<Team />} />
@@ -33,13 +49,10 @@ function App() {
 //                         <Route path="/bar" element={<Bar/>} /> 
 //                         <Route path="/pie" element={<Pie/>} /> 
 //                         <Route path="/line" element={<Line/>} /> 
-
-
-
-
-
-                       
-
+                           <Route path="/clerk/login" element={<ClerkLogin gone={gone} />}/>
+                           <Route path="/admin/login" element={<AdminLogin gone={gone} />}/>
+                           <Route path="/merchant/login" element={<MerchantLogin gone={gone}/>}/>
+                           <Route path="/merchant/signup" element={<MerchantSignup/>}/>                    
 //                     </Routes>
 //                     {/* <Dashboard /> */}
                    
@@ -48,6 +61,7 @@ function App() {
 //     </ThemeProvider>
 // </ColorModeContext.Provider>
     <LoginForm />
+
   );
 }
 
