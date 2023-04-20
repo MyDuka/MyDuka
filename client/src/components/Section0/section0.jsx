@@ -11,7 +11,7 @@ const Landing = () => {
                     <label>Simple Inventory Management Software</label> 
                 </div>
             </div>
-            <button>
+            <button className='lp-btn'>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -24,7 +24,7 @@ const Landing = () => {
             <div className="l-card">       
                 <div className='l-p-card'>
                 </div>
-                 <img src="https://images.unsplash.com/photo-1648824572347-517357c9c44e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGludmVudG9yeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" className='about-img'/>
+                 <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='about-img'/>
 
             </div>
             </div>

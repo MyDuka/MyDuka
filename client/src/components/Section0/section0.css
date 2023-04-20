@@ -27,14 +27,14 @@
     
 }
 
-/* Button */
+/* .lp-btn */
 
-button {
+.lp-btn {
     position: relative;
     padding: 1em 1.8em;
     outline: none;
     border: 1px solid #303030;
-    background: #212121;
+    background: var(--purple);
     color: var(--orange);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -48,16 +48,16 @@ button {
     margin-top: 1rem;
    }
    
-   button:hover {
+   .lp-btn:hover {
     box-shadow: 0 0 10px var(--orange), 0 0 25px var(--orange2), 0 0 50px #ff7b00;
     transition-delay: 0.6s;
    }
    
-   button span {
+   .lp-btn span {
     position: absolute;
    }
    
-   button span:nth-child(1) {
+   .lp-btn span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -65,12 +65,12 @@ button {
     background: linear-gradient(90deg, transparent, #ff7b00);
    }
    
-   button:hover span:nth-child(1) {
+   .lp-btn:hover span:nth-child(1) {
     left: 100%;
     transition: 0.7s;
    }
    
-   button span:nth-child(3) {
+   .lp-btn span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -78,13 +78,13 @@ button {
     background: linear-gradient(90deg, transparent, #ff7b00);
    }
    
-   button:hover span:nth-child(3) {
+   .lp-btn:hover span:nth-child(3) {
     right: 100%;
     transition: 0.7s;
     transition-delay: 0.35s;
    }
    
-   button span:nth-child(2) {
+   .lp-btn span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -92,13 +92,13 @@ button {
     background: linear-gradient(180deg, transparent, #ff7b00);
    }
    
-   button:hover span:nth-child(2) {
+   .lp-btn:hover span:nth-child(2) {
     top: 100%;
     transition: 0.7s;
     transition-delay: 0.17s;
    }
    
-   button span:nth-child(4) {
+   .lp-btn span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -106,21 +106,21 @@ button {
     background: linear-gradient(360deg, transparent, #ff7b00);
    }
    
-   button:hover span:nth-child(4) {
+   .lp-btn:hover span:nth-child(4) {
     bottom: 100%;
     transition: 0.7s;
     transition-delay: 0.52s;
    }
    
-   button:active {
-    background: #ae00af;
+   .lp-btn:active {
+    background: var(--white);
     background: linear-gradient(to top right, var(--orange2), var(--orange));
     color: #bfbfbf;
     box-shadow: var(--boxShadow);
     transition: 0.1s;
    }
    
-   button:active span:nth-child(1) 
+   .lp-btn:active span:nth-child(1) 
    span:nth-child(2) 
    span:nth-child(2) 
    span:nth-child(2) {
@@ -133,6 +133,7 @@ button {
     padding: 10px;
     margin: 40px;
     margin-top: 3rem;
+    max-width: 500px;
     
   }
 
@@ -140,10 +141,10 @@ button {
     background-color: var(--purple);
     border: 1px solid var(--Third-Color);
     box-shadow: 0px 0px 20px 1px #ffbb763f;
-    width: 440px;
+    width: 500px;
     height: 450px;
-    border-radius: 4px;
-    margin-left: 8rem;
+    border-radius: 180px 0 4px 0;
+    margin-left: 7rem;
     margin-top: 2rem;
 
   }
@@ -151,9 +152,12 @@ button {
   .about-img{
     /* flex: 0 0 auto; disable flex grow and shrink */
     height: 450px;
-    width: 450px;
+    max-width: 100%;
     margin-left: 5rem;
-    margin-top: -26rem;
+    margin-top: -26.5rem;
+    border-radius: 190px 0 4px 0;
+
+    
   
   } 
   

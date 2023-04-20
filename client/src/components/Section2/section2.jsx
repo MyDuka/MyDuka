@@ -8,7 +8,9 @@ import InsightsIcon from '@mui/icons-material/Insights';
 
 const About2 = () => {
     return (
-        <div className="about-container">
+      <div>
+        <h1 className='ab2-title'>Inventory Made Easy</h1>
+        <div className="about2-container">
           <div className="ab-l-section">
             {/* content for left section */}
             <div className="a2-card">       
@@ -46,7 +48,7 @@ const About2 = () => {
                 <item>
                     <p>
                     <InsightsIcon className="lp-icon"/>
-                    Perfect for audits, budgeting, and forecasting
+                    Perfect for audits, budgeting, and forecasting.
                     </p>
 
                 </item>
@@ -56,6 +58,9 @@ const About2 = () => {
             
           </div>
         </div>
+
+      </div>
+        
       );
 }
 
