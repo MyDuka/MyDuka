@@ -215,14 +215,14 @@ const MerchSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            {/* <Item
+            <Item
               title="Logout"
               to="/geography"
               icon={<ExitToAppIcon />}
               selected={selected}
               setSelected={setSelected}
-            /> */}
-            <ExitToAppIcon />
+            />
+            {/* <ExitToAppIcon /> */}
           </Box>
         </Menu>
       </ProSidebar>

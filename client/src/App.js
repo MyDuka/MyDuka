@@ -11,6 +11,7 @@ import Form from "./components/MerchantDashboard/Scenes/form";
 import Bar from "./components/MerchantDashboard/Scenes/bar/index.jsx";
 import Pie from "./components/MerchantDashboard/Scenes/pie/index.jsx";
 import Line from "./components/MerchantDashboard/Scenes/line/index.jsx";
+import LoginForm from "./components/AdminDashboard/AdminLogin/Login";
 
 
 function App() {
@@ -18,20 +19,20 @@ function App() {
   const [isSidebar, setisSidebar] =useState(true);
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-    <ThemeProvider theme={theme}>
-        <CssBaseline />
-            <div  className='app'>
-                <MerchSidebar isSidebar={isSidebar}/>
-                <main className='content'>
-                    <Topbar setIsSidebar={setisSidebar}/>
-                    <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route path="/team" element={<Team />} />
-                        <Route path="/form" element={<Form />} />
-                        <Route path="/bar" element={<Bar/>} /> 
-                        <Route path="/pie" element={<Pie/>} /> 
-                        <Route path="/line" element={<Line/>} /> 
+//     <ColorModeContext.Provider value={colorMode}>
+//     <ThemeProvider theme={theme}>
+//         <CssBaseline />
+//             <div  className='app'>
+//                 <MerchSidebar isSidebar={isSidebar}/>
+//                 <main className='content'>
+//                     <Topbar setIsSidebar={setisSidebar}/>
+//                     <Routes>
+//                         <Route path="/" element={<Dashboard />} />
+//                         <Route path="/team" element={<Team />} />
+//                         <Route path="/form" element={<Form />} />
+//                         <Route path="/bar" element={<Bar/>} /> 
+//                         <Route path="/pie" element={<Pie/>} /> 
+//                         <Route path="/line" element={<Line/>} /> 
 
 
 
@@ -39,14 +40,14 @@ function App() {
 
                        
 
-                    </Routes>
-                    {/* <Dashboard /> */}
+//                     </Routes>
+//                     {/* <Dashboard /> */}
                    
-                </main>
-            </div>
-    </ThemeProvider>
-</ColorModeContext.Provider>
-
+//                 </main>
+//             </div>
+//     </ThemeProvider>
+// </ColorModeContext.Provider>
+    <LoginForm />
   );
 }
 
