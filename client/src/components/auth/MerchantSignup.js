@@ -1,47 +1,39 @@
 import React from "react";
-import './MerchantAuth.css'
+import './Auth.css'
 import { Link } from "react-router-dom";
 
 export default function MerchantSignup(){
 
     return(
-        <>
-        <div className="login-wrap">
-            <div >
+        <div className="log">
 
-            <div className="login-form">
+<form className="login-form" >
+  <h4>Merchant Signup</h4>
 
-            <form className="sign-in-htm"  >
-				<div className="group">
-					<label for="user" className="label">Username</label>
-					<input id="user" type="text" className="input" />
-				</div>
-				<div className="group">
-					<label for="pass" className="label">email address</label>
-					<input id="pass" type="text" className="input"  />
-				</div>
+  <label for="username" className="label">Username</label>
+  <div className="form-input-material">
+    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" className="form-control-material" required /> 
+  </div>
 
-                <div className="group">
-					<label for="pass" className="label">Password</label>
-					<input id="pass" type="password" className="input" data-type="password" />
-				</div>
-			
-				<div className="group">
-					<input type="submit" className="button" value="Sign Up"/>
-				</div>
+  <label for="username" className="label">Email</label>
+  <div className="form-input-material">
+    <input type="text" name="email" id="username" placeholder="email" autocomplete="off" className="form-control-material" required /> 
+  </div>
 
-                <div className="hr"></div>
+  <label for="password" className="label">Password</label>
+  <div className="form-input-material">
+    <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" className="form-control-material" required />
+  </div>
 
-                <div className="foot-lnk">
-                    <label for="tab-1"><Link to="/merchant/login">Already Member?</Link></label>
-                </div>
-            </form>
+  <button type="submit" className="btn btn-primary btn-ghost">Login</button>
 
-            </div>
-	        </div>
-        </div>
+  <div className="foot-lnk">
+        <Link to="/merchant/login">Already Registered?</Link>
+    </div>
 
-		</>
+</form>
+
+		</div>
 
    
     )
