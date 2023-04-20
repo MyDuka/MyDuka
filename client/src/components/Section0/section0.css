@@ -133,7 +133,8 @@
     padding: 10px;
     margin: 40px;
     margin-top: 3rem;
-    max-width: 500px;
+    max-width: 520px;
+    
     
   }
 
@@ -142,16 +143,16 @@
     border: 1px solid var(--Third-Color);
     box-shadow: 0px 0px 20px 1px #ffbb763f;
     width: 500px;
-    height: 450px;
+    height: 420px;
     border-radius: 180px 0 4px 0;
     margin-left: 7rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
 
   }
 
   .about-img{
     /* flex: 0 0 auto; disable flex grow and shrink */
-    height: 450px;
+    height:400px;
     max-width: 100%;
     margin-left: 5rem;
     margin-top: -26.5rem;
