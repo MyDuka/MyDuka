@@ -2,6 +2,7 @@ require_relative '../../app/controllers/stores_controller'
 
 
 RSpec.describe StoresController, type: :controller do
+
     let(:merchant) { create(:merchant) } # assuming you have a Merchant factory
     let(:store) { create(:store, merchant: merchant) } # assuming you have a Store factory
   
