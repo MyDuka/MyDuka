@@ -9,7 +9,7 @@ import InsightsIcon from '@mui/icons-material/Insights';
 const About2 = () => {
     return (
       <div>
-        <h1 className='ab2-title'>Inventory Made Easy</h1>
+        <h2 className='ab2-title'>Inventory Made Easy</h2>
         <div className="about2-container">
           <div className="ab-l-section">
             {/* content for left section */}

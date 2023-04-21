@@ -1,6 +1,7 @@
 import React from 'react'
 import './section0.css'
 
+
 const Landing = () => {
     return (
         <div className="landing-container">
@@ -21,7 +22,8 @@ const Landing = () => {
           </div>
           <div className="lc-r-section">
             {/* content for right section */}
-            <div className="l-card">       
+            
+            <div className="l-card">    
                 <div className='l-p-card'>
                 </div>
                  <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='about-img'/>
