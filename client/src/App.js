@@ -1,3 +1,6 @@
+
+import './App.css';
+import LandingPage from './components/LandingPage';
 import {useState} from "react"
 import './App.css';
 import {CssBaseline, ThemeProvider } from '@mui/material';
@@ -7,6 +10,7 @@ import AdminLogin from './components/auth/AdminLogin';
 import MerchantLogin from './components/auth/MerchantLogin';
 import MerchantSignup from './components/auth/MerchantSignup';
 import MerchantPage from "./components/MerchantDashboard/Merchant/MerchantPage";
+
 
 
 function App() {
@@ -24,6 +28,10 @@ function App() {
   return (
  
               <>
+              
+                  <div className="App">
+                      <LandingPage/>
+                   </div>
                                        
                     <Routes>
                       <Route path="/" element={}/>
@@ -35,6 +43,7 @@ function App() {
                     </Routes>
               </>
      
+
   );
 }
 
