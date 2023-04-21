@@ -1,0 +1,91 @@
+/* .Clerk{
+    background-color: var(--purple);
+}
+.Clerk-glass{
+    background-color: var(--purple);
+} */
+
+.Sidebar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 4rem;
+    transition: all 300ms ease;
+    
+
+}
+
+label{
+    color: var(--white);
+    font-size: 24px;
+    padding: 1rem;
+    font-weight: 800;
+   
+}
+
+/* Menu */
+
+.menu{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    
+    
+}
+
+.menuItem{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 2.5rem;
+    margin-left: 2rem;
+    position: relative;
+    transition: all 300ms ease;
+    font-size: 14px;
+    border-radius: 0.7rem;
+    
+    
+}
+
+.menuItem:hover{
+    cursor: pointer;
+}
+
+.active{
+    background: var(--activeItem);
+    margin-left: 0;
+    color: var(--white);
+}
+
+.active::before{
+        content: '';
+        width: 8px;
+        height: 100%;
+        margin-right: calc(1rem-8px);
+        color: var(--white);
+}
+
+.menu .menuItem:last-child{
+    position: absolute;
+    bottom: 2.3rem;
+    width: 100%;
+    color: var(--white);
+    background: transparent;
+
+}
+
+span{
+    color: var(--white);
+    background: transparent;
+}
+
+.icon{
+    color: var(--white);
+    background: transparent;
+} 
+
+.signout{
+    margin-top: 25rem;
+}

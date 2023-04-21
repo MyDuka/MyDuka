@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Account Reactivation</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h3>Password Reset</h3>
+    <p>D <%= @a.username %>,</p>
+    <p>This is to inform you that someone has requested for a password reset</p>
+    <p> If it was not  you ignore this email. </p>
+    <br/>
+    <p>If this was you, click thr link to reset your password. The link will expire automatically in 15 minutes</p>
+    <br/>
+    <p> <%= link_to "Reset password", password_reset_edit_url(token: @token) %> </p>
+    <br/>
+    <p>Welcome back</p>
+    <br/>
+    <p>Best regards,</p>
+    <p><%= @merchant.username %></p>
+</div>
+</body>
+</html>
