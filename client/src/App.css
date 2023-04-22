@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
-
 :root{
   --purple:#1e0127;
   --green: #77C23B;
@@ -16,10 +15,10 @@
 }
 
 *{
-  /* background: var(--grey); */
+  /* background: var(--grey);  */
   font-family: 'Poppins', sans-serif;
   /* background: #171A24; */
-}
+}  
 
 
 .here{

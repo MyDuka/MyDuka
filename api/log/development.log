@@ -17232,3 +17232,1401 @@ Content-Transfer-Encoding: 7bit
 Completed 200 OK in 4014ms (Views: 0.5ms | ActiveRecord: 82.5ms | Allocations: 7860)
 
 
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 06:46:14 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (67.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 1521ms (Views: 16.4ms | ActiveRecord: 493.6ms | Allocations: 6958)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 06:46:53 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 11ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 744)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 06:48:12 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 744)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 06:51:52 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (2.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 21ms (Views: 1.1ms | ActiveRecord: 2.4ms | Allocations: 744)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 06:53:03 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kim", "password"=>"[FILTERED]", "session"=>{"email"=>"kim", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (108.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kim' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 141ms (Views: 0.7ms | ActiveRecord: 108.8ms | Allocations: 744)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-21 07:05:11 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"status"=>1, "session"=>{"status"=>1}}
+  [1m[36mAdmin Load (89.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (27.0ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 753ms (Views: 12.6ms | ActiveRecord: 327.3ms | Allocations: 22434)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 07:05:37 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 571ms (Views: 3.5ms | ActiveRecord: 45.0ms | Allocations: 5201)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 07:05:43 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 274ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 986)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 07:06:51 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 232ms (Views: 1.5ms | ActiveRecord: 1.2ms | Allocations: 961)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 23:38:30 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (91.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 1065ms (Views: 17.9ms | ActiveRecord: 361.6ms | Allocations: 4057)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-21 23:39:40 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 625ms (Views: 28.6ms | ActiveRecord: 22.6ms | Allocations: 3794)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:12:48 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 814ms (Views: 6.5ms | ActiveRecord: 236.0ms | Allocations: 3794)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:16:07 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 232ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 962)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:16:47 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 264ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 961)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:25:47 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 565ms (Views: 7.1ms | ActiveRecord: 199.3ms | Allocations: 3794)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:27:46 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 229ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 961)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:30:39 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 652ms (Views: 2.1ms | ActiveRecord: 70.4ms | Allocations: 3793)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:32:16 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 251ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 961)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 00:33:22 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (122.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 498ms (Views: 0.6ms | ActiveRecord: 122.7ms | Allocations: 961)
+
+
+Started GET "/login/status" for 127.0.0.1 at 2023-04-22 00:35:04 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"status"=>1, "session"=>{"status"=>1}}
+  [1m[36mAdmin Load (41.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (45.4ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 2199ms (Views: 34.0ms | ActiveRecord: 197.8ms | Allocations: 19432)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 01:22:00 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (46.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 1036ms (Views: 8.8ms | ActiveRecord: 375.8ms | Allocations: 3795)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 04:20:31 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (45.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 780ms (Views: 55.9ms | ActiveRecord: 253.5ms | Allocations: 3794)
+
+
+Started GET "/clerk/login" for 127.0.0.1 at 2023-04-22 06:24:05 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/clerk/login"):
+  
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:24:13 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 99.6ms | Allocations: 458)
+Completed 200 OK in 319ms (Views: 218.6ms | Allocations: 1318)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:34:05 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 58.2ms | Allocations: 467)
+Completed 200 OK in 178ms (Views: 132.2ms | Allocations: 1487)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:34:06 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 453)
+Completed 200 OK in 20ms (Views: 18.5ms | Allocations: 1313)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:34:14 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.8ms | Allocations: 15)
+Completed 200 OK in 6ms (Views: 4.7ms | Allocations: 280)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:34:14 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 15)
+Completed 200 OK in 4ms (Views: 2.9ms | Allocations: 278)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:51:03 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | Allocations: 15)
+Completed 200 OK in 15ms (Views: 8.7ms | Allocations: 278)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:51:03 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 3.1ms | Allocations: 278)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:54:08 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 18.2ms | Allocations: 15)
+Completed 200 OK in 35ms (Views: 28.7ms | Allocations: 278)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 06:54:08 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.0ms | Allocations: 15)
+Completed 200 OK in 12ms (Views: 10.5ms | Allocations: 278)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:17:57 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:17:58 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:18:47 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:18:48 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:18:54 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:39:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:40:01 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 07:40:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/merchant/signup"):
+  
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:42:03 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 308ms (Views: 0.3ms | ActiveRecord: 241.5ms | Allocations: 40553)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:42:32 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 380)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:45:23 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 48ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 40549)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:45:27 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 386)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:48:53 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 51ms (Views: 0.3ms | ActiveRecord: 36.7ms | Allocations: 5241)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:50:26 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 71ms (Views: 0.2ms | ActiveRecord: 53.8ms | Allocations: 7805)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:51:49 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 384)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:51:50 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:51:51 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:54:46 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"nani", "email"=>"nani@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nani", "email"=>"nani@mail.com"}}
+[31mUnpermitted parameter: :merchant. Context: { controller: MerchantsController, action: create, request: #<ActionDispatch::Request:0x00007f852e9ac148>, params: {"username"=>"nani", "email"=>"nani@mail.com", "password"=>"[FILTERED]", "controller"=>"merchants", "action"=>"create", "merchant"=>{"username"=>"nani", "email"=>"nani@mail.com"}} }[0m
+  [1m[36mTRANSACTION (41.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mMerchant Create (77.4ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nani"], ["email", "nani@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 14:54:46.680283"], ["updated_at", "2023-04-22 14:54:46.680283"]]
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (32.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+Completed 201 Created in 466ms (Views: 2.1ms | ActiveRecord: 151.3ms | Allocations: 2679)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 07:55:13 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nani", "email"=>"nani@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nani", "email"=>"nani@mail.com"}}
+  [1m[36mMerchant Load (42.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 51ms (Views: 6.1ms | ActiveRecord: 42.8ms | Allocations: 1171)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:58:09 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 46ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:58:27 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 376)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:58:29 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:59:21 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:59:41 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 07:59:44 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 377)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:02:05 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:03:03 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 7ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:03:06 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:03:09 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 14ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:05:29 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 6ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:05:31 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 18ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:05:33 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:06:37 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:06 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 162ms (Views: 3.2ms | ActiveRecord: 130.8ms | Allocations: 5246)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:09 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:10 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 71ms (Views: 0.5ms | ActiveRecord: 55.0ms | Allocations: 5200)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:13 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:14 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:14 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 18ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:14 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:07:22 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:09:03 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:09:46 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 08:10:37 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nani", "email"=>"nani@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nani", "email"=>"nani@mail.com"}}
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 1.2ms | Allocations: 957)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:11:26 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 20ms (Views: 0.4ms | ActiveRecord: 5.8ms | Allocations: 5256)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 08:22:29 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nan", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nan", "email"=>"nan@mail.com"}}
+  [1m[36mMerchant Load (42.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 71ms (Views: 25.2ms | ActiveRecord: 275.3ms | Allocations: 2460)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:22:39 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"nan", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nan", "email"=>"nan@mail.com"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 531)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:23:22 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"nan", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nan", "email"=>"nan@mail.com"}}
+[31mUnpermitted parameter: :merchant. Context: { controller: MerchantsController, action: create, request: #<ActionDispatch::Request:0x00007f8526e28968>, params: {"username"=>"nan", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "controller"=>"merchants", "action"=>"create", "merchant"=>{"username"=>"nan", "email"=>"nan@mail.com"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mMerchant Create (4.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nan"], ["email", "nan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 15:23:23.038860"], ["updated_at", "2023-04-22 15:23:23.038860"]]
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (81.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+Completed 201 Created in 450ms (Views: 0.5ms | ActiveRecord: 105.3ms | Allocations: 3740)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:23:52 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms | Allocations: 2998)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 08:24:18 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nan", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nan", "email"=>"nan@mail.com"}}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 8.7ms | Allocations: 2504)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:24:50 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 65ms (Views: 0.6ms | ActiveRecord: 31.3ms | Allocations: 7836)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:52 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 12ms (Allocations: 2962)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:57 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 9ms (Allocations: 3002)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:32:59 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:33:00 -0700
+Processing by MerchantsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: merchant):
+  
+app/controllers/merchants_controller.rb:47:in `merchant_param'
+app/controllers/merchants_controller.rb:10:in `create'
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 08:33:09 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (1.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 155ms (Views: 153.5ms | ActiveRecord: 114.8ms | Allocations: 5584)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:34:10 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"na", "email"=>"nan@mail.com"}}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 2795)
+
+
+  
+NameError (undefined local variable or method `merchant' for #<MerchantsController:0x0000000003ade0>
+Did you mean?  @merchant):
+  
+app/controllers/merchants_controller.rb:11:in `create'
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:35:01 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"na", "email"=>"nan@mail.com"}}
+Completed 422 Unprocessable Entity in 15ms (Views: 0.2ms | ActiveRecord: 65.0ms | Allocations: 1969)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:36:09 -0700
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"na", "email"=>"nan@mail.com"}}
+[31mUnpermitted parameter: :merchant. Context: { controller: MerchantsController, action: create, request: #<ActionDispatch::Request:0x00007f852dd79240>, params: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "controller"=>"merchants", "action"=>"create", "merchant"=>{"username"=>"na", "email"=>"nan@mail.com"}} }[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mMerchant Create (7.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "na"], ["email", "nan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 15:36:09.605775"], ["updated_at", "2023-04-22 15:36:09.605775"]]
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+Completed 201 Created in 274ms (Views: 2.0ms | ActiveRecord: 20.7ms | Allocations: 4144)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:45:54 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 195ms (Views: 2.2ms | ActiveRecord: 100.7ms | Allocations: 3138)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:45:56 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:47:11 -0700
+Processing by MerchantsController#create as */*
+Completed 422 Unprocessable Entity in 61ms (Views: 2.6ms | ActiveRecord: 34.6ms | Allocations: 5322)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:49:15 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 12ms (Views: 0.9ms | ActiveRecord: 3.2ms | Allocations: 5201)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:49:18 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:49:19 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:49:50 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-22 08:52:43 -0700
+Processing by MerchantsController#create as */*
+Completed 201 Created in 83ms (Views: 1.0ms | ActiveRecord: 50.2ms | Allocations: 7745)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 08:57:33 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/config/routes.rb:28: syntax error, unexpected string literal, expecting `do' or '{' or '('
+  post 'merchant/signup', to "sessions#merchant_signup"
+                             ^
+):
+  
+config/routes.rb:28: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:28: syntax error, unexpected string literal, expecting `do' or '{' or '('
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 08:59:25 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 30ms (Allocations: 5305)
+
+
+  
+NameError (undefined local variable or method `merchant_param' for #<SessionsController:0x0000000003afc0>
+Did you mean?  merchant_params
+               merchant_path
+               merchants_path
+               merchant_url):
+  
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:00:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (41.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms | Allocations: 26383)
+
+
+  
+NameError (undefined local variable or method `merchant_param' for #<SessionsController:0x0000000000b338>
+Did you mean?  merchant_params
+               merchant_path
+               merchants_path
+               merchant_url):
+  
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:01:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (4.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "na"], ["email", "nan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 16:01:21.318319"], ["updated_at", "2023-04-22 16:01:21.318319"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 316ms (Views: 1.2ms | ActiveRecord: 13.4ms | Allocations: 42695)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:13:16 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 12ms (Allocations: 2997)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:13:18 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 5ms (Allocations: 182)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:15:16 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+Completed 400 Bad Request in 11ms (Allocations: 2991)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sessions
+Did you mean?  session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:15:29 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (1.0ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "na"], ["email", "nan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 16:15:30.428832"], ["updated_at", "2023-04-22 16:15:30.428832"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (43.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 446ms (Views: 2.0ms | ActiveRecord: 114.1ms | Allocations: 24452)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:15:45 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_signup, request: #<ActionDispatch::Request:0x00007fa25a745de8>, params: {"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_signup", "session"=>{"username"=>"na", "email"=>"nan@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (0.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "na"], ["email", "nan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 16:15:45.687431"], ["updated_at", "2023-04-22 16:15:45.687431"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 329ms (Views: 1.3ms | ActiveRecord: 20.9ms | Allocations: 9611)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:18:14 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 2972)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:18:52 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms | Allocations: 2961)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:18:55 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 133)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started GET "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:19:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:21:02 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:21:33 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:23:49 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:24:16 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 74ms (Views: 1.2ms | ActiveRecord: 55.2ms | Allocations: 5278)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:26:26 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_signup, request: #<ActionDispatch::Request:0x00007fa25a7df218>, params: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_signup", "session"=>{"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (40.9ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nj"], ["email", "an@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 16:26:26.861259"], ["updated_at", "2023-04-22 16:26:26.861259"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 332ms (Views: 0.5ms | ActiveRecord: 57.7ms | Allocations: 7071)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:26:56 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 8.4ms | Allocations: 5190)
+
+
+  
+ArgumentError (Unrecognized status code :Created):
+  
+app/controllers/sessions_controller.rb:143:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:27:37 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 52ms (Views: 0.2ms | ActiveRecord: 42.6ms | Allocations: 5210)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:28:37 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 93ms (Views: 0.3ms | ActiveRecord: 15.5ms | Allocations: 8232)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:28:41 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 4ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 355)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:29:06 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 351)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:30:02 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 350)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:30:09 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:32:01 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 5ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 351)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:34:27 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:37:40 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 422 Unprocessable Entity in 103ms (Views: 0.3ms | ActiveRecord: 56.2ms | Allocations: 5226)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:38:38 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 422 Unprocessable Entity in 57ms (Views: 0.2ms | ActiveRecord: 46.3ms | Allocations: 5232)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:39:13 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 84ms (Views: 0.8ms | ActiveRecord: 12.8ms | Allocations: 7641)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:39:50 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_signup, request: #<ActionDispatch::Request:0x00007fa25c0ffe50>, params: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_signup", "session"=>{"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (85.9ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nj"], ["email", "an@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 16:39:51.267414"], ["updated_at", "2023-04-22 16:39:51.267414"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (43.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 496ms (Views: 0.5ms | ActiveRecord: 187.3ms | Allocations: 6993)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:39:57 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:40:02 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/merchant/signup"):
+  
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 09:40:53 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa25c28e050>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa25c28e050>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mMerchant Load (20.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa25c28e050>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+Completed 200 OK in 253ms (Views: 0.4ms | ActiveRecord: 24.1ms | Allocations: 6445)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 09:40:54 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 461)
+Completed 200 OK in 19ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 3773)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 09:40:54 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.4ms | Allocations: 453)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 1299)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 09:41:34 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 16)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 266)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 09:41:34 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 15)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 263)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:42:34 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:45:14 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 7ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 445)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:46:11 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:47:12 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:47:31 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 58ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:13 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:34 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:35 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 10ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:36 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:36 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:37 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:39 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:42 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:43 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:43 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:49:43 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 8ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 09:50:20 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nj", "email"=>"an@mail.com"}}
+  [1m[36mMerchant Load (87.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 127ms (Views: 36.3ms | ActiveRecord: 87.5ms | Allocations: 1813)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:50:34 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-22 09:50:45 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"nj", "email"=>"an@mail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"nj", "email"=>"an@mail.com"}}
+  [1m[36mMerchant Load (23.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 49ms (Views: 23.9ms | ActiveRecord: 23.9ms | Allocations: 1627)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:52:04 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 106ms (Views: 1.1ms | ActiveRecord: 84.9ms | Allocations: 5120)
+
+
+Started GET "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:52:09 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/merchant/signup"):
+  
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:58:11 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 18ms (Allocations: 2909)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 09:59:49 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 263ms (Views: 0.8ms | ActiveRecord: 153.8ms | Allocations: 7636)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:00:12 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:01:03 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/sessions_controller.rb:143: syntax error, unexpected local variable or method, expecting `end'
+...er json:{data: merchant} status: :created 
+...                         ^~~~~~
+):
+  
+app/controllers/sessions_controller.rb:143: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/sessions_controller.rb:143: syntax error, unexpected local variable or method, expecting `end'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:01:24 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 201 Created in 243ms (Views: 1.1ms | ActiveRecord: 132.5ms | Allocations: 8116)
+
+
+Started GET "/merchants/signup" for 127.0.0.1 at 2023-04-22 10:06:33 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"username"=>"njo", "email"=>"jan@mail.com", "password"=>"[FILTERED]", "id"=>"signup", "merchant"=>{"username"=>"njo", "email"=>"jan@mail.com"}}
+  [1m[36mMerchant Load (42.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 170ms (Views: 1.9ms | ActiveRecord: 42.5ms | Allocations: 1455)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:06:53 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"njo", "email"=>"jan@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"njo", "email"=>"jan@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_signup, request: #<ActionDispatch::Request:0x00007fa255547500>, params: {"username"=>"njo", "email"=>"jan@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_signup", "session"=>{"username"=>"njo", "email"=>"jan@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (41.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "njo"], ["email", "jan@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 17:06:53.860960"], ["updated_at", "2023-04-22 17:06:53.860960"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 457ms (Views: 0.5ms | ActiveRecord: 154.5ms | Allocations: 9938)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:09:09 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"njooo", "email"=>"jarrrn@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"njooo", "email"=>"jarrrn@mail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 4.7ms | Allocations: 5058)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'session' for Merchant.):
+  
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:11:45 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 3610)
+
+
+  
+NoMethodError (undefined method `reguire' for #<ActionController::Parameters {"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"1234", "controller"=>"sessions", "action"=>"merchant_signup", "session"=>{"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"1234"}} permitted: false>
+Did you mean?  require
+               required):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:12:04 -0700
+Processing by SessionsController#merchant_signup as */*
+  Parameters: {"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"nooo", "email"=>"jarn@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mMerchant Create (42.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nooo"], ["email", "jarn@mail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-04-22 17:12:05.465848"], ["updated_at", "2023-04-22 17:12:05.465848"]]
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+  [1m[36mTRANSACTION (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Completed 201 Created in 455ms (Views: 2.4ms | ActiveRecord: 154.3ms | Allocations: 6868)
+
+
+Started POST "/merchant/signup" for 127.0.0.1 at 2023-04-22 10:12:14 -0700
+Processing by SessionsController#merchant_signup as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: session):
+  
+app/controllers/sessions_controller.rb:155:in `merchant_params'
+app/controllers/sessions_controller.rb:141:in `merchant_signup'
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-22 10:16:00 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa254c45178>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa254c45178>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mMerchant Load (45.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: merchant_login, request: #<ActionDispatch::Request:0x00007fa254c45178>, params: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"merchant_login", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}} }[0m
+Completed 200 OK in 479ms (Views: 1.5ms | ActiveRecord: 54.5ms | Allocations: 9001)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:16:01 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.2ms | Allocations: 730)
+Completed 200 OK in 61ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 5839)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:16:01 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | Allocations: 453)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 1298)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:16:36 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 16)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 268)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:21:23 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 15)
+Completed 200 OK in 12ms (Views: 4.5ms | Allocations: 261)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:21:23 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.4ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:21:33 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 2.7ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:21:33 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:22:17 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 16)
+Completed 200 OK in 2ms (Views: 1.7ms | Allocations: 262)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:22:17 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.7ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:30 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.1ms | Allocations: 16)
+Completed 200 OK in 8ms (Views: 7.3ms | Allocations: 262)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:30 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.3ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:34 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:34 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:46 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 2.8ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:46 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 1.5ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:48 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 1.1ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:24:48 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:08 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 16)
+Completed 200 OK in 3ms (Views: 2.0ms | Allocations: 262)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:08 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 3.1ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:10 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.8ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:10 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.7ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:13 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 3ms (Views: 2.2ms | Allocations: 260)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-22 10:25:13 -0700
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 260)
+
+

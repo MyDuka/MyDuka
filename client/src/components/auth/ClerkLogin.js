@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import './Auth.css'
 import { Link, Navigate } from "react-router-dom";
+import Navbar from "../landingpage/navbar";
 
 
 export default function ClerkLogin(){
@@ -9,6 +10,8 @@ export default function ClerkLogin(){
   const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [invalid,setInvalid] =useState(false)
+
 
 
     function clerkLogin(e){
@@ -27,7 +30,9 @@ export default function ClerkLogin(){
                         // signup(user)
                         console.log(user)
                     })
-                }
+                }else{
+                  setInvalid(true)
+              }
             })
     }
 
@@ -38,29 +43,39 @@ export default function ClerkLogin(){
 
 
     return(
-        <div className="log">
-<form className="login-form" onSubmit={clerkLogin}>
-  <h4>Clerk Login</h4>
+      <div className="bckgrd">
+      {/* <Navbar/> */}
 
-  <label for="username" className="label"> Email</label>
-  <div className="form-input-material">
-    <input type="text" name="username" id="username" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} autocomplete="off" className="form-control-material" required /> 
-  </div>
+          <div>
+                <Link to="/" className="logoIn">MyDuka</Link>
+                {/* <h3 > <Link>Go back </Link> </h3> */}   
+          </div>
 
-  <label for="password" className="label">Password</label>
-  <div className="form-input-material">
-    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autocomplete="off" className="form-control-material" required />
-  </div>
+      <div className="log">
+        <form className="login-form" onSubmit={clerkLogin}>
+          <h4>Clerk Login</h4>
 
-  <button type="submit" className="btn btn-primary btn-ghost">Login</button>
+          <label for="username" className="label"> Email</label>
+          <div className="form-input-material">
+            <input type="text" name="username" id="username" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} autocomplete="off" className="form-control-material" required /> 
+          </div>
 
-  <br/>
+          <label for="password" className="label">Password</label>
+          <div className="form-input-material">
+            <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autocomplete="off" className="form-control-material" required />
+          </div>
 
-  <div className="foot-lnk">
-        <Link to="/password/reset">Forgot Password?</Link>
-    </div>
+          <button type="submit" className="btn btn-primary btn-ghost">Login</button>
 
-</form>
-        </div>
+          <br/>
+
+          <div className="foot-lnk">
+          <p id="msg">{invalid? "Invalid email or password": null }</p>
+            <Link className="foot-lnk" to="/password/reset">Forgot Password?</Link>
+           </div>
+
+        </form>
+      </div>
+      </div>
     )
 }
