@@ -4,6 +4,6 @@ class Merchant < ApplicationRecord
     has_many :admins
     has_many :stores
 
-    validates :email, presence: true
+    # validates :username, {presence: true}
 
 end
