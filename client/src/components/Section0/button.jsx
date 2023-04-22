@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./button.css";
 import { IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
@@ -34,16 +35,9 @@ function Button() {
         </IconButton>
       </div>
       <ul>
-        <li>
-          <a href="#">Super-Merchant Login</a>
-        </li>
-        <li>
-          <a href="#">Admin Login</a>
-        </li>
-        <li>
-          <a href="#">Clerk Login</a>
-        </li>
-        
+        <li><Link to="/admin/login" >Admin</Link></li>
+        <li><Link   to="/clerk/login">Clerk</Link></li>
+        <li><Link  to="/merchant/login" >Merchant</Link></li> 
       </ul>
     </div>
   );

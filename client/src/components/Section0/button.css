@@ -10,13 +10,14 @@
   box-sizing: border-box;
   top: 30%;
   margin-top: 3.5rem;
-  margin-right: -6rem;
+  margin-right: -15.5rem;
   transform: translate(-50%, -50%);
   width: 300px;
   display: flex;
   /* align-items: center;
   justify-content: center; */
   background: transparent;
+  /* padding-bottom: 2rem; */
 }
 .button{
   position: relative;
@@ -33,10 +34,11 @@
   border-radius: 25px;
   cursor: pointer;
   transition: width .4s;
+
   
 }
 .button.expand{
-  width: 100%;
+  width: 70%;
 }
 
 .fas{
@@ -51,19 +53,20 @@ ul{
   position: absolute;
   top: 65px;
   display: block;
-  background: var(--orange);
-  width: 100%;
+  /* background: var(--orange); */
+  width: 70%;
   text-align: center;
   border-radius: 5px;
   display: none;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.3); */
 }
 ul:before{
   position: absolute;
   content: '';
   width: 20px;
   height: 20px;
-  background: var(--orange);
+  /* background: var(--orange); */
+  background: transparent;
   top: -10px;
   right: 15px;
   transform: rotate(45deg);
