@@ -135,11 +135,24 @@ class SessionsController < ApplicationController
 
     end
 
+    # merchant signup
+
+    def merchant_signup 
+        merchant = Merchant.create(merchant_params)
+       if merchant
+        render json: merchant, status: :created 
+       else
+        render json: {message: "unprocessable"}, status: :unprocessable_entity
+       end
+    end
+
+         
+
 
     private 
 
     def merchant_params
-        params.require(:session).permit(:username, :password, :email)
+        params.permit(:username, :password, :email)
     end
 
 
