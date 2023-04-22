@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+.progress_bar {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  height: fit-content;
+}
+.progress_bar .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+}
+.progress_bar .top p {
+  font-size: 20px;
+}
+.progress_bar .middle {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.progress_bar .middle .progress {
+  height: 250px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.progress_bar .middle .progress .progress_main {
+  color: #536def;
+}
+.progress_bar .middle p {
+  color: gray;
+  margin: 15px 0px;
+  font-size: 20px;
+}
+.progress_bar .middle .price {
+  color: #0f0f0f;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  margin: 20px 0px 15px;
+}
+.progress_bar .bottom {
+  padding: 0px 20px 20px;
+}
+.progress_bar .bottom p {
+  color: gray;
+}
+.progress_bar .bottom .botom_nested {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.progress_bar .bottom .botom_nested .nested_nested .pricee {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: green;
+}
+.progress_bar .bottom .botom_nested .nested_nested .pricee.decrese {
+  color: red;
+}
