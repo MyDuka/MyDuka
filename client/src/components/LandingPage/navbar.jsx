@@ -6,7 +6,7 @@ function Navbar(){
     return(
         <nav>
             <div>
-                <h1>MyDuka</h1>
+                <h1 id="logo">MyDuka</h1>
             </div>
             <Button />
         </nav>

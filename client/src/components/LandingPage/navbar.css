@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600&family=Pirata+One&family=Playfair+Display+SC:wght@400;900&family=Prata&display=swap');
+
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:var(--orange);
-    padding: 4px;
+    /* background-color:var(--orange); */
+    background-color:  transparent;
+    padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height:3rem;
+    /* margin-top: 1.4rem; */
   }
-h1{
+#logo{
     color: var(--white);
-    background: var(--orange);
+    /* background: var(--orange); */
     padding: 14px;
+    /* font-family: 'Playfair Display SC', serif; */
+    font-family: 'Cinzel', serif;
+    /* font-family: 'Cinzel Decorative', cursive; */
+    /* font-family: 'Prata', serif; */
+  
 
 }
