@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid #eee;
+}
+.navbar .search {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+.navbar .search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+.navbar .search .search_icon {
+  cursor: pointer;
+}
+.navbar .item_lists {
+  display: flex;
+  align-items: center;
+}
+.navbar .item_lists .item {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.navbar .item_lists .item .item_icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+.navbar .item_lists .item .item_icon.white {
+  color: rgba(255, 255, 255, 0.699);
+}
+.navbar .item_lists .item .badge {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: #ff74b1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+}
+.navbar .item_lists .item .admin_pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
