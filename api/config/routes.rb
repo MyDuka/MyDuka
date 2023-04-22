@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   post '/merchant/login', to: "sessions#merchant_login"
 
+  post 'merchant/signup', to: "sessions#merchant_signup"
+
   # clerk routes
 
   post 'clerk/login', to: "sessions#clerk_login"
