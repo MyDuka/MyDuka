@@ -1,8 +1,17 @@
 import React from 'react'
 import './section0.css'
-
+import { Navigate, Link } from 'react-router-dom'
 
 const Landing = () => {
+
+
+
+  function reg(){
+    return <Navigate to="/merchant/signup"/>
+  }
+   
+  
+
     return (
         <div className="landing-container">
           <div className="lc-l-section">
@@ -12,11 +21,11 @@ const Landing = () => {
                     <label>Simple Inventory Management Software</label> 
                 </div>
             </div>
-            <button className='lp-btn'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span> Get Started as a super merchant
+            <button type="button" className='lp-btn' onClick={()=> reg}>
+                <span ></span>
+                <span ></span>
+                <span ></span>
+                <span ></span> <Link id="merch" to="/merchant/signup">Get Started as a super merchant</Link>
             </button>
       
           </div>
