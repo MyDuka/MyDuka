@@ -13,10 +13,18 @@ import Pie from "./components/MerchantDashboard/Scenes/pie/index.jsx";
 import Line from "./components/MerchantDashboard/Scenes/line/index.jsx";
 
 
-
 function App() {
   const [theme, colorMode] =useMode();
   const [isSidebar, setisSidebar] =useState(true);
+  
+  
+   const [vanish,setVanish] = useState("here")
+  
+
+  function gone(){
+    setVanish("nothere")
+  }
+
 
   return (
     <ColorModeContext.Provider value={colorMode}>
