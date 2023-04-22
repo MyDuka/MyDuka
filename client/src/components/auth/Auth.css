@@ -3,37 +3,39 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #eceffc;
+ 
 }
 .btn {
     padding: 8px 20px;
     border-radius: 0;
     overflow: hidden;
 }
-.btn::before {
+/* .btn::before {
     position: absolute;
     content: "";
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, var(--primary-color), transparent);
-    transform: translateX(-100%);
-    transition: 0.6s;
-}
-.btn:hover {
+    /* background: linear-gradient(120deg, transparent, var(--orange), transparent); */
+    /* transform: translateX(-100%); */
+    /* transition: 0.6s; */
+/* } */ 
+/* .btn:hover {
     background: transparent;
-    box-shadow: 0 0 20px 10px rgba(51, 152, 219, 0.5);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
 }
 .btn:hover::before {
     transform: translateX(100%);
-}
+} */
 .form-input-material {
     --input-default-border-color: white;
     --input-border-bottom-color: white;
+    background-color: transparent;
 }
 .form-input-material input {
     color: white;
+    background-color: transparent;
 }
 .login-form {
     display: flex;
@@ -60,9 +62,52 @@
 
 .foot-lnk{
 	text-align:center;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    margin-top: 1rem;
 }
 
 .label{
     position:relative;
 	display:inline-block;
 }
+
+.goBack{
+    /* position: absolute; */
+    box-sizing: border-box;
+    top: 30%;
+    margin-top: 3.5rem;
+    margin-right: -6rem;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    display: flex;
+    justify-content: centre;
+    /* align-items: center;
+    justify-content: center; */
+    background: transparent;
+  }
+
+  .logoIn{
+    padding: 14px;
+    color: var(--white);
+    /* background: var(--orange); */
+    /* padding: 14px; */
+    /* font-family: 'Playfair Display SC', serif; */
+    font-family: 'Cinzel', serif;
+    /* font-family: 'Cinzel Decorative', cursive; */
+    /* font-family: 'Prata', serif; */
+    font-size: 2rem;
+    text-decoration: none;
+   
+  }
+
+  #msg{
+    color: red;
+  }
+
+  .bckgrd{
+    font-family: 'Poppins', sans-serif;
+    background: #171A24; 
+;
+  }
