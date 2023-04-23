@@ -1,11 +1,14 @@
 import {useState} from "react"
 
-import './App.css';
+// import './App.css';
 
-import {CssBaseline, ThemeProvider } from '@mui/material';
+// import {CssBaseline, ThemeProvider } from '@mui/material';
 import {Routes, Route} from "react-router-dom"
 
-import LandingPage from '../src/components/landingpage/Landingpage'
+// import { CssBaseline, ThemeProvider } from "@mui/material";
+// import { ColorModeContext, useMode } from "./components/adminDashboard/adminthemes";
+
+import LandingPage from "./components/landingpage/Landingpage";
 
 import ClerkLogin from './components/auth/ClerkLogin';
 import AdminLogin from './components/auth/AdminLogin';
@@ -20,7 +23,7 @@ import Bar from './components/MerchantDashboard/Scenes/bar';
 import Pie from './components/MerchantDashboard/Scenes/pie';
 import Line from './components/MerchantDashboard/Scenes/line';
 
-import Admin from './components/adminDashboard/admin';
+import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
 import AdminTeam from './components/adminDashboard/adminDashScenes/team';
 import AdminInvoices from "./components/adminDashboard/adminDashScenes/invoices";
@@ -33,26 +36,38 @@ import AdminFAQ from "./components/adminDashboard/adminDashScenes/faq";
 import AdminGeography from "./components/adminDashboard/adminDashScenes/geography";
 import AdminCalendar from "./components/adminDashboard/adminDashScenes/calendar/calendar";
 
+// import AdminSidebar from "./components/adminDashboard/adminDashScenes/global/Sidebar";
+// import AdminTopbar from "./components/adminDashboard/adminDashScenes/global/Topbar";
+
+// import Merch from "./components/Merch";
+
 
 
 
 
 function App() {
 
+  // const [theme, colorMode] = useMode();
+    // const [isSidebar, setIsSidebar] = useState(false);
+
+
 
 
 
   return (
- 
-              <>   
-      
-                       {/* <MerchantPage/>    */}
-                    <Routes>
-                      <Route path="/" element={<LandingPage/>}/>
+
+       <div className="hm">
+
+
+                    
+                  <Routes>
+                          <Route path="/" element={<LandingPage/>}/>
                            <Route path="/clerk/login" element={<ClerkLogin />}/>
                            <Route path="/admin/login" element={<AdminLogin />}/>
                            <Route path="/merchant/login" element={<MerchantLogin />}/>
                            <Route path="/merchant/signup" element={<MerchantSignup/>}/>
+
+
                            <Route path="/merchant" element={<Merchant/>}>
                               <Route path="/merchant" element={<Dashboard />} />
                               <Route path="/merchant/team" element={<Team />} />
@@ -62,7 +77,7 @@ function App() {
                               <Route path="/merchant/line" element={<Line/>} />
                           </Route> 
 
-                          <Route path="/admin" element={Admin}>
+                          <Route path="/admin" element={<Admin/>}>
                             <Route path="/admin" element={<AdminDashboard />} />
                             <Route path="/admin/team" element={<AdminTeam />} />
                             <Route path="/admin/contacts" element={<AdminContacts />} />
@@ -77,8 +92,8 @@ function App() {
                           </Route>
                                           
                     </Routes>
-              </>
-     
+
+        </div>     
 
   );
 }
