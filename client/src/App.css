@@ -15,11 +15,7 @@
   --boxShadow:0px 0px 20px 1px #ffbb763f;
 }
 
-*{
-  /* background: var(--grey); */
-  font-family: 'Poppins', sans-serif;
-  /* background: #171A24; */
-}
+
 
 
 .here{
@@ -28,4 +24,8 @@
 
 .nothere{
   display:none;
+}
+
+body{
+  background: #171A24;
 }
