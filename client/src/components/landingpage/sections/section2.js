@@ -24,28 +24,28 @@ const About2 = () => {
           <div className="ab-r-section">
             {/* content for right section */}
               <div className='a-content'>
-                <item>
+                <item className="items">
                   <HistoryIcon className="lp-icon"/>
                   <p>
                   Get real-time reporting insights.
                   </p>
                 </item>
 
-                <item>
+                <item className="items">
                     <DataUsageIcon className="lp-icon"/>
                     <p>
                       Get in-depth data on items, folders, and, user histories.
                     </p>
                 </item>
                 
-                <item>
+                <item className="items">
                     <SystemUpdateAltIcon className="lp-icon"/>
                     <p>
                       Easily export custom PDF or CSV reports.
                     </p>
                 </item>
 
-                <item>
+                <item className="items">
                     <p>
                     <InsightsIcon className="lp-icon"/>
                     Perfect for audits, budgeting, and forecasting.
