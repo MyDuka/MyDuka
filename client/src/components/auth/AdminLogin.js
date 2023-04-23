@@ -55,12 +55,12 @@ export default function AdminLogin(){
   <h4>Admin Login</h4>
   <label for="username" className="label">Email</label>
   <div className="form-input-material">
-    <input type="text" name="username" id="username" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} autocomplete="off" className="form-control-material" required />
+    <input type="text" name="username" id="username" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="off" className="form-control-material" required />
   </div>
 
   <label for="password" className="label">Password</label>
   <div className="form-input-material">
-    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autocomplete="off" className="form-control-material" required />
+    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material" required />
   </div>
   <button type="submit" className="btn btn-primary btn-ghost">Login</button>
 
