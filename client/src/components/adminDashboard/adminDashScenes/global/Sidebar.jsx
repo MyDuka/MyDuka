@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Tem = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -117,7 +117,7 @@ const AdminSidebar = () => {
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
+            <Tem
               title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
@@ -132,21 +132,21 @@ const AdminSidebar = () => {
             >
               Data
             </Typography>
-            <Item
-              title="Manage Team"
+            <Tem
+              title="Manage Clerks"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Contacts Information"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Invoices Balances"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
@@ -161,21 +161,21 @@ const AdminSidebar = () => {
             >
               Pages
             </Typography>
-            <Item
-              title="Profile Form"
+            <Tem
+              title="Add clerk Form"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="FAQ Page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
@@ -190,28 +190,28 @@ const AdminSidebar = () => {
             >
               Charts
             </Typography>
-            <Item
+            <Tem
               title="Bar Chart"
               to="/bar"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Pie Chart"
               to="/pie"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Line Chart"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <Tem
               title="Geography Chart"
               to="/geography"
               icon={<MapOutlinedIcon />}

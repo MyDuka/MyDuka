@@ -21,7 +21,7 @@ const AdminDashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="CLERK" subtitle="Welcome to your dashboard" />
+        <Header title="Adminstrator" subtitle="Welcome to your dashboard" />
 
         <Box>
           <Button
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Recent Stock
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
