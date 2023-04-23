@@ -12,6 +12,7 @@ export default function AdminLogin(){
     const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [invalid,setInvalid] =useState(false);
 
 
     function adminLogin(e){
@@ -30,6 +31,8 @@ export default function AdminLogin(){
                         // signup(user)
                         console.log(user)
                     })
+                }else{
+                    setInvalid(true)
                 }
             })
     }
@@ -48,6 +51,13 @@ export default function AdminLogin(){
 
 
     return(
+<div className="bckgrd">
+
+            <div>
+                <Link className="logoIn" to="/">MyDuka</Link>
+                {/* <h3 > <Link>Go back </Link> </h3> */}  
+            </div>
+
         <div className="log">
 
 <form className="login-form" onSubmit={adminLogin}>
@@ -55,21 +65,24 @@ export default function AdminLogin(){
   <h4>Admin Login</h4>
   <label for="username" className="label">Email</label>
   <div className="form-input-material">
-    <input type="text" name="username" id="username" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="off" className="form-control-material" required />
+    <input type="text" name="username" id="username" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="off" className="form-control-material" />
   </div>
 
   <label for="password" className="label">Password</label>
   <div className="form-input-material">
-    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material" required />
+    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material"  />
   </div>
   <button type="submit" className="btn btn-primary btn-ghost">Login</button>
 
-  <br/>
+    {/* <div className="hr"></div> */}
     <div className="foot-lnk">
-        <Link to="/password/reset">Forgot Password?</Link>
+    <p id="msg">{invalid? "Invalid email or password": null }</p>
+        <Link className="footer" to="/password/reset">Forgot Password?</Link>
     </div>
 </form>
   
+        </div>
+
         </div>
     )
 }

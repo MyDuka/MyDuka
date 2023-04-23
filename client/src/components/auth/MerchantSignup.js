@@ -42,35 +42,47 @@ export default function MerchantSignup(){
 
 
     return(
+
+        <div className="bckgrd">
+
+        <div>
+            <Link className="logoIn" to="/">MyDuka</Link>
+            {/* <h3 > <Link>Go back </Link> </h3> */}  
+        </div>           
+
         <div className="log">
 
-<form className="login-form" onSubmit={merchantSignup} >
-  <h4>Merchant Signup</h4>
+            <form className="login-form" onSubmit={merchantSignup} >
+                <h4>Merchant Signup</h4>
 
-  <label for="username" className="label">Username</label>
-  <div className="form-input-material">
-    <input type="text" name="username" id="username" placeholder="Username" value={username} onChange={(e)=> setUsername(e.target.value)} autocomplete="off" className="form-control-material" required /> 
-  </div>
+                <label for="username" className="label">Username</label>
+                <div className="form-input-material">
+                    <input type="text" name="username" id="username" placeholder="Username" value={username} onChange={(e)=> setUsername(e.target.value)} autoComplete="off" className="form-control-material" required /> 
+                </div>
 
-  <label for="username" className="label">Email</label>
-  <div className="form-input-material">
-    <input type="text" name="email" id="username" placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)} autocomplete="off" className="form-control-material" required /> 
-  </div>
+                <label for="username" className="label">Email</label>
+                <div className="form-input-material">
+                    <input type="text" name="email" id="username" placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)} autoComplete="off" className="form-control-material" /> 
+                </div>
 
-  <label for="password" className="label">Password</label>
-  <div className="form-input-material">
-    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword} autocomplete="off" className="form-control-material" required />
-  </div>
+                <label for="password" className="label">Password</label>
+                <div className="form-input-material">
+                    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword} autoComplete="off" className="form-control-material"  />
+                </div>
 
-  <button type="submit" className="btn btn-primary btn-ghost">Login</button>
+                <button type="submit" className="btn btn-primary btn-ghost">Login</button>
 
-  <div className="foot-lnk">
-        <Link to="/merchant/login">Already Registered?</Link>
-    </div>
+                <div className="hr"></div>
+                
+                <div className="foot-lnk">
+                    <Link className="footer" to="/merchant/login">Already Registered?</Link>
+                </div>
 
-</form>
+            </form>
 
 		</div>
+
+        </div>
 
    
     )
