@@ -67,6 +67,6 @@
     margin-right: 1rem;
     }
 
-  item{
+  .items{
     display: flex;
   }

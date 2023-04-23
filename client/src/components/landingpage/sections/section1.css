@@ -16,10 +16,7 @@
       background: transparent;
     }
   
-  /* *{
-    background: var(--purple);
-  } */
-  
+
   .cards{
     display: flex;
     background: transparent;
@@ -55,4 +52,4 @@
     background: transparent;
     color: var(--white);
     font-weight: 700;
-  }
+  } 
