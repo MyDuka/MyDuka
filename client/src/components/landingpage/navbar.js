@@ -4,7 +4,7 @@ import './navbar.css'
 
 function Navbar(){
     return(
-        <nav>
+        <nav id="nav">
             <div>
                 <h1 id="logo">MyDuka</h1>
             </div>
