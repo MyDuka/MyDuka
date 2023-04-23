@@ -1,7 +1,8 @@
 import { useState } from "react";
+// import '../../App.css'
 import { Outlet } from "react-router-dom";
 import AdminTopbar from './adminDashScenes/global/Topbar'
-import AdminSidebar from "./adminDasScenes/global/Sidebar";
+import AdminSidebar from "./adminDashScenes/global/Sidebar.jsx";
 // import AdminDashboard from "./adminDashScenes/dashboard";
 // import AdminTeam from "./adminDashScenes/team";
 // import AdminInvoices from "./adminDashScenes/invoices";
@@ -13,7 +14,7 @@ import AdminSidebar from "./adminDasScenes/global/Sidebar";
 // import AdminFAQ from "./adminDashScenes/faq";
 // import AdminGeography from "./adminDashScenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
+import { ColorModeContext, useMode } from "./adminthemes";
 // import AdminCalendar from "./adminDashScenes/calendar/calendar";
 
 function Admin() {
@@ -21,15 +22,19 @@ function Admin() {
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+ 
+        <ColorModeContext.Provider value={colorMode}>
+            <ThemeProvider theme={theme}>
+            <CssBaseline />
         <div className="app">
           <AdminSidebar isSidebar={isSidebar} />
           <main className="content">
             <AdminTopbar setIsSidebar={setIsSidebar} />
 
+
             <Outlet/>
+            
+            
 
             {/* <Routes>
               <Route path="/" element={<AdminDashboard />} />
@@ -46,8 +51,11 @@ function Admin() {
             </Routes> */}
           </main>
         </div>
-      </ThemeProvider>
+
+        </ThemeProvider>
     </ColorModeContext.Provider>
+
+ 
   );
 }
 
