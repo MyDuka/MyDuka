@@ -6,6 +6,6 @@ class Clerk < ApplicationRecord
     belongs_to :admin
     has_many :product_clerks 
 
-    validates :email, presence: true
+    # validates :email, presence: true
 
 end
