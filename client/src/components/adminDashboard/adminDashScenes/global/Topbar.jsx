@@ -7,6 +7,8 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import SearchIcon from "@mui/icons-material/Search";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -36,8 +38,8 @@ const AdminTopbar = () => {
       >
         <IconButton ><Link className="admm" to="/admin/dashbord">< HomeOutlinedIcon /></Link></IconButton>
         <IconButton><Link className="admm"  to="/admin/team"><PeopleOutlinedIcon /></Link></IconButton>
-        <IconButton><Link className="admm"  to="/admin/Contacts"> <RiPencilLine /></Link></IconButton>
-        <IconButton ><Link className="admm"  to="/admin/form"><PersonOutlinedIcon /></Link></IconButton>
+        <IconButton><Link className="admm"  to="/admin/products"> <ContactPhoneIcon /></Link></IconButton>
+        <IconButton ><Link className="admm"  to="/admin/form"><PersonAddAltIcon /></Link></IconButton>
         <IconButton ><Link className="admm"  to="/admin/bar"><BarChartOutlinedIcon /></Link></IconButton>
         <IconButton ><Link className="admm"  to="/admin/pie"><PieChartOutlineOutlinedIcon /></Link></IconButton>
         <IconButton><Link className="admm"  to="/admin/line"><TimelineOutlinedIcon /></Link></IconButton>   
@@ -65,10 +67,8 @@ const AdminTopbar = () => {
           <SettingsOutlinedIcon />
         </IconButton>
         <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
+          <Link to="/admin/form/update"> <PersonOutlinedIcon /> </Link>
+          
         </IconButton>
         <IconButton>
             <Link to="/"><FiLogOut /></Link>
