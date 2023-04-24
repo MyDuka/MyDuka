@@ -7,7 +7,7 @@ import './Landingpage.css'
 
 const LandingPage = () => {
   return (
-    <div className="home">
+    <div>
         <Navbar/>
         <Landing/>
         <About/>
