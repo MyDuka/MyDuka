@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-// import './App.css';
+import './App.css';
 
 // import {CssBaseline, ThemeProvider } from '@mui/material';
 import {Routes, Route} from "react-router-dom"
@@ -15,7 +15,7 @@ import AdminLogin from './components/auth/AdminLogin';
 import MerchantLogin from './components/auth/MerchantLogin';
 import MerchantSignup from './components/auth/MerchantSignup';
 
-import Merchant from './components/MerchantDashboard/Merchant';
+import Merchant from "./components/MerchantDashboard/Merchant";
 import Dashboard from './components/MerchantDashboard/Scenes/dashboard';
 import Team from './components/MerchantDashboard/Scenes/team';
 import Form from './components/MerchantDashboard/Scenes/form';
@@ -50,26 +50,32 @@ function App() {
   // const [theme, colorMode] = useMode();
     // const [isSidebar, setIsSidebar] = useState(false);
 
+    const [user, setUser] = useState()
 
+  function signup(user){
+    setUser(user)
+  }
+
+  console.log(user)
 
 
 
   return (
 
-       <div className="hm">
+       <div>
 
-
+                {/* <Merchant/> */}
                     
                   <Routes>
                           <Route path="/" element={<LandingPage/>}/>
                            <Route path="/clerk/login" element={<ClerkLogin />}/>
                            <Route path="/admin/login" element={<AdminLogin />}/>
-                           <Route path="/merchant/login" element={<MerchantLogin />}/>
+                           <Route path="/merchant/login" element={<MerchantLogin signup={signup} />}/>
                            <Route path="/merchant/signup" element={<MerchantSignup/>}/>
 
 
                            <Route path="/merchant" element={<Merchant/>}>
-                              <Route path="/merchant" element={<Dashboard />} />
+                              <Route path="/merchant/" element={<Dashboard/>} />
                               <Route path="/merchant/team" element={<Team />} />
                               <Route path="/merchant/form" element={<Form />} />
                               <Route path="/merchant/bar" element={<Bar/>} /> 
@@ -78,7 +84,7 @@ function App() {
                           </Route> 
 
                           <Route path="/admin" element={<Admin/>}>
-                            <Route path="/admin" element={<AdminDashboard />} />
+                            <Route path="/admin/*" element={<AdminDashboard />} />
                             <Route path="/admin/team" element={<AdminTeam />} />
                             <Route path="/admin/contacts" element={<AdminContacts />} />
                             <Route path="/admin/invoices" element={<AdminInvoices />} />
