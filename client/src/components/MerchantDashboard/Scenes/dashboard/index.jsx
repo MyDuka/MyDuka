@@ -3,13 +3,9 @@ import Header from '../../../Header'
 import {Box, Button, IconButton, Typography, useTheme} from '@mui/material'
 import { tokens } from '../../../../theme'
 import {mockTransactions} from "../../Data/mockData"
-import LineChart from "../../../LineChart"
-import BarChart from "../../../BarChart"
-import PieChart from "../../../PieChart"
 import StatBox from "../../Statbox"
 import ProgressCircle from  "../../../MerchantDashboard/ProgressCircle"
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import InventoryIcon from '@mui/icons-material/Inventory';
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -47,51 +43,7 @@ const Dashboard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
-        {/* <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }<Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="30px"
-        >
-          <Typography variant="h5" fontWeight="600">
-            Campaign
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
-          </Box>
-        </Box>
-          />
-        </Box> */}
+      
         <Box
           gridColumn="span 5"
           backgroundColor={colors.primary[400]}
@@ -124,7 +76,7 @@ const Dashboard = () => {
             progress="0.30"
             increase="+5%"
             icon={
-              <PersonAddIcon
+              <DeleteIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
