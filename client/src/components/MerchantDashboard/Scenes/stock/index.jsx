@@ -26,9 +26,6 @@ const StockForm = () => {
     const [value, setValue] = React.useState(options[0]);
     const [inputValue, setInputValue] = React.useState('');
 
-    const [stateValue, setStateValue] = React.useState(options[0]);
-    const [stateInputValue, setStateInputValue] = React.useState('');
-
     const isNonMobile = useMediaQuery("(min-width:600px)");
   
     const handleFormSubmit = (values) => {
@@ -46,6 +43,8 @@ const StockForm = () => {
         >
           {({
             values,
+            value,
+            stateValue,
             errors,
             touched,
             handleBlur,
@@ -105,7 +104,18 @@ const StockForm = () => {
                   sx={{ gridColumn: "span 2" }}
                   // address 1
                 />
-                
+                <br/>
+                Spoilt Goods
+                <TextField
+                  id="outlined-number"
+                  label="Number of Spoilt Goods"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <br/>
+                        
                         
             {/* <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>
                 <div>{`inputValue: '${inputValue}'`}</div> */}
@@ -122,28 +132,12 @@ const StockForm = () => {
                     }}
                     id="controllable-states-demo"
                     options={options}
+                    error={!!touched.inStock && !!errors.inStock}
+                    helperText={touched.inStock && errors.inStock}
                     sx={{ width: 150 }}
                     renderInput={(params) => <TextField {...params} label="Payment Status" />}
                 />
-                Product Status
-                <Autocomplete
-                    stateValue={stateValue}
-                    onChange={(event, newValue) => {
-                    setStateValue(newValue);
-                    }}
-                    stateInputValue={stateInputValue}
-                    onInputChange={(event, newInputValue) => {
-                    setStateInputValue(newInputValue);
-                    }}
-                    id="controllable-states-demo"
-                    options={options2}
-                    sx={{ width: 150 }}
-                    renderInput={(params) => <TextField {...params} label="Product Status" />}
-                />
-            
-            
-            
-            
+                
             
               </Box>
               <Box display="flex" justifyContent="end" mt="10px" mr="20px">

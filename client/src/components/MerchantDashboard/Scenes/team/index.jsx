@@ -3,9 +3,8 @@ import {Box, Typography, useTheme} from "@mui/material"
 import {DataGrid} from "@mui/x-data-grid"
 import { tokens } from '../../../../theme'
 import {mockDataTeam} from '../../Data/mockData'
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import DoneIcon from '@mui/icons-material/Done';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 import Header from '../../../Header'
 
 const Team = () => {
@@ -19,23 +18,16 @@ const Team = () => {
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    // {
-    //   field: "age",
-    //   headerName: "Age",
-    //   type: "number",
-    //   headerAlign: "left",
-    //   align: "left",
-    // },
-    // {
-    //   field: "phone",
-    //   headerName: "Phone Number",
-    //   flex: 1,
-    // },
-    // {
-    //   field: "email",
-    //   headerName: "Email",
-    //   flex: 1,
-    // },
+    {
+      field: "buyingcost",
+      headerName: "Buying price",
+      flex: 1,
+    },
+    {
+      field: "sellingcost",
+      headerName: "Selling price",
+      flex: 1,
+    },
     {
       field: "accessLevel",
       headerName: "Product Status",
@@ -49,17 +41,17 @@ const Team = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
+              access === "paid"
                 ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
+                : access === "not paid"
+                ? colors.orangeAccent[300]
+                : colors.orangeAccent[300]
             }
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {/* {access === "manager" && <SecurityOutlinedIcon />} */}
-            {access === "user" && <LockOpenOutlinedIcon />}
+            {access === "paid" && <AttachMoneyIcon />}
+            {access === "not paid" && <MoneyOffIcon />}
+            {/* {access === "not paid" && <LockOpenOutlinedIcon />} */}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
               {access}
             </Typography>

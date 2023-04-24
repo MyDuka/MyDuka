@@ -206,7 +206,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Product Status
+              Product Requests
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -230,13 +230,19 @@ const Dashboard = () => {
                   {transaction.user}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+
+              <Box color={colors.grey[100]}>${transaction.buyingcost}</Box>
+                            
               <Box
-                backgroundColor={colors.greenAccent[500]}
+                backgroundColor={colors.orangeAccent[300]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                <Button>
+                {transaction.cost}
+                </Button>
+                
+                
               </Box>
             </Box>
           ))}
