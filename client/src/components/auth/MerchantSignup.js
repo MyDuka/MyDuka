@@ -14,13 +14,16 @@ export default function MerchantSignup(){
 
     function merchantSignup(e){
 		e.preventDefault();
-		fetch("http://127.0.0.1:3000/merchant/signup", {
-			mode: 'no-cors',
+		fetch("http://127.0.0.1:3000/merchants", {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ email, username, password }),
+			body: JSON.stringify({
+                 username: username,
+                 email: email, 
+                password: password, 
+            }),
 		})
         .then((r) => {
             if (r.status === 201) {
@@ -68,7 +71,7 @@ export default function MerchantSignup(){
 
                 <label for="password" className="label">Password</label>
                 <div className="form-input-material">
-                    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword} autoComplete="off" className="form-control-material"  />
+                    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material"  />
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-ghost">Login</button>
