@@ -1,33 +1,48 @@
 import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
+// import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../adminDashComponents/Header";
+import { useState } from "react";
+import axios from 'axios';
 
 const AdminForm = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
+  // const [contact, setContact] = useState("")
+  // const [address, setAddress] = useState("")
+  // const [lastName, setLastName] = useState("")
 
-  const handleFormSubmit = (values) => {
-    console.log(values);
-  };
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    axios.post('http://localhost:3000/users/login', {
+  username: username,
+  email: email,
+})
+.then(response => {
+  console.log(response);
+  // do something with the response, such as saving the user information
+  if (response.status === 200) {
+    console.log(response);
+    return response
+  }
+})
+
+
+  
+    .catch(error => {
+      console.log(error);
+ 
+    });
+  }
+
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
-
-      <Formik
-        onSubmit={handleFormSubmit}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
+      <Header title="Create Clerk" subtitle="Create a New Clerk Profile" />
           <form onSubmit={handleSubmit}>
             <Box
               display="grid"
@@ -41,16 +56,13 @@ const AdminForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.firstName}
+                label="username"
+                onChange={(e)=> setUsername(e.target.value)}
+                value={username}
                 name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
                 sx={{ gridColumn: "span 2" }}
               />
-              <TextField
+              {/* <TextField
                 fullWidth
                 variant="filled"
                 type="text"
@@ -62,21 +74,20 @@ const AdminForm = () => {
                 error={!!touched.lastName && !!errors.lastName}
                 helperText={touched.lastName && errors.lastName}
                 sx={{ gridColumn: "span 2" }}
-              />
+              /> */}
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
                 label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
+                onChange={(e)=> setEmail(e.target.value)}
+                value={email}
                 name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                // error={!!touched.email && !!errors.email}
+                // helperText={touched.email && errors.email}
+                // sx={{ gridColumn: "span 4" }}
               />
-              <TextField
+              {/* <TextField
                 fullWidth
                 variant="filled"
                 type="text"
@@ -88,21 +99,18 @@ const AdminForm = () => {
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
+              /> */}
+              {/* <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                label="Address"
+                onChange={(e)=> setAddress(e.target.value)}
+                value={address}
+                name="address"
                 sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
+              /> */}
+              {/* <TextField
                 fullWidth
                 variant="filled"
                 type="text"
@@ -114,41 +122,16 @@ const AdminForm = () => {
                 error={!!touched.address2 && !!errors.address2}
                 helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: "span 4" }}
-              />
+              /> */}
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                Create New Clerk
               </Button>
             </Box>
           </form>
-        )}
-      </Formik>
     </Box>
   );
-};
-
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
-});
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  address1: "",
-  address2: "",
 };
 
 export default AdminForm;

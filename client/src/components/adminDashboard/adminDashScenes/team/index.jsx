@@ -6,6 +6,7 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../adminDashComponents/Header";
+import { useState } from "react";
 
 const AdminTeam = () => {
   const theme = useTheme();
@@ -48,17 +49,17 @@ const AdminTeam = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
+              access === "activated"
                 ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
+                : access === "deactivated"
+                ? colors.redAccent[700]
+                : colors.redAccent[700]
             }
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
+            {/* {access === "clerk" && <AdminPanelSettingsOutlinedIcon />} */}
+            {access === "deactivated" && <SecurityOutlinedIcon />}
+            {access === "activated" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
               {access}
             </Typography>
@@ -68,9 +69,11 @@ const AdminTeam = () => {
     },
   ];
 
+  const [access, setAccess] = useState()
+
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
+      <Header title="Clerks" subtitle="Managing your clerks" />
       <Box
         m="40px 0 0 0"
         height="75vh"

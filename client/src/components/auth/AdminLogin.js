@@ -30,6 +30,8 @@ export default function AdminLogin(){
                         setIsLoggedIn(true);
                         // signup(user)
                         console.log(user)
+                        const admin_id = user.id
+                        localStorage.setItem('admin_id', admin_id);
                     })
                 }else{
                     setInvalid(true)
@@ -39,7 +41,7 @@ export default function AdminLogin(){
 
 
     if (isLoggedIn) {
-        return <Navigate to="/admin" />;
+        return <Navigate to="/admin/dashboard" />;
       }
 
 

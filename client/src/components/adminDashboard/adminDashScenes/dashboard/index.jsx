@@ -6,6 +6,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
+import DeleteIcon from "@mui/icons-material/Delete"
 import Header from "../../adminDashComponents/Header";
 import LineChart from "../../adminDashComponents/LineChart";
 import GeographyChart from "../../adminDashComponents/GeographyChart";
@@ -55,8 +56,8 @@ const AdminDashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
+            title="361"
+            subtitle="Inventory Sold"
             progress="0.75"
             increase="+14%"
             icon={
@@ -75,7 +76,7 @@ const AdminDashboard = () => {
         >
           <StatBox
             title="431,225"
-            subtitle="Sales Obtained"
+            subtitle="Inventory Obtained"
             progress="0.50"
             increase="+21%"
             icon={
@@ -93,8 +94,8 @@ const AdminDashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title="41"
+            subtitle="Clerks"
             progress="0.30"
             increase="+5%"
             icon={
@@ -112,12 +113,12 @@ const AdminDashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
+            title="5,134"
+            subtitle="Spoilt Goods"
+            progress="0.40"
+            increase="-43%"
             icon={
-              <TrafficIcon
+              <DeleteIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -210,7 +211,7 @@ const AdminDashboard = () => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                {transaction.cost}
               </Box>
             </Box>
           ))}
