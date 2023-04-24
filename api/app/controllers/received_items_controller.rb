@@ -1,8 +1,9 @@
 class ReceivedItemsController < ApplicationController
 
     def index 
-        ri = RecievedItem.all 
-        render json: ri, status: :ok
+        ri = ReceivedItem.all 
+    
+        render json: ri, serializer: ReceivedItemsSerializer, status: :ok
     end
 
     def show 
