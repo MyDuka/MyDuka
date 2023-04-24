@@ -4,10 +4,31 @@ import { tokens } from "../../adminthemes";
 import { mockDataContacts } from "../../adminDashData/mockData";
 import Header from "../../adminDashComponents/Header";
 import { useTheme } from "@mui/material";
+import {useState, useEffect} from 'react';
 
-const AdminContacts = () => {
+const AdminProducts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [products, setProducts] = useState([])
+
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/products",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((p)=>{
+      setProducts(...products,p)
+
+    })
+  },[])
+
+  console.log(products)
+
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -55,8 +76,8 @@ const AdminContacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="Products"
+        subtitle="List of Store Products"
       />
       <Box
         m="40px 0 0 0"
@@ -100,4 +121,4 @@ const AdminContacts = () => {
   );
 };
 
-export default AdminContacts;
+export default AdminProducts;

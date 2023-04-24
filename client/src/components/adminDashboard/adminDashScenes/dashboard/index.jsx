@@ -14,9 +14,33 @@ import BarChart from "../../adminDashComponents/BarChart";
 import StatBox from "../../adminDashComponents/StatBox";
 import ProgressCircle from "../../adminDashComponents/ProgressCircle";
 
+import { useState, useEffect } from "react";
+
 const AdminDashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [items, setItems] = useState([])
+
+  
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/received_items",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((d)=>{
+      setItems(...items,d)
+
+    })
+  },[])
+
+  console.log(items)
+
+
 
   return (
     <Box m="20px">

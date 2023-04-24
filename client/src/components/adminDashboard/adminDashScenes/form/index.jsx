@@ -10,34 +10,50 @@ const AdminForm = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("")
   // const [contact, setContact] = useState("")
   // const [address, setAddress] = useState("")
   // const [lastName, setLastName] = useState("")
 
-  const handleSubmit = event => {
-    event.preventDefault();
+//   const handleSubmit = event => {
+//     event.preventDefault();
 
-    axios.post('http://localhost:3000/users/login', {
-  username: username,
-  email: email,
+//     axios.post('http://localhost:3000/clerk/register', {
+//   username: username,
+//   email: email,
+// })
+// .then(response => {
+//   console.log(response);
+//   // do something with the response, such as saving the user information
+//   if (response.status === 200) {
+//     console.log(response);
+//   }
+// })
+
+const id = localStorage.getItem('admin_id')
+
+
+function handleSubmit(e){
+  e.preventDefault();
+  // const user_id = sessionStorage.getItem('user_id')
+  fetch(`http://localhost:3000/clerk/register/${id}`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+  })
 })
-.then(response => {
-  console.log(response);
-  // do something with the response, such as saving the user information
-  if (response.status === 200) {
-    console.log(response);
-    return response
-  }
-})
+  .then(r=> r.json())
+  .then(data=> console.log(data))
+  .catch(error=>console.log(error))
+}
 
 
-  
-    .catch(error => {
-      console.log(error);
- 
-    });
-  }
+
 
 
   return (
@@ -85,7 +101,7 @@ const AdminForm = () => {
                 name="email"
                 // error={!!touched.email && !!errors.email}
                 // helperText={touched.email && errors.email}
-                // sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 4" }}
               />
               {/* <TextField
                 fullWidth
@@ -110,19 +126,18 @@ const AdminForm = () => {
                 name="address"
                 sx={{ gridColumn: "span 4" }}
               /> */}
-              {/* <TextField
+              <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                label="initial password"
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
+                name="initislPassword"
+                // error={!!touched.address2 && !!errors.address2}
+                // helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: "span 4" }}
-              /> */}
+              />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">

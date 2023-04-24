@@ -6,11 +6,77 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../adminDashComponents/Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const AdminTeam = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  // const [access, setAccess] = useState("activated")
+  const [clerks, setClerks] = useState([])
+  // const [stat, setStat] = useState(0)
+  // const [clerkId, setClerkId] = useState(0)
+  // const [condition, setCondition] = useState(true)
+
+
+  let admin_id = localStorage.getItem('admin_id')
+
+  let url =  `http://localhost:3000/clerks/${admin_id}`
+
+  let url2 = "http://localhost:3000/clerks"
+
+
+
+
+    useEffect(()=>{
+      fetch(url,{
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((c)=> c.json())
+      .then((d)=>{
+        setClerks(...clerks,d)
+
+      })
+    },[])
+
+    console.log(clerks)
+
+    // console.log(clerks)
+
+
+    // if(condition){
+    //   setStat(0)
+    //   setAccess("activated")
+    // }else{
+    //   setStat(1)
+    //   setAccess("deactivated")
+    // }
+
+    
+
+
+
+
+  //   useEffect(()=>{
+  //     fetch(`http://localhost:3000/clerk/activation/${clerkId}`, {
+  //       method: 'PATCH',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         status: stat,
+  //       })
+  //   })
+  //   .then((r)=> r.json())
+  //   .then((d)=>{
+  //     console.log(d)
+  //   })
+  // },[stat,clerkId])
+   
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -19,13 +85,13 @@ const AdminTeam = () => {
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
+    // {
+    //   field: "age",
+    //   headerName: "Age",
+    //   type: "number",
+    //   headerAlign: "left",
+    //   align: "left",
+    // },
     {
       field: "phone",
       headerName: "Phone Number",
@@ -60,7 +126,7 @@ const AdminTeam = () => {
             {/* {access === "clerk" && <AdminPanelSettingsOutlinedIcon />} */}
             {access === "deactivated" && <SecurityOutlinedIcon />}
             {access === "activated" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
               {access}
             </Typography>
           </Box>
@@ -69,9 +135,7 @@ const AdminTeam = () => {
     },
   ];
 
-  const [access, setAccess] = useState()
-
-  return (
+    return (
     <Box m="20px">
       <Header title="Clerks" subtitle="Managing your clerks" />
       <Box
