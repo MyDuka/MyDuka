@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../../../Header'
+import Header from '../../Header'
 import {Box, Button, IconButton, Typography, useTheme} from '@mui/material'
-import { tokens } from '../../../../theme'
+import { tokens } from '../../../theme'
 import {mockTransactions} from "../../Data/mockData"
 import StatBox from "../../Statbox"
-import ProgressCircle from  "../../../MerchantDashboard/ProgressCircle"
+import ProgressCircle from '../../ProgressCircle'
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";

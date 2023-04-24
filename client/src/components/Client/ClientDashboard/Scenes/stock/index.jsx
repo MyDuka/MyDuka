@@ -3,14 +3,10 @@ import {Box, Button, ButtonGroup, TextField, useMediaQuery} from "@mui/material"
 import {Formik} from "formik";
 import * as yup from "yup";
 import useMediaquery from "@mui/material/useMediaQuery";
-import Header from '../../../Header';
+import Header from '../../Header'
 import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 // Select imports
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Autocomplete from '@mui/material/Autocomplete';
 
 

@@ -3,10 +3,10 @@ import {Box, Button, TextField, useMediaQuery} from "@mui/material";
 import {Formik} from "formik";
 import * as yup from "yup";
 import useMediaquery from "@mui/material/useMediaQuery";
-import Header from '../../../Header';
+import Header from '../../Header';
 
 
-const Form = () => {
+const ProductForm = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
   
     const handleFormSubmit = (values) => {
@@ -171,4 +171,4 @@ const Form = () => {
     imageURL:""
   };
 
-export default Form
+export default ProductForm

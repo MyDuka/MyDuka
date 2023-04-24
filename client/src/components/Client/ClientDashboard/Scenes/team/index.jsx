@@ -1,11 +1,11 @@
 import React from 'react'
 import {Box, Typography, useTheme} from "@mui/material"
 import {DataGrid} from "@mui/x-data-grid"
-import { tokens } from '../../../../theme'
+import { tokens } from '../../../theme'
 import {mockDataTeam} from '../../Data/mockData'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
-import Header from '../../../Header'
+import Header from '../../Header'
 
 const Team = () => {
   const theme = useTheme();
