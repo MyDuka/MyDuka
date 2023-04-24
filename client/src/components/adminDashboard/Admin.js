@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import '../../App.css'
+// import '../../index.css'
 import { Outlet } from "react-router-dom";
 import AdminTopbar from './adminDashScenes/global/Topbar'
 import AdminSidebar from "./adminDashScenes/global/Sidebar.jsx";
@@ -16,6 +16,7 @@ import AdminSidebar from "./adminDashScenes/global/Sidebar.jsx";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./adminthemes";
 // import AdminCalendar from "./adminDashScenes/calendar/calendar";
+// import Sidenav from "./adminDashScenes/global/adminSidebar";
 
 function Admin() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function Admin() {
             <CssBaseline />
         <div className="app">
           <AdminSidebar isSidebar={isSidebar} />
+          {/* <Sidenav/> */}
           <main className="content">
             <AdminTopbar setIsSidebar={setIsSidebar} />
 
