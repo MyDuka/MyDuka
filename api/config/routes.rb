@@ -25,9 +25,12 @@ Rails.application.routes.draw do
 
   post '/merchant/login', to: "sessions#merchant_login"
 
+
+
   # clerk routes
 
   post 'clerk/login', to: "sessions#clerk_login"
+  get "/clerks/:id", to: "clerks#all_clerks"
 
 
   # logout
@@ -57,7 +60,7 @@ Rails.application.routes.draw do
 
   #  clerk routes 
 
-  post '/clerk/register', to: "clerks#add_clerk"
+  post '/clerk/register/:id', to: "clerks#add_clerk"
 
   put '/clerk/activation/:id', to: "clerks#clerk_activation"
 
