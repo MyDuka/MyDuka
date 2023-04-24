@@ -13,7 +13,7 @@
     margin-top: 1.4rem;
   }
 #logo{
-    color: var(--white);
+    color: white;
     /* background: var(--orange); */
     padding: 14px;
     font-family: 'Playfair Display SC', serif;

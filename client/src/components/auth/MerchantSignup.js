@@ -23,10 +23,11 @@ export default function MerchantSignup(){
 			body: JSON.stringify({ email, username, password }),
 		})
         .then((r) => {
-            if (r.status.created) {
+            if (r.status === 201) {
               r.json().then((user) => {
                 setIsRegistered(true)
                 // signup(user)
+                console.log(user)
             });
             }
           });

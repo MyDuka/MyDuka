@@ -9,6 +9,18 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import { RiPencilLine } from "react-icons/ri";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+
+
+import { FiLogOut} from "react-icons/fi";
+import { Link } from "react-router-dom";
+
+
 const AdminTopbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -22,10 +34,19 @@ const AdminTopbar = () => {
         backgroundColor={colors.primary[400]}
         borderRadius="3px"
       >
+        <IconButton ><Link className="admm" to="/admin/dashbord">< HomeOutlinedIcon /></Link></IconButton>
+        <IconButton><Link className="admm"  to="/admin/team"><PeopleOutlinedIcon /></Link></IconButton>
+        <IconButton><Link className="admm"  to="/admin/Contacts"> <RiPencilLine /></Link></IconButton>
+        <IconButton ><Link className="admm"  to="/admin/form"><PersonOutlinedIcon /></Link></IconButton>
+        <IconButton ><Link className="admm"  to="/admin/bar"><BarChartOutlinedIcon /></Link></IconButton>
+        <IconButton ><Link className="admm"  to="/admin/pie"><PieChartOutlineOutlinedIcon /></Link></IconButton>
+        <IconButton><Link className="admm"  to="/admin/line"><TimelineOutlinedIcon /></Link></IconButton>   
+
+{/* 
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
-        </IconButton>
+        </IconButton> */}
       </Box>
 
       {/* ICONS */}
@@ -46,6 +67,13 @@ const AdminTopbar = () => {
         <IconButton>
           <PersonOutlinedIcon />
         </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
+        </IconButton>
+        <IconButton>
+            <Link to="/"><FiLogOut /></Link>
+        </IconButton>
+
       </Box>
     </Box>
   );

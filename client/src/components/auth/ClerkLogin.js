@@ -26,7 +26,9 @@ export default function ClerkLogin(){
                     r.json().then((user)=>{
                         setIsLoggedIn(true);
                         // signup(user)
+                        const clerk_id = user.id
                         console.log(user)
+                        localStorage.setItem('clerk_id', clerk_id);
                     })
                 }else{
                   setInvalid(true)

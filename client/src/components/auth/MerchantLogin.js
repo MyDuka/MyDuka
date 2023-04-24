@@ -34,6 +34,9 @@ export default function MerchantLogin(){
                         setIsLoggedIn(true);
                         // signup(user)
                         console.log(user)
+                        const merchant_id = user.id
+                        localStorage.setItem('merchant_id', merchant_id);
+
                     })
                 }else{
                     setInvalid(true)
@@ -79,11 +82,11 @@ export default function MerchantLogin(){
             <div className="foot-lnk">
                 <p id="msg">{invalid? "Invalid email or password": null }</p>
 
-                <div className="hr"></div>
+                <div></div>
 
                 <Link className="footer" to="/merchant/signup">Register</Link>
                 
-                <div className="hr"></div>
+                <div></div>
                 
                 <Link className="footer" to="/password/reset">Forgot Password?</Link>
                 </div>

@@ -175,13 +175,13 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Tem
+            {/* <Tem
               title="FAQ Page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h6"

@@ -17232,3 +17232,211 @@ Content-Transfer-Encoding: 7bit
 Completed 200 OK in 4014ms (Views: 0.5ms | ActiveRecord: 82.5ms | Allocations: 7860)
 
 
+Started GET "/admins" for 127.0.0.1 at 2023-04-23 22:01:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdminsController#index as */*
+  [1m[36mMerchant Load (3.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (42.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+Completed 200 OK in 280ms (Views: 50.3ms | ActiveRecord: 65.6ms | Allocations: 68163)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:02:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38d5bc1d8>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38d5bc1d8>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38d5bc1d8>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 5.1ms | Allocations: 45298)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:02:51 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38df217f0>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38df217f0>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :session. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38df217f0>, params: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 1060)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:05:01 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 5.9ms | Allocations: 8507)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:05:04 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms | Allocations: 806)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:05:13 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = '' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 1227)
+
+
+  
+NoMethodError (undefined method `status' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:12:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:11:18 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "passowrd"=>"1234", "session"=>{"email"=>"felixkim09@gmail.com", "passowrd"=>"1234"}}
+[31mUnpermitted parameter: :passowrd. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38b8588a8>, params: {"email"=>"felixkim09@gmail.com", "passowrd"=>"1234", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "passowrd"=>"1234"}} }[0m
+[31mUnpermitted parameter: :passowrd. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38b8588a8>, params: {"email"=>"felixkim09@gmail.com", "passowrd"=>"1234", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "passowrd"=>"1234"}} }[0m
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[31mUnpermitted parameter: :passowrd. Context: { controller: SessionsController, action: admin_login, request: #<ActionDispatch::Request:0x00007fe38b8588a8>, params: {"email"=>"felixkim09@gmail.com", "passowrd"=>"1234", "controller"=>"sessions", "action"=>"admin_login", "session"=>{"email"=>"felixkim09@gmail.com", "passowrd"=>"1234"}} }[0m
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 16.2ms | Allocations: 3953)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started GET "/login/status" for 127.0.0.1 at 2023-04-23 22:13:39 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "passowrd"=>"1234", "session"=>{"email"=>"felixkim09@gmail.com", "passowrd"=>"1234"}}
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:117:in `login_status'
+  [1m[36mMerchant Load (12.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:118:in `login_status'
+  [1m[36mClerk Load (42.0ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:119:in `login_status'
+Completed 200 OK in 165ms (Views: 1.8ms | ActiveRecord: 80.0ms | Allocations: 26862)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:14:15 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 236ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 987)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 22:58:52 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (46.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 550ms (Views: 9.8ms | ActiveRecord: 194.3ms | Allocations: 3818)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 22:59:28 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kim@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kim@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (41.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kim@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 55ms (Views: 0.2ms | ActiveRecord: 41.6ms | Allocations: 974)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 22:59:29 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kim@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kim@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kim@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 726)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 22:59:43 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kim@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kim@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kim@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 726)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:01:30 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kim@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kim@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kim@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 726)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:02:08 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 372ms (Views: 7.0ms | ActiveRecord: 107.6ms | Allocations: 8872)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:02:12 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 245ms (Views: 1.7ms | ActiveRecord: 0.8ms | Allocations: 1173)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:25:36 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (44.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 569ms (Views: 3.6ms | ActiveRecord: 218.0ms | Allocations: 3647)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:25:51 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 263ms (Views: 3.2ms | ActiveRecord: 1.0ms | Allocations: 944)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 23:40:42 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 744ms (Views: 0.9ms | ActiveRecord: 9.9ms | Allocations: 12534)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-23 23:42:23 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 239ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 945)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-23 23:47:22 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 394ms (Views: 7.3ms | ActiveRecord: 47.3ms | Allocations: 3817)
+
+

@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
 
         sql = "username = :username OR email = :email "
 
-        admin = Admin.where(sql, {username: admin_params[:username], email: admin_params[:email]}).first
+        admin = Admin.where(sql, {username: admin_param[:username], email: admin_param[:email]}).first
 
         if admin.status == "ACTIVE"
-            if admin&.authenticate(admin_params[:password])
+            if admin&.authenticate(admin_param[:password])
                 session[:admin_id] = admin.id
                 render json: admin, status: :ok
             else  
@@ -139,6 +139,10 @@ class SessionsController < ApplicationController
     private 
 
     def merchant_params
+        params.require(:session).permit(:username, :password, :email)
+    end
+
+    def admin_param
         params.require(:session).permit(:username, :password, :email)
     end
 

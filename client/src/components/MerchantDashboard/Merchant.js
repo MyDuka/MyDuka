@@ -1,9 +1,8 @@
 import {useState} from "react"
-import '../../App.css';
 import {ColorModeContext, useMode} from  '../../theme'
 import {CssBaseline, ThemeProvider } from '@mui/material';
 import {Routes, Route} from "react-router-dom"
-import MerchSidebar from './Scenes/global/sidebar';
+import MerchSidebar from "./Scenes/global/sidebar";
 import Topbar from './Scenes/global/topbar';
 import Dashboard from "./Scenes/dashboard/index.jsx";
 import Team from "./Scenes/team/index.jsx";
@@ -18,12 +17,12 @@ function Merchant() {
   const [isSidebar, setisSidebar] =useState(true);
   
   
-   const [vanish,setVanish] = useState("here")
+  //  const [vanish,setVanish] = useState("here")
   
 
-  function gone(){
-    setVanish("nothere")
-  }
+  // function gone(){
+  //   setVanish("nothere")
+  // }
 
 
   return (

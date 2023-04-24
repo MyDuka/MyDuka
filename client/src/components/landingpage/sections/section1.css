@@ -3,7 +3,7 @@
 
 .about-1{
     height: 650px;
-    background: var(--grey2);
+    background: var(--grey)
   } 
    
    .ab-title{
@@ -50,6 +50,6 @@
     text-align: center;
     font-size: 20px;
     background: transparent;
-    color: var(--white);
+    color: white;
     font-weight: 700;
   } 

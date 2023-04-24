@@ -14,17 +14,25 @@ import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import { useSelector } from 'react-redux'
+
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode)
+
+  // const user = useSelector(user)
+
+  // console.log(user)
+
+
 
   return (
     <Box m="20px">
       {/* Header */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
-          title="SUPER MERCHANT DASHBOARD"
-          subtitle="Welcome to your dashboard"      
+          title="Merchant"
+          subtitle= "Welcome to your dashboard"
         />
 
 <Box>
