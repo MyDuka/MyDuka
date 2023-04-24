@@ -27,7 +27,7 @@ import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
 import AdminTeam from './components/adminDashboard/adminDashScenes/team';
 import AdminInvoices from "./components/adminDashboard/adminDashScenes/invoices";
-import AdminContacts from "./components/adminDashboard/adminDashScenes/contacts";
+import AdminProducts from "./components/adminDashboard/adminDashScenes/products";
 import AdminBar from "./components/adminDashboard/adminDashScenes/bar";
 import AdminForm from "./components/adminDashboard/adminDashScenes/form";
 import AdminLine from "./components/adminDashboard/adminDashScenes/line";
@@ -35,6 +35,7 @@ import AdminPie from "./components/adminDashboard/adminDashScenes/pie";
 import AdminFAQ from "./components/adminDashboard/adminDashScenes/faq";
 import AdminGeography from "./components/adminDashboard/adminDashScenes/geography";
 import AdminCalendar from "./components/adminDashboard/adminDashScenes/calendar/calendar";
+import AdminUpdateForm from "./components/adminDashboard/adminDashScenes/form/updateDetails";
 
 // import AdminSidebar from "./components/adminDashboard/adminDashScenes/global/Sidebar";
 // import AdminTopbar from "./components/adminDashboard/adminDashScenes/global/Topbar";
@@ -86,9 +87,10 @@ function App() {
                           <Route path="/admin" element={<Admin/>}>
                             <Route path="/admin/*" element={<AdminDashboard />} />
                             <Route path="/admin/team" element={<AdminTeam />} />
-                            <Route path="/admin/contacts" element={<AdminContacts />} />
+                            <Route path="/admin/products" element={<AdminProducts />} />
                             <Route path="/admin/invoices" element={<AdminInvoices />} />
                             <Route path="/admin/form" element={<AdminForm />} />
+                            <Route path="/admin/form/update" element={<AdminUpdateForm />} />
                             <Route path="/admin/bar" element={<AdminBar />} />
                             <Route path="/admin/pie" element={<AdminPie />} />
                             <Route path="/admin/line" element={<AdminLine />} />
