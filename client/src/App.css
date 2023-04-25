@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); */
 
 :root{
   --purple:#1e0127;
@@ -15,12 +14,10 @@
   --boxShadow:0px 0px 20px 1px #ffbb763f;
 }
 
-*{
-  /* background: var(--grey); */
-  font-family: 'Poppins', sans-serif;
-  /* background: #171A24; */
-}
 
+
+
+/* 
 
 .here{
   display: block;
@@ -28,4 +25,8 @@
 
 .nothere{
   display:none;
-}
+} */
+body{
+  background: #171A24;
+}  
+

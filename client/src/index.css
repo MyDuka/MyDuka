@@ -6,6 +6,8 @@ body,
   height: 100%;
   width: 100%;
   font-family: "Montserrat", sans-serif;
+
+  /* background: #171A24; */
 }
 
 .app {
@@ -30,4 +32,10 @@ body,
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+
 }
+
+/* body{
+  background: #171A24;
+}  */
+

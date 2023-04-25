@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear <%= @clerk.username %>,</p>
+    <p>We are glad to inform you that you have been registered by <%= @clerk.username %></p>
+    <p>Your role is to be a clerk of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: <%= @clerk.username%></li>
+    <li>Email: <%= @clerk.email%></li>
+    <li>Password: 1234</li>
+    <li id="status">Status: <%= @clerk.status%></li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign in</p>
+    <p>Best regards,</p>
+    <p><%= @admin.username %></p>
+</div>
+</body>
+</html>

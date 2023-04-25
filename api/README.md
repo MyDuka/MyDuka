@@ -22,3 +22,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+{
+  "username": "base",
+  "email": "felixkim09@gmail.com",
+  "password": "1234"
+}
+
+
+{
+"name": "Puma",
+"type": "shoes",
+"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6frqWmGSMdBm2zjSVnjjqP3YjeMJZkcAz6l_AY2kfbqR1oVpLiT8mtoYdOwDp01_58o&usqp=CAU",
+"supplier": "puma stores",
+"buying_price": 453.67,
+"selling_price": 678.89
+}
