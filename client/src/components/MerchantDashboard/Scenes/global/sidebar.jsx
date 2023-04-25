@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, IconButton, Typography} from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 
@@ -23,6 +23,13 @@ import MapIcon from '@mui/icons-material/Map';
 const MerchantSidebar = () => {
 
   const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
+  const [merch, setMerch] = useState("Mimi")
+
+  let merch_id = local
+  useEffect(()=>{
+    
+  },[])
+
 
   function handleLogout(){
     fetch("/admin/logout",{
@@ -63,7 +70,7 @@ const MerchantSidebar = () => {
               fontWeight="bold"
               sx={{ m: "10px 0 0 0" }}
             >
-             Mwenyewe
+             {merch}
             </Typography>
             <Typography variant="h5" >
               Merchant
