@@ -1,227 +1,103 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import "react-pro-sidebar/dist/css/styles.css";
-import { tokens } from "../../adminthemes";
+import { Box, IconButton, Typography} from "@mui/material";
+import { Link, Navigate } from "react-router-dom";
+
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import PersonOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import MapIcon from '@mui/icons-material/Map';
 
-const Tem = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-};
+
+
 
 const AdminSidebar = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
+
+  const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
+
+  function handleLogout(){
+    fetch("/admin/logout",{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    localStorage.removeItem('admin_id')
+    return <Navigate to="/" />
+  }
 
   return (
-    <Box
-      sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
-        },
-        "& .pro-menu-item.active": {
-          color: "#6870fa !important",
-        },
-      }}
-    >
-      <ProSidebar collapsed={isCollapsed}>
-        <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
-          <MenuItem
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
-            style={{
-              margin: "10px 0 20px 0",
-              color: colors.grey[100],
-            }}
-          >
-            {!isCollapsed && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-              >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  ADMIN
-                </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
-                </IconButton>
-              </Box>
-            )}
-          </MenuItem>
 
-          {!isCollapsed && (
+    <>
+    <nav className="nav">
+        <div> 
+            <Typography className="nav_logo"> 
+            <i><AddBusinessIcon/></i> 
+            <span className="nav_logo-name">MyDuka</span> </Typography>
+          
+            <br/>
+            <br/>
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  trrita
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  That ule Admin
-                </Typography>
-              </Box>
-            </Box>
-          )}
-
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Tem
-              title="Dashboard"
-              to="/"
-              icon={<HomeOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <img
+              alt="profile-user"
+              width="100px"
+              height="100px"
+              src={img}
+              style={{ cursor: "pointer", borderRadius: "50%" }}
             />
-
+     
+          </Box>
+          <Box textAlign="center">
             <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
+              variant="h4"
+              fontWeight="bold"
+              sx={{ m: "10px 0 0 0" }}
             >
-              Data
+             Admin Who
             </Typography>
-            <Tem
-              title="Manage Clerks"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Pages
+            <Typography variant="h5" >
+              Admin
             </Typography>
-            <Tem
-              title="Add clerk Form"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Calendar"
-              to="/calendar"
-              icon={<CalendarTodayOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            {/* <Tem
-              title="FAQ Page"
-              to="/faq"
-              icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            /> */}
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
+          </Box>
+        </Box>
+            <div className="nav_list"> 
+            <Link to="/admin/dashbord" className="nav_link active"> <i> <HomeOutlinedIcon/></i> <span className="nav_name">Dashboard</span> </Link> 
+            <Link to="/admin/team" className="nav_link"><i><PeopleOutlinedIcon/></i>  <span className="nav_name">Clerks</span> </Link> 
+            <Link to="/admin/products" className="nav_link"> <i> <InventoryIcon/> </i> <span className="nav_name">Products</span> </Link> 
+            <Link to="/admin/form" className="nav_link"> <i> <PersonAddAltIcon/> </i> <span className="nav_name">Add Stock</span> </Link> 
+            <Link to="/admin/calendar" className="nav_link"> <i> <CalendarMonthIcon/> </i> <span className="nav_name">Calendar</span> </Link> 
+            <br/>
+            <Typography variant="h5" >
               Charts
             </Typography>
-            <Tem
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Tem
-              title="Geography Chart"
-              to="/geography"
-              icon={<MapOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-          </Box>
-        </Menu>
-      </ProSidebar>
-    </Box>
+            <Link to="/admin/bar" className="nav_link"> <i> <BarChartOutlinedIcon /> </i> <span className="nav_name">Bar</span> </Link>
+            <Link to="/admin/pie" className="nav_link"> <i><PieChartOutlineOutlinedIcon /></i> <span class="nav_name">Pie</span> </Link>
+            <Link to="/admin/line" className="nav_link"> <i> <TimelineOutlinedIcon /> </i> <span className="nav_name">Line</span> </Link>
+            <Link to="/admin/geography" className="nav_link"> <i> <MapIcon /> </i> <span className="nav_name">Map</span> </Link>
+             </div>
+             <br/>
+             <Typography variant="h5" >
+              Profile Update
+            </Typography> 
+            <Link to="/admin/form/update" className="nav_link"> <i> <PersonOutlinedIcon />  </i> <span className="nav_name">Edit</span> </Link>
+
+        </div> 
+        <br/>
+        <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">SignOut</span> </IconButton>
+    </nav>
+    </>
+
+
   );
 };
 

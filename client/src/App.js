@@ -22,6 +22,8 @@ import Form from './components/MerchantDashboard/Scenes/form';
 import Bar from './components/MerchantDashboard/Scenes/bar';
 import Pie from './components/MerchantDashboard/Scenes/pie';
 import Line from './components/MerchantDashboard/Scenes/line';
+import MerchantUpdateForm from "./components/MerchantDashboard/Scenes/form/updateDetails";
+import AllStoresProducts from "./components/MerchantDashboard/Scenes/team/products";
 
 import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
@@ -32,7 +34,6 @@ import AdminBar from "./components/adminDashboard/adminDashScenes/bar";
 import AdminForm from "./components/adminDashboard/adminDashScenes/form";
 import AdminLine from "./components/adminDashboard/adminDashScenes/line";
 import AdminPie from "./components/adminDashboard/adminDashScenes/pie";
-import AdminFAQ from "./components/adminDashboard/adminDashScenes/faq";
 import AdminGeography from "./components/adminDashboard/adminDashScenes/geography";
 import AdminCalendar from "./components/adminDashboard/adminDashScenes/calendar/calendar";
 import AdminUpdateForm from "./components/adminDashboard/adminDashScenes/form/updateDetails";
@@ -41,7 +42,13 @@ import AdminUpdateForm from "./components/adminDashboard/adminDashScenes/form/up
 // import AdminTopbar from "./components/adminDashboard/adminDashScenes/global/Topbar";
 
 // import Merch from "./components/Merch";
-
+import Clerk from './components/Client'
+import ClerkUpdateForm from "./components/Client/ClientDashboard/Scenes/form/updateDetailForm";
+import ProductForm from "./components/Client/ClientDashboard/Scenes/form";
+import StockForm from "./components/Client/ClientDashboard/Scenes/stock";
+import ClerkDashboard from "./components/Client/ClientDashboard/Scenes/dashboard"
+// import AllProducts from "./components/MerchantDashboard/Scenes/team/products";
+import Stores from "./components/MerchantDashboard/Scenes/team/stores";
 
 
 
@@ -66,6 +73,7 @@ function App() {
        <div>
 
                 {/* <Merchant/> */}
+                
                     
                   <Routes>
                           <Route path="/" element={<LandingPage/>}/>
@@ -76,12 +84,19 @@ function App() {
 
 
                            <Route path="/merchant" element={<Merchant/>}>
-                              <Route path="/merchant/" element={<Dashboard/>} />
+                              <Route path="/merchant" element={<Dashboard/>} />
                               <Route path="/merchant/team" element={<Team />} />
                               <Route path="/merchant/form" element={<Form />} />
                               <Route path="/merchant/bar" element={<Bar/>} /> 
                               <Route path="/merchant/pie" element={<Pie/>} /> 
                               <Route path="/merchant/line" element={<Line/>} />
+                              <Route path="/merchant/calendar" element={<Line/>} />
+                              <Route path="/merchant/geography" element={<Line/>} />
+                              <Route path="/merchant/form/update" element={<MerchantUpdateForm/>} />
+                              <Route path="/merchant/stores" element={<Stores/>} />
+                              <Route path="/merchant/products" element={<AllStoresProducts/>} />
+
+
                           </Route> 
 
                           <Route path="/admin" element={<Admin/>}>
@@ -94,9 +109,17 @@ function App() {
                             <Route path="/admin/bar" element={<AdminBar />} />
                             <Route path="/admin/pie" element={<AdminPie />} />
                             <Route path="/admin/line" element={<AdminLine />} />
-                            <Route path="/admin/faq" element={<AdminFAQ />} />
                             <Route path="/admin/calendar" element={<AdminCalendar />} />
                             <Route path="/admin/geography" element={<AdminGeography />} />
+                          </Route>
+
+
+                          <Route path="/clerk" element={<Clerk/>}>
+                            <Route path="/clerk" element={<ClerkDashboard />} />
+                            <Route path="/clerk/products" element={<Team />} />
+                            <Route path="/clerk/product/add" element={<ProductForm />} />
+                            <Route path="/clerk/stock/add" element={<StockForm />} />
+                            <Route path="/clerk/form/update" element={<ClerkUpdateForm/>}/>    
                           </Route>
                                           
                     </Routes>

@@ -5,7 +5,7 @@ import LineChart from "../../adminDashComponents/LineChart";
 const AdminLine = () => {
   return (
     <Box m="20px">
-      <Header title="Line Chart" subtitle="Simple Line Chart" />
+      <Header title="Line Chart" subtitle="Inventory Line Chart" />
       <Box height="75vh">
         <LineChart />
       </Box>

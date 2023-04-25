@@ -48,10 +48,6 @@ const Topbar = () => {
       <IconButton>
         <SettingsOutlinedIcon/>
       </IconButton>
-      <IconButton>
-        <PeronsOutlinedIcon/>
-      </IconButton>
-
       </Box>
 
     </Box>

@@ -15,7 +15,7 @@ const ProductForm = () => {
   
     return (
       <Box m="20px" >
-        <Header title="ADD NEW PRODUCT" subtitle="Product Details" />
+        <Header title="Add New Product" subtitle="Product Details" />
   
         <Formik
           onSubmit={handleFormSubmit}

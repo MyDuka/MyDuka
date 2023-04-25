@@ -128,8 +128,6 @@ const StockForm = () => {
                     }}
                     id="controllable-states-demo"
                     options={options}
-                    error={!!touched.inStock && !!errors.inStock}
-                    helperText={touched.inStock && errors.inStock}
                     sx={{ width: 150 }}
                     renderInput={(params) => <TextField {...params} label="Payment Status" />}
                 />
