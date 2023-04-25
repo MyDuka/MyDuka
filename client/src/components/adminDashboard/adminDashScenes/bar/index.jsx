@@ -5,7 +5,7 @@ import BarChart from "../../adminDashComponents/BarChart";
 const AdminBar = () => {
   return (
     <Box m="20px">
-      <Header title="Bar Chart" subtitle="Simple Bar Chart" />
+      <Header title="Bar Chart" subtitle="Inventory Bar Chart" />
       <Box height="75vh">
         <BarChart />
       </Box>

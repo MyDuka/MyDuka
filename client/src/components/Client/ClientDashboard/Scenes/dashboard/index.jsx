@@ -10,7 +10,7 @@ import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Dashboard = () => {
+const ClerkDashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -265,4 +265,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard
+export default ClerkDashboard;

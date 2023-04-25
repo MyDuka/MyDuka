@@ -51,7 +51,7 @@ const AdminDashboard = () => {
         <Box>
           <Button
             sx={{
-              backgroundColor: colors.blueAccent[700],
+              backgroundColor: colors.greenAccent[300],
               color: colors.grey[100],
               fontSize: "14px",
               fontWeight: "bold",
@@ -59,7 +59,7 @@ const AdminDashboard = () => {
             }}
           >
             <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            Reports
           </Button>
         </Box>
       </Box>
