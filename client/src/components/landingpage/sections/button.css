@@ -14,12 +14,12 @@
   }
   .button{
     position: relative;
-    background: orange;
+    background: var(--orange);
     color: white;
     font-size: 20px;
     font-weight: 600;
-    padding: 8px 20px;
-    width: 150px;
+    padding: 4px 15px;
+    width: 110px;
     line-height: 30px;
     display: flex;
     align-items: center;
@@ -27,15 +27,15 @@
     border-radius: 25px;
     cursor: pointer;
     transition: width .4s;
-  
+    margin-left: 7rem;
     
   }
   .button.expand{
-    width: 70%;
+    width: 50%;
   }
   
   .fas{
-    color: black;
+    color: var(--white)
     /* background-color: white; */
   }
   .fas.expand:before{
@@ -46,11 +46,12 @@
     position: absolute;
     top: 65px;
     display: block;
-    /* background: var(--orange); */
+    background: transparent;
     width: 70%;
     text-align: center;
     border-radius: 5px;
     display: none;
+    margin-left:5rem
     /* box-shadow: 0 3px 6px rgba(0,0,0,0.3); */
   }
   ul:before{
@@ -61,7 +62,7 @@
     /* background: var(--orange); */
     background: transparent;
     top: -10px;
-    right: 15px;
+    right: 25px;
     transform: rotate(45deg);
     z-index: -1;
   }
@@ -76,8 +77,8 @@
     border-bottom: none;
   }
   ul li:hover{
-    box-shadow: inset 0 0 5px orange,
-                inset 0 0 10px orange;
+    box-shadow: inset 0 0 5px var(--orange),
+                inset 0 0 10px var(--orange);
   }
   ul li:hover:first-child{
     border-radius: 5px 5px 0 0;
@@ -91,5 +92,5 @@
     text-decoration: none;
   }
   ul li:hover a{
-    color: orange;
+    color: var(--orange);
   }

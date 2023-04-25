@@ -12,7 +12,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 
 const options = ['Paid', 'Unpaid'];
-const options2 =['Spoilt', 'Not Spoilt']
+
 
 const StockForm = () => {
 

@@ -53,35 +53,53 @@ export default function AdminLogin(){
 
 
     return(
-<div className="bckgrd">
+            <div className="bckgrd">
 
-            <div>
-                <Link className="logoIn" to="/">MyDuka</Link>
-                {/* <h3 > <Link>Go back </Link> </h3> */}  
-            </div>
+                <div>
+                    <Link className="logoIn" to="/">MyDuka</Link>
+                    {/* <h3 > <Link>Go back </Link> </h3> */}  
+                </div>
 
-        <div className="log">
+                <div className="log">
 
-<form className="login-form" onSubmit={adminLogin}>
-  
-  <h4>Admin Login</h4>
-  <label for="username" className="label">Email</label>
-  <div className="form-input-material">
-    <input type="text" name="username" id="username" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="off" className="form-control-material" />
-  </div>
+                    <form className="login-form" onSubmit={adminLogin}>
+                    
+                    <h4 className="login-label">Admin Login</h4>
+                    {/* <label for="username" className="input-label">Enter Email</label> */}
+                    <div className="form-input-material">
+                        <input type="text" 
+                            name="username" 
+                            id="username" 
+                            placeholder="Email" 
+                            value={email} 
+                            onChange={(e)=>setEmail(e.target.value)} autoComplete="off" 
+                            className="login-input" />
+                    </div>
 
-  <label for="password" className="label">Password</label>
-  <div className="form-input-material">
-    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material"  />
-  </div>
-  <button type="submit" className="btn btn-primary btn-ghost">Login</button>
+                    {/* <label for="password" className="input-label">Input Password</label> */}
+                    <div className="form-input-material">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Password" 
+                            value={password} 
+                            onChange={(e)=>setPassword(e.target.value)} autoComplete="off" 
+                            className="login-input" />
+                    </div>
+                    <button 
+                        type="submit" 
+                        className="login-button"
+                        >
+                        Login
+                    </button>
 
-    {/* <div className="hr"></div> */}
-    <div className="foot-lnk">
-    <p id="msg">{invalid? "Invalid email or password": null }</p>
-        <Link className="footer" to="/password/reset">Forgot Password?</Link>
-    </div>
-</form>
+                        {/* <div className="hr"></div> */}
+                        <div className="foot-lnk">
+                        <p id="msg">{invalid? "Invalid email or password": null }</p>
+                            <Link className="footer" to="/password/reset">Forgot Password?</Link>
+                        </div>
+                    </form>
   
         </div>
 

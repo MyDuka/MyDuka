@@ -55,21 +55,38 @@ export default function ClerkLogin(){
 
         <div className="log">
           <form className="login-form" onSubmit={clerkLogin}>
-            <h4>Clerk Login</h4>
+            <h4 className="login-label">Clerk Login</h4>
 
-            <label for="username" className="label"> Email</label>
             <div className="form-input-material">
-              <input type="text" name="username" id="username" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="off" className="form-control-material"  /> 
+              <input 
+                type="text" 
+                name="username" 
+                id="username" 
+                placeholder="Email" 
+                value={email} 
+                onChange={(e)=>setEmail(e.target.value)} 
+                autoComplete="off" 
+                className="login-input"  /> 
             </div>
 
-            <label for="password" className="label">Password</label>
             <div className="form-input-material">
-              <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material" />
+              <input t
+              ype="password" 
+              name="password" 
+              id="password" 
+              placeholder="Password" 
+              value={password} 
+              onChange={(e)=>setPassword(e.target.value)} 
+              autoComplete="off" 
+              className="login-input" />
             </div>
 
-            <button type="submit" className="btn btn-primary btn-ghost">Login</button>
-
-            <div className="hr"></div>
+            <button 
+              type="submit" 
+              className="login-button"
+              >
+                Login
+              </button>
 
             <div className="foot-lnk">
               <p id="msg">{invalid? "Invalid email or password": null }</p>

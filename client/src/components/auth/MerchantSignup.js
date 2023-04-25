@@ -57,26 +57,47 @@ export default function MerchantSignup(){
         <div className="log">
 
             <form className="login-form" onSubmit={merchantSignup} >
-                <h4>Merchant Signup</h4>
+                <h4 className="login-label">Merchant Signup</h4>
 
-                <label for="username" className="label">Username</label>
+
                 <div className="form-input-material">
-                    <input type="text" name="username" id="username" placeholder="Username" value={username} onChange={(e)=> setUsername(e.target.value)} autoComplete="off" className="form-control-material" required /> 
+                    <input 
+                    type="text" 
+                    name="username" 
+                    id="username" 
+                    placeholder="Username" 
+                    value={username} 
+                    onChange={(e)=> setUsername(e.target.value)} 
+                    autoComplete="off" 
+                    className="login-input" required /> 
                 </div>
 
-                <label for="username" className="label">Email</label>
+                
                 <div className="form-input-material">
-                    <input type="text" name="email" id="username" placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)} autoComplete="off" className="form-control-material" /> 
+                    <input 
+                    type="text" 
+                    name="email" 
+                    id="username" 
+                    placeholder="Email" 
+                    value={email} 
+                    onChange={(e)=> setEmail(e.target.value)} 
+                    autoComplete="off" 
+                    className="login-input" /> 
                 </div>
 
-                <label for="password" className="label">Password</label>
                 <div className="form-input-material">
-                    <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" className="form-control-material"  />
+                    <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Password" 
+                    value={password} 
+                    onChange={(e)=>setPassword(e.target.value)} 
+                    autoComplete="off" 
+                    className="login-input"  />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-ghost">Login</button>
-
-                <div className="hr"></div>
+                <button type="submit" className="login-button">Sign Up</button>
                 
                 <div className="foot-lnk">
                     <Link className="footer" to="/merchant/login">Already Registered?</Link>

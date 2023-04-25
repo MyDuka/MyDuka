@@ -3,6 +3,7 @@ import Landing from './sections/section0'
 import About from './sections/section1'
 import About2 from './sections/section2'
 import Navbar from './navbar'
+import Footer from  './sections/footer'
 import './Landingpage.css'
 
 const LandingPage = () => {
@@ -12,6 +13,7 @@ const LandingPage = () => {
         <Landing/>
         <About/>
         <About2/>
+        <Footer/>
     </div>
   )
 }

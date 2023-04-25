@@ -2,14 +2,16 @@
  
 
 .about-1{
-    height: 650px;
-    background: var(--grey)
+    height: 600px;
+    /* background: var(--grey); */
+    /* width: 1500px; */
   } 
    
    .ab-title{
   
-      margin-left:38%;
-      margin-top: 4rem;
+      margin-left:43%;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
       color: var(--orange);
       font-size: 3rem;
       font-weight: 700;
@@ -35,6 +37,7 @@
     transition: 0.4s;
     margin-top: 3rem;
     background: var(--purple);
+    margin-left: 7rem;
     
   }
   

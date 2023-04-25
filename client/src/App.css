@@ -4,6 +4,7 @@
   --purple:#1e0127;
   --green: #77C23B;
   --orange: #ff7b00;
+  --orange2: #974c05;
   --white: #fff;
   --grey: #2F2E2E;
   --background: #2F2E2E;
@@ -17,16 +18,8 @@
 
 
 
-/* 
-
-.here{
-  display: block;
-}
-
-.nothere{
-  display:none;
-} */
 body{
-  background: #171A24;
+  background: #171A24; 
+  max-width:1200px;
 }  
 
