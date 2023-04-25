@@ -40,37 +40,35 @@ const AllStoresProducts = () => {
       cellClassName: "name-column--cell",
     },
     {
+        field: "phone",
+        headerName: "Type",
+        flex: 1,
+      },
+    {
       field: "age",
-      headerName: "Age",
+      headerName: "Buying Price",
       type: "number",
       headerAlign: "left",
       align: "left",
     },
     {
-      field: "phone",
-      headerName: "Location",
-      flex: 1,
+    field: "",
+    headerName: "Selling Price",
+    type: "number",
+    headerAlign: "left",
+    align: "left",
     },
     {
       field: "email",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "address",
-      headerName: "Address",
+      headerName: "Supplier",
       flex: 1,
     },
     {
       field: "city",
-      headerName: "City",
+      headerName: "store",
       flex: 1,
     },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
-      flex: 1,
-    },
+
   ];
 
   return (
