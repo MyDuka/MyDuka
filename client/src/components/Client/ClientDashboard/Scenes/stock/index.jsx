@@ -11,8 +11,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 
 
-const options = ['Paid', 'Unpaid'];
-const options2 =['Spoilt', 'Not Spoilt']
+const options=['Paid, Unpaid'];
 
 const StockForm = () => {
 
@@ -128,8 +127,6 @@ const StockForm = () => {
                     }}
                     id="controllable-states-demo"
                     options={options}
-                    error={!!touched.inStock && !!errors.inStock}
-                    helperText={touched.inStock && errors.inStock}
                     sx={{ width: 150 }}
                     renderInput={(params) => <TextField {...params} label="Payment Status" />}
                 />

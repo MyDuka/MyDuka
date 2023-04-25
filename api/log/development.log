@@ -23793,3 +23793,32 @@ Processing by ProductsController#index as */*
 Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 805)
 
 
+Started GET "/products" for 127.0.0.1 at 2023-04-24 18:20:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (135.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 411ms (Views: 24.3ms | ActiveRecord: 322.6ms | Allocations: 43511)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-24 18:20:59 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (36.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 53ms (Views: 15.2ms | ActiveRecord: 36.9ms | Allocations: 806)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-24 18:21:09 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 819)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-24 18:21:09 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 804)
+
+
