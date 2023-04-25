@@ -47,7 +47,7 @@ import ClerkUpdateForm from "./components/Client/ClientDashboard/Scenes/form/upd
 import ProductForm from "./components/Client/ClientDashboard/Scenes/form";
 import StockForm from "./components/Client/ClientDashboard/Scenes/stock";
 import ClerkDashboard from "./components/Client/ClientDashboard/Scenes/dashboard"
-import AllProducts from "./components/MerchantDashboard/Scenes/team/products";
+// import AllProducts from "./components/MerchantDashboard/Scenes/team/products";
 import Stores from "./components/MerchantDashboard/Scenes/team/stores";
 
 
