@@ -4,4 +4,3 @@ class AdminSerializer < ActiveModel::Serializer
   has_many :clerks, dependent: :destroy 
   has_many :admin_store, dependent: :destroy
 end
-''
