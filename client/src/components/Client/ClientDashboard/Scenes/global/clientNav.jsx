@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import './ClientNav.css'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import {Box, Typography, IconButton,} from '@mui/material';
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import AddchartIcon from '@mui/icons-material/Addchart';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -17,6 +18,17 @@ function ClientNav(){
 
     const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
 
+
+    function handleLogout(){
+        fetch("/clerk/logout",{
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        localStorage.removeItem('admin_id')
+        return <Navigate to="/" />
+      }
 
 
     return(
@@ -62,8 +74,19 @@ function ClientNav(){
                 <Link to="/clerk/stock/add" className="nav_link"> <i> <PostAddIcon/> </i> <span className="nav_name">Add Stock</span> </Link> 
                 <Link className="nav_link"> <i></i> <span className="nav_name"></span> </Link>
                 <Link className="nav_link"> <i></i> <span class="nav_name"></span> </Link> </div>
+
+                <br/>
+             <Typography variant="h5"  >
+              Profile Update
+            </Typography> 
+            <br/>
+            <Link to="/clerk/form/update" className="nav_link"> <i> <PersonOutlinedIcon />  </i> <span className="nav_name">Edit</span> </Link>
+
+            <br/>
+            <br/>
+            <IconButton  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
             </div> 
-            <IconButton  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">SignOut</span> </IconButton>
+            
         </nav>
         </>
     )
