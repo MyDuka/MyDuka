@@ -41,6 +41,7 @@ import AdminUpdateForm from "./components/adminDashboard/adminDashScenes/form/up
 // import AdminTopbar from "./components/adminDashboard/adminDashScenes/global/Topbar";
 
 // import Merch from "./components/Merch";
+import Client from './components/Client'
 
 
 
@@ -66,8 +67,9 @@ function App() {
        <div>
 
                 {/* <Merchant/> */}
+                <Client/>
                     
-                  <Routes>
+                  {/* <Routes>
                           <Route path="/" element={<LandingPage/>}/>
                            <Route path="/clerk/login" element={<ClerkLogin />}/>
                            <Route path="/admin/login" element={<AdminLogin />}/>
@@ -99,7 +101,7 @@ function App() {
                             <Route path="/admin/geography" element={<AdminGeography />} />
                           </Route>
                                           
-                    </Routes>
+                    </Routes> */}
 
         </div>     
 
