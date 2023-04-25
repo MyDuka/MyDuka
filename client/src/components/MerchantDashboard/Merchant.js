@@ -10,6 +10,7 @@ import Topbar from './Scenes/global/topbar';
 function Merchant() {
   const [theme, colorMode] =useMode();
   const [isSidebar, setisSidebar] =useState(true);
+
   
   
   //  const [vanish,setVanish] = useState("here")
