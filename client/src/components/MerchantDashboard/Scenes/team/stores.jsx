@@ -1,48 +1,48 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../../../theme";
-import { mockDataTeam } from "../../adminDashData/mockData";
+import { mockDataTeam } from "../../Data/mockData"
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import Header from "../../adminDashComponents/Header";
+import Header from "../../../Header"
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 
 import { useState, useEffect } from "react";
-import axios from "axios";
+
 
 const Stores = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   // const [access, setAccess] = useState("activated")
   const [stores, setStores] = useState([])
-  const [storeId, setStoreId] =useState()
+
  
 
 
   let admin_id = localStorage.getItem('admin_id')
 
-  let url =  `http://localhost:3000/clerks/${admin_id}`
-
-  let url2 = "http://localhost:3000/stores"
 
 
+  let url = "http://localhost:3000/stores"
 
 
-    useEffect(()=>{
-      fetch(url,{
-        method: "GET",
-        header: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((c)=> c.json())
-      .then((d)=>{
-        setStores(...stores,d)
 
-      })
-    },[])
 
-    console.log(stores)
+    // useEffect(()=>{
+    //   fetch(url,{
+    //     method: "GET",
+    //     header: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //   .then((c)=> c.json())
+    //   .then((d)=>{
+    //     setStores(...stores,d)
+
+    //   })
+    // },[])
+
+    // console.log(stores)
 
 
    
@@ -73,10 +73,10 @@ const Stores = () => {
       flex: 1,
     },
     {
-      field: "id",
+      field: "access",
       headerName: "View Products",
       flex: 1,
-      renderCell: ({ row: { id } }) => {
+      renderCell: () => {
         return (
           <Box
             width="60%"
@@ -86,12 +86,13 @@ const Stores = () => {
             justifyContent="center"
             backgroundColor={colors.redAccent[500]}
             borderRadius="4px"
+            // onclick={()=> sessionStorage.setItem("product_id", id)}
           >
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
              <ProductionQuantityLimitsIcon/> Products
             </Typography>
           </Box>
-        );
+        ); 
       },
     },
   ];
