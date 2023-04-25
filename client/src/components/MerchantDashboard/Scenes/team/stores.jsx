@@ -42,7 +42,7 @@ const Stores = () => {
       })
     },[])
 
-    console.log(clerks)
+    console.log(stores)
 
 
    
