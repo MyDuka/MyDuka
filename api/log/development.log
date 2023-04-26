@@ -25221,3 +25221,745 @@ Processing by MerchantsController#show as */*
 Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 622)
 
 
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 22:10:47 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (49.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 557ms (Views: 5.1ms | ActiveRecord: 121.5ms | Allocations: 4093)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:10:48 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (11.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 174ms (Views: 3.3ms | ActiveRecord: 70.9ms | Allocations: 652)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:10:49 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (34.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 43ms (Views: 0.6ms | ActiveRecord: 34.2ms | Allocations: 622)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:11:01 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:103:in `merchant_logout'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 730)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:11:13 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:103:in `merchant_logout'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 717)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:11:15 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:103:in `merchant_logout'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 717)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:11:16 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:103:in `merchant_logout'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 717)
+
+
+Started GET "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:11:29 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/merchant/logout"):
+  
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:16:25 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:103:in `merchant_logout'
+Completed 200 OK in 256ms (Views: 1.3ms | ActiveRecord: 15.3ms | Allocations: 6849)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:26:14 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 4ms (Views: 1.5ms | Allocations: 228)
+
+
+Started GET "/" for ::1 at 2023-04-25 22:26:29 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.5ms | Allocations: 465)
+Completed 200 OK in 16ms (Views: 8.4ms | Allocations: 1383)
+
+
+Started GET "/" for ::1 at 2023-04-25 22:26:34 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimathinjoki/.rvm/gems/ruby-3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 30.6ms | Allocations: 454)
+Completed 200 OK in 157ms (Views: 155.6ms | Allocations: 1257)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 22:27:13 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (52.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 444ms (Views: 0.6ms | ActiveRecord: 88.4ms | Allocations: 10289)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:27:14 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 828)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:27:14 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 622)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:27:23 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 22:37:30 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (86.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 685ms (Views: 15.9ms | ActiveRecord: 252.1ms | Allocations: 3776)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:37:31 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 2.1ms | Allocations: 651)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 22:37:31 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (40.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 44ms (Views: 1.1ms | ActiveRecord: 40.8ms | Allocations: 622)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:37:41 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:40:22 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 200 OK in 28ms (Views: 6.8ms | Allocations: 230)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:40:45 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 5ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:49:57 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (Allocations: 142)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:50:37 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 0ms (Allocations: 92)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:50:39 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 0ms (Allocations: 92)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:50:39 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 3ms (Allocations: 92)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 22:50:50 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 219ms (Views: 1.7ms | ActiveRecord: 76.9ms | Allocations: 6799)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 22:57:51 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 7ms (Allocations: 92)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 22:58:30 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 290ms (Views: 1.4ms | ActiveRecord: 17.8ms | Allocations: 3398)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 22:58:40 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 535)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 22:59:28 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (11.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 27ms (Views: 1.2ms | ActiveRecord: 11.8ms | Allocations: 535)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 23:01:01 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (44.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 360ms (Views: 11.6ms | ActiveRecord: 44.0ms | Allocations: 2632)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 23:01:01 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 623)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 23:01:02 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 622)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-25 23:01:04 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 92)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-25 23:58:18 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (47.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 942ms (ActiveRecord: 683.2ms | Allocations: 11442)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-25 23:58:38 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 237ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1022)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:06:16 -0700
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:06:16 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 353ms (Allocations: 5045)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:06:17 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 16ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+  [1m[36mAdmin Load (42.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 1142ms (Views: 3.9ms | ActiveRecord: 64.9ms | Allocations: 3701)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:06:18 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 32ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 641)
+
+
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:08:39 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms | Allocations: 4441)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:08:40 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:10:03 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:14:20 -0700
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:14:20 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 44ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:14:20 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 7ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 1040ms (Views: 9.6ms | ActiveRecord: 444.1ms | Allocations: 23378)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:14:21 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 641)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-26 00:15:55 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 767ms (Views: 2.3ms | ActiveRecord: 37.0ms | Allocations: 3818)
+
+
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:16:33 -0700
+Processing by ReceivedItemsController#index as */*
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:16:33 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms | Allocations: 1857)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:16:33 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+  [1m[36mAdmin Load (229.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 543ms (Views: 1.7ms | ActiveRecord: 229.5ms | Allocations: 671)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 00:16:34 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.4ms | Allocations: 641)
+
+
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:17:00 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:17:01 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:19:04 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:19:10 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:19:31 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:19:40 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:24:03 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 34ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:24:03 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 12ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:24:52 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 62ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:25:05 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 39ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:25:56 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 23ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:28:59 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 31ms (Allocations: 2520)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003c9b0>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:28:59 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 20ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003ca50>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/products" for 127.0.0.1 at 2023-04-26 00:29:05 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (47.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 356ms (Views: 307.1ms | ActiveRecord: 155.4ms | Allocations: 24383)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 00:29:06 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 2.0ms | Allocations: 806)
+
+
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:40:00 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 42ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003caf0>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:40:01 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 14ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003cb68>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:40:07 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 69ms (Allocations: 1856)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 00:40:07 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 10ms (Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:40:11 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 48ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003cc30>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 00:40:11 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 14ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003cd48>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 01:18:24 -0700
+Started GET "/clerks/null" for ::1 at 2023-04-26 01:18:24 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 30ms (Allocations: 2521)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x000000000304a8>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 01:18:25 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 34ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x00000000030520>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+  [1m[36mAdmin Load (27.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 1456ms (Views: 4.6ms | ActiveRecord: 234.0ms | Allocations: 36930)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 01:18:26 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 641)
+
+
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 01:18:27 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 01:18:27 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/clerks/null" for ::1 at 2023-04-26 01:20:49 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 49ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003ce10>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 01:20:50 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 2468)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x00000000030750>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/products" for 127.0.0.1 at 2023-04-26 01:20:57 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (14.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 53ms (Views: 37.0ms | ActiveRecord: 14.4ms | Allocations: 829)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 01:20:57 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms | Allocations: 804)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-26 01:22:53 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (30.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 315ms (Views: 3.5ms | ActiveRecord: 30.3ms | Allocations: 945)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-26 01:22:54 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 19ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 626)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-26 01:22:54 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 622)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 01:27:42 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 1684ms (Views: 1475.5ms | ActiveRecord: 1019.8ms | Allocations: 10490)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 01:27:44 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 806)
+
+
+Started DELETE "/merchant/logout" for 127.0.0.1 at 2023-04-26 01:33:46 -0700
+Processing by SessionsController#merchant_logout as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 29ms (Allocations: 92)
+
+
