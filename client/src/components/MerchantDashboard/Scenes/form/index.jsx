@@ -1,35 +1,59 @@
-import React from 'react'
-import {Box, Button, TextField, useMediaQuery} from "@mui/material";
-import {Formik} from "formik";
-import * as yup from "yup";
+import React, {useState} from 'react'
+import {Box, Button, TextField, Typography, useMediaQuery} from "@mui/material";
 import useMediaquery from "@mui/material/useMediaQuery";
 import Header from '../../../Header';
 
 
 const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
+
+
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [contact, setContact] = useState("")
+  // const [address, setAddress] = useState("")
+  // const [lastName, setLastName] = useState("")
+  const [createdAdmin, setCtreatedAdmin] = useState()
+  const [created, setCreated] = useState(false)
+
+
+
+const id = sessionStorage.getItem('merchant_id')
+
+
+function handleSubmit(e){
+  e.preventDefault();
+  // const user_id = sessionStorage.getItem('user_id')
+  fetch(`http://localhost:3000/admin/register/${id}`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+  })
+})
+  .then(r=> r.json())
+  .then(data=> {
+    console.log(data)
+    setCtreatedAdmin(data)
+    setCreated(true)
+  })
+  .catch(error=>console.log(error))
+
+}
+
+
   
-    const handleFormSubmit = (values) => {
-      console.log(values);
-    };
-  
+
     return (
       <Box m="20px" >
-        <Header title="CREATE ADMIN PROFILE" subtitle="Create a New User Admin Profile" />
+        <Header title="Create Admin Profile" subtitle="Create a New Admin Profile" />
   
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={checkoutSchema}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-          }) => (
+
             <form onSubmit={handleSubmit}>
               <Box
                 display="grid"
@@ -44,26 +68,10 @@ const Form = () => {
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="First Name"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.firstName}
-                  name="firstName"
-                  error={!!touched.firstName && !!errors.firstName}
-                  helperText={touched.firstName && errors.firstName}
-                  sx={{ gridColumn: "span 2" }}
-                />
-                <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Last Name"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.lastName}
-                  name="lastName"
-                  error={!!touched.lastName && !!errors.lastName}
-                  helperText={touched.lastName && errors.lastName}
+                  label="Username"
+                  onChange={(e)=>setUsername(e.target.value)}
+                  value={username}
+                  name="username"
                   sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
@@ -71,87 +79,67 @@ const Form = () => {
                   variant="filled"
                   type="text"
                   label="Email"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.email}
+                  onChange={(e)=> setEmail(e.target.value)}
+                  value={email}
                   name="email"
-                  error={!!touched.email && !!errors.email}
-                  helperText={touched.email && errors.email}
-                  sx={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="Contact Number"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.contact}
+                  label="Contact"
+                  onChange={(e)=> setContact(e.target.value)}
+                  value={email}
                   name="contact"
-                  error={!!touched.contact && !!errors.contact}
-                  helperText={touched.contact && errors.contact}
-                  sx={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="Address 1"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.address1}
-                  name="address1"
-                  error={!!touched.address1 && !!errors.address1}
-                  helperText={touched.address1 && errors.address1}
-                  sx={{ gridColumn: "span 4" }}
-                />
-                <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Address 2"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.address2}
-                  name="address2"
-                  error={!!touched.address2 && !!errors.address2}
-                  helperText={touched.address2 && errors.address2}
-                  sx={{ gridColumn: "span 4" }}
+                  label="Initial password"
+                  onChange={(e)=>setPassword(e.target.value)}
+                  value={password}
+                  name="password"
+                  sx={{ gridColumn: "span 2" }}
                 />
               </Box>
               <Box display="flex" justifyContent="end" mt="10px" mr="20px">
                 <Button type="submit" color="secondary" variant="contained">
-                  Create New User 
+                  Create New Admin 
                 </Button>
               </Box>
             </form>
-          )}
-        </Formik>
+
+        <Typography display="flex" justifyContent="center" mt="10px" mr="20px">{created ? `Administrator ${createdAdmin.username} has been added` : null}</Typography>
+
+       
       </Box>
     );
   };
   
-  const phoneRegExp =
-    /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+  // const phoneRegExp =
+  //   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
   
-  const checkoutSchema = yup.object().shape({
-    firstName: yup.string().required("required"),
-    lastName: yup.string().required("required"),
-    email: yup.string().email("invalid email").required("required"),
-    contact: yup
-      .string()
-      .matches(phoneRegExp, "Phone number is not valid")
-      .required("required"),
-    address1: yup.string().required("required"),
-    address2: yup.string().required("required"),
-  });
-  const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address1: "",
-    address2: "",
-  };
+  // const checkoutSchema = yup.object().shape({
+  //   firstName: yup.string().required("required"),
+  //   lastName: yup.string().required("required"),
+  //   email: yup.string().email("invalid email").required("required"),
+  //   contact: yup
+  //     .string()
+  //     .matches(phoneRegExp, "Phone number is not valid")
+  //     .required("required"),
+  //   address1: yup.string().required("required"),
+  //   address2: yup.string().required("required"),
+  // });
+  // const initialValues = {
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   contact: "",
+  //   address1: "",
+  //   address2: "",
+  // };
 
 export default Form

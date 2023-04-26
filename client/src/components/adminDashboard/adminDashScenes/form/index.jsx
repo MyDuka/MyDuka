@@ -15,20 +15,7 @@ const AdminForm = () => {
   // const [address, setAddress] = useState("")
   // const [lastName, setLastName] = useState("")
 
-//   const handleSubmit = event => {
-//     event.preventDefault();
 
-//     axios.post('http://localhost:3000/clerk/register', {
-//   username: username,
-//   email: email,
-// })
-// .then(response => {
-//   console.log(response);
-//   // do something with the response, such as saving the user information
-//   if (response.status === 200) {
-//     console.log(response);
-//   }
-// })
 
 const id = localStorage.getItem('admin_id')
 

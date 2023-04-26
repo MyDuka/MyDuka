@@ -16,7 +16,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { useSelector } from 'react-redux'
 
-const Dashboard = () => {
+const Dashboard = ({user}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode)
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
           title="Merchant"
-          subtitle= "Welcome to your dashboard"
+          subtitle= {`Welcome ${user.username} to your dashboard`}
         />
 
 <Box>

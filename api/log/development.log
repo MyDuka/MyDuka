@@ -24674,3 +24674,550 @@ Processing by ProductsController#index as */*
 Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 804)
 
 
+Started GET "/products" for 127.0.0.1 at 2023-04-25 17:02:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (81.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 252ms (Views: 23.8ms | ActiveRecord: 199.2ms | Allocations: 43519)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-25 17:02:19 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 806)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 17:07:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (48.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 422 Unprocessable Entity in 330ms (Views: 0.4ms | ActiveRecord: 66.7ms | Allocations: 41336)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 17:07:50 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 234ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1176)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-25 17:18:43 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (52.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 148ms (Views: 119.6ms | ActiveRecord: 62.7ms | Allocations: 10173)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-25 17:18:44 -0700
+Processing by MerchantsController#index as */*
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 60ms (Views: 17.5ms | ActiveRecord: 37.3ms | Allocations: 19224)
+
+
+Started GET "/merchants/" for 127.0.0.1 at 2023-04-25 17:18:49 -0700
+Processing by MerchantsController#index as */*
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 1880)
+
+
+Started GET "/merchants/$" for 127.0.0.1 at 2023-04-25 17:18:53 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"$"}
+  [1m[36mMerchant Load (6.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 168ms (Views: 0.3ms | ActiveRecord: 6.9ms | Allocations: 1421)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:19:02 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 678)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:19:05 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (3.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 13ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:19:27 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 488ms (Views: 2.2ms | ActiveRecord: 196.2ms | Allocations: 7327)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:19:32 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 678)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:20:07 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:27:38 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 81ms (Views: 2.0ms | ActiveRecord: 9.0ms | Allocations: 3540)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:27:52 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 9ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:27:58 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 8ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:05 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 23ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:05 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (11.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 22ms (Views: 0.2ms | ActiveRecord: 11.5ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:13 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 6ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:13 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (80.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 85ms (Views: 0.3ms | ActiveRecord: 80.9ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:33 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:28:33 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 664)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:29:31 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 182ms (Views: 1.4ms | ActiveRecord: 45.5ms | Allocations: 3527)
+
+
+Started GET "/merchants/null" for 127.0.0.1 at 2023-04-25 17:29:32 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"null"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 664)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 17:30:27 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (88.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 397ms (Views: 10.4ms | ActiveRecord: 88.5ms | Allocations: 2598)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:30:28 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 664)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:30:28 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 664)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:30:54 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 33ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 664)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:30:54 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 404 Not Found in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 664)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:32:01 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 58ms (Views: 1.2ms | ActiveRecord: 31.4ms | Allocations: 5778)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:32:01 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (23.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 23.3ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:32:40 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 100ms (Views: 2.0ms | ActiveRecord: 8.5ms | Allocations: 5769)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:32:41 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:35:37 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (70.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 102ms (Views: 13.5ms | ActiveRecord: 70.4ms | Allocations: 623)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:35:37 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:35:50 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:36:05 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 33ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 623)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:36:10 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (42.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 46ms (Views: 1.2ms | ActiveRecord: 42.2ms | Allocations: 623)
+
+
+Started POST "/merchant/login" for 127.0.0.1 at 2023-04-25 17:42:36 -0700
+Processing by SessionsController#merchant_login as */*
+  Parameters: {"email"=>"kimathi@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kimathi@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mMerchant Load (86.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE (username = NULL OR email = 'kimathi@mail.com' ) ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29:in `merchant_login'
+Completed 200 OK in 766ms (Views: 2.4ms | ActiveRecord: 350.3ms | Allocations: 4291)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:42:37 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 651)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 17:42:37 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 622)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-25 17:44:42 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (83.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 501ms (Views: 54.0ms | ActiveRecord: 308.3ms | Allocations: 7524)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-25 17:44:43 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 804)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:02:39 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (44.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 454ms (Views: 7.7ms | ActiveRecord: 207.9ms | Allocations: 3539)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:02:40 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.9ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:07:04 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 210ms (Views: 7.0ms | ActiveRecord: 43.1ms | Allocations: 3486)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:07:05 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 622)
+
+
+Started POST "/admin/register/1" for ::1 at 2023-04-25 18:15:45 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "id"=>"1", "admin"=>{"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com"}}
+Filter chain halted as :merchant_authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.4ms | ActiveRecord: 104.0ms | Allocations: 241)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:22:30 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 229ms (Views: 6.3ms | ActiveRecord: 51.5ms | Allocations: 8170)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:22:31 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 622)
+
+
+Started POST "/admin/register/1" for ::1 at 2023-04-25 18:24:01 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "id"=>"1", "admin"=>{"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com"}}
+Filter chain halted as :merchant_authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 2.4ms | Allocations: 165)
+
+
+Started POST "/admin/register/1" for ::1 at 2023-04-25 18:24:57 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "id"=>"1", "admin"=>{"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com"}}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+[31mUnpermitted parameters: :id, :admin. Context: { controller: AdminsController, action: register, request: #<ActionDispatch::Request:0x00007fe38f386e48>, params: {"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "controller"=>"admins", "action"=>"register", "id"=>"1", "admin"=>{"username"=>"moringa", "email"=>"dfkimathinjoki@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (120.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mAdmin Create (52.5ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "status", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "moringa"], ["email", "dfkimathinjoki@gmail.com"], ["password_digest", "[FILTERED]"], ["status", 0], ["merchant_id", 1], ["created_at", "2023-04-26 01:24:58.624982"], ["updated_at", "2023-04-26 01:24:58.624982"]]
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mTRANSACTION (44.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 11.9ms | Allocations: 668)
+  Rendered layout layouts/mailer.html.erb (Duration: 13.6ms | Allocations: 931)
+MerchantMailer#admin_registration: processed outbound mail in 105.2ms
+Delivered mail 64487d6b4951a_1222d272421782@kimathis-MacBook-Pro.local.mail (5227.6ms)
+Date: Tue, 25 Apr 2023 18:24:59 -0700
+From: from@example.com
+To: dfkimathinjoki@gmail.com
+Message-ID: <64487d6b4951a_1222d272421782@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear moringa,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: moringa</li>
+    <li>Email: dfkimathinjoki@gmail.com</li>
+    <li>Password: 1234</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign up</p>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+Completed 201 Created in 6450ms (Views: 0.9ms | ActiveRecord: 401.0ms | Allocations: 75886)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:40:06 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 193ms (Views: 19.2ms | ActiveRecord: 54.9ms | Allocations: 8175)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:40:07 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 622)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:44:35 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 543ms (Views: 8.8ms | ActiveRecord: 55.3ms | Allocations: 3729)
+
+
+Started GET "/merchants/1" for 127.0.0.1 at 2023-04-25 18:44:35 -0700
+Processing by MerchantsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20:in `show'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 622)
+
+
