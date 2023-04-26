@@ -5,7 +5,7 @@ import { Link, Navigate } from "react-router-dom";
 
 
 
-export default function AdminLogin(){
+export default function AdminLogin({signIn}){
 
 
 
@@ -28,7 +28,7 @@ export default function AdminLogin(){
                 if(r.status === 200){
                     r.json().then((user)=>{
                         setIsLoggedIn(true);
-                        // signup(user)
+                        signIn(user)
                         console.log(user)
                         const admin_id = user.id
                         sessionStorage.setItem('admin_id', admin_id);
