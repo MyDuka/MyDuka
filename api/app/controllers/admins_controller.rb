@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
-before_action :merchant_authorize
-# skip_before_action
+# before_action :merchant_authorize
+
 
 
 
@@ -12,7 +12,7 @@ before_action :merchant_authorize
 
 
     def register 
-        merchant = Merchant.find(session[:merchant_id])
+        merchant = Merchant.find(params[:id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
             MerchantMailer.admin_registration(admin,merchant).deliver_now
