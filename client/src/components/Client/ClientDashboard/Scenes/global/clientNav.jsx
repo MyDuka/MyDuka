@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './ClientNav.css'
 import { Link, Navigate } from "react-router-dom";
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
@@ -17,18 +17,38 @@ import {AiOutlineUser} from "react-icons/ai"
 function ClientNav(){
 
     const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
+    const [clerk, setClerk] = useState()
+    const [logged, setLogged] = useState(false)
 
+    let clerk_id = sessionStorage.getItem("clerk_id")
+
+    useEffect(()=>{
+      fetch(`http://127.0.0.1:3000/clerks/${clerk_id}`)
+      .then((r)=>r.json())
+      .then((d)=>{
+        setClerk(d.username)
+        console.log(d.username)
+        // setImg(d.image)
+      })
+    },[])
 
     function handleLogout(){
-        fetch("/clerk/logout",{
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        localStorage.removeItem('admin_id')
-        return <Navigate to="/" />
-      }
+      fetch("http://127.0.0.1:3000/clerk/logout",{
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(()=>{
+        sessionStorage.removeItem('clerk_id')
+        setLogged(true)
+      })
+     
+    }
+  
+    if(logged){
+      return <Navigate to="/" />
+    }
 
 
     return(
@@ -60,7 +80,7 @@ function ClientNav(){
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  John Doe
+                  {clerk.username}
                 </Typography>
                 <Typography variant="h5" >
                   Clerk
@@ -84,7 +104,7 @@ function ClientNav(){
 
             <br/>
             <br/>
-            <IconButton  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
+            <IconButton  className="nav_link" onClick={handleLogout}> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
             </div> 
             
         </nav>
