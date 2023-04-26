@@ -99,7 +99,7 @@ const Stores = () => {
 
     return (
     <Box m="20px">
-      <Header title="Clerks" subtitle="Managing your clerks" />
+      <Header title="Stores" subtitle="Manage your stores" />
       <Box
         m="40px 0 0 0"
         height="75vh"
