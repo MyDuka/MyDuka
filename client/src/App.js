@@ -38,6 +38,7 @@ import AdminPie from "./components/adminDashboard/adminDashScenes/pie";
 import AdminGeography from "./components/adminDashboard/adminDashScenes/geography";
 import AdminCalendar from "./components/adminDashboard/adminDashScenes/calendar/calendar";
 import AdminUpdateForm from "./components/adminDashboard/adminDashScenes/form/updateDetails";
+import StockRequests from "./components/adminDashboard/adminDashScenes/team/request";
 
 // import AdminSidebar from "./components/adminDashboard/adminDashScenes/global/Sidebar";
 // import AdminTopbar from "./components/adminDashboard/adminDashScenes/global/Topbar";
@@ -50,6 +51,7 @@ import StockForm from "./components/Client/ClientDashboard/Scenes/stock";
 import ClerkDashboard from "./components/Client/ClientDashboard/Scenes/dashboard"
 // import AllProducts from "./components/MerchantDashboard/Scenes/team/products";
 import Stores from "./components/MerchantDashboard/Scenes/team/stores";
+import MerchantGeography from "./components/MerchantDashboard/Scenes/geography";
 
 
 
@@ -79,7 +81,7 @@ function App() {
                   <Routes>
                           <Route path="/" element={<LandingPage/>}/>
                            <Route path="/clerk/login" element={<ClerkLogin />}/>
-                           <Route path="/admin/login" element={<AdminLogin />}/>
+                           <Route path="/admin/login" element={<AdminLogin signIn={signIn} />}/>
                            <Route path="/merchant/login" element={<MerchantLogin signIn={signIn} />}/>
                            <Route path="/merchant/signup" element={<MerchantSignup/>}/>
 
@@ -92,7 +94,7 @@ function App() {
                               <Route path="/merchant/pie" element={<Pie/>} /> 
                               <Route path="/merchant/line" element={<Line/>} />
                               <Route path="/merchant/calendar" element={<Calendar/>} />
-                              <Route path="/merchant/geography" element={<Line/>} />
+                              <Route path="/merchant/geography" element={<MerchantGeography/>} />
                               <Route path="/merchant/form/update" element={<MerchantUpdateForm/>} />
                               <Route path="/merchant/stores" element={<Stores/>} />
                               <Route path="/merchant/products" element={<AllStoresProducts/>} />
@@ -101,7 +103,7 @@ function App() {
                           </Route> 
 
                           <Route path="/admin" element={<Admin/>}>
-                            <Route path="/admin/*" element={<AdminDashboard />} />
+                            <Route path="/admin/*" element={<AdminDashboard user={user} />} />
                             <Route path="/admin/team" element={<AdminTeam />} />
                             <Route path="/admin/products" element={<AdminProducts />} />
                             <Route path="/admin/invoices" element={<AdminInvoices />} />
@@ -112,6 +114,9 @@ function App() {
                             <Route path="/admin/line" element={<AdminLine />} />
                             <Route path="/admin/calendar" element={<AdminCalendar />} />
                             <Route path="/admin/geography" element={<AdminGeography />} />
+                            <Route path="/admin/stock/requests" element={<StockRequests />} />
+
+
                           </Route>
 
 
