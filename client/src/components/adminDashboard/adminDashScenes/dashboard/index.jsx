@@ -13,6 +13,8 @@ import GeographyChart from "../../adminDashComponents/GeographyChart";
 import BarChart from "../../adminDashComponents/BarChart";
 import StatBox from "../../adminDashComponents/StatBox";
 import ProgressCircle from "../../adminDashComponents/ProgressCircle";
+import UpcomingIcon from '@mui/icons-material/Upcoming';
+import { Navigate } from "react-router";
 
 import { useState, useEffect } from "react";
 
@@ -20,6 +22,7 @@ const AdminDashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [items, setItems] = useState([])
+  const [request, setRequest] = useState(false)
 
   
 
@@ -40,13 +43,17 @@ const AdminDashboard = () => {
 
   console.log(items)
 
+  if(request){
+    return <Navigate to="admin/stock/request"/>
+  }
+
 
 
   return (
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Adminstrator" subtitle="Welcome to your dashboard" />
+        <Header title="Adminstrator" subtitle="welcome to your dashboard" />
 
         <Box>
           <Button
@@ -58,8 +65,8 @@ const AdminDashboard = () => {
               padding: "10px 20px",
             }}
           >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Reports
+            <UpcomingIcon onClick={()=> setRequest(true) } sx={{ mr: "10px" }} />
+            Requests
           </Button>
         </Box>
       </Box>
