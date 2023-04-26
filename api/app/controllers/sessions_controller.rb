@@ -100,12 +100,13 @@ class SessionsController < ApplicationController
 
 
     def merchant_logout 
-        merchant = Merchant.find_by(id: session[:merchant_id])         
-        if merchant
+        # merchant = Merchant.find_by(id: session[:merchant_id])         
+        if session.present?
             session.delete :merchant_id
             render json: {message: "merchant logout"}
-        else  
-            render json: {message: "Please login first"}
+            head :no_content
+        # else  
+        #     render json: {message: "Please login first"}
         end
     end
 
