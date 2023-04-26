@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import './Auth.css'
 import { Link, Navigate } from "react-router-dom";
 
-export default function MerchantLogin(){
+export default function MerchantLogin({signIn}){
 
     const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('');
@@ -35,7 +35,8 @@ export default function MerchantLogin(){
                         // signup(user)
                         console.log(user)
                         const merchant_id = user.id
-                        localStorage.setItem('merchant_id', merchant_id);
+                        sessionStorage.setItem('merchant_id', merchant_id);
+                        signIn(user)
 
                     })
                 }else{
