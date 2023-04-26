@@ -58,9 +58,9 @@ end
     end
     end
 
-def show  
-    admin = Admin.find_by(id: session[:admin_id])
-    if admin 
+def show 
+    clerk = admin.clerks.find_by(id: params[:id]) 
+    if clerk 
         clerk = admin.clerks.find_by(id: params[:id])
         render json: clerk, status: :ok
     else  
