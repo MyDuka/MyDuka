@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # Admin routes
 
-  post '/admin/register', to: "admins#register"
+  post '/admin/register/:id', to: "admins#register"
   
   post '/admin/login', to: "sessions#admin_login"
 
