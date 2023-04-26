@@ -25,10 +25,15 @@ const MerchantSidebar = () => {
   const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
   const [merch, setMerch] = useState("Mimi")
 
-  // let merch_id = local
-  // useEffect(()=>{
-    
-  // },[])
+  let merch_id = sessionStorage.getItem("merchant_id")
+  useEffect(()=>{
+    fetch(`http://127.0.0.1:3000/merchants/${merch_id}`)
+    .then((r)=>r.json())
+    .then((d)=>{
+      setMerch(d.username)
+      console.log(d.username)
+    })
+  },[])
 
 
   function handleLogout(){
@@ -72,6 +77,7 @@ const MerchantSidebar = () => {
             >
              {merch}
             </Typography>
+            <br/>
             <Typography variant="h5" >
               Merchant
             </Typography>
