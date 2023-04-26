@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, IconButton, Typography} from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 
@@ -23,6 +23,25 @@ import MapIcon from '@mui/icons-material/Map';
 const AdminSidebar = () => {
 
   const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
+  const [logged, setLogged] = useState(false)
+  const [admin, setAdmin] = useState()
+
+
+  let admin_id = sessionStorage.getItem("admin_id")
+
+  useEffect(()=>{
+    fetch(`http://127.0.0.1:3000/admins/${admin_id}`)
+    .then((r)=>r.json())
+    .then((d)=>{
+      setAdmin(d.username)
+      console.log(d.username)
+      // setImg(d.image)
+    })
+  },[])
+
+
+
+
 
   function handleLogout(){
     fetch("/admin/logout",{
@@ -31,7 +50,15 @@ const AdminSidebar = () => {
         'Content-Type': 'application/json',
       },
     })
-    localStorage.removeItem('admin_id')
+    .then(()=>{
+      sessionStorage.removeItem('admin_id')
+      setLogged(true)
+    })
+    
+   
+  }
+
+  if(logged){
     return <Navigate to="/" />
   }
 
@@ -63,7 +90,7 @@ const AdminSidebar = () => {
               fontWeight="bold"
               sx={{ m: "10px 0 0 0" }}
             >
-             Admin Who
+             {admin}
             </Typography>
             <Typography variant="h5" >
               Admin
@@ -74,7 +101,7 @@ const AdminSidebar = () => {
             <Link to="/admin/dashbord" className="nav_link active"> <i> <HomeOutlinedIcon/></i> <span className="nav_name">Dashboard</span> </Link> 
             <Link to="/admin/team" className="nav_link"><i><PeopleOutlinedIcon/></i>  <span className="nav_name">Clerks</span> </Link> 
             <Link to="/admin/products" className="nav_link"> <i> <InventoryIcon/> </i> <span className="nav_name">Products</span> </Link> 
-            <Link to="/admin/form" className="nav_link"> <i> <PersonAddAltIcon/> </i> <span className="nav_name">Add Stock</span> </Link> 
+            <Link to="/admin/form" className="nav_link"> <i> <PersonAddAltIcon/> </i> <span className="nav_name">Add Clerk</span> </Link> 
             <Link to="/admin/calendar" className="nav_link"> <i> <CalendarMonthIcon/> </i> <span className="nav_name">Calendar</span> </Link> 
             <br/>
             <Typography variant="h5" >
@@ -93,7 +120,7 @@ const AdminSidebar = () => {
 
         </div> 
         <br/>
-        <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">SignOut</span> </IconButton>
+        <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
     </nav>
     </>
 
