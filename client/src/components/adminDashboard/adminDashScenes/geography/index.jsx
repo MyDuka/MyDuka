@@ -12,7 +12,7 @@ const AdminGeography = () => {
 
       <Box
         height="75vh"
-        border={`1px solid ${colors.greyAccent[100]}`}
+        border={`1px solid ${colors.orangeAccent[300]}`}
         borderRadius="4px"
       >
         <GeographyChart />
