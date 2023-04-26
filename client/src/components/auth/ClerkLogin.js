@@ -28,7 +28,7 @@ export default function ClerkLogin(){
                         // signup(user)
                         const clerk_id = user.id
                         console.log(user)
-                        localStorage.setItem('clerk_id', clerk_id);
+                        sessionStorage.setItem('clerk_id', clerk_id);
                     })
                 }else{
                   setInvalid(true)
