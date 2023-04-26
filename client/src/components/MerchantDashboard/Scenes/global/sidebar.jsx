@@ -24,6 +24,7 @@ const MerchantSidebar = () => {
 
   const [img,setImg] = useState("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png")
   const [merch, setMerch] = useState("Mimi")
+  const [logged, setLogged] = useState(false)
 
   let merch_id = sessionStorage.getItem("merchant_id")
   useEffect(()=>{
@@ -32,18 +33,26 @@ const MerchantSidebar = () => {
     .then((d)=>{
       setMerch(d.username)
       console.log(d.username)
+      // setImg(d.image)
     })
   },[])
 
 
   function handleLogout(){
-    fetch("/admin/logout",{
+    fetch("http://127.0.0.1:3000/merchant/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    localStorage.removeItem('admin_id')
+    .then(()=>{
+      sessionStorage.removeItem('merchant_id')
+      setLogged(true)
+    })
+   
+  }
+
+  if(logged){
     return <Navigate to="/" />
   }
 
