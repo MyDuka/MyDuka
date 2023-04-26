@@ -63,7 +63,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="PRODUCTS" subtitle="Managing Products" />
+      <Header title="Products" subtitle="Managing Products" />
       <Box
         m="40px 0 0 0"
         height="75vh"
