@@ -62,7 +62,7 @@
 <div class="container">
     <h1>Registration Notification</h1>
     <p>Dear <%= @clerk.username %>,</p>
-    <p>We are glad to inform you that you have been registered by <%= @clerk.username %></p>
+    <p>We are glad to inform you that you have been registered by <%= @admin.username %></p>
     <p>Your role is to be a clerk of our store</p>
     <br/>
     <h2 id="head">Your login details</h2>
@@ -74,6 +74,9 @@
     </ul>
     <br/>
     <p> Please make sure to change your password upon initial sign in</p>
+    <br/>
+    <button><a href="#">Click to login</a><button>
+    <br/>
     <p>Best regards,</p>
     <p><%= @admin.username %></p>
 </div>
