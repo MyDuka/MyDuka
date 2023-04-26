@@ -31,7 +31,7 @@ export default function AdminLogin(){
                         // signup(user)
                         console.log(user)
                         const admin_id = user.id
-                        localStorage.setItem('admin_id', admin_id);
+                        sessionStorage.setItem('admin_id', admin_id);
                     })
                 }else{
                     setInvalid(true)
