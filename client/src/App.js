@@ -24,6 +24,7 @@ import Pie from './components/MerchantDashboard/Scenes/pie';
 import Line from './components/MerchantDashboard/Scenes/line';
 import MerchantUpdateForm from "./components/MerchantDashboard/Scenes/form/updateDetails";
 import AllStoresProducts from "./components/MerchantDashboard/Scenes/team/products";
+import Calendar from './components/MerchantDashboard/Scenes/calendar/calendar'
 
 import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
@@ -60,7 +61,7 @@ function App() {
 
     const [user, setUser] = useState()
 
-  function signup(user){
+  function signIn(user){
     setUser(user)
   }
 
@@ -79,18 +80,18 @@ function App() {
                           <Route path="/" element={<LandingPage/>}/>
                            <Route path="/clerk/login" element={<ClerkLogin />}/>
                            <Route path="/admin/login" element={<AdminLogin />}/>
-                           <Route path="/merchant/login" element={<MerchantLogin signup={signup} />}/>
+                           <Route path="/merchant/login" element={<MerchantLogin signIn={signIn} />}/>
                            <Route path="/merchant/signup" element={<MerchantSignup/>}/>
 
 
                            <Route path="/merchant" element={<Merchant/>}>
-                              <Route path="/merchant" element={<Dashboard/>} />
+                              <Route path="/merchant" element={<Dashboard user={user}/>} />
                               <Route path="/merchant/team" element={<Team />} />
                               <Route path="/merchant/form" element={<Form />} />
                               <Route path="/merchant/bar" element={<Bar/>} /> 
                               <Route path="/merchant/pie" element={<Pie/>} /> 
                               <Route path="/merchant/line" element={<Line/>} />
-                              <Route path="/merchant/calendar" element={<Line/>} />
+                              <Route path="/merchant/calendar" element={<Calendar/>} />
                               <Route path="/merchant/geography" element={<Line/>} />
                               <Route path="/merchant/form/update" element={<MerchantUpdateForm/>} />
                               <Route path="/merchant/stores" element={<Stores/>} />
