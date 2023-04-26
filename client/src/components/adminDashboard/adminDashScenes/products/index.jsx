@@ -41,36 +41,34 @@ const AdminProducts = () => {
     },
     {
       field: "age",
-      headerName: "Age",
+      headerName: "Buying Price",
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+    },
+    {
+      field: "",
+      headerName: "Selling Price",
       type: "number",
       headerAlign: "left",
       align: "left",
     },
     {
       field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
+      headerName: "Category",
       flex: 1,
     },
     {
       field: "address",
-      headerName: "Address",
+      headerName: "supplier",
       flex: 1,
     },
     {
       field: "city",
-      headerName: "City",
+      headerName: "image",
       flex: 1,
     },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
-      flex: 1,
-    },
+    
   ];
 
   return (
