@@ -12,7 +12,7 @@ class AdminsController < ApplicationController
 
 
     def register 
-        merchant = Merchant.find(params[:id])
+        merchant = Merchant.find(session[:merchant_id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
             MerchantMailer.admin_registration(admin,merchant).deliver_now
@@ -72,7 +72,7 @@ class AdminsController < ApplicationController
     private
 
     def admin_params 
-        params.permit(:username, :email, :password, :status)
+        params.permit(:username, :email, :password, :access)
     end
 
 
