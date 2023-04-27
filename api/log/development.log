@@ -25963,3 +25963,281 @@ Processing by SessionsController#merchant_logout as */*
 Completed 204 No Content in 29ms (Allocations: 92)
 
 
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-26 19:59:02 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (50.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'dfkimathinjoki@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 200 OK in 1230ms (Views: 53.7ms | ActiveRecord: 328.3ms | Allocations: 3838)
+
+
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 19:59:04 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 0.0ms | Allocations: 1857)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 19:59:04 -0700
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 19:59:04 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 611ms (Views: 22.0ms | ActiveRecord: 19.2ms | Allocations: 3568)
+
+
+Started GET "/admins/19" for 127.0.0.1 at 2023-04-26 19:59:05 -0700
+Processing by AdminsController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:27:in `show'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 659)
+
+
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:14:22 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 132ms (Allocations: 2468)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x000000000309d0>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:14:22 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 18ms (Allocations: 2468)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x00000000030a48>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:14:26 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (45.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 351ms (Views: 343.1ms | ActiveRecord: 198.2ms | Allocations: 3700)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:14:27 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (11.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 2.3ms | ActiveRecord: 11.4ms | Allocations: 822)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:14:55 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 193ms (Views: 183.8ms | ActiveRecord: 58.5ms | Allocations: 3699)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:14:56 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (12.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 2.7ms | ActiveRecord: 12.2ms | Allocations: 822)
+
+
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:31:18 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 54ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003d1a8>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:31:18 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 15ms (Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x0000000003d220>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:31:39 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 120ms (Views: 115.8ms | ActiveRecord: 37.8ms | Allocations: 3700)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:31:40 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 822)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:33:09 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.8ms | Allocations: 822)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-26 20:33:09 -0700
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 822)
+
+
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:33:15 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x00000000030ca0>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/clerks/null" for ::1 at 2023-04-26 20:33:16 -0700
+Processing by ClerksController#show as */*
+  Parameters: {"id"=>"null"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 2467)
+
+
+  
+NameError (undefined local variable or method `admin' for #<ClerksController:0x00000000030d18>
+Did you mean?  admin_url):
+  
+app/controllers/clerks_controller.rb:62:in `show'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 20:33:19 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+Started GET "/received_items" for 127.0.0.1 at 2023-04-26 20:33:19 -0700
+Processing by ReceivedItemsController#index as */*
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+NameError (uninitialized constant ReceivedItemsController::ReceivedItemsSerializer):
+  
+app/controllers/received_items_controller.rb:6:in `index'
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (44.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReceivedItems (20230416182601)
+  [1m[36mTRANSACTION (41.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (52.4ms)[0m  [1m[35mDROP TABLE "received_items"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (47.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416182601"]]
+  [1m[36mTRANSACTION (200.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductClerks (20230416122604)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.2ms)[0m  [1m[35mDROP TABLE "product_clerks"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416122604"]]
+  [1m[36mTRANSACTION (51.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStoreAdmins (20230416122311)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.6ms)[0m  [1m[35mDROP TABLE "store_admins"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416122311"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStores (20230416115849)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (42.6ms)[0m  [1m[35mDROP TABLE "stores"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230416115849"]]
+  [1m[36mTRANSACTION (44.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230413091537)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "products"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230413091537"]]
+  [1m[36mTRANSACTION (44.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClerks (20230412130221)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.8ms)[0m  [1m[35mDROP TABLE "clerks"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230412130221"]]
+  [1m[36mTRANSACTION (176.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdmins (20230412130141)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE "admins"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230412130141"]]
+  [1m[36mTRANSACTION (80.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMerchants (20230412125915)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.5ms)[0m  [1m[35mDROP TABLE "merchants"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230412125915"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

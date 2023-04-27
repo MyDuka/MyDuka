@@ -34,13 +34,13 @@ const AdminProducts = () => {
     { field: "id", headerName: "ID", flex: 0.5 },
     { field: "registrarId", headerName: "Registrar ID" },
     {
-      field: "name",
+      field: "",
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
+      field: "",
       headerName: "Buying Price",
       type: "number",
       headerAlign: "left",
@@ -54,17 +54,17 @@ const AdminProducts = () => {
       align: "left",
     },
     {
-      field: "phone",
+      field: "",
       headerName: "Category",
       flex: 1,
     },
     {
-      field: "address",
+      field: "",
       headerName: "supplier",
       flex: 1,
     },
     {
-      field: "city",
+      field: "",
       headerName: "image",
       flex: 1,
     },
@@ -110,7 +110,7 @@ const AdminProducts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={products}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />

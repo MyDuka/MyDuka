@@ -281,13 +281,13 @@ export const mockTransactions = [
     txId: "01e4dsa",
     user: "Clarks",
     date: "2021-09-01",
-    cost: "PAYED",
+    cost: "PAID",
   },
   {
     txId: "0315dsaa",
     user: "Jordan",
     date: "2022-04-01",
-    cost: "PAYED",
+    cost: "PAID",
   },
   {
     txId: "01e4dsa",
@@ -299,7 +299,7 @@ export const mockTransactions = [
     txId: "51034szv",
     user: "Bata Ngoma",
     date: "2022-11-05",
-    cost: "PAYED",
+    cost: "PAID",
   },
   {
     txId: "0a123sb",

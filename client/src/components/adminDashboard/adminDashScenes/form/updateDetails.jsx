@@ -61,7 +61,7 @@ const AdminUpdateForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="image urrl"
+                label="image url"
                 onChange={(e)=>setImage(e.target.value)}
                 value={image}
                 name="image"
