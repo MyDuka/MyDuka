@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # Admin routes
 
-  post '/admin/register/:id', to: "admins#register"
+  post '/admin/register', to: "admins#register"
   
   post '/admin/login', to: "sessions#admin_login"
 
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
 
   #  clerk routes 
 
-  post '/clerk/register/:id', to: "clerks#add_clerk"
+  post '/clerk/register', to: "clerks#add_clerk"
 
   put '/clerk/activation/:id', to: "clerks#clerk_activation"
 
