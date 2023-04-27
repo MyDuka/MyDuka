@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
 
         admin = Admin.where(sql, {username: admin_param[:username], email: admin_param[:email]}).first
 
-        if admin.status == "ACTIVE"
+        if admin.access == "ACTIVE"
             if admin&.authenticate(admin_param[:password])
                 session[:admin_id] = admin.id
                 render json: admin, status: :ok
             else  
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
-        elsif admin.status == "DEACTIVATED"
+        elsif admin.access == "DEACTIVATED"
             render json: {message: "Account deactivated"}
         end
   
@@ -47,14 +47,14 @@ class SessionsController < ApplicationController
         sql = "username = :username OR email = :email "
 
         clerk = Clerk.where(sql, {username: clerk_params[:username], email: clerk_params[:email]}).first
-        if clerk.status == "ACTIVE"
+        if clerk.access == "ACTIVE"
             if clerk&.authenticate(clerk_params[:password])
                 session[:clerk_id] = clerk.id
                 render json: clerk, status: :ok
             else  
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
-        elsif clerk.status == "DEACTIVATED"
+        elsif clerk.access == "DEACTIVATED"
             render json: {message: "Account deactivated"}
         end
   
@@ -63,16 +63,7 @@ class SessionsController < ApplicationController
 
     # merchant, admin and clerk logout
 
-    def logout
-        
-        if merchant
-            session.delete :merchant_id
-            render json: {message: "merchant logout"}
-        else  
-            render json: {message: "Please login first"}
-        end
-
-    end
+  
 
     def clerk_logout 
         clerk = Clerk.find_by(id: session[:clerk_id])
