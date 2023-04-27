@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   resources :received_items, only: [:index, :show, :update, :delete]
   resources :product_clerks, only: [:index, :create, :show, :delete]
   resources :store_admins
