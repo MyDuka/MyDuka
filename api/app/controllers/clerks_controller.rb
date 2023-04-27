@@ -20,7 +20,7 @@ end
 
 
 def add_clerk
-    admin = Admin.find_by(id: params[:id])
+    admin = Admin.find_by(id: session[:admin_id])
     if admin
     clerk = admin.clerks.create(clerk_params)
     AdminMailer.clerk_registration(clerk, admin).deliver_now
@@ -77,7 +77,7 @@ end
 private 
 
 def clerk_params 
-    params.permit(:username, :email, :password, :status)
+    params.permit(:username, :email, :password, :access, :contact, :address, :image)
 end
 
 
