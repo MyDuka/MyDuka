@@ -9,6 +9,7 @@ class MerchantsController < ApplicationController
     def create 
         merchant = Merchant.create(merchant_param)
         if merchant.valid?
+            SignupMailer.merchant_signup(merchant).deliver_now
             render json: merchant, status: :created 
         else   
             render json: {message: "unprocessable"}, status: :unprocessable_entity
@@ -27,8 +28,9 @@ class MerchantsController < ApplicationController
 
 
     def update 
-        merchant = Merchant.find_by(id: sessions[:merchant_id])
-        if merchant
+        
+        if session.present?
+            merchant = Merchant.find_by(id: sessions[:merchant_id])
             merchant.update(merchant_params) 
             render json: merchant, status: :ok
         else  
@@ -44,7 +46,7 @@ class MerchantsController < ApplicationController
     private 
 
     def merchant_param
-        params.permit(:username, :password, :email)
+        params.permit(:username, :password, :email, :contact, :address, :image)
     end
 
 
