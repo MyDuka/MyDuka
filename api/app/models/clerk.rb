@@ -1,7 +1,7 @@
 class Clerk < ApplicationRecord
     has_secure_password
 
-    enum status: [:ACTIVE, :DEACTIVATED]
+    enum access: [:ACTIVE, :DEACTIVATED]
 
     belongs_to :admin
     has_many :product_clerks 
