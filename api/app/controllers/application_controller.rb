@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
     # end
 
     def merchant_params
-        params.permit(:username, :password, :email)
+        params.permit(:username, :password, :email, :contact, :address, :image )
     end
 
     def merchant_authorize 
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     # clerk methods
 
     def clerk_params 
-        params.permit(:username, :password, :email)
+        params.permit(:username, :password, :email, :contact, :address, :image, :access)
     end
 
     def clerk_authorize 
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::API
     # admin methods
 
     def admin_params
-        params.permit(:username, :password, :email) 
+        params.permit(:username, :password, :email, :contact, :address, :image, :access) 
     end
 
     def admin_authorize 
@@ -47,7 +47,7 @@ class ApplicationController < ActionController::API
     # store methods
 
     def store_params
-        params.permit(:name, :address)
+        params.permit(:name, :address, :location)
     end
 
     #  received items methods
