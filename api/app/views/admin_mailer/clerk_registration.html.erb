@@ -55,6 +55,14 @@
         color: green;
         font-weight: bold;
     }
+    .btn{
+        display: flex;
+        justify-content: center;
+        
+    }
+    a {
+        text-decoration: none;
+    }
     
   </style>
 </head>
@@ -70,12 +78,12 @@
     <li>Username: <%= @clerk.username%></li>
     <li>Email: <%= @clerk.email%></li>
     <li>Password: 1234</li>
-    <li id="status">Status: <%= @clerk.status%></li>
+    <li id="status">Status: <%= @clerk.access%></li>
     </ul>
     <br/>
     <p> Please make sure to change your password upon initial sign in</p>
     <br/>
-    <button><a href="#">Click to login</a><button>
+    <button class="btn"><a href="#">Click to login</a><button>
     <br/>
     <p>Best regards,</p>
     <p><%= @admin.username %></p>

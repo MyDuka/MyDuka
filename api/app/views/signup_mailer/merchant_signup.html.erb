@@ -45,10 +45,6 @@
         list-style-type:none;
         text_align: center;  
     }
-      #status{
-        color: green;
-        font-weight: bold;
-    }
     .btn{
         display: flex;
         justify-content: center;
@@ -57,34 +53,29 @@
     a {
         text-decoration: none;
     }
-
-    #head{
-        color: blue;
-    }
     
   </style>
 </head>
 <body>
 <div class="container">
-    <h1>Registration Notification</h1>
-    <p>Dear <%= @admin.username %>,</p>
-    <p>We are glad to inform you that you have been registered by <%= @merchant.username %></p>
-    <p>Your role is to be an administrator of our store</p>
+    <h1>Sign up Notification</h1>
+    <p>Dear <%= @merchant.username %>,</p>
+    <p>We are glad to inform you that you have signed up to MyDuka</p>
+    
+    <p>Your can now create stores, admins who will then register clerks</p>
     <br/>
-    <h2 id="head">Your login details</h2>
+    <h2>Your login details</h2>
     <ul  class="list">
-    <li>Username: <%= @admin.username%></li>
-    <li>Email: <%= @admin.email%></li>
-    <li>Password: 1234</li>
-    <li id="status">Status: <%= @admin.access%></li>
+    <li>Username: <%= @merchant.username%></li>
+    <li>Email: <%= @merchant.email%></li>
     </ul>
     <br/>
-    <p> Please make sure to change your password upon initial login</p>
+    <p>Inventory made easy</p>
     <br/>
-    <button class="btn"><a href="http://127.0.0.1:3001/admin/login">Go to login</a></button>
+    <button class="btn"><a href="http://127.0.0.1:3001/merchant/login">Go to login</a></button>
     <br/>
     <p>Best regards,</p>
-    <p>The <%= @merchant.username %> Team</p>
+    <p>MyDuka</p>
 </div>
 </body>
 </html>
