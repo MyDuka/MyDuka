@@ -26241,3 +26241,743 @@ Migrating to CreateMerchants (20230412125915)
   [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMerchants (20230412125915)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (80.6ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "image" character varying, "contact" character varying, "address" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (40.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412125915"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdmins (20230412130141)
+  [1m[36mTRANSACTION (39.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying DEFAULT '12345', "access" integer DEFAULT 0, "image" character varying, "contact" character varying, "address" character varying, "merchant_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e611302e7a"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_admins_on_merchant_id" ON "admins" ("merchant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412130141"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClerks (20230412130221)
+  [1m[36mTRANSACTION (25.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "clerks" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying DEFAULT '12345', "access" integer DEFAULT 0, "image" character varying, "contact" character varying, "address" character varying, "admin_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_9b95c169fa"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_clerks_on_admin_id" ON "clerks" ("admin_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230412130221"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20230413091537)
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "category" character varying, "image" character varying, "supplier" character varying, "buying_price" decimal, "selling_price" decimal, "store_id" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230413091537"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20230416115849)
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "address" character varying, "location" character varying, "merchant_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbde3f46c6"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_stores_on_merchant_id" ON "stores" ("merchant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416115849"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStoreAdmins (20230416122311)
+  [1m[36mTRANSACTION (41.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "store_admins" ("id" bigserial primary key, "admin_id" bigint, "store_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_58c6914d3b"
+FOREIGN KEY ("admin_id")
+  REFERENCES "admins" ("id")
+, CONSTRAINT "fk_rails_6823fce057"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_admin_id" ON "store_admins" ("admin_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_store_admins_on_store_id" ON "store_admins" ("store_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122311"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProductClerks (20230416122604)
+  [1m[36mTRANSACTION (26.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "product_clerks" ("id" bigserial primary key, "product_id" bigint, "clerk_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b821fd039f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+, CONSTRAINT "fk_rails_4047a615e4"
+FOREIGN KEY ("clerk_id")
+  REFERENCES "clerks" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_product_id" ON "product_clerks" ("product_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_product_clerks_on_clerk_id" ON "product_clerks" ("clerk_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416122604"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceivedItems (20230416182601)
+  [1m[36mTRANSACTION (40.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "received_items" ("id" bigserial primary key, "received" integer, "payment_status" integer, "stocked" integer, "spoilt" integer, "product_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_665a871b9e"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_received_items_on_product_id" ON "received_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230416182601"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRequests (20230427045231)
+  [1m[36mTRANSACTION (41.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "requests" ("id" bigserial primary key, "product" character varying, "quantity" integer, "state" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230427045231"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (40.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5878493172211724820)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/merchants" for 127.0.0.1 at 2023-04-26 22:37:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MerchantsController#index as */*
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.96ms)
+Completed 200 OK in 69ms (Views: 23.7ms | ActiveRecord: 1.0ms | Allocations: 25751)
+
+
+Started POST "/merchants" for 127.0.0.1 at 2023-04-26 23:02:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MerchantsController#create as */*
+  Parameters: {"username"=>"kimathi", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"kimathi", "email"=>"dfkimathinjoki@gmail.com"}}
+[31mUnpermitted parameter: :merchant. Context: { controller: MerchantsController, action: create, request: #<ActionDispatch::Request:0x00007fd8c40f5f60>, params: {"username"=>"kimathi", "email"=>"dfkimathinjoki@gmail.com", "password"=>"[FILTERED]", "controller"=>"merchants", "action"=>"create", "merchant"=>{"username"=>"kimathi", "email"=>"dfkimathinjoki@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mMerchant Create (5.8ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "password_digest", "image", "contact", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "kimathi"], ["email", "dfkimathinjoki@gmail.com"], ["password_digest", "[FILTERED]"], ["image", nil], ["contact", nil], ["address", nil], ["created_at", "2023-04-27 06:02:46.134825"], ["updated_at", "2023-04-27 06:02:46.134825"]]
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:10:in `create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering signup_mailer/merchant_signup.html.erb within layouts/mailer
+  Rendered signup_mailer/merchant_signup.html.erb within layouts/mailer (Duration: 2.8ms | Allocations: 641)
+  Rendered layout layouts/mailer.html.erb (Duration: 4.2ms | Allocations: 905)
+SignupMailer#merchant_signup: processed outbound mail in 36.6ms
+Delivered mail 644a10063b55d_4107279c39751@kimathis-MacBook-Pro.local.mail (4447.7ms)
+Date: Wed, 26 Apr 2023 23:02:46 -0700
+From: from@example.com
+To: dfkimathinjoki@gmail.com
+Message-ID: <644a10063b55d_4107279c39751@kimathis-MacBook-Pro.local.mail>
+Subject: Sign up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sign up Notification</h1>
+    <p>Dear kimathi,</p>
+    <p>We are glad to inform you that you have signed up to MyDuka</p>
+    
+    <p>Your can now create stores, admins who will then register clerks</p>
+    <br/>
+    <h2>Your login details</h2>
+    <ul  class="list">
+    <li>Username: kimathi</li>
+    <li>Email: dfkimathinjoki@gmail.com</li>
+    </ul>
+    <br/>
+    <p>Inventory made easy</p>
+    <br/>
+    <button><a href="http://127.0.0.1:3001/merchant/login">Go to login</a></button>
+    <p>Best regards,</p>
+    <p>MyDuka</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Merchant (0.56ms)
+Completed 201 Created in 4882ms (Views: 11.3ms | ActiveRecord: 54.6ms | Allocations: 90231)
+
+
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-26 23:30:09 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"kim", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"kim", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+[31mUnpermitted parameter: :admin. Context: { controller: AdminsController, action: register, request: #<ActionDispatch::Request:0x00007fd8bf854ea0>, params: {"username"=>"kim", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"admins", "action"=>"register", "admin"=>{"username"=>"kim", "email"=>"felixkim09@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mAdmin Create (52.4ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "access", "image", "contact", "address", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "kim"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["access", 0], ["image", nil], ["contact", nil], ["address", nil], ["merchant_id", 1], ["created_at", "2023-04-27 06:30:09.847007"], ["updated_at", "2023-04-27 06:30:09.847007"]]
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 1.2ms | Allocations: 484)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.4ms | Allocations: 724)
+MerchantMailer#admin_registration: processed outbound mail in 6.5ms
+Delivered mail 644a1671e0b4d_410727b0398ab@kimathis-MacBook-Pro.local.mail (3583.0ms)
+Date: Wed, 26 Apr 2023 23:30:09 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <644a1671e0b4d_410727b0398ab@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+      #status{
+        color: green;
+        font-weight: bold;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        
+    }
+    a {
+        text-decoration: none;
+    }
+
+    #head{
+        color: blue;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear kim,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: kim</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: 0</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial login</p>
+    <br/>
+    <button class="btn"><a href="http://127.0.0.1:3001/admin/login">Go to login</a></button>
+    <br/>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Admin (1.24ms)
+Completed 201 Created in 3962ms (Views: 3.1ms | ActiveRecord: 79.0ms | Allocations: 37533)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-26 23:41:44 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"Felix", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"Felix", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:23:in `add_clerk'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.47ms)
+Completed 422 Unprocessable Entity in 22ms (Views: 2.8ms | ActiveRecord: 57.3ms | Allocations: 6304)
+
+
+Started POST "/login/status" for 127.0.0.1 at 2023-04-26 23:42:39 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login/status"):
+  
+Started GET "/login/status" for 127.0.0.1 at 2023-04-26 23:42:45 -0700
+Processing by SessionsController#login_status as */*
+  Parameters: {"username"=>"Felix", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"Felix", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:109:in `login_status'
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:110:in `login_status'
+  [1m[36mClerk Load (42.7ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks" WHERE "clerks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:111:in `login_status'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.14ms)
+Completed 200 OK in 210ms (Views: 1.7ms | ActiveRecord: 43.9ms | Allocations: 7224)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2023-04-27 00:00:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/admin/login"):
+  
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-27 00:00:41 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"Felix", "email"=>"felixkim09@gmail.com", "session"=>{"username"=>"Felix", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'Felix' OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 11.2ms | Allocations: 8885)
+
+
+  
+NoMethodError (undefined method `status' for #<Admin id: 1, username: "kim", email: "felixkim09@gmail.com", password_digest: [FILTERED], access: "ACTIVE", image: nil, contact: nil, address: nil, merchant_id: 1, created_at: "2023-04-27 06:30:09.847007000 +0000", updated_at: "2023-04-27 06:30:09.847007000 +0000">):
+  
+app/controllers/sessions_controller.rb:12:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-27 00:23:10 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"username"=>"Felix", "email"=>"felixkim09@gmail.com", "session"=>{"username"=>"Felix", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mAdmin Load (2.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = 'Felix' OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 13.1ms | Allocations: 14242)
+
+
+  
+NoMethodError (undefined method `status' for #<Admin id: 1, username: "kim", email: "felixkim09@gmail.com", password_digest: [FILTERED], access: "ACTIVE", image: nil, contact: nil, address: nil, merchant_id: 1, created_at: "2023-04-27 06:30:09.847007000 +0000", updated_at: "2023-04-27 06:30:09.847007000 +0000">):
+  
+app/controllers/sessions_controller.rb:12:in `admin_login'
+Started POST "/admin/register" for 127.0.0.1 at 2023-04-27 00:23:42 -0700
+Processing by AdminsController#register as */*
+  Parameters: {"username"=>"Za Felo", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"Za Felo", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:15:in `register'
+[31mUnpermitted parameter: :admin. Context: { controller: AdminsController, action: register, request: #<ActionDispatch::Request:0x00007fd8c37d5930>, params: {"username"=>"Za Felo", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"admins", "action"=>"register", "admin"=>{"username"=>"Za Felo", "email"=>"felixkim09@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mAdmin Create (4.5ms)[0m  [1m[32mINSERT INTO "admins" ("username", "email", "password_digest", "access", "image", "contact", "address", "merchant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "Za Felo"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["access", 0], ["image", nil], ["contact", nil], ["address", nil], ["merchant_id", 1], ["created_at", "2023-04-27 07:23:42.655913"], ["updated_at", "2023-04-27 07:23:42.655913"]]
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admins_controller.rb:16:in `register'
+  Rendering layout layouts/mailer.html.erb
+  Rendering merchant_mailer/admin_registration.html.erb within layouts/mailer
+  Rendered merchant_mailer/admin_registration.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 24)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.1ms | Allocations: 107)
+MerchantMailer#admin_registration: processed outbound mail in 10.0ms
+Delivered mail 644a22fea9bf3_410727c43991d@kimathis-MacBook-Pro.local.mail (3909.9ms)
+Date: Thu, 27 Apr 2023 00:23:42 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <644a22fea9bf3_410727c43991d@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+      #status{
+        color: green;
+        font-weight: bold;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        
+    }
+    a {
+        text-decoration: none;
+    }
+
+    #head{
+        color: blue;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear Za Felo,</p>
+    <p>We are glad to inform you that you have been registered by kimathi</p>
+    <p>Your role is to be an administrator of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: Za Felo</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial login</p>
+    <br/>
+    <button class="btn"><a href="http://127.0.0.1:3001/admin/login">Go to login</a></button>
+    <br/>
+    <p>Best regards,</p>
+    <p>The kimathi Team</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Admin (0.41ms)
+Completed 201 Created in 4211ms (Views: 3.4ms | ActiveRecord: 7.6ms | Allocations: 16317)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-27 00:26:06 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.7ms | Allocations: 3263)
+
+
+  
+NoMethodError (undefined method `status' for #<Admin id: 1, username: "kim", email: "felixkim09@gmail.com", password_digest: [FILTERED], access: "ACTIVE", image: nil, contact: nil, address: nil, merchant_id: 1, created_at: "2023-04-27 06:30:09.847007000 +0000", updated_at: "2023-04-27 06:30:09.847007000 +0000">):
+  
+app/controllers/sessions_controller.rb:12:in `admin_login'
+Started POST "/admin/login" for 127.0.0.1 at 2023-04-27 00:29:19 -0700
+Processing by SessionsController#admin_login as */*
+  Parameters: {"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE (username = NULL OR email = 'felixkim09@gmail.com' ) ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `admin_login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Admin (3.68ms)
+Completed 200 OK in 473ms (Views: 9.3ms | ActiveRecord: 104.2ms | Allocations: 29638)
+
+
+Started POST "/clerk/register" for 127.0.0.1 at 2023-04-27 00:37:59 -0700
+Processing by ClerksController#add_clerk as */*
+  Parameters: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/clerks_controller.rb:23:in `add_clerk'
+[31mUnpermitted parameter: :clerk. Context: { controller: ClerksController, action: add_clerk, request: #<ActionDispatch::Request:0x00007fd8bd5c70b8>, params: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "controller"=>"clerks", "action"=>"add_clerk", "clerk"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clerks_controller.rb:25:in `add_clerk'
+  [1m[36mClerk Create (11.1ms)[0m  [1m[32mINSERT INTO "clerks" ("username", "email", "password_digest", "access", "image", "contact", "address", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "BobaBoba"], ["email", "felixkim09@gmail.com"], ["password_digest", "[FILTERED]"], ["access", 0], ["image", nil], ["contact", nil], ["address", nil], ["admin_id", 1], ["created_at", "2023-04-27 07:38:00.017856"], ["updated_at", "2023-04-27 07:38:00.017856"]]
+  ↳ app/controllers/clerks_controller.rb:25:in `add_clerk'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clerks_controller.rb:25:in `add_clerk'
+  Rendering layout layouts/mailer.html.erb
+  Rendering admin_mailer/clerk_registration.html.erb within layouts/mailer
+  Rendered admin_mailer/clerk_registration.html.erb within layouts/mailer (Duration: 1.5ms | Allocations: 487)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.7ms | Allocations: 570)
+AdminMailer#clerk_registration: processed outbound mail in 6.2ms
+Delivered mail 644a2658c61e_410727ec400c@kimathis-MacBook-Pro.local.mail (3400.7ms)
+Date: Thu, 27 Apr 2023 00:38:00 -0700
+From: from@example.com
+To: felixkim09@gmail.com
+Message-ID: <644a2658c61e_410727ec400c@kimathis-MacBook-Pro.local.mail>
+Subject: Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Password reset instructions</title>
+  <style>
+    /* Add some basic styling to the email */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      background-color: green;
+    }
+    .token{
+      color: #000;
+      margin: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #000;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    p {
+      margin: 0 0 1em;
+      color: #000;
+    }
+    .button:hover {
+      background-color: #0069d9;
+    }
+
+    .list {
+        list-style-type:none;
+        text_align: center;  
+    }
+    
+    #head{
+        color: blue;
+    }
+
+    #status{
+        color: green;
+        font-weight: bold;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        
+    }
+    a {
+        text-decoration: none;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Notification</h1>
+    <p>Dear BobaBoba,</p>
+    <p>We are glad to inform you that you have been registered by kim</p>
+    <p>Your role is to be a clerk of our store</p>
+    <br/>
+    <h2 id="head">Your login details</h2>
+    <ul  class="list">
+    <li>Username: BobaBoba</li>
+    <li>Email: felixkim09@gmail.com</li>
+    <li>Password: 1234</li>
+    <li id="status">Status: ACTIVE</li>
+    </ul>
+    <br/>
+    <p> Please make sure to change your password upon initial sign in</p>
+    <br/>
+    <button><a href="#">Click to login</a><button>
+    <br/>
+    <p>Best regards,</p>
+    <p>kim</p>
+</div>
+</body>
+</html>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Clerk (0.62ms)
+Completed 201 Created in 3821ms (Views: 2.7ms | ActiveRecord: 68.9ms | Allocations: 33968)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-27 00:40:39 -0700
+  
+SyntaxError (/Users/kimathinjoki/Development/code/MyDuka/api/app/controllers/merchants_controller.rb:49: syntax error, unexpected ',', expecting ')'
+...(:username, :password, :email,, :contact, :address, :image)
+...                              ^
+):
+  
+app/controllers/merchants_controller.rb:49: syntax error, unexpected ',', expecting ')'
+app/controllers/merchants_controller.rb:49: syntax error, unexpected ',', expecting ')'
+Started GET "/merchants" for 127.0.0.1 at 2023-04-27 00:41:01 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+No serializer found for resource: #<Merchant id: 1, username: "kimathi", email: "dfkimathinjoki@gmail.com", password_digest: [FILTERED], image: nil, contact: nil, address: nil, created_at: "2023-04-27 06:02:46.134825000 +0000", updated_at: "2023-04-27 06:02:46.134825000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Merchant::ActiveRecord_Relation (1.12ms)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 9.7ms | Allocations: 3762)
+
+
+Started GET "/merchants" for 127.0.0.1 at 2023-04-27 01:32:46 -0700
+Processing by MerchantsController#index as */*
+  Parameters: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "merchant"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (1.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ app/controllers/merchants_controller.rb:6:in `index'
+No serializer found for resource: #<Merchant id: 1, username: "kimathi", email: "dfkimathinjoki@gmail.com", password_digest: [FILTERED], image: nil, contact: nil, address: nil, created_at: "2023-04-27 06:02:46.134825000 +0000", updated_at: "2023-04-27 06:02:46.134825000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Merchant::ActiveRecord_Relation (0.24ms)
+Completed 200 OK in 106ms (Views: 105.9ms | ActiveRecord: 51.5ms | Allocations: 3790)
+
+
+Started GET "/admins" for 127.0.0.1 at 2023-04-27 01:32:53 -0700
+Processing by AdminsController#index as */*
+  Parameters: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "admin"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mMerchant Load (40.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins_controller.rb:8:in `index'
+  [1m[36mAdmin Load (42.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/controllers/admins_controller.rb:10:in `index'
+No serializer found for resource: #<Admin id: 1, username: "kim", email: "felixkim09@gmail.com", password_digest: [FILTERED], access: "ACTIVE", image: nil, contact: nil, address: nil, merchant_id: 1, created_at: "2023-04-27 06:30:09.847007000 +0000", updated_at: "2023-04-27 06:30:09.847007000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Admin::ActiveRecord_AssociationRelation (0.8ms)
+Completed 200 OK in 167ms (Views: 16.5ms | ActiveRecord: 107.3ms | Allocations: 15149)
+
+
+Started GET "/clerks" for 127.0.0.1 at 2023-04-27 01:33:10 -0700
+Processing by ClerksController#index as */*
+  Parameters: {"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com", "password"=>"[FILTERED]", "clerk"=>{"username"=>"BobaBoba", "email"=>"felixkim09@gmail.com"}}
+  [1m[36mClerk Load (0.6ms)[0m  [1m[34mSELECT "clerks".* FROM "clerks"[0m
+  ↳ app/controllers/clerks_controller.rb:7:in `index'
+No serializer found for resource: #<Clerk id: 1, username: "BobaBoba", email: "felixkim09@gmail.com", password_digest: [FILTERED], access: "ACTIVE", image: nil, contact: nil, address: nil, admin_id: 1, created_at: "2023-04-27 07:38:00.017856000 +0000", updated_at: "2023-04-27 07:38:00.017856000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Clerk::ActiveRecord_Relation (0.28ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 5.1ms | Allocations: 15764)
+
+
