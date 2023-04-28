@@ -3,7 +3,7 @@ class ReceivedItemsController < ApplicationController
     def index 
         ri = ReceivedItem.all 
     
-        render json: ri, serializer: ReceivedItemsSerializer, status: :ok
+        render json: ri, status: :ok
     end
 
     def show 
