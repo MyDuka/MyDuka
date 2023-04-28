@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
 
-    enum state: ["ACCEPT", "DECLINE"]
+    enum state: ["ACCEPTED", "DECLINED"]
 
-
+    
 end
