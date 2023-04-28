@@ -2,8 +2,8 @@ class StoresController < ApplicationController
 
 
     def index 
-        merchant = Merchant.find(session[:merchant_id])
-        store = merchant.stores.all 
+        # merchant = Merchant.find(session[:merchant_id])
+        store = Store.all 
         render json: store, status: :ok
     end
 
@@ -42,6 +42,12 @@ class StoresController < ApplicationController
     def destroy
         Store.find(params[id]).destroy
         head :no_content
+    end
+
+    private 
+
+    def store_params
+        params.require(:store).permit(:name, :address, :location)
     end
 
 
