@@ -3,7 +3,7 @@ import './Auth.css'
 import { Link, Navigate } from "react-router-dom";
 
 
-export default function ClerkLogin(){
+export default function ClerkLogin({signIn}){
 
 
   const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ export default function ClerkLogin(){
                 if(r.status === 200){
                     r.json().then((user)=>{
                         setIsLoggedIn(true);
-                        // signup(user)
+                        signIn(user)
                         const clerk_id = user.id
                         console.log(user)
                         sessionStorage.setItem('clerk_id', clerk_id);
