@@ -16,6 +16,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MapIcon from '@mui/icons-material/Map';
+import TableViewIcon from '@mui/icons-material/TableView';
 
 
 
@@ -101,25 +102,23 @@ const AdminSidebar = () => {
             <Link to="/admin/dashbord" className="nav_link active"> <i> <HomeOutlinedIcon/></i> <span className="nav_name">Dashboard</span> </Link> 
             <Link to="/admin/team" className="nav_link"><i><PeopleOutlinedIcon/></i>  <span className="nav_name">Clerks</span> </Link> 
             <Link to="/admin/products" className="nav_link"> <i> <InventoryIcon/> </i> <span className="nav_name">Products</span> </Link> 
+            <Link to="/admin/stock" className="nav_link"> <i> <TableViewIcon/> </i> <span className="nav_name">Stock</span> </Link> 
             <Link to="/admin/form" className="nav_link"> <i> <PersonAddAltIcon/> </i> <span className="nav_name">Add Clerk</span> </Link> 
-            <Link to="/admin/calendar" className="nav_link"> <i> <CalendarMonthIcon/> </i> <span className="nav_name">Calendar</span> </Link> 
-            <br/>
             <Typography variant="h5" >
               Charts
             </Typography>
             <Link to="/admin/bar" className="nav_link"> <i> <BarChartOutlinedIcon /> </i> <span className="nav_name">Bar</span> </Link>
             <Link to="/admin/pie" className="nav_link"> <i><PieChartOutlineOutlinedIcon /></i> <span class="nav_name">Pie</span> </Link>
             <Link to="/admin/line" className="nav_link"> <i> <TimelineOutlinedIcon /> </i> <span className="nav_name">Line</span> </Link>
+            <Link to="/admin/calendar" className="nav_link"> <i> <CalendarMonthIcon/> </i> <span className="nav_name">Calendar</span> </Link> 
             <Link to="/admin/geography" className="nav_link"> <i> <MapIcon /> </i> <span className="nav_name">Map</span> </Link>
              </div>
-             <br/>
+  
              <Typography variant="h5" >
               Profile Update
             </Typography> 
             <Link to="/admin/form/update" className="nav_link"> <i> <PersonOutlinedIcon />  </i> <span className="nav_name">Edit</span> </Link>
-
         </div> 
-        <br/>
         <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
     </nav>
     </>
