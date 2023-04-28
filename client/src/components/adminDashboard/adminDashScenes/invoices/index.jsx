@@ -1,50 +1,66 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../adminthemes";
-import { mockDataInvoices } from "../../adminDashData/mockData";
 import Header from "../../adminDashComponents/Header";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const AdminInvoices = () => {
+const AdminStock = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [stock,setStock] = useState([])
+
+
+  useEffect(()=>{
+    axios.get("http://127.0.0.1:3000/received_items")
+    .then((response)=>{
+      setStock(...stock,response.data)
+    })
+  },[])
+
+
+
+
+
+
   const columns = [
     { field: "id", headerName: "ID" },
+    // {
+    //   field: "",
+    //   headerName: "Product Name",
+    //   flex: 1,
+    //   cellClassName: "name-column--cell",
+    // },
     {
-      field: "name",
-      headerName: "Name",
+      field: "received",
+      headerName: "received",
       flex: 1,
-      cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
+      field: "stocked",
       headerName: "Email",
       flex: 1,
     },
+    // {
+    //   field: "product",
+    //   headerName: "product",
+    //   flex: 1,
+    //   renderCell: (params) => (
+    //     <Typography color={colors.greenAccent[500]}>
+    //       ${params.row.product}
+    //     </Typography>
+    //   ),
+    // },
     {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
-    },
-    {
-      field: "date",
-      headerName: "Date",
+      field: "spoilt",
+      headerName: "Spoilt",
       flex: 1,
     },
   ];
 
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Header title="Stock" subtitle="List of Received" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -74,10 +90,10 @@ const AdminInvoices = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection rows={stock} columns={columns} />
       </Box>
     </Box>
   );
 };
 
-export default AdminInvoices;
+export default AdminStock;

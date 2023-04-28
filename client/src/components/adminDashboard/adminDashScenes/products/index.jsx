@@ -32,43 +32,37 @@ const AdminProducts = () => {
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    // { field: "registrarId", headerName: "Registrar ID" },
     {
-      field: "",
+      field: "name",
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "",
+      field: "buying_price",
       headerName: "Buying Price",
       type: "number",
       headerAlign: "left",
       align: "left",
     },
     {
-      field: "",
+      field: "selling_price",
       headerName: "Selling Price",
       type: "number",
       headerAlign: "left",
       align: "left",
     },
     {
-      field: "",
+      field: "category",
       headerName: "Category",
       flex: 1,
     },
     {
-      field: "",
+      field: "supplier",
       headerName: "supplier",
       flex: 1,
     },
-    {
-      field: "",
-      headerName: "image",
-      flex: 1,
-    },
-    
   ];
 
   return (

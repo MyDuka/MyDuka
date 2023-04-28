@@ -8,6 +8,9 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../adminDashComponents/Header";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+
 
 const AdminTeam = () => {
   const theme = useTheme();
@@ -19,27 +22,33 @@ const AdminTeam = () => {
   // const [condition, setCondition] = useState(true)
 
 
-  let admin_id = localStorage.getItem('admin_id')
+  let admin_id = sessionStorage.getItem('admin_id')
 
-  let url =  `http://localhost:3000/clerks/${admin_id}`
+  let url =  `http://localhost:3000/admin/clerks/${admin_id}`
 
-  let url2 = "http://localhost:3000/clerks"
+  let url2 = "http://localhost:3000/admin/clerks"
 
 
 
 
     useEffect(()=>{
-      fetch(url,{
-        method: "GET",
-        header: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((c)=> c.json())
-      .then((d)=>{
-        setClerks(...clerks,d)
+      // fetch(url,{
+      //   method: "GET",
+      //   header: {
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      // .then((c)=> c.json())
+      // .then((d)=>{
+      //   setClerks(...clerks,d)
 
-      })
+      // })
+
+      axios.get(url).then((response) => {
+        setClerks(...clerks,response.data)
+      });
+
+
     },[])
 
     console.log(clerks)
@@ -80,20 +89,13 @@ const AdminTeam = () => {
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
+      field: "username",
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    // {
-    //   field: "age",
-    //   headerName: "Age",
-    //   type: "number",
-    //   headerAlign: "left",
-    //   align: "left",
-    // },
     {
-      field: "phone",
+      field: "contact",
       headerName: "Phone Number",
       flex: 1,
     },
@@ -103,11 +105,12 @@ const AdminTeam = () => {
       flex: 1,
     },
     {
-      field: "accessLevel",
-      headerName: "Access Level",
+      field: "access",
+      headerName: "Access",
       flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
+          <>
           <Box
             width="60%"
             m="0 auto"
@@ -115,24 +118,54 @@ const AdminTeam = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "activated"
-                ? colors.greenAccent[600]
-                : access === "deactivated"
-                ? colors.redAccent[700]
-                : colors.redAccent[700]
+              access === "ACTIVE"
+                ? colors.greenAccent[100]
+                : access === "DEACTIVATED"
+                ? colors.redAccent[100]
+                : colors.redAccent[100]
             }
             borderRadius="4px"
           >
             {/* {access === "clerk" && <AdminPanelSettingsOutlinedIcon />} */}
-            {access === "deactivated" && <SecurityOutlinedIcon />}
-            {access === "activated" && <LockOpenOutlinedIcon />}
+            {access === "ACTIVE" && <SecurityOutlinedIcon />}
+            {access === "DEACTIVATED" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
               {access}
             </Typography>
           </Box>
+          </>
         );
       },
     },
+
+    {
+      field: "",
+      headerName: "Remove",
+      flex: 1,
+      renderCell: () => {
+        return (
+          <>
+          <Box
+            width="60%"
+            m="0 auto"
+            p="5px"
+            display="flex"
+            justifyContent="center"
+            backgroundColor={
+            colors.greenAccent[200]}
+            borderRadius="4px"
+          >
+          <DeleteOutlineIcon />
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+              "DELETE"
+            </Typography>
+          </Box>
+          </>
+        );
+      },
+    },
+
+
   ];
 
     return (
@@ -167,7 +200,7 @@ const AdminTeam = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={clerks} columns={columns} />
       </Box>
     </Box>
   );
