@@ -116,7 +116,7 @@ const MerchantSidebar = () => {
 
         </div> 
        
-        <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">SignOut</span> </IconButton>
+        <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
     </nav>
     </>
 
