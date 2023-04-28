@@ -29,7 +29,7 @@ import Calendar from './components/MerchantDashboard/Scenes/calendar/calendar'
 import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
 import AdminTeam from './components/adminDashboard/adminDashScenes/team';
-import AdminInvoices from "./components/adminDashboard/adminDashScenes/invoices";
+import AdminStock from "./components/adminDashboard/adminDashScenes/invoices";
 import AdminProducts from "./components/adminDashboard/adminDashScenes/products";
 import AdminBar from "./components/adminDashboard/adminDashScenes/bar";
 import AdminForm from "./components/adminDashboard/adminDashScenes/form";
@@ -106,7 +106,7 @@ function App() {
                             <Route path="/admin/*" element={<AdminDashboard user={user} />} />
                             <Route path="/admin/team" element={<AdminTeam />} />
                             <Route path="/admin/products" element={<AdminProducts />} />
-                            <Route path="/admin/invoices" element={<AdminInvoices />} />
+                            <Route path="/admin/stock" element={<AdminStock />} />
                             <Route path="/admin/form" element={<AdminForm />} />
                             <Route path="/admin/form/update" element={<AdminUpdateForm />} />
                             <Route path="/admin/bar" element={<AdminBar />} />
@@ -121,7 +121,7 @@ function App() {
 
 
                           <Route path="/clerk" element={<Clerk/>}>
-                            <Route path="/clerk" element={<ClerkDashboard />} />
+                            <Route path="/clerk" element={<ClerkDashboard user={user}/>} />
                             <Route path="/clerk/products" element={<Team />} />
                             <Route path="/clerk/product/add" element={<ProductForm />} />
                             <Route path="/clerk/stock/add" element={<StockForm />} />
