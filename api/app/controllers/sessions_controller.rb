@@ -55,7 +55,7 @@ class SessionsController < ApplicationController
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
         elsif clerk.access == "DEACTIVATED"
-            render json: {message: "Account deactivated"}
+            render json: {message: "Account Deactivated"}
         end
   
     end
@@ -66,9 +66,9 @@ class SessionsController < ApplicationController
   
 
     def clerk_logout 
-        clerk = Clerk.find_by(id: session[:clerk_id])
+        # clerk = Clerk.find_by(id: session[:clerk_id])
 
-        if clerk
+        if session.present?
             session.delete :clerk_id
             render json: {message: "clerk logout" }
         else  
@@ -79,9 +79,9 @@ class SessionsController < ApplicationController
 
 
     def admin_logout 
-        admin = Admin.find_by(id: session[:admin_id] )
+        # admin = Admin.find_by(id: session[:admin_id] )
 
-        if admin 
+        if session.present?
             session.delete :admin_id
             render json: {message: "admin logout"}
         else  
