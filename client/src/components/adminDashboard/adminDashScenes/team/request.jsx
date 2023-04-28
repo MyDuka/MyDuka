@@ -7,12 +7,31 @@ import Header from "../../adminDashComponents/Header";
 import { useState, useEffect } from "react";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from "axios";
+import './request.css'
 
 const StockRequests = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [requests, setRequests] = useState([])
+  const [state, setState] = useState()
+  const [requestId, sertRequestId] = useState()
+  const [decision, setDecision] = useState("")
 
+
+
+  function handleRequests(){
+
+    axios.put(`http://localhost:3000/requests/${requestId}`,{
+      state,
+
+    })
+    .then((response)=>{
+      setState((b)=> b.filter)
+    })
+    .catch((error)=>console.log(error))
+
+  }
 
 
 
@@ -25,18 +44,21 @@ const StockRequests = () => {
 
 
     useEffect(()=>{
-      fetch(url,{
-        method: "GET",
-        header: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((c)=> c.json())
-      .then((d)=>{
-        setRequests(...requests,d)
-
-      })
+          axios.get(url)
+          .then((response)=>{
+            setRequests(...requests, response.data)
+          })
     },[])
+
+
+
+
+  //   useEffect(()=>{
+  //     axios.get(url)
+  //     .then((response)=>{
+  //       setRequests(...requests, response.data)
+  //     })
+  // },[state])
 
     console.log(requests)
 
@@ -45,33 +67,26 @@ const StockRequests = () => {
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
+      field: "product",
       headerName: "Product Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    // {
-    //   field: "age",
-    //   headerName: "Age",
-    //   type: "number",
-    //   headerAlign: "left",
-    //   align: "left",
-    // },
     {
-      field: "phone",
+      field: "quantity",
       headerName: "Stock Requested",
       flex: 1,
     },
     {
-      field: "email",
+      field: "supplier",
       headerName: "Supplier",
       flex: 1,
     },
     {
-      field: "accessLevel",
-      headerName: "Decision",
+      field: "state",
+      headerName: "State",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
+      renderCell: ({ row: { state } }) => {
         return (
           <Box
             width="60%"
@@ -80,29 +95,91 @@ const StockRequests = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "accept"
-                ? colors.greenAccent[600]
-                : access === "decline"
-                ? colors.redAccent[700]
-                : colors.redAccent[700]
+              state === "ACCEPTED"
+                ? colors.greenAccent[100]
+                : state === "DECLINED"
+                ? colors.greenAccent[200]
+                : colors.greenAccent[200]
             }
             borderRadius="4px"
           >
-            {/* {access === "clerk" && <AdminPanelSettingsOutlinedIcon />} */}
-            {access === "decline" && <AddTaskIcon  />}
-            {access === "accept" && <CloseIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
-              {access}
+              {/* {()=>{
+                     state === "ACCEPTED"
+                     ? setDecision("ACCEPTED")
+                     : state === "DECLINED"
+                     ? setDecision("DECLINED")
+                     : setDecision("DECLINED")
+              }}  */}
+              {state}
             </Typography>
           </Box>
         );
       },
     },
+     {
+     field: "",
+      headerName: "Decision",
+      flex: 1,
+      renderCell: () => {
+        return (
+              <>
+           <Box
+            width="60%"
+            m="0 auto"
+            p="5px"
+            display="flex"
+             className="point"
+            justifyContent="center"
+            backgroundColor={colors.greenAccent[100]}
+            borderRadius="4px"
+          onClick={()=>{
+            setState(0)
+            handleRequests()
+          }
+        }
+          >
+            <AddTaskIcon  />
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+            "ACCEPT"
+            </Typography>
+          </Box>
+
+          <Box
+               width="60%"
+               m="0 auto"
+               p="5px"
+               display="flex"
+               justifyContent="center"
+               cursor="pointer"
+               className="point"
+               backgroundColor={colors.greenAccent[200]}
+               borderRadius="4px"
+               onClick={()=>{
+                 setState(1)
+                 handleRequests()
+               }}
+               >
+   
+               <CloseIcon />
+               <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+                 "DECLINE"
+               </Typography>
+               </Box>
+
+
+   
+
+        </>
+        );
+      },
+    },
+   
   ];
 
     return (
     <Box m="20px">
-      <Header title="Clerks" subtitle="Managing your clerks" />
+      <Header title="Stock Requests" subtitle="Accept or Decline Incoming Restock Request" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -132,7 +209,7 @@ const StockRequests = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={requests} columns={columns} />
       </Box>
     </Box>
   );
