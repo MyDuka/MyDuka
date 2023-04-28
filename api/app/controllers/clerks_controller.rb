@@ -20,7 +20,7 @@ end
 
 
 def add_clerk
-    admin = Admin.find_by(id: session[:admin_id])
+    admin = Admin.find_by(id: params[:id])
     if admin
     clerk = admin.clerks.create(clerk_params)
     AdminMailer.clerk_registration(clerk, admin).deliver_now
@@ -59,9 +59,8 @@ end
     end
 
 def show 
-    clerk = admin.clerks.find_by(id: params[:id]) 
+    clerk = Clerk.find_by(id: params[:id]) 
     if clerk 
-        clerk = admin.clerks.find_by(id: params[:id])
         render json: clerk, status: :ok
     else  
         render json: {message: "Clerk not found."}, status: :not_found
