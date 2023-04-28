@@ -5,14 +5,14 @@ class AdminsController < ApplicationController
 
 
     def index 
-        merchant = Merchant.find_by(id: session[:merchant_id])
-        admins = merchant.admins.all
+        # merchant = Merchant.find_by(id: session[:merchant_id])
+        admins = Admin.all
         render json: admins, status: :ok
     end
 
 
     def register 
-        merchant = Merchant.find(session[:merchant_id])
+        merchant = Merchant.find(params[:id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
             MerchantMailer.admin_registration(admin,merchant).deliver_now
