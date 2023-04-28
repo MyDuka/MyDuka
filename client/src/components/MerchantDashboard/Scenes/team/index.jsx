@@ -2,19 +2,43 @@ import React from 'react'
 import {Box, Typography, useTheme} from "@mui/material"
 import {DataGrid} from "@mui/x-data-grid"
 import { tokens } from '../../../../theme'
-import {mockDataTeam} from '../../Data/mockData'
+// import {mockDataTeam} from '../../Data/mockData'
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import DoneIcon from '@mui/icons-material/Done';
+// import DoneIcon from '@mui/icons-material/Done';
 import Header from '../../../Header'
+import { useEffect, useState } from 'react';
+
 
 const Team = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const [admins, setAdmins] = useState([])
+
+
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/admins",{
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+      }
+    })
+    .then((r)=>r.json())
+    .then((d)=>{
+      setAdmins(...admins,d)
+    })
+  },[])
+
+  console.log(admins)
+
+
+
     const columns = [
       { field: "id", headerName: "ID" },
       {
-        field: "name",
+        field: "username",
         headerName: "Name",
         flex: 1,
         cellClassName: "name-column--cell",
@@ -37,10 +61,10 @@ const Team = () => {
         flex: 1,
       },
       {
-        field: "accessLevel",
+        field: "access",
         headerName: "Account Status ",
         flex: 1,
-        renderCell: ({ row: { status} }) => {
+        renderCell: ({ row: {access} }) => {
           return (
             <Box
               width="60%"
@@ -49,18 +73,18 @@ const Team = () => {
               display="flex"
               justifyContent="center"
               backgroundColor={
-                status === "active"
+                access === "ACTIVE"
                   ? colors.greenAccent[400]
-                  : status === "deactivated"
+                  : access === "DEACTIVATED"
                   ? colors.grey[100]
                   : colors.grey[700]
               }
               borderRadius="4px"
             >
-              {status === "active" && <DoneIcon />}
-              {status === "de-activated" && <LockOpenOutlinedIcon />}
+              {access === "ACTIVE" && <AdminPanelSettingsOutlinedIcon />}
+              {access === "DEACTIVED" && <LockOpenOutlinedIcon />}
               <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-                {status}
+                {access}
               </Typography>
             </Box>
           );
@@ -102,7 +126,7 @@ const Team = () => {
             },
           }}
         >
-          <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+          <DataGrid checkboxSelection rows={admins} columns={columns} />
         </Box>
       </Box>
     );
