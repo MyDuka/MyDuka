@@ -32,7 +32,7 @@ const AllStoresProducts = () => {
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    // { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
       headerName: "Name",
@@ -40,31 +40,31 @@ const AllStoresProducts = () => {
       cellClassName: "name-column--cell",
     },
     {
-        field: "phone",
+        field: "category",
         headerName: "Type",
         flex: 1,
       },
     {
-      field: "age",
+      field: "buying_price",
       headerName: "Buying Price",
       type: "number",
       headerAlign: "left",
       align: "left",
     },
     {
-    field: "",
+    field: "selling_price",
     headerName: "Selling Price",
     type: "number",
     headerAlign: "left",
     align: "left",
     },
     {
-      field: "email",
+      field: "supplier",
       headerName: "Supplier",
       flex: 1,
     },
     {
-      field: "city",
+      field: `${products.store}`,
       headerName: "store",
       flex: 1,
     },
@@ -110,7 +110,7 @@ const AllStoresProducts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={products}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
