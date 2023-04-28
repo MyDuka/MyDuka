@@ -80,7 +80,7 @@ function ClientNav(){
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  {clerk.username}
+                  {clerk}
                 </Typography>
                 <Typography variant="h5" >
                   Clerk
