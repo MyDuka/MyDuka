@@ -19,7 +19,7 @@ const Stores = () => {
  
 
 
-  let admin_id = localStorage.getItem('admin_id')
+  // let admin_id = localStorage.getItem('admin_id')
 
 
 
@@ -28,21 +28,21 @@ const Stores = () => {
 
 
 
-    // useEffect(()=>{
-    //   fetch(url,{
-    //     method: "GET",
-    //     header: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //   .then((c)=> c.json())
-    //   .then((d)=>{
-    //     setStores(...stores,d)
+    useEffect(()=>{
+      fetch(url,{
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((c)=> c.json())
+      .then((d)=>{
+        setStores(...stores,d)
 
-    //   })
-    // },[])
+      })
+    },[])
 
-    // console.log(stores)
+    console.log(stores)
 
 
    
@@ -63,17 +63,17 @@ const Stores = () => {
     //   align: "left",
     // },
     {
-      field: "phone",
+      field: "location",
       headerName: "Location",
       flex: 1,
     },
     {
-      field: "email",
+      field: "address",
       headerName: "Address",
       flex: 1,
     },
     {
-      field: "access",
+      field: "",
       headerName: "View Products",
       flex: 1,
       renderCell: () => {
@@ -129,7 +129,7 @@ const Stores = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={stores} columns={columns} />
       </Box>
     </Box>
   );
