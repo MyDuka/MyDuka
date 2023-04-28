@@ -44,7 +44,7 @@ const AdminDashboard = () => {
   console.log(items)
 
   if(request){
-    return <Navigate to="admin/stock/request"/>
+    return <Navigate to="/admin/stock/requests"/>
   }
 
 
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="Adminstrator" subtitle="welcome to your dashboard" />
 
-        <Box>
+        <Box onClick={()=> setRequest(true) }>
           <Button
             sx={{
               backgroundColor: colors.greenAccent[300],
@@ -65,7 +65,7 @@ const AdminDashboard = () => {
               padding: "10px 20px",
             }}
           >
-            <UpcomingIcon onClick={()=> setRequest(true) } sx={{ mr: "10px" }} />
+            <UpcomingIcon  sx={{ mr: "10px" }} />
             Requests
           </Button>
         </Box>
