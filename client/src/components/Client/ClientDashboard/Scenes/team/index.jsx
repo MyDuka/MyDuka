@@ -10,6 +10,12 @@ import Header from '../../Header'
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+
+
+
+
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -19,17 +25,17 @@ const Team = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "buyingcost",
+      field: "buying_cost",
       headerName: "Buying price",
       flex: 1,
     },
     {
-      field: "sellingcost",
+      field: "selling_cost",
       headerName: "Selling price",
       flex: 1,
     },
     {
-      field: "accessLevel",
+      field: "access",
       headerName: "Product Status",
       flex: 1,
       renderCell: ({ row: { access } }) => {
