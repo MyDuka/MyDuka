@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :requests
+  resources :requests, only: [:index, :show, :delete]
   resources :received_items, only: [:index, :show, :update, :delete]
   resources :product_clerks, only: [:index, :create, :show, :delete]
   resources :store_admins
   resources :stores, only: [:index, :show, :update, :delete]
   resources :products, only: [:index, :update, :show, :delete]
-  resources :clerks, only: [:index, :update, :show, :delete]
+  resources :clerks, only: [:index, :update, :show]
   resources :admins, only: [:index,:show, :update, :delete]
   resources :merchants
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -31,8 +31,10 @@ Rails.application.routes.draw do
   # clerk routes
 
   post 'clerk/login', to: "sessions#clerk_login"
-  
+
   get "/admin/clerks/:id", to: "clerks#all_clerks"
+
+  delete "clerk/:id", to: "clerks#remove"
 
 
   # logout
@@ -65,6 +67,10 @@ Rails.application.routes.draw do
   post '/clerk/register/:id', to: "clerks#add_clerk"
 
   put '/clerk/activation/:id', to: "clerks#clerk_activation"
+
+  #  request routes
+
+  put 'request/decision/:id', to: "requests#request_state"
 
 
 
