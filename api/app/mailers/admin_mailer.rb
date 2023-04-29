@@ -7,15 +7,15 @@ class AdminMailer < ApplicationMailer
         mail to: clerk.email, subject: "Registration"
     end
 
-    def clerk_deactivation(clerk, admin)
+    def clerk_deactivation(clerk)
         @clerk = clerk
-        @admin = admin
+        # @admin = admin
         mail to: clerk.email, subject: "Deactivation"
     end
 
-    def clerk_activation(clerk,admin)
+    def clerk_activation(clerk)
         @clerk = clerk
-        @admin = admin
+        # @admin = admin
         mail to: clerk.email, subject: "Activation"
 
     end
