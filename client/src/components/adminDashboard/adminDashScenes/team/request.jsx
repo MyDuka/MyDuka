@@ -15,24 +15,13 @@ const StockRequests = () => {
   const colors = tokens(theme.palette.mode);
   const [requests, setRequests] = useState([])
   const [state, setState] = useState()
-  const [requestId, sertRequestId] = useState()
-  const [decision, setDecision] = useState("")
+  const [display, setDisplay] = useState("")
+
+ 
 
 
 
-  function handleRequests(){
-
-    axios.put(`http://localhost:3000/requests/${requestId}`,{
-      state,
-
-    })
-    .then((response)=>{
-      setState((b)=> b.filter)
-    })
-    .catch((error)=>console.log(error))
-
-  }
-
+ 
 
 
 
@@ -43,24 +32,30 @@ const StockRequests = () => {
 
 
 
-    useEffect(()=>{
-          axios.get(url)
-          .then((response)=>{
-            setRequests(...requests, response.data)
-          })
-    },[])
+  
 
 
 
-
-  //   useEffect(()=>{
-  //     axios.get(url)
-  //     .then((response)=>{
-  //       setRequests(...requests, response.data)
-  //     })
-  // },[state])
 
     console.log(requests)
+
+    function handleRequest(id){
+      axios.put(`http://127.0.0.1:3000/request/decision/${id}`,{
+        state
+      })
+      .then((response)=>{
+        console.log(response)
+      })
+    }
+
+
+    //  gets all the requests
+    useEffect(()=>{
+      axios.get(url)
+      .then((response)=>{
+        setRequests(...requests, response.data)
+      })
+},[])
 
    
 
@@ -83,6 +78,11 @@ const StockRequests = () => {
       flex: 1,
     },
     {
+      field: "created_at",
+      headerName: "Date",
+      flex: 1,
+    },
+    {
       field: "state",
       headerName: "State",
       flex: 1,
@@ -102,15 +102,13 @@ const StockRequests = () => {
                 : colors.greenAccent[200]
             }
             borderRadius="4px"
+
+            onClick={()=>{
+            }
+
+            }
           >
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
-              {/* {()=>{
-                     state === "ACCEPTED"
-                     ? setDecision("ACCEPTED")
-                     : state === "DECLINED"
-                     ? setDecision("DECLINED")
-                     : setDecision("DECLINED")
-              }}  */}
               {state}
             </Typography>
           </Box>
@@ -121,7 +119,7 @@ const StockRequests = () => {
      field: "",
       headerName: "Decision",
       flex: 1,
-      renderCell: () => {
+      renderCell: ({row: {id} }) => {
         return (
               <>
            <Box
@@ -135,7 +133,8 @@ const StockRequests = () => {
             borderRadius="4px"
           onClick={()=>{
             setState(0)
-            handleRequests()
+            setDisplay("ACCEPTED")
+            handleRequest(id)
           }
         }
           >
@@ -156,11 +155,13 @@ const StockRequests = () => {
                backgroundColor={colors.greenAccent[200]}
                borderRadius="4px"
                onClick={()=>{
-                 setState(1)
-                 handleRequests()
+                setState(1)
+                setDisplay("DECLINED")
+                handleRequest(id)
+                
+ 
                }}
                >
-   
                <CloseIcon />
                <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
                  "DECLINE"
