@@ -23,11 +23,13 @@ class RequestsController < ApplicationController
   end
 
   # PATCH/PUT /requests/1
-  def update
-    if @request.update(request_params)
-      render json: @request
+  def request_state
+    request= Request.find(params[:id])
+    if request
+      request.update(request_params)
+      render json: request
     else
-      render json: @request.errors, status: :unprocessable_entity
+      render json: {message: "State not found"}, status: :unprocessable_entity
     end
   end
 
@@ -44,6 +46,6 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.require(:request).permit(:product, :quantity, :state)
+      params.permit(:product, :quantity, :state)
     end
 end
