@@ -43,14 +43,14 @@ end
 
    # deactivates a clerk, done by admin
    def clerk_activation 
-    admin = Admin.find_by(id: session[:admin_id]) 
-    if admin
-        clerk = admin.clerks.find_by(id: params[:id])
+    # admin = Admin.find_by(id: session[:admin_id]) 
+    clerk = Clerk.find_by(id: params[:id])
+    if clerk
         clerk.update(clerk_params)
-        if clerk.status == "DEACTIVATED"
-            AdminMailer.clerk_deactivation(clerk,admin).deliver_now
-        elsif clerk.status == "ACTIVATED"
-            AdminMailer.clerk_activation(clerk,admin).deliver_now
+        if clerk.access == "DEACTIVATED"
+            AdminMailer.clerk_deactivation(clerk).deliver_now
+        elsif clerk.access == "ACTIVATED"
+            AdminMailer.clerk_activation(clerk).deliver_now
         end
         render json: clerk, status: :ok
     else  
@@ -67,9 +67,9 @@ def show
     end
 end  
 
-def destroy  
-    admin = Admin.find_by(id: session[:admin_id])
-    admin.clerks.find(id).destroy
+def remove 
+    clerk = Clerk.find(params[:id])
+    clerk.destroy
     head :no_content
 end
 
