@@ -9,6 +9,7 @@ const AdminStock = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [stock,setStock] = useState([])
+  const [payment, setPayment] = useState()
 
 
   useEffect(()=>{
@@ -18,6 +19,15 @@ const AdminStock = () => {
     })
   },[])
 
+  function handlePayment(id){
+    axios.put(`"http://127.0.0.1:3000/payment/status/${id}`,{
+      payment_status: payment
+    })
+    .then((response)=>{
+    setStock((p)=>p.filter((b)=>b.id !== id))
+    setStock(...stock,response.data)
+  })
+  }
 
 
 
@@ -25,12 +35,16 @@ const AdminStock = () => {
 
   const columns = [
     { field: "id", headerName: "ID" },
-    // {
-    //   field: "",
-    //   headerName: "Product Name",
-    //   flex: 1,
-    //   cellClassName: "name-column--cell",
-    // },
+    {
+      field: "product",
+      headerName: "product",
+      flex: 1,
+      renderCell: (params) => (
+        <Typography color={colors.greenAccent[500]}>
+          {params.row.product.name}
+         </Typography>
+      ),
+    },
     {
       field: "received",
       headerName: "received",
@@ -41,20 +55,59 @@ const AdminStock = () => {
       headerName: "Email",
       flex: 1,
     },
-    // {
-    //   field: "product",
-    //   headerName: "product",
-    //   flex: 1,
-    //   renderCell: (params) => (
-    //     <Typography color={colors.greenAccent[500]}>
-    //       ${params.row.product}
-    //     </Typography>
-    //   ),
-    // },
+    
     {
       field: "spoilt",
       headerName: "Spoilt",
       flex: 1,
+    },
+    {
+      field: "created_at",
+      headerName: "Date Recieved",
+      flex: 1,
+      // renderCell: (params) => {
+      //   let b = params.split("T")
+      //   return b[0]
+      // },
+    },
+    {
+      field: "payment_status",
+      headerName: "Payment Status",
+      flex: 1,
+      renderCell: ({ row: { payment_status, id } }) => {
+        return (
+          <Box
+            width="60%"
+            m="0 auto"
+            p="5px"
+            display="flex"
+            justifyContent="center"
+            backgroundColor={
+              payment_status === "PAID"
+                ? colors.greenAccent[100]
+                : payment_status === "UNPAID"
+                ? colors.greenAccent[200]
+                : colors.greenAccent[200]
+            }
+            borderRadius="4px"
+            style={{cursor: "pointer"}}
+            onClick={()=>{              
+              if(payment_status==="PAID"){
+                setPayment(1)
+                handlePayment(id)
+              }else if(payment_status==="UNPAID"){
+                setPayment(0)
+                handlePayment(id)
+              }
+            }
+            }
+          >
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+              { payment_status}
+            </Typography>
+          </Box>
+        );
+      },
     },
   ];
 
