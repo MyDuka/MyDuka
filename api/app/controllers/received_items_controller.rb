@@ -26,9 +26,9 @@ class ReceivedItemsController < ApplicationController
     end
 
     def update 
-        product = Product.find_by(id: params[:id])
-        if product 
-            ri = product.received_items.update(ri_params)
+        ri = ReceivedItem.find_by(id: params[:id])
+        if ri 
+            ri = ReceivedItem.update(ri_params)
             render json: ri, status: :created
         else  
             render json: {message: "not succesfull"}, status: :unprocessable_entity
@@ -36,9 +36,9 @@ class ReceivedItemsController < ApplicationController
     end
 
     def payment_status 
-        product = Product.find_by(id: params[:id])
-        if product 
-            ri = product.received_items.update(ri_params)
+        ri = ReceivedItem.find_by(id: params[:id])
+        if ri
+            ri = ReceivedItem.update(ri_params)
             render json: ri, status: :created
         else  
             render json: {message: "not succesfull"}, status: :unprocessable_entity
