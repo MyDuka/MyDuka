@@ -15,10 +15,10 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const AdminTeam = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  // const [access, setAccess] = useState("activated")
+  const [access, setAccess] = useState()
   const [clerks, setClerks] = useState([])
   // const [stat, setStat] = useState(0)
-  // const [clerkId, setClerkId] = useState(0)
+  // const [clerkId, setClerkId] = useState()
   // const [condition, setCondition] = useState(true)
 
 
@@ -32,23 +32,10 @@ const AdminTeam = () => {
 
 
     useEffect(()=>{
-      // fetch(url,{
-      //   method: "GET",
-      //   header: {
-      //     "Content-Type": "application/json",
-      //   },
-      // })
-      // .then((c)=> c.json())
-      // .then((d)=>{
-      //   setClerks(...clerks,d)
-
-      // })
-
+    
       axios.get(url).then((response) => {
         setClerks(...clerks,response.data)
       });
-
-
     },[])
 
     console.log(clerks)
@@ -63,6 +50,23 @@ const AdminTeam = () => {
     //   setStat(1)
     //   setAccess("deactivated")
     // }
+
+    function handleDelete(id){
+      axios.delete(`http://127.0.0.1:3000/clerk/${id}`)
+      .then(()=>{
+        setClerks((p)=>p.filter((b)=>b.id !== id))
+      })
+    }
+
+
+    function handleActivation(id){
+      axios.put(`http://127.0.0.1:3000/clerk/activation/${id}`,{
+        access
+      })
+      .then((response)=>{
+        console.log(response)
+      })
+    }
 
     
 
@@ -108,7 +112,7 @@ const AdminTeam = () => {
       field: "access",
       headerName: "Access",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
+      renderCell: ({ row: { access, id } }) => {
         return (
           <>
           <Box
@@ -121,10 +125,22 @@ const AdminTeam = () => {
               access === "ACTIVE"
                 ? colors.greenAccent[100]
                 : access === "DEACTIVATED"
-                ? colors.redAccent[100]
-                : colors.redAccent[100]
+                ? colors.greenAccent[200]
+                : colors.greenAccent[200]
             }
             borderRadius="4px"
+            style={{cursor: 'pointer'}}
+            onClick={()=>{
+              if(access==="ACTIVE"){
+                setAccess(1)
+                handleActivation(id)
+              }else if(access === "DEACTIVATED"){
+                setAccess(0)
+                handleActivation(id)
+              }
+            }
+
+            }
           >
             {/* {access === "clerk" && <AdminPanelSettingsOutlinedIcon />} */}
             {access === "ACTIVE" && <SecurityOutlinedIcon />}
@@ -137,12 +153,11 @@ const AdminTeam = () => {
         );
       },
     },
-
     {
       field: "",
       headerName: "Remove",
       flex: 1,
-      renderCell: () => {
+      renderCell: (params) => {
         return (
           <>
           <Box
@@ -154,6 +169,10 @@ const AdminTeam = () => {
             backgroundColor={
             colors.greenAccent[200]}
             borderRadius="4px"
+            onClick={()=>{
+              handleDelete(params.row.id)
+            }}
+            style={{cursor: 'pointer'}}
           >
           <DeleteOutlineIcon />
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
