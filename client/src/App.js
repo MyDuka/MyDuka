@@ -52,7 +52,9 @@ import ClerkDashboard from "./components/Client/ClientDashboard/Scenes/dashboard
 // import AllProducts from "./components/MerchantDashboard/Scenes/team/products";
 import Stores from "./components/MerchantDashboard/Scenes/team/stores";
 import MerchantGeography from "./components/MerchantDashboard/Scenes/geography";
-
+import ClerkProducts from "./components/Client/ClientDashboard/Scenes/team";
+import Requested from "./components/Client/ClientDashboard/Scenes/team/requested";
+import StockRequest from "./components/Client/ClientDashboard/Scenes/form/stockRequest";
 
 
 
@@ -80,7 +82,7 @@ function App() {
                     
                   <Routes>
                           <Route path="/" element={<LandingPage/>}/>
-                           <Route path="/clerk/login" element={<ClerkLogin />}/>
+                           <Route path="/clerk/login" element={<ClerkLogin signIn={signIn}/>}/>
                            <Route path="/admin/login" element={<AdminLogin signIn={signIn} />}/>
                            <Route path="/merchant/login" element={<MerchantLogin signIn={signIn} />}/>
                            <Route path="/merchant/signup" element={<MerchantSignup/>}/>
@@ -122,10 +124,12 @@ function App() {
 
                           <Route path="/clerk" element={<Clerk/>}>
                             <Route path="/clerk" element={<ClerkDashboard user={user}/>} />
-                            <Route path="/clerk/products" element={<Team />} />
+                            <Route path="/clerk/products" element={<ClerkProducts />} />
                             <Route path="/clerk/product/add" element={<ProductForm />} />
                             <Route path="/clerk/stock/add" element={<StockForm />} />
-                            <Route path="/clerk/form/update" element={<ClerkUpdateForm/>}/>    
+                            <Route path="/clerk/form/update" element={<ClerkUpdateForm/>}/> 
+                            <Route path="/clerk/send/request" element={<StockRequest/>}/> 
+                            <Route path="/clerk/stock/requested" element={<Requested/>}/>    
                           </Route>
                                           
                     </Routes>
