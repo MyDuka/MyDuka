@@ -61,12 +61,10 @@ const ClerkUpdateForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="image urrl"
+                label="image url"
                 onChange={(e)=>setImage(e.target.value)}
                 value={image}
                 name="image"
-                // error={!!touched.contact && !!errors.contact}
-                // helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -87,8 +85,6 @@ const ClerkUpdateForm = () => {
                 onChange={(e)=>setContact(e.target.value)}
                 value={contact}
                 name="contact"
-                // error={!!touched.contact && !!errors.contact}
-                // helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
