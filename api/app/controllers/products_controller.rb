@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
 
     def index 
         products = Product.all
-
         render json: products, status: :ok
     end
 
@@ -47,7 +46,7 @@ class ProductsController < ApplicationController
     def destroy
         product = Product.find(params[:id])
         product.destroy
-        header :no_content
+        # headers :no_content/
 
     end
 
