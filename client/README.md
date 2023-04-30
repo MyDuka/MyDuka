@@ -124,7 +124,7 @@ Contributions to MyDuka are welcome and encouraged! To contribute, follow these 
 <code>
 MIT License
 
-Copyright (c) 2023 Ian Okumu
+Copyright (c) 2023 MyDuka
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
