@@ -16,6 +16,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MapIcon from '@mui/icons-material/Map';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 
 
@@ -62,7 +63,7 @@ const MerchantSidebar = () => {
     <nav className="nav">
         <div> 
             <Typography className="nav_logo"> 
-            <i><AddBusinessIcon/></i> 
+            <i><StorefrontIcon/></i> 
             <span className="nav_logo-name">MyDuka</span> </Typography>
           
             <br/>
@@ -98,6 +99,8 @@ const MerchantSidebar = () => {
             <Link to="/merchant/stores" className="nav_link"> <i> <InventoryIcon/> </i> <span className="nav_name">Stores</span> </Link> 
             <Link to="/merchant/products" className="nav_link"> <i> <InventoryIcon/> </i> <span className="nav_name">Products</span> </Link> 
             <Link to="/merchant/form" className="nav_link"> <i> <PersonAddAltIcon/> </i> <span className="nav_name">Add Admin</span> </Link> 
+            <Link to="/merchant/add/store" className="nav_link"> <i> <AddBusinessIcon/> </i> <span className="nav_name">Add Store</span> </Link> 
+
             <Link to="/merchant/calendar" className="nav_link"> <i> <CalendarMonthIcon/> </i> <span className="nav_name">Calendar</span> </Link> 
             <Typography variant="h5" >
               Charts
