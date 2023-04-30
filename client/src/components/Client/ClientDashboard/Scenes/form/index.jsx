@@ -1,35 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Box, Button, TextField, useMediaQuery} from "@mui/material";
-import {Formik} from "formik";
-import * as yup from "yup";
-import useMediaquery from "@mui/material/useMediaQuery";
 import Header from '../../Header';
-
+import axios from 'axios';
 
 const ProductForm = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
+    const [name, setName] = useState("")
+    const [category, setCategory] = useState("")
+    const [image, setImage] = useState("")
+    const [supplier, setSupplier] = useState("")
+    const [buying_price, setBuying_price] = useState()
+    const [selling_price, setSelling_price] = useState()
+    const [store_id, setStore_id] = useState()
   
-    const handleFormSubmit = (values) => {
-      console.log(values);
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      axios.post(`http://localhost:3000/add/product/${store_id}`,{
+        name,
+        category,
+        image,
+        supplier,
+        buying_price,
+        selling_price
+      })
+
     };
   
     return (
       <Box m="20px" >
         <Header title="Add New Product" subtitle="Product Details" />
-  
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={checkoutSchema}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-          }) => (
             <form onSubmit={handleSubmit}>
               <Box
                 display="grid"
@@ -43,98 +42,74 @@ const ProductForm = () => {
                 <TextField
                   fullWidth
                   variant="filled"
+                  type="number"
+                  label="Store Id"
+                  value={store_id}
+                  onChange={(e)=> setStore_id(e.target.value)}   
+                  name="storeId"
+                  sx={{ gridColumn: "span 4" }}
+                 
+                />
+                <TextField
+                  fullWidth
+                  variant="filled"
                   type="text"
                   label="Product Name"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.productName}
+                  value={name}
+                  onChange={(e)=> setName(e.target.value)}   
                   name="productName"
-                  error={!!touched.productName && !!errors.productName}
-                  helperText={touched.productName && errors.productName}
                   sx={{ gridColumn: "span 4" }}
-                  // First Name
+                 
                 />
                 <TextField
                   fullWidth
                   variant="filled"
                   type="text"
                   label="Product Type"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.productType}
+                  onChange={(e)=>setCategory(e.target.value)}
+                  value={category}
                   name="productType"
-                  error={!!touched.productType && !!errors.productType}
-                  helperText={touched.productType && errors.productType}
                   sx={{ gridColumn: "span 4" }}
-                  // Second Name
+            
                 />
-                {/* <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Product Status"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.productStatus}
-                  name="productStatus"
-                  error={!!touched.productStatus && !!errors.productStatus}
-                  helperText={touched.productStatus && errors.productStatus}
-                  sx={{ gridColumn: "span 2" }}
-                  // email
-                /> */}
-                {/* <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Number of items supplied"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.itemsSupplied}
-                  name="itemsSupplied"
-                  error={!!touched.itemsSupplied && !!errors.itemsSupplied}
-                  helperText={touched.itemsSupplied && errors.itemsSupplied}
-                  sx={{ gridColumn: "span 4" }}
-                  // contact
-                /> */}
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Buying Price"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.buyingPrice}
+                  onChange={(e)=>setBuying_price(e.target.value)}
+                  value={buying_price}
                   name="buyingPrice"
-                  error={!!touched.buyingPrice && !!errors.buyingPrice}
-                  helperText={touched.buyingPrice && errors.buyingPrice}
                   sx={{ gridColumn: "span 2" }}
-                  // address 1
                 />
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Selling Price"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.sellingPrice}
+                  onChange={(e)=>setSelling_price(e.target.value)}
+                  value={selling_price}
                   name="sellingPrice"
-                  error={!!touched.sellingPrice && !!errors.sellingPrice}
-                  helperText={touched.sellingPrice && errors.sellingPrice}
                   sx={{ gridColumn: "span 2" }}
-                  // address 2
+                />
+                 <TextField
+                  fullWidth
+                  variant="filled"
+                  type="text"
+                  label="supplier"
+                  onChange={(e)=>setSupplier(e.target.value)}
+                  value={supplier}
+                  name="sellingPrice"
+                  sx={{ gridColumn: "span 2" }}
                 />
                    <TextField
                   fullWidth
                   variant="filled"
                   type="text"
                   label="Insert ImageUrl"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.image}
+                  onChange={(e)=>setImage(e.target.value)}
+                  value={image}
                   name="imageURL"
-                  error={!!touched.imageURL && !!errors.imageURL}
-                  helperText={touched.imageURL && errors.imageURL}
                   sx={{ gridColumn: "span 4" }}
                 />
               </Box>
@@ -144,31 +119,8 @@ const ProductForm = () => {
                 </Button>
               </Box>
             </form>
-          )}
-        </Formik>
       </Box>
     );
   };
 
-  const checkoutSchema = yup.object().shape({
-    productName: yup.string().required("required"),
-    productType: yup.string().required("required"),
-    productStatus: yup.string().required("required"),
-    itemsSupplied: yup.string().required("required"),
-    buyingPrice: yup.string().required("required"),
-    sellingPrice: yup.string().required("required"),
-    imageURL: yup.string().required("required"),
-
-
-  });
-  const initialValues = {
-    productName: "",
-    productType: "",
-    productStatus: "",
-    itemsSupplied: "",
-    buyingPrice: "",
-    sellingPrice: "",
-    imageURL:""
-  };
-
-export default ProductForm
+export default ProductForm;
