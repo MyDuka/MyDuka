@@ -70,27 +70,7 @@ const AdminTeam = () => {
       })
     }
 
-    
 
-
-
-
-  //   useEffect(()=>{
-  //     fetch(`http://localhost:3000/clerk/activation/${clerkId}`, {
-  //       method: 'PATCH',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         status: stat,
-  //       })
-  //   })
-  //   .then((r)=> r.json())
-  //   .then((d)=>{
-  //     console.log(d)
-  //   })
-  // },[stat,clerkId])
-   
 
   const columns = [
     { field: "id", headerName: "ID" },
