@@ -45,6 +45,9 @@ const StockRequests = () => {
       })
       .then((response)=>{
         console.log(response)
+      setRequests((p)=>p.filter((b)=>b.id !== id))
+      setRequests(...requests,response.data)
+        
       })
     }
 
