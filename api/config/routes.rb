@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :stores, only: [:index, :show, :update, :delete]
   resources :products, only: [:index, :update, :show]
   resources :clerks, only: [:index, :update, :show]
-  resources :admins, only: [:index,:show, :update, :delete]
+  resources :admins, only: [:index,:show, :update]
   resources :merchants
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   
   post '/admin/login', to: "sessions#admin_login"
 
-  post '/admin/activation', to: "admins#admin_activation"
+  put '/admin/activation/:id', to: "admins#admin_activation"
+
+  delete '/admins/:id', to: "admins#destroy"
 
   # merchant routes
 
