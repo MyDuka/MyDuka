@@ -18,7 +18,7 @@ class StoresController < ApplicationController
     end
 
     def add_store
-        merchant = Merchant.find_by(id: session[:merchant_id])
+        merchant = Merchant.find_by(id: params[:id])
 
         if merchant
             store = merchant.stores.create(store_params)
