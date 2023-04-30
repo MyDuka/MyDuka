@@ -9,6 +9,9 @@ import AddchartIcon from '@mui/icons-material/Addchart';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {AiOutlineUser} from "react-icons/ai"
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 
 
 // import {IconButton} from "@mui/material";
@@ -89,21 +92,16 @@ function ClientNav(){
             </Box>
                 <div className="nav_list"> 
                 <Link to="/clerk" className="nav_link active"> <i className='bx bx-grid-alt nav_icon'></i> <span className="nav_name">Dashboard</span> </Link> 
-                <Link to="/clerk/products" className="nav_link"><i><PeopleOutlinedIcon/></i>  <span className="nav_name">Products</span> </Link> 
+                <Link to="/clerk/products" className="nav_link"><i><ProductionQuantityLimitsIcon/></i>  <span className="nav_name">Products</span> </Link> 
                 <Link to="/clerk/product/add" className="nav_link"> <i> <AddchartIcon/> </i> <span className="nav_name">Add Product</span> </Link> 
                 <Link to="/clerk/stock/add" className="nav_link"> <i> <PostAddIcon/> </i> <span className="nav_name">Add Stock</span> </Link> 
-                <Link className="nav_link"> <i></i> <span className="nav_name"></span> </Link>
-                <Link className="nav_link"> <i></i> <span class="nav_name"></span> </Link> </div>
-
-                <br/>
+                <Link to="/clerk/send/request" className="nav_link"> <i> <LibraryAddIcon/> </i> <span className="nav_name">Request Stock</span> </Link> 
+                <Link to="/clerk/stock/requested" className="nav_link"> <i> <AssignmentLateIcon/> </i> <span className="nav_name">Requested</span> </Link>
+                </div>
              <Typography variant="h5"  >
               Profile Update
             </Typography> 
-            <br/>
             <Link to="/clerk/form/update" className="nav_link"> <i> <PersonOutlinedIcon />  </i> <span className="nav_name">Edit</span> </Link>
-
-            <br/>
-            <br/>
             <IconButton  className="nav_link" onClick={handleLogout}> <i> <LogoutIcon/> </i> <span className="so">Logout</span> </IconButton>
             </div> 
             
