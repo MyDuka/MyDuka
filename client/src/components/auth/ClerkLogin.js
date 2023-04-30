@@ -70,8 +70,8 @@ export default function ClerkLogin({signIn}){
             </div>
 
             <div className="form-input-material">
-              <input t
-              ype="password" 
+              <input 
+              type="password" 
               name="password" 
               id="password" 
               placeholder="Password" 
