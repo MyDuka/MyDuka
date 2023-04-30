@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Box, Typography, useTheme} from "@mui/material"
 import {DataGrid} from "@mui/x-data-grid"
 import { tokens } from '../../../theme'
-import {mockDataTeam} from '../../Data/mockData'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 import Header from '../../Header'
+import axios from 'axios';
 
-const Team = () => {
+const ClerkProducts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [products, setProducts] = useState([])
 
 
-
+  useEffect(()=>{
+      axios.get("http://localhost:3000/products")
+      .then((response)=>{
+        setProducts(...products,response.data)
+      })
+  },[])
 
 
 
@@ -35,35 +41,26 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "access",
-      headerName: "Product Status",
+      field: "category",
+      headerName: "Category",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
+    },
+    {
+      field: "supplier",
+      headerName: "supplier",
+      flex: 1,
+    },
+    {
+      field: "",
+      headerName: "store",
+      flex: 1,
+      renderCell: ({ row: { store } }) => {
         return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "paid"
-                ? colors.greenAccent[600]
-                : access === "not paid"
-                ? colors.orangeAccent[300]
-                : colors.orangeAccent[300]
-            }
-            borderRadius="4px"
-          >
-            {access === "paid" && <AttachMoneyIcon />}
-            {access === "not paid" && <MoneyOffIcon />}
-            {/* {access === "not paid" && <LockOpenOutlinedIcon />} */}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+              {store.name}
             </Typography>
-          </Box>
-        );
-      },
+         
+      )}
     },
   ];
 
@@ -99,10 +96,10 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={products} columns={columns} />
       </Box>
     </Box>
   );
 };
 
-export default Team;
+export default ClerkProducts;
