@@ -14,11 +14,11 @@ class RequestsController < ApplicationController
 
   # POST /requests
   def create
-    @request = Request.new(request_params)
-    if @request.save
-      render json: @request, status: :created, location: @request
+    request = Request.new(request_params)
+    if request.save
+      render json: request, status: :created
     else
-      render json: @request.errors, status: :unprocessable_entity
+      render json: {message: "Can't be processed"}, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +46,6 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.permit(:product, :quantity, :state)
+      params.permit(:product, :quantity, :state, :supplier)
     end
 end
