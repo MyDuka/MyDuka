@@ -45,14 +45,13 @@ class AdminsController < ApplicationController
 
     # deactivates an admin, done by merchant
     def admin_activation
-        merchant = Merchant.find_by(id: session[:merchant_id])
-        if merchant
-            admin = merchant.admins.find_by(id: params[:id])
-            admin.update(admin_params[:status])
-            if admin.status == "DEACTIVATED"
-                MerchantMailer.admin_deactivation(merchant, admin).deliver_now
-            elsif clerk.status == "ACTIVATED"
-                MerchantMailer.admin_activation(merchant, admin).deliver_now
+        admin = Admin.find_by(id: params[:id])
+        if admin
+            admin.update(admin_params)
+            if admin.access == "DEACTIVATED"
+                MerchantMailer.admin_deactivation(admin).deliver_now
+            elsif admin.access == "ACTIVATED"
+                MerchantMailer.admin_activation(admin).deliver_now
             end
             render json: admin, status: :ok
         else  
@@ -61,9 +60,10 @@ class AdminsController < ApplicationController
     end
 
     def destroy 
-        admin = merchant.admins.find_by(id: params[:id])
+        admin = Admin.find_by(id: params[:id])
         admin.destroy
-        render json: {message: "success"}, status: 204
+        head :no_content
+        # render json: {message: "success"}, status: 204
     end
 
 
