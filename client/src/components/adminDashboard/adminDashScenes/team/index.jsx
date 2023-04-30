@@ -65,6 +65,8 @@ const AdminTeam = () => {
       })
       .then((response)=>{
         console.log(response)
+        setClerks((p)=>p.filter((b)=>b.id !== id))
+        setClerks(...clerks,response.data)
       })
     }
 
