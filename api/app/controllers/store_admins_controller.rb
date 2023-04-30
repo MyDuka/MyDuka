@@ -7,7 +7,7 @@ class StoreAdminsController < ApplicationController
     end
 
     def index 
-        StoreA = StoreAdmin.all  
+        storeA = StoreAdmin.all  
         render json: storeA, status: :ok
     end
 
