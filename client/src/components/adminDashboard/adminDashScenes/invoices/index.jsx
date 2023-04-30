@@ -20,12 +20,13 @@ const AdminStock = () => {
   },[])
 
   function handlePayment(id){
-    axios.put(`"http://127.0.0.1:3000/payment/status/${id}`,{
+    axios.put(`"http://127.0.0.1:3000/received_items/${id}`,{
       payment_status: payment
     })
     .then((response)=>{
-    setStock((p)=>p.filter((b)=>b.id !== id))
-    setStock(...stock,response.data)
+    // setStock((p)=>p.filter((b)=>b.id !== id))
+    // setStock(...stock,response.data)
+    console.log(response.data)
   })
   }
 
