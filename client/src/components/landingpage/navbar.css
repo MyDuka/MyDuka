@@ -1,0 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600&family=Pirata+One&family=Playfair+Display+SC:wght@400;900&family=Prata&display=swap'); */
+
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  transparent;
+    padding: 10px;
+    height:3rem;
+    margin-top: 1.4rem;
+  }
+#logo{
+    color: white;
+    padding: 13px;
+    font-family: 'Bruno Ace SC', cursive;
+    font-family: bold;
+}

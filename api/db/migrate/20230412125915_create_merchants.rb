@@ -4,6 +4,9 @@ class CreateMerchants < ActiveRecord::Migration[7.0]
       t.string :username
       t.string :email
       t.string :password_digest
+      t.string :image
+      t.string :contact
+      t.string :address
 
       t.timestamps
     end

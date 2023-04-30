@@ -1,0 +1,13 @@
+.lp-footer {
+    background: var(--orange);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 0px 170px 0px 0;
+    width:20%;
+  }
+
+.footer-label{
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 1rem;
+}

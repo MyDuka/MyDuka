@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_091537) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_045231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "email"
-    t.string "password_digest"
-    t.integer "status"
+    t.string "password_digest", default: "12345"
+    t.integer "access", default: 0
+    t.string "image"
+    t.string "contact"
+    t.string "address"
     t.bigint "merchant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,33 +31,94 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_091537) do
   create_table "clerks", force: :cascade do |t|
     t.string "username"
     t.string "email"
-    t.string "password_digest"
+    t.string "password_digest", default: "12345"
+    t.integer "access", default: 0
+    t.string "image"
+    t.string "contact"
+    t.string "address"
+    t.bigint "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_clerks_on_admin_id"
   end
 
   create_table "merchants", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "image"
+    t.string "contact"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_clerks", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "clerk_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clerk_id"], name: "index_product_clerks_on_clerk_id"
+    t.index ["product_id"], name: "index_product_clerks_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "category"
     t.string "image"
     t.string "supplier"
-    t.integer "stocked"
-    t.integer "received"
-    t.integer "spoilt"
-    t.integer "payment"
     t.decimal "buying_price"
     t.decimal "selling_price"
+    t.integer "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "received_items", force: :cascade do |t|
+    t.integer "received"
+    t.integer "payment_status"
+    t.integer "stocked"
+    t.integer "spoilt"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_received_items_on_product_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "product"
+    t.string "supplier"
+    t.integer "quantity"
+    t.integer "state", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_admins", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_store_admins_on_admin_id"
+    t.index ["store_id"], name: "index_store_admins_on_store_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "location"
+    t.bigint "merchant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merchant_id"], name: "index_stores_on_merchant_id"
+  end
+
   add_foreign_key "admins", "merchants"
+  add_foreign_key "clerks", "admins"
+  add_foreign_key "product_clerks", "clerks"
+  add_foreign_key "product_clerks", "products"
+  add_foreign_key "received_items", "products"
+  add_foreign_key "store_admins", "admins"
+  add_foreign_key "store_admins", "stores"
+  add_foreign_key "stores", "merchants"
 end
