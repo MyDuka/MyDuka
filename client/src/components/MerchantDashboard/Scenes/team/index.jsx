@@ -8,12 +8,16 @@ import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 // import DoneIcon from '@mui/icons-material/Done';
 import Header from '../../../Header'
 import { useEffect, useState } from 'react';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import axios from 'axios';
+
 
 
 const Team = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [admins, setAdmins] = useState([])
+    const [access, setAccess] = useState()
 
 
 
@@ -31,6 +35,25 @@ const Team = () => {
     })
   },[])
 
+
+  function handleDelete(id){
+    axios.delete(`http://127.0.0.1:3000/admins/${id}`)
+    .then(()=>{
+      setAdmins((p)=>p.filter((b)=>b.id !== id))
+    })
+  }
+
+
+  function handleActivation(id){
+    axios.put(`http://127.0.0.1:3000/admin/activation/${id}`,{
+      access
+    })
+    .then((response)=>{
+      setAdmins((p)=>p.filter((b)=>b.id !== id))
+      setAdmins(...admins,response.data)
+    })
+  }
+
   console.log(admins)
 
 
@@ -43,18 +66,6 @@ const Team = () => {
         flex: 1,
         cellClassName: "name-column--cell",
       },
-    //   {
-    //     field: "age",
-    //     headerName: "Age",
-    //     type: "number",
-    //     headerAlign: "left",
-    //     align: "left",
-    //   },
-    //   {
-    //     field: "phone",
-    //     headerName: "Phone Number",
-    //     flex: 1,
-    //   },
       {
         field: "email",
         headerName: "Email",
@@ -64,7 +75,7 @@ const Team = () => {
         field: "access",
         headerName: "Account Status ",
         flex: 1,
-        renderCell: ({ row: {access} }) => {
+        renderCell: ({ row: {access, id} }) => {
           return (
             <Box
               width="60%"
@@ -72,14 +83,25 @@ const Team = () => {
               p="5px"
               display="flex"
               justifyContent="center"
+              style={{cursor: "pointer"}}
               backgroundColor={
                 access === "ACTIVE"
-                  ? colors.greenAccent[400]
+                  ? colors.blueAccent[100]
                   : access === "DEACTIVATED"
-                  ? colors.grey[100]
-                  : colors.grey[700]
+                  ? colors.greenAccent[200]
+                  : colors.greenAAccent[200]
               }
               borderRadius="4px"
+              onClick={()=>{
+                if(access==="ACTIVE"){
+                  setAccess(1)
+                  handleActivation(id)
+                }else if(access==="DEACTIVATED"){
+                  setAccess(0)
+                  handleActivation(0)
+                }
+               
+              }}
             >
               {access === "ACTIVE" && <AdminPanelSettingsOutlinedIcon />}
               {access === "DEACTIVED" && <LockOpenOutlinedIcon />}
@@ -87,6 +109,37 @@ const Team = () => {
                 {access}
               </Typography>
             </Box>
+          );
+        },
+      },
+      {
+        field: "",
+        headerName: "Remove",
+        flex: 1,
+        renderCell: (params) => {
+          return (
+            <>
+            <Box
+              width="60%"
+              m="0 auto"
+              p="5px"
+              display="flex"
+              justifyContent="center"
+              backgroundColor={
+              colors.greenAccent[200]}
+              borderRadius="4px"
+              style={{cursor: "pointer"}}
+              onClick={()=>{
+                handleDelete(params.row.id)
+              }}
+              style={{cursor: 'pointer'}}
+            >
+            <DeleteOutlineIcon />
+              <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+                "DELETE"
+              </Typography>
+            </Box>
+            </>
           );
         },
       },
