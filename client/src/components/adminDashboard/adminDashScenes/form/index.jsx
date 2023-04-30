@@ -33,7 +33,12 @@ function handleSubmit(e){
   })
 })
   .then(r=> r.json())
-  .then(data=> console.log(data))
+  .then(data=> {
+    console.log(data)
+    setEmail("")
+    setUsername("")
+    setPassword("")
+  })
   .catch(error=>console.log(error))
 }
 

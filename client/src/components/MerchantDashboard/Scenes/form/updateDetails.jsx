@@ -34,6 +34,11 @@ const MerchantUpdateForm = () => {
     console.log(response);
     return response
   }
+  setUsername("")
+  setContact("")
+  setPassword("")
+  setAddress("")
+  setImage("")
 })
 
 

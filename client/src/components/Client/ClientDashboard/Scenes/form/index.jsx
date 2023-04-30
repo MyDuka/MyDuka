@@ -23,6 +23,16 @@ const ProductForm = () => {
         buying_price,
         selling_price
       })
+      .then((response)=>{
+        console.log(response)
+        setName("")
+        setCategory("")
+        setBuying_price(0)
+        setSelling_price(0)
+        setSupplier("")
+        setImage("")
+        setStore_id()
+      })
 
     };
   

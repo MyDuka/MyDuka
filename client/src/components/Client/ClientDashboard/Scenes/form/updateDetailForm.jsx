@@ -34,6 +34,11 @@ const ClerkUpdateForm = () => {
     console.log(response);
     return response
   }
+  setUsername("")
+  setContact("")
+  setPassword("")
+  setAddress("")
+  setImage("")
 })
 
 

@@ -34,6 +34,7 @@ function handleSubmit(e){
         username: username,
         email: email,
         password: password,
+        contact: contact
   })
 })
   .then(r=> r.json())
@@ -41,6 +42,10 @@ function handleSubmit(e){
     console.log(data)
     setCreatedAdmin(data)
     setCreated(true)
+    setPassword("")
+    setContact("")
+    setEmail("")
+    setUsername("")
   })
   .catch(error=>console.log(error))
 

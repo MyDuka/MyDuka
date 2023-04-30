@@ -31,9 +31,14 @@ const AdminUpdateForm = () => {
   console.log(response);
   // do something with the response, such as saving the user information
   if (response.status === 200) {
-    console.log(response);
-    return response
+    console.log(response.data);
+    return response.data
   }
+  setUsername("")
+  setPassword("")
+  setImage("")
+  setContact("")
+  setAddress("")
 })
 
 
