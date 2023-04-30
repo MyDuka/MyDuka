@@ -25,6 +25,7 @@ import Line from './components/MerchantDashboard/Scenes/line';
 import MerchantUpdateForm from "./components/MerchantDashboard/Scenes/form/updateDetails";
 import AllStoresProducts from "./components/MerchantDashboard/Scenes/team/products";
 import Calendar from './components/MerchantDashboard/Scenes/calendar/calendar'
+import AddStore from "./components/MerchantDashboard/Scenes/form/addStore";
 
 import Admin from './components/adminDashboard/Admin';
 import AdminDashboard from "./components/adminDashboard/adminDashScenes/dashboard";
@@ -100,6 +101,8 @@ function App() {
                               <Route path="/merchant/form/update" element={<MerchantUpdateForm/>} />
                               <Route path="/merchant/stores" element={<Stores/>} />
                               <Route path="/merchant/products" element={<AllStoresProducts/>} />
+                              <Route path="/merchant/add/store" element={<AddStore/>} />
+
 
 
                           </Route> 
