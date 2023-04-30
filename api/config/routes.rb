@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :requests, only: [:index, :show, :delete]
+  resources :requests, only: [:index, :create, :show]
   resources :received_items, only: [:index, :show, :update, :delete]
   resources :product_clerks, only: [:index, :create, :show, :delete]
   resources :store_admins
   resources :stores, only: [:index, :show, :update, :delete]
-  resources :products, only: [:index, :update, :show, :delete]
+  resources :products, only: [:index, :update, :show]
   resources :clerks, only: [:index, :update, :show]
   resources :admins, only: [:index,:show, :update, :delete]
   resources :merchants
@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   # product routes
 
   post 'add/product/:id', to: "products#add_product"
+
+  delete '/products/:id', to: "products#destroy"
 
 
   # revieved item routes
