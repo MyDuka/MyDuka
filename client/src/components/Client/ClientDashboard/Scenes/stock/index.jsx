@@ -1,168 +1,125 @@
-import React from 'react'
-import {Box, Button, ButtonGroup, TextField, useMediaQuery} from "@mui/material";
-import {Formik} from "formik";
-import * as yup from "yup";
-import useMediaquery from "@mui/material/useMediaQuery";
+import React, {useState} from 'react'
+import {Box, Button, ButtonGroup, Typography, TextField, Input} from "@mui/material";
 import Header from '../../Header'
 import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 // Select imports
-import Autocomplete from '@mui/material/Autocomplete';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import { CallReceivedTwoTone } from '@mui/icons-material';
+import Select from '@mui/material/Select';
+import axios from 'axios';
 
 
-
-const options = ['Paid', 'Unpaid'];
+// const options = ['Paid', 'Unpaid'];
 
 
 const StockForm = () => {
 
+    const [payment_status, setPayment_status] = useState()
+    const [product, setProduct] = useState()
+    const [received, setReceived] = useState()
+    const [stocked, setStocked] = useState()
+    const [spoilt, setSpoilt] = useState()
+    const [supplier, setSupplier] = useState()
+    const [payment, setPayment] = useState("")
   
-    // Input stuff
- 
-    const [value, setValue] = React.useState(options[0]);
-    const [inputValue, setInputValue] = React.useState('');
-
-    const isNonMobile = useMediaQuery("(min-width:600px)");
-  
-    const handleFormSubmit = (values) => {
-      console.log(values);
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      axios.post(`http://localhost:3000/received/items/${product}`,{
+        payment_status,
+        received,
+        stocked,
+        spoilt
+      })
+      .then((response)=>{
+        console.log(response.data)
+      })
     };
   
     return (
       <Box m="20px" >
         <Header title="ADD STOCK" subtitle="Stock Details" />
   
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={checkoutSchema}
-        >
-          {({
-            values,
-            value,
-            stateValue,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-          }) => (
             <form onSubmit={handleSubmit}>
               <Box
                 display="grid"
                 gap="30px"
                 gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                 sx={{
-                  "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+                gridColumn:"span 4" 
                 }}
                 p="25px"
               >
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
-                  label="Product Name"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.productName}
+                  type="number"
+                  label="Product ID"
+                  onChange={(e)=> setProduct(e.target.value)}
+                  value={product}
                   name="productName"
-                  error={!!touched.productName && !!errors.productName}
-                  helperText={touched.productName && errors.productName}
                   sx={{ gridColumn: "span 4" }}
-                  // First Name
                 />
                
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
-                  label="Number of items supplied"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.itemsSupplied}
+                  type="number"
+                  label="Number of items  to supplied"
+                  onChange={(e)=> setReceived(e.target.value)}
+                  value={received}
                   name="itemsSupplied"
-                  error={!!touched.itemsSupplied && !!errors.itemsSupplied}
-                  helperText={touched.itemsSupplied && errors.itemsSupplied}
                   sx={{ gridColumn: "span 2" }}
                   // contact
                 />
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Items in Stock"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.inStock}
+                  onChange={(e)=>setStocked(e.target.value)}
+                  value={stocked}
                   name="inStock"
-                  error={!!touched.inStock && !!errors.inStock}
-                  helperText={touched.inStock && errors.inStock}
                   sx={{ gridColumn: "span 2" }}
                   // address 1
                 />
-                <br/>
-                Spoilt Goods
                 <TextField
-                  id="outlined-number"
+                  fullWidth
+                  variant="filled"
                   label="Number of Spoilt Goods"
                   type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
+                  onChange={(e)=>setSpoilt(e.target.value)}
+                  value={spoilt}
+                  name="spoilt"
+                  sx={{ gridColumn: "span 4" }}
+
                 />
                 <br/>
-                        
-                        
-            {/* <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>
-                <div>{`inputValue: '${inputValue}'`}</div> */}
-                Payment Status
-                <br />
-                <Autocomplete
-                    value={value}
-                    onChange={(event, newValue) => {
-                    setValue(newValue);
-                    }}
-                    inputValue={inputValue}
-                    onInputChange={(event, newInputValue) => {
-                    setInputValue(newInputValue);
-                    }}
-                    id="controllable-states-demo"
-                    options={options}
-                    sx={{ width: 150 }}
-                    renderInput={(params) => <TextField {...params} label="Payment Status" />}
-                />
                 
+                  <Button variant="contained" onClick={()=>setPayment_status(0)}>PAID</Button>
+                   <Button variant="contained"  onClick={()=>setPayment_status(1)} >UNPAID</Button>
+
+               
+                
+              
+                <br />
+                
+              </Box>      
             
-              </Box>
+
+
+
               <Box display="flex" justifyContent="end" mt="10px" mr="20px">
                 <Button type="submit" color="secondary" variant="contained">
                   Add Stock
                 </Button>
               </Box>
             </form>
-          )}
-        </Formik>
+  
       </Box>
     );
   };
 
-  const checkoutSchema = yup.object().shape({
-    productName: yup.string().required("required"),
-    paymentStatus: yup.string().required("required"),
-    itemsSupplied: yup.string().required("required"),
-    inStock: yup.string().required("required"),
-    // productStatus: yup.string().required("required"),
-    
-
-  });
-  const initialValues = {
-    productName: "",
-    paymentStatus: "",
-    itemsSupplied: "",
-    inStock:"",
-    // productStatus:""
-    
-
-  };
 
 export default StockForm
