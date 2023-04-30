@@ -14,7 +14,7 @@ const Form = () => {
   const [contact, setContact] = useState("")
   // const [address, setAddress] = useState("")
   // const [lastName, setLastName] = useState("")
-  const [createdAdmin, setCtreatedAdmin] = useState()
+  const [createdAdmin, setCreatedAdmin] = useState()
   const [created, setCreated] = useState(false)
 
 
@@ -39,7 +39,7 @@ function handleSubmit(e){
   .then(r=> r.json())
   .then(data=> {
     console.log(data)
-    setCtreatedAdmin(data)
+    setCreatedAdmin(data)
     setCreated(true)
   })
   .catch(error=>console.log(error))
@@ -119,27 +119,5 @@ function handleSubmit(e){
     );
   };
   
-  // const phoneRegExp =
-  //   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-  
-  // const checkoutSchema = yup.object().shape({
-  //   firstName: yup.string().required("required"),
-  //   lastName: yup.string().required("required"),
-  //   email: yup.string().email("invalid email").required("required"),
-  //   contact: yup
-  //     .string()
-  //     .matches(phoneRegExp, "Phone number is not valid")
-  //     .required("required"),
-  //   address1: yup.string().required("required"),
-  //   address2: yup.string().required("required"),
-  // });
-  // const initialValues = {
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address1: "",
-  //   address2: "",
-  // };
 
 export default Form
