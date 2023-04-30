@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Box, IconButton, useTheme} from "@mui/material";
 import { useContext } from 'react';
 import { ColorModeContext , tokens } from '../../../../theme'
@@ -9,12 +9,39 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined"
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined"
 import PeronsOutlinedIcon from "@mui/icons-material/PersonOutlined"
 import SearchIcon from "@mui/icons-material/Search"
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Navigate } from 'react-router-dom';
+
 
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const [logged, setLogged] = useState(false)
+
+
+
+
+  function handleLogout(){
+    fetch("http://127.0.0.1:3000/merchant/logout",{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(()=>{
+      sessionStorage.removeItem('merchant_id')
+      setLogged(true)
+    })
+   
+  }
+
+  if(logged){
+    return <Navigate to="/" />
+  }
+
+
 
 
   return (
@@ -48,9 +75,10 @@ const Topbar = () => {
       <IconButton>
         <SettingsOutlinedIcon/>
       </IconButton>
-      <IconButton>
-        <PeronsOutlinedIcon/>
-      </IconButton>
+
+      <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i>  </IconButton>
+
+
 
       </Box>
 
