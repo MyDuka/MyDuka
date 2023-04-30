@@ -3,8 +3,10 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../adminthemes";
 import { mockDataContacts } from "../../adminDashData/mockData";
 import Header from "../../adminDashComponents/Header";
-import { useTheme } from "@mui/material";
+import { useTheme, Typography } from "@mui/material";
 import {useState, useEffect} from 'react';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import axios from "axios";
 
 const AdminProducts = () => {
   const theme = useTheme();
@@ -28,6 +30,14 @@ const AdminProducts = () => {
   },[])
 
   console.log(products)
+
+
+  function handleDelete(id){
+    axios.delete(`http://127.0.0.1:3000/products/${id}`)
+    .then(()=>{
+      setProducts((p)=>p.filter((b)=>b.id !== id))
+    })
+  }
 
 
   const columns = [
@@ -62,6 +72,36 @@ const AdminProducts = () => {
       field: "supplier",
       headerName: "supplier",
       flex: 1,
+    },
+    {
+      field: "",
+      headerName: "Remove",
+      flex: 1,
+      renderCell: (params) => {
+        return (
+          <>
+          <Box
+            width="60%"
+            m="0 auto"
+            p="5px"
+            display="flex"
+            justifyContent="center"
+            backgroundColor={
+            colors.greenAccent[200]}
+            borderRadius="4px"
+            onClick={()=>{
+              handleDelete(params.row.id)
+            }}
+            style={{cursor: 'pointer'}}
+          >
+          <DeleteOutlineIcon />
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
+              "DELETE"
+            </Typography>
+          </Box>
+          </>
+        );
+      },
     },
   ];
 
