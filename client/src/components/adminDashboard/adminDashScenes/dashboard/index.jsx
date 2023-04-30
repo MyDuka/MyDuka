@@ -18,7 +18,7 @@ import { Navigate } from "react-router";
 
 import { useState, useEffect } from "react";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({user}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [items, setItems] = useState([])
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Adminstrator" subtitle="welcome to your dashboard" />
+        <Header title="Adminstrator" subtitle={user ? `Welcome ${user.username}, to your dashboard` :"Welcome to your dashboard"} />
 
         <Box onClick={()=> setRequest(true) }>
           <Button
