@@ -15,7 +15,6 @@ MyDuka is a simple inventory app designed for small retail businesses. It allows
 
 In order to use this repository, you will need to have the following setup in your computer.
 
-node:v0.9.0 npm:v8.15.0 ruby:2.7.4
 
 - <code>node v0.9.0+</code>
 - <code>npm 8.15.0+</code>
