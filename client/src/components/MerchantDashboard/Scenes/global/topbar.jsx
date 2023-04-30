@@ -76,7 +76,7 @@ const Topbar = () => {
         <SettingsOutlinedIcon/>
       </IconButton>
 
-      <IconButton onClick={handleLogout}  className="nav_link"> <i> <LogoutIcon/> </i>  </IconButton>
+      <IconButton onClick={handleLogout} > <LogoutIcon/>  </IconButton>
 
 
 
