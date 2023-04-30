@@ -32,7 +32,7 @@ const Dashboard = ({user}) => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
           title="Merchant"
-          subtitle= {`Welcome ${user.username} to your dashboard`}
+          subtitle= {user ? `Welcome ${user.username}, to your dashboard` :"Welcome to your dashboard"}
         />
 
 <Box>
