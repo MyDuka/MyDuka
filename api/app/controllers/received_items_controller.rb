@@ -1,4 +1,6 @@
 class ReceivedItemsController < ApplicationController
+    # before_action :admin_authorize
+    # skip_before_action, only: [:index, :ri_add]
 
     def index 
         ri = ReceivedItem.all 
@@ -16,7 +18,10 @@ class ReceivedItemsController < ApplicationController
     end
 
     def ri_add
+        # sql = " product = :name"
+        # product = Product.where(sql, {product: product_params[:name]}).first
         product = Product.find_by(id: params[:id])
+        
         if product 
             ri = product.received_items.create(ri_params)
             render json: ri, status: :created
@@ -28,7 +33,7 @@ class ReceivedItemsController < ApplicationController
     def update 
         ri = ReceivedItem.find_by(id: params[:id])
         if ri 
-            ri = ReceivedItem.update(ri_params)
+            ri.update(ri_params)
             render json: ri, status: :created
         else  
             render json: {message: "not succesfull"}, status: :unprocessable_entity
@@ -38,17 +43,17 @@ class ReceivedItemsController < ApplicationController
     def payment_status 
         ri = ReceivedItem.find_by(id: params[:id])
         if ri
-            ri = ReceivedItem.update(ri_params)
+            ri.update(ri_params)
             render json: ri, status: :created
         else  
-            render json: {message: "not succesfull"}, status: :unprocessable_entity
+            render json: {message: "not found"}, status: :unprocessable_entity
         end
     end
 
     private 
 
     def ri_params
-        params.permit(:received, :payment_status, :stocked, :spoilt) 
+        params.require(:received_item).permit(:received, :payment_status, :stocked, :spoilt) 
     end
 
 
