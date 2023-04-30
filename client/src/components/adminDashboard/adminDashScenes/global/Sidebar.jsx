@@ -17,6 +17,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MapIcon from '@mui/icons-material/Map';
 import TableViewIcon from '@mui/icons-material/TableView';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 
 
@@ -69,7 +70,7 @@ const AdminSidebar = () => {
     <nav className="nav">
         <div> 
             <Typography className="nav_logo"> 
-            <i><AddBusinessIcon/></i> 
+            <i><StorefrontIcon /></i> 
             <span className="nav_logo-name">MyDuka</span> </Typography>
           
             <br/>
