@@ -1,5 +1,5 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :product, :quantity, :state, :created_at
+  attributes :id, :product, :supplier, :quantity, :state, :created_at
 
-  belongs_to :product
+
 end
