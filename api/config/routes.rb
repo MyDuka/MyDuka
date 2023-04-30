@@ -64,7 +64,7 @@ Rails.application.routes.draw do
 
   #  store routes
 
-  post '/add/store', to: "stores#add_store"
+  post '/add/store/:id', to: "stores#add_store"
 
   #  clerk routes 
 
