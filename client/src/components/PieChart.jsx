@@ -1,11 +1,38 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from '../theme';
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from '../components/MerchantDashboard/Data/mockData'
+import {useState, useEffect} from 'react'
 
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [items, setItems] = useState([]);
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/received_items",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((d)=>{
+      setItems(...items,d)
+    })
+  },[])
+
+  const data = items?.map((item)=>{
+
+    return {
+      id: item.product.name,
+      label: item.product.name,
+      value: item.received
+    }
+  })
+  
+  console.log(data)
+
 
   
   return (
