@@ -41,6 +41,8 @@ export default function MerchantLogin({signIn}){
                     })
                 }else{
                     setInvalid(true)
+                    setIsLoggedIn(false);
+
                 }
             })
     }
