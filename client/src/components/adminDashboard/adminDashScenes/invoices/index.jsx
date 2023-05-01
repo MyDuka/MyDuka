@@ -9,7 +9,7 @@ const AdminStock = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [stock,setStock] = useState([])
-  const [payment, setPayment] = useState()
+  const [payment_status, setPayment_status] = useState()
 
 
   useEffect(()=>{
@@ -20,12 +20,12 @@ const AdminStock = () => {
   },[])
 
   function handlePayment(id){
-    axios.put(`"http://127.0.0.1:3000/received_items/${id}`,{
-      payment_status: payment
+    axios.put(`http://127.0.0.1:3000/received_items/${id}`,{
+      payment_status
     })
     .then((response)=>{
-    // setStock((p)=>p.filter((b)=>b.id !== id))
-    // setStock(...stock,response.data)
+    setStock((p)=>p.filter((b)=>b.id !== id))
+    setStock(...stock,response.data)
     console.log(response.data)
   })
   }
@@ -94,10 +94,10 @@ const AdminStock = () => {
             style={{cursor: "pointer"}}
             onClick={()=>{              
               if(payment_status==="PAID"){
-                setPayment(1)
+                setPayment_status(1)
                 handlePayment(id)
               }else if(payment_status==="UNPAID"){
-                setPayment(0)
+                setPayment_status(0)
                 handlePayment(id)
               }
             }
