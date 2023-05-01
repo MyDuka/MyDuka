@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   resources :requests, only: [:index, :create, :show]
   resources :received_items, only: [:index, :show, :update, :delete]
   resources :product_clerks, only: [:index, :create, :show, :delete]
