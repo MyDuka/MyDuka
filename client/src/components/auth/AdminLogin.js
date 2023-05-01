@@ -27,6 +27,7 @@ export default function AdminLogin({signIn}){
             .then((r) =>{
                 if(r.status === 200){
                     r.json().then((user)=>{
+
                         setIsLoggedIn(true);
                         signIn(user)
                         console.log(user)
@@ -35,6 +36,8 @@ export default function AdminLogin({signIn}){
                     })
                 }else{
                     setInvalid(true)
+                    setIsLoggedIn(false)
+
                 }
             })
     }

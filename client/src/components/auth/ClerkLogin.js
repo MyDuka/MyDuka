@@ -32,6 +32,8 @@ export default function ClerkLogin({signIn}){
                     })
                 }else{
                   setInvalid(true)
+                  setIsLoggedIn(false);
+
               }
             })
     }
