@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
         elsif admin.access == "DEACTIVATED"
-            render json: {message: "Account deactivated"}
+            render json: {message: "Account deactivated"}, status: :not_found
         end
   
     end
@@ -55,7 +55,7 @@ class SessionsController < ApplicationController
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
         elsif clerk.access == "DEACTIVATED"
-            render json: {message: "Account Deactivated"}
+            render json: {message: "Account Deactivated"}, status: :not_found
         end
   
     end
