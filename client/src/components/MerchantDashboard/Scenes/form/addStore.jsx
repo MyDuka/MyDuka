@@ -95,7 +95,7 @@ const AddStore = () => {
               </Box>
             </form>
 
-        <Typography display="flex" justifyContent="center" mt="10px" mr="20px">{created ? `Administrator ${store.name} has been added` : null}</Typography>
+        <Typography display="flex" justifyContent="center" mt="10px" mr="20px">{created ? `Store ${store.name} has been added` : null}</Typography>
 
 
        
