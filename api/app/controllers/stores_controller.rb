@@ -1,9 +1,14 @@
 class StoresController < ApplicationController
 
 
-    def index 
-        # merchant = Merchant.find(session[:merchant_id])
+    def index
         store = Store.all 
+        render json: store, status: :ok
+    end
+
+    def all_stores
+        merchant = Merchant.find(params[:id])
+        store = merchant.stores.all 
         render json: store, status: :ok
     end
 
