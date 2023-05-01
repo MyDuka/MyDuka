@@ -24,7 +24,7 @@ const Dashboard = ({user}) => {
   const [totalReceived, setTotalReceived] = useState([])
   const [totalSpoilt, setTotalSpoilt] = useState([])
   const [totalStocked, setTotalStocked] = useState([])
-  const [stores, setStores] = useState([])
+  const [stores, setStores] = useState()
 
 
 
@@ -41,7 +41,7 @@ const Dashboard = ({user}) => {
       })
       .then((c)=> c.json())
       .then((d)=>{
-        setStores(...stores,d)
+        setStores(d)
 
       })
     },[])
@@ -57,9 +57,6 @@ const Dashboard = ({user}) => {
     .then((c)=> c.json())
     .then((d)=>{
       setItems(...items,d)
-      setTotalReceived(...totalReceived, d.received)
-      setTotalSpoilt(...totalSpoilt, d.spoilt)
-      setTotalStocked(...totalStocked, d.stocked)
     })
   },[])
 
@@ -285,7 +282,7 @@ const Dashboard = ({user}) => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-                Ksh {item.receivedd*50}
+                Ksh {item.received*50}
               </Box>
             </Box>
           ))}

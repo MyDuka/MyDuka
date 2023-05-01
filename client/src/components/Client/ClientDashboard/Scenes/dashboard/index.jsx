@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../Header'
 import {Box, Button, IconButton, Typography, useTheme} from '@mui/material'
 import { tokens } from '../../../theme'
@@ -10,15 +10,22 @@ import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Navigate } from 'react-router-dom'
+import axios from 'axios'
 
 const ClerkDashboard = ({user}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [request, setRequest] = useState(false)
+  const [requested, setRequested] = useState()
 
 
 
-
+  useEffect(()=>{
+    axios.get("http://127.0.0.1:3000/requests")
+    .then((response)=>{
+      setRequested(response.data)
+    })
+  })
 
 
 
@@ -122,9 +129,9 @@ if(request){
               Product Requests
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {requested?.map((request, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${request.id}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -137,22 +144,24 @@ if(request){
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {request.product}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {request.supplier}
                 </Typography>
               </Box>
 
-              <Box color={colors.grey[100]}>${transaction.buyingcost}</Box>
+              <Box color={colors.grey[100]}>{request.quantity}</Box>
                             
               <Box
                 backgroundColor={colors.orangeAccent[300]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                <Button>
-                {transaction.cost}
+                <Button
+                onClick={()=> setRequest(true)}
+                >
+                Request
                 </Button>
                 
                 
