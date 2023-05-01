@@ -66,6 +66,10 @@ Rails.application.routes.draw do
 
   post '/add/store/:id', to: "stores#add_store"
 
+  get "/merchant/stores/:id", to: "stores#all_stores"
+
+
+
   #  clerk routes 
 
   post '/clerk/register/:id', to: "clerks#add_clerk"
