@@ -28,7 +28,7 @@ class AdminsController < ApplicationController
         if admin
             render json: admin, status: :ok 
         else 
-            render json: {message: "admin not found", data: admin.errors}, status: :not_found
+            render json: {message: "admin not found"}, status: :not_found
         end
     end
 
