@@ -15,7 +15,7 @@ import StatBox from "../../adminDashComponents/StatBox";
 import ProgressCircle from "../../adminDashComponents/ProgressCircle";
 import UpcomingIcon from '@mui/icons-material/Upcoming';
 import { Navigate } from "react-router";
-
+import axios from 'axios'
 import { useState, useEffect } from "react";
 
 const AdminDashboard = ({user}) => {
@@ -23,8 +23,15 @@ const AdminDashboard = ({user}) => {
   const colors = tokens(theme.palette.mode);
   const [items, setItems] = useState([])
   const [request, setRequest] = useState(false)
+  const [totalInventory, setTotalInventory] = useState([])
+  const [totalReceived, setTotalReceived] = useState([])
+  const [totalSpoilt, setTotalSpoilt] = useState([])
+  const [totalStocked, setTotalStocked] = useState([])
+  const [clerks, setClerks] = useState([])
+
 
   
+  const admin_id = sessionStorage.getItem('admin_id')
 
 
   useEffect(()=>{
@@ -37,15 +44,54 @@ const AdminDashboard = ({user}) => {
     .then((c)=> c.json())
     .then((d)=>{
       setItems(...items,d)
-
+      setTotalReceived(...totalReceived, d.received)
+      setTotalSpoilt(...totalSpoilt, d.spoilt)
+      setTotalStocked(...totalStocked, d.stocked)
     })
+
+    axios.get(`http://localhost:3000/admin/clerks/${admin_id}`)
+    .then((response)=>{
+      setClerks(...clerks,response.data)
+    })
+
   },[])
 
+
+
+  let sp = items?.map((i)=> i.spoilt)
+  let rc = items?.map((i)=> i.received)
+  let st = items?.map((i)=> i.stocked)
+
+ 
+  // useEffect(()=>{
+  //   items.map((i)=>{
+  //     sp.push(i.spoilt)
+  //     rc.push(i.received)
+  //     st.push(i.stocked)
+  //  })
+  // },[items])
+
   console.log(items)
+  console.log(sp)
+  console.log(rc)
+  console.log(st)
+
+
+  const spoilt = sp.reduce((a,b)=> a+b, 0)
+  const inventory =  rc.reduce((a,b)=>a+b,0)
+  const stocked = st.reduce((a,b)=> a+b,0)
+  const sold = (stocked+inventory) - spoilt
+
+  // console.log(spoilt, inventory, stocked, sold)
+
 
   if(request){
     return <Navigate to="/admin/stock/requests"/>
   }
+
+
+
+ 
 
 
 
@@ -87,7 +133,7 @@ const AdminDashboard = ({user}) => {
           justifyContent="center"
         >
           <StatBox
-            title="361"
+            title = {sold}
             subtitle="Inventory Sold"
             progress="0.75"
             increase="+14%"
@@ -106,7 +152,7 @@ const AdminDashboard = ({user}) => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
+            title={inventory.toString()}
             subtitle="Inventory Obtained"
             progress="0.50"
             increase="+21%"
@@ -125,7 +171,7 @@ const AdminDashboard = ({user}) => {
           justifyContent="center"
         >
           <StatBox
-            title="41"
+            title={ clerks.length }
             subtitle="Clerks"
             progress="0.30"
             increase="+5%"
@@ -144,7 +190,7 @@ const AdminDashboard = ({user}) => {
           justifyContent="center"
         >
           <StatBox
-            title="5,134"
+            title= {spoilt}
             subtitle="Spoilt Goods"
             progress="0.40"
             increase="-43%"
@@ -182,7 +228,7 @@ const AdminDashboard = ({user}) => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                {`$${sold*100}`}
               </Typography>
             </Box>
             <Box>
@@ -215,9 +261,9 @@ const AdminDashboard = ({user}) => {
               Recent Stock
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {items?.map((item, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${item.id}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -230,19 +276,19 @@ const AdminDashboard = ({user}) => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {item.received}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {item.product.name}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{items.stocked}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                {transaction.cost}
+                {item.payment_status}
               </Box>
             </Box>
           ))}
@@ -270,7 +316,7 @@ const AdminDashboard = ({user}) => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              {`$${(sold*100)-(spoilt*70)}`}
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
