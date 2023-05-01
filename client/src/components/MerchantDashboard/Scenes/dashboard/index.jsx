@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from '../../../Header'
 import {Box, Button, IconButton, Typography, useTheme} from '@mui/material'
 import { tokens } from '../../../../theme'
@@ -13,16 +13,72 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
+import GeographyChart from '../../../adminDashboard/adminDashComponents/GeographyChart'
 
 import { useSelector } from 'react-redux'
 
 const Dashboard = ({user}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode)
+  const [items, setItems] = useState([])
+  const [totalReceived, setTotalReceived] = useState([])
+  const [totalSpoilt, setTotalSpoilt] = useState([])
+  const [totalStocked, setTotalStocked] = useState([])
+  const [stores, setStores] = useState([])
 
-  // const user = useSelector(user)
 
-  // console.log(user)
+
+  const merchant_id = sessionStorage.getItem('merchant_id')
+
+  let url = `http://localhost:3000/merchant/stores/${merchant_id}`
+
+    useEffect(()=>{
+      fetch(url,{
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((c)=> c.json())
+      .then((d)=>{
+        setStores(...stores,d)
+
+      })
+    },[])
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/received_items",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((d)=>{
+      setItems(...items,d)
+      setTotalReceived(...totalReceived, d.received)
+      setTotalSpoilt(...totalSpoilt, d.spoilt)
+      setTotalStocked(...totalStocked, d.stocked)
+    })
+  },[])
+
+
+
+  let sp = items?.map((i)=> i.spoilt)
+  let rc = items?.map((i)=> i.received)
+  let st = items?.map((i)=> i.stocked)
+
+  console.log(items)
+  console.log(sp)
+  console.log(rc)
+  console.log(st)
+
+
+  const spoilt = sp.reduce((a,b)=> a+b, 0)
+  const inventory =  rc.reduce((a,b)=>a+b,0)
+  const stocked = st.reduce((a,b)=> a+b,0)
+  const sold = (stocked+inventory) - spoilt
 
 
 
@@ -69,8 +125,8 @@ const Dashboard = ({user}) => {
           borderRadius="5px"
         >
           <StatBox
-            title="12,361"
-            subtitle="Sales"
+            title= {(inventory + stocked) - spoilt}
+            subtitle="total stock"
             progress="0.75"
             increase="+14%"
             icon={
@@ -90,7 +146,7 @@ const Dashboard = ({user}) => {
 
         >
           <StatBox
-            title="25"
+            title= {spoilt}
             subtitle="Spoilt Goods"
             progress="0.50"
             increase="+21%"
@@ -110,7 +166,7 @@ const Dashboard = ({user}) => {
           borderRadius="5px"
         >
           <StatBox
-            title="32"
+            title={inventory}
             subtitle="Stock Received"
             progress="0.30"
             increase="+5%"
@@ -169,7 +225,7 @@ const Dashboard = ({user}) => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                Ksh 59,342
+                Ksh {((inventory + stocked) - spoilt)*64}
               </Typography>
             </Box>
             <Box>
@@ -202,9 +258,9 @@ const Dashboard = ({user}) => {
               Store by Store Report
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {items?.map((item, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${item.id}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -217,23 +273,137 @@ const Dashboard = ({user}) => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {item.received}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {item.product.name}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{item.stocked}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                Ksh {item.receivedd*50}
               </Box>
             </Box>
           ))}
         </Box>
+
+      {/* ROW 3 */}
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          p="30px"
+        >
+          <Typography variant="h5" fontWeight="600">
+            Campaign
+          </Typography>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            mt="25px"
+          >
+            <ProgressCircle size="125" />
+            <Typography
+              variant="h5"
+              color={colors.greenAccent[500]}
+              sx={{ mt: "15px" }}
+            >
+              {`$${(sold*100)-(spoilt*70)}`}
+            </Typography>
+            <Typography>Includes extra misc expenditures and costs</Typography>
+          </Box>
+        </Box>
+        {/* <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ padding: "30px 30px 0 30px" }}
+          >
+            Sales Quantity
+          </Typography>
+          <Box height="250px" mt="-20px">
+            <BarChart isDashboard={true} />
+          </Box>
+        </Box> */}
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px" }}
+          >
+            Geography Based Traffic
+          </Typography>
+          <Box height="200px">
+            <GeographyChart isDashboard={true} />
+          </Box>
+        </Box>
+
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom={`4px solid ${colors.primary[500]}`}
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Your Stores
+            </Typography>
+          </Box>
+          {stores?.map((store, i) => (
+            <Box
+              key={`${store.id}-${i}`}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              borderBottom={`4px solid ${colors.primary[500]}`}
+              p="15px"
+            >
+              <Box>
+                <Typography
+                  color={colors.greenAccent[500]}
+                  variant="h5"
+                  fontWeight="600"
+                >
+                  {store.name}
+                </Typography>
+                <Typography color={colors.grey[100]}>
+                  {store.location}
+                </Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{store.address}</Box>
+              {/* <Box
+                backgroundColor={colors.greenAccent[500]}
+                p="5px 10px"
+                borderRadius="4px"
+              >
+                ${store.merchant.name}
+              </Box> */}
+            </Box>
+          ))}
+        </Box>
+
+
       </Box>
     </Box>
   )
