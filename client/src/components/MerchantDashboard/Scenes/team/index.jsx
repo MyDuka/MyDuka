@@ -127,12 +127,11 @@ const Team = () => {
               justifyContent="center"
               backgroundColor={
               colors.greenAccent[200]}
-              borderRadius="4px"
               style={{cursor: "pointer"}}
+              borderRadius="4px"
               onClick={()=>{
                 handleDelete(params.row.id)
               }}
-              style={{cursor: 'pointer'}}
             >
             <DeleteOutlineIcon />
               <Typography color={colors.grey[100]} sx={{ ml: "5px" }} >
