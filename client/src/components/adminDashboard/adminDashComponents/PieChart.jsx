@@ -1,11 +1,48 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../adminthemes";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../adminDashData/mockData";
+import {useEffect, useState} from 'react'
 
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [items, setItems] = useState([]);
+
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:3000/received_items",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((d)=>{
+      setItems(...items,d)
+    })
+  },[])
+
+
+
+
+  const data = items?.map((item)=>{
+
+    return {
+      id: item.product.name,
+      label: item.product.name,
+      value: item.received
+    }
+  })
+  
+  console.log(data)
+  
+
+
+
+
+
+
+
   return (
     <ResponsivePie
       data={data}
@@ -87,8 +124,9 @@ const PieChart = () => {
           itemsSpacing: 0,
           itemWidth: 100,
           itemHeight: 18,
+          rotation: 90,
           itemTextColor: "#999",
-          itemDirection: "left-to-right",
+          itemDirection: "top-to-bottom",
           itemOpacity: 1,
           symbolSize: 18,
           symbolShape: "circle",
