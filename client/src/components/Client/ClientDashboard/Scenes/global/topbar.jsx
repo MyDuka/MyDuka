@@ -73,7 +73,7 @@ const Topbar = () => {
         <SettingsOutlinedIcon/>
       </IconButton>
 
-      <IconButton  className="nav_link" onClick={handleLogout}><LogoutIcon/> </IconButton>
+      <IconButton onClick={handleLogout}><LogoutIcon/> </IconButton>
 
 
 
