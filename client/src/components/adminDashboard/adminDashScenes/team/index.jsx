@@ -24,9 +24,9 @@ const AdminTeam = () => {
 
   let admin_id = sessionStorage.getItem('admin_id')
 
-  let url =  `http://localhost:3000/admin/clerks/${admin_id}`
+  let url =  `https://myduka.onrender.com/admin/clerks/${admin_id}`
 
-  let url2 = "http://localhost:3000/admin/clerks"
+  let url2 = "https://myduka.onrender.com/admin/clerks"
 
 
 
@@ -52,7 +52,7 @@ const AdminTeam = () => {
     // }
 
     function handleDelete(id){
-      axios.delete(`http://127.0.0.1:3000/clerk/${id}`)
+      axios.delete(`https://myduka.onrender.com/clerk/${id}`)
       .then(()=>{
         setClerks((p)=>p.filter((b)=>b.id !== id))
       })
@@ -60,7 +60,7 @@ const AdminTeam = () => {
 
 
     function handleActivation(id){
-      axios.put(`http://127.0.0.1:3000/clerk/activation/${id}`,{
+      axios.put(`https://myduka.onrender.com/clerk/activation/${id}`,{
         access
       })
       .then((response)=>{

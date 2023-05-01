@@ -11,7 +11,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
 
 
     useEffect(()=>{
-      fetch("http://127.0.0.1:3000/received_items",{
+      fetch("https://myduka.onrender.com/received_items",{
         method: "GET",
         header: {
           "Content-Type": "application/json",

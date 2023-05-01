@@ -29,7 +29,7 @@ const MerchantSidebar = () => {
 
   let merch_id = sessionStorage.getItem("merchant_id")
   useEffect(()=>{
-    fetch(`http://127.0.0.1:3000/merchants/${merch_id}`)
+    fetch(`https://myduka.onrender.com/merchants/${merch_id}`)
     .then((r)=>r.json())
     .then((d)=>{
       setMerch(d.username)
@@ -40,7 +40,7 @@ const MerchantSidebar = () => {
 
 
   function handleLogout(){
-    fetch("http://127.0.0.1:3000/merchant/logout",{
+    fetch("https://myduka.onrender.com/merchant/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

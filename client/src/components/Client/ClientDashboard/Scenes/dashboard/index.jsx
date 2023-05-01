@@ -21,7 +21,7 @@ const ClerkDashboard = ({user}) => {
 
 
   useEffect(()=>{
-    axios.get("http://127.0.0.1:3000/requests")
+    axios.get("https://myduka.onrender.com/requests")
     .then((response)=>{
       setRequested(response.data)
     })

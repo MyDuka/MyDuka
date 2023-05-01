@@ -22,7 +22,7 @@ const AdminTopbar = () => {
 
 
   function handleLogout(){
-    fetch("/admin/logout",{
+    fetch("https://myduka.onrender.com/admin/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

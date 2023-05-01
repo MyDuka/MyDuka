@@ -17,7 +17,7 @@ export default function AdminLogin({signIn}){
 
     function adminLogin(e){
         e.preventDefault();
-        fetch("http://127.0.0.1:3000/admin/login",{
+        fetch("https://myduka.onrender.com/admin/login",{
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

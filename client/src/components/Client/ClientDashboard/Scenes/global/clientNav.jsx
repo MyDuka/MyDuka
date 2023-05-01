@@ -28,7 +28,7 @@ function ClientNav(){
     let clerk_id = sessionStorage.getItem("clerk_id")
 
     useEffect(()=>{
-      fetch(`http://127.0.0.1:3000/clerks/${clerk_id}`)
+      fetch(`https://myduka.onrender.com/clerks/${clerk_id}`)
       .then((r)=>r.json())
       .then((d)=>{
         setClerk(d.username)
@@ -38,7 +38,7 @@ function ClientNav(){
     },[])
 
     function handleLogout(){
-      fetch("http://127.0.0.1:3000/clerk/logout",{
+      fetch("https://myduka.onrender.com/clerk/logout",{
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

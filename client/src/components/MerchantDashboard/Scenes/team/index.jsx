@@ -37,7 +37,7 @@ const Team = () => {
 
 
   function handleDelete(id){
-    axios.delete(`http://127.0.0.1:3000/admins/${id}`)
+    axios.delete(`https://myduka.onrender.com/admins/${id}`)
     .then(()=>{
       setAdmins((p)=>p.filter((b)=>b.id !== id))
     })
@@ -45,7 +45,7 @@ const Team = () => {
 
 
   function handleActivation(id){
-    axios.put(`http://127.0.0.1:3000/admin/activation/${id}`,{
+    axios.put(`https://myduka.onrender.com/admin/activation/${id}`,{
       access
     })
     .then((response)=>{

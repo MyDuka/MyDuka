@@ -16,7 +16,7 @@ const Requested = () => {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:3000/requests")
+    axios.get("https://myduka.onrender.com/requests")
     .then((response)=>{
         setRequests(...requests,response.data)
     })

@@ -24,7 +24,7 @@ const Topbar = () => {
 
 
   function handleLogout(){
-    fetch("http://127.0.0.1:3000/merchant/logout",{
+    fetch("https://myduka.onrender.com/merchant/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

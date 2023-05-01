@@ -19,7 +19,7 @@ const MerchantUpdateForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    axios.put(`http://localhost:3000/merchants/${merchant_id}`, {
+    axios.put(`https://myduka.onrender.com/merchants/${merchant_id}`, {
   username: username,
   contact: contact,
   password: password,

@@ -23,7 +23,7 @@ const Stores = () => {
 
 
 
-  let url = "http://localhost:3000/stores"
+  let url = "https://myduka.onrender.com/stores"
 
 
 

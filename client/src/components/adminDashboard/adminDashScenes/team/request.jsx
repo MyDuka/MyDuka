@@ -27,7 +27,7 @@ const StockRequests = () => {
 
 
 
-  let url = "http://localhost:3000/requests"
+  let url = "https://myduka.onrender.com/requests"
 
 
 
@@ -40,7 +40,7 @@ const StockRequests = () => {
     console.log(requests)
 
     function handleRequest(id){
-      axios.put(`http://127.0.0.1:3000/request/decision/${id}`,{
+      axios.put(`https://myduka.onrender.com/request/decision/${id}`,{
         state
       })
       .then((response)=>{

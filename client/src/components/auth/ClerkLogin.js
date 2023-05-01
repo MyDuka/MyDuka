@@ -14,7 +14,7 @@ export default function ClerkLogin({signIn}){
 
     function clerkLogin(e){
         e.preventDefault();
-        fetch("http://127.0.0.1:3000/clerk/login",{
+        fetch("https://myduka.onrender.com/clerk/login",{
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

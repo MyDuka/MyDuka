@@ -32,7 +32,7 @@ const AdminSidebar = () => {
   let admin_id = sessionStorage.getItem("admin_id")
 
   useEffect(()=>{
-    fetch(`http://127.0.0.1:3000/admins/${admin_id}`)
+    fetch(`https://myduka.onrender.com/${admin_id}`)
     .then((r)=>r.json())
     .then((d)=>{
       setAdmin(d.username)
@@ -46,7 +46,7 @@ const AdminSidebar = () => {
 
 
   function handleLogout(){
-    fetch("/admin/logout",{
+    fetch("https://myduka.onrender.com/admin/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

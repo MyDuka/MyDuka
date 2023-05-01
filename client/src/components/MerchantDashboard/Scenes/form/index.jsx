@@ -25,7 +25,7 @@ const id = sessionStorage.getItem('merchant_id')
 function handleSubmit(e){
   e.preventDefault();
   // const user_id = sessionStorage.getItem('user_id')
-  fetch(`http://localhost:3000/admin/register/${id}`,{
+  fetch(`https://myduka.onrender.com/admin/register/${id}`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -16,7 +16,7 @@ const AdminProducts = () => {
 
 
   useEffect(()=>{
-    fetch("http://127.0.0.1:3000/products",{
+    fetch("https://myduka.onrender.com/products",{
       method: "GET",
       header: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const AdminProducts = () => {
 
 
   function handleDelete(id){
-    axios.delete(`http://127.0.0.1:3000/products/${id}`)
+    axios.delete(`https://myduka.onrender.com/products/${id}`)
     .then(()=>{
       setProducts((p)=>p.filter((b)=>b.id !== id))
     })

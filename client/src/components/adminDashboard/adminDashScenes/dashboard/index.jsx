@@ -49,7 +49,7 @@ const AdminDashboard = ({user}) => {
       setTotalStocked(...totalStocked, d.stocked)
     })
 
-    axios.get(`http://localhost:3000/admin/clerks/${admin_id}`)
+    axios.get(`https://myduka.onrender.com/admin/clerks/${admin_id}`)
     .then((response)=>{
       setClerks(...clerks,response.data)
     })

@@ -14,7 +14,7 @@ const StockRequest = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post("http://127.0.0.1:3000/requests",{
+      axios.post("https://myduka.onrender.com/requests",{
         quantity,
         product,
         supplier,

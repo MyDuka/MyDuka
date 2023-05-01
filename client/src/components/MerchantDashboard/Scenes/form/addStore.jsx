@@ -23,7 +23,7 @@ const AddStore = () => {
     function handleSubmit(e){
         e.preventDefault();
         // const user_id = sessionStorage.getItem('user_id')
-        axios.post(`http://127.0.0.1:3000/add/store/${id}`,{
+        axios.post(`https://myduka.onrender.com/add/store/${id}`,{
             name,
             address,
             location

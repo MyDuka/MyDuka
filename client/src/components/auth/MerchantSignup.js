@@ -14,7 +14,7 @@ export default function MerchantSignup(){
 
     function merchantSignup(e){
 		e.preventDefault();
-		fetch("http://127.0.0.1:3000/merchants", {
+		fetch("https://myduka.onrender.com/merchants", {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

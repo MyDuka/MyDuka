@@ -23,7 +23,7 @@ const Topbar = () => {
 
 
   function handleLogout(){
-    fetch("http://127.0.0.1:3000/clerk/logout",{
+    fetch("https://myduka.onrender.com/clerk/logout",{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

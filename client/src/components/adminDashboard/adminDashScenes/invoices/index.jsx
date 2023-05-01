@@ -13,14 +13,14 @@ const AdminStock = () => {
 
 
   useEffect(()=>{
-    axios.get("http://127.0.0.1:3000/received_items")
+    axios.get("https://myduka.onrender.com/received_items")
     .then((response)=>{
       setStock(...stock,response.data)
     })
   },[])
 
   function handlePayment(id){
-    axios.put(`http://127.0.0.1:3000/received_items/${id}`,{
+    axios.put(`https://myduka.onrender.com/received_items/${id}`,{
       payment_status
     })
     .then((response)=>{

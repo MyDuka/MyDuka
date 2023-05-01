@@ -19,7 +19,7 @@ const AdminUpdateForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    axios.post('http://localhost:3000/clerk/register', {
+    axios.post('https://myduka.onrender.com/clerk/register', {
   username: username,
   contact: contact,
   password: password,

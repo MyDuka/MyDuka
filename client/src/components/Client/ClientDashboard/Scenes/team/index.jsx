@@ -14,7 +14,7 @@ const ClerkProducts = () => {
 
 
   useEffect(()=>{
-      axios.get("http://localhost:3000/products")
+      axios.get("https://myduka.onrender.com/products")
       .then((response)=>{
         setProducts(...products,response.data)
       })

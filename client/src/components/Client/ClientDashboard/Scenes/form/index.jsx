@@ -15,7 +15,7 @@ const ProductForm = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post(`http://localhost:3000/add/product/${store_id}`,{
+      axios.post(`https://myduka.onrender.com/add/product/${store_id}`,{
         name,
         category,
         image,

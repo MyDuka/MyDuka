@@ -26,7 +26,7 @@ const StockForm = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post(`http://localhost:3000/received/items/${product}`,{
+      axios.post(`https://myduka.onrender.com/received/items/${product}`,{
         payment_status,
         received,
         stocked,

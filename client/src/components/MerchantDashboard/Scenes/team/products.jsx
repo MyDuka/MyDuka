@@ -14,7 +14,7 @@ const AllStoresProducts = () => {
 
 
   useEffect(()=>{
-    fetch("http://127.0.0.1:3000/products",{
+    fetch("https://myduka.onrender.com/products",{
       method: "GET",
       header: {
         "Content-Type": "application/json",

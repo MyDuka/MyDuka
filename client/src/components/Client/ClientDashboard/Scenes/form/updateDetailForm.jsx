@@ -19,7 +19,7 @@ const ClerkUpdateForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    axios.put(`http://localhost:3000/clerk/${clerk_id}`, {
+    axios.put(`https://myduka.onrender.com/clerk/${clerk_id}`, {
   username: username,
   contact: contact,
   password: password,
