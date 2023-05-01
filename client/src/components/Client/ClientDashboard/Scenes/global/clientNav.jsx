@@ -12,6 +12,8 @@ import {AiOutlineUser} from "react-icons/ai"
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+
 
 
 // import {IconButton} from "@mui/material";
@@ -59,7 +61,7 @@ function ClientNav(){
         <nav className="nav">
             <div> 
                 <Typography className="nav_logo"> 
-                <i><AddBusinessIcon/></i> 
+                <i><StorefrontIcon/></i> 
                 <span className="nav_logo-name">MyDuka</span> </Typography>
                 {/* <Typography className="nav_logo" variant="h3">
                   MyDuka
