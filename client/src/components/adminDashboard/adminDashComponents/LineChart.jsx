@@ -2,10 +2,27 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../adminthemes";
 import { mockLineData as data } from "../adminDashData/mockData";
+import { useState, useEffect } from 'react'
 
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [items, setItems] = useState([])
+
+
+    useEffect(()=>{
+      fetch("http://127.0.0.1:3000/received_items",{
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((c)=> c.json())
+      .then((d)=>{
+        setItems(...items,d)
+      })
+    },[])
+
 
   return (
     <ResponsiveLine
