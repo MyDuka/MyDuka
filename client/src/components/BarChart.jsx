@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useTheme } from '@mui/material';
 import { ResponsiveBar } from '@nivo/bar';
 import { tokens } from '../theme';
@@ -7,10 +7,27 @@ import {mockBarData as data} from '../components/MerchantDashboard/Data/mockData
 const BarChart = ({ isDashboard = false }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const [items, setItems] = useState([])
+
+
+    useEffect(()=>{
+      fetch("http://127.0.0.1:3000/received_items",{
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((c)=> c.json())
+      .then((d)=>{
+        setItems(...items,d)
+      })
+    },[])
+
+
   
     return (
       <ResponsiveBar
-        data={data}
+        data={items}
         theme={{
           // allows you to change color theme of the chart
           axis: {
@@ -40,8 +57,8 @@ const BarChart = ({ isDashboard = false }) => {
             },
           },
         }}
-        keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
-        indexBy="country"
+        keys={["received", "stocked", "spoilt"]}
+        indexBy= "product.name"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
         valueScale={{ type: "linear" }}
@@ -76,8 +93,8 @@ const BarChart = ({ isDashboard = false }) => {
         axisBottom={{
           tickSize: 5,
           tickPadding: 5,
-          tickRotation: 0,
-          legend: isDashboard ? undefined : "country", // changed
+          tickRotation: 90,
+          legend: isDashboard ? undefined : "product", // changed
           legendPosition: "middle",
           legendOffset: 32,
         }}
@@ -85,7 +102,7 @@ const BarChart = ({ isDashboard = false }) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: isDashboard ? undefined : "food", // changed
+          legend: isDashboard ? undefined : "items", // changed
           legendPosition: "middle",
           legendOffset: -40,
         }}
