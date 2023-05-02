@@ -11,11 +11,18 @@ class AdminsController < ApplicationController
     end
 
 
+    def merchant_admins
+        merchant = Merchant.find_by(id: params[:id])
+        admins = merchant.admins.all
+        render json: admins, status: :ok
+    end
+
+
     def register 
         merchant = Merchant.find(params[:id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
-            MerchantMailer.admin_registration(admin,merchant).deliver_now
+            # MerchantMailer.admin_registration(admin,merchant).deliver_now
             render json: admin, status: :created
         else 
             render json: { message: "registration failed", data: admin.errors}, status: :unprocessable_entity
@@ -49,9 +56,9 @@ class AdminsController < ApplicationController
         if admin
             admin.update(admin_params)
             if admin.access == "DEACTIVATED"
-                MerchantMailer.admin_deactivation(admin).deliver_now
+                # MerchantMailer.admin_deactivation(admin).deliver_now
             elsif admin.access == "ACTIVATED"
-                MerchantMailer.admin_activation(admin).deliver_now
+                # MerchantMailer.admin_activation(admin).deliver_now
             end
             render json: admin, status: :ok
         else  

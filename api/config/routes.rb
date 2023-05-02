@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   delete '/admins/:id', to: "admins#destroy"
 
+  get '/merchant/admins/:id', to: "admins#merchant_admins"
+
   # merchant routes
 
   post '/merchant/login', to: "sessions#merchant_login"

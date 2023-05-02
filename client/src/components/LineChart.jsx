@@ -2,10 +2,45 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { mockLineData as data } from '../components/MerchantDashboard/Data/mockData'
+import { useState, useEffect } from "react";
 
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const [items, setItems] = useState([]);
+
+
+  useEffect(()=>{
+    fetch("https://myduka.onrender.com/received_items",{
+      method: "GET",
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((c)=> c.json())
+    .then((d)=>{
+      setItems(...items,d)
+    })
+  },[])
+
+  const dat = items?.map((item)=>{
+
+    return {
+      id: item.product.name,
+      data: [{
+        x: item.stocked,
+        y: item.spoilt
+      }]
+     
+    }
+  })
+
+
+
+
+
+
 
   return (
     <ResponsiveLine

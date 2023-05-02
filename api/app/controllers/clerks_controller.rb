@@ -23,7 +23,7 @@ def add_clerk
     admin = Admin.find_by(id: params[:id])
     if admin
     clerk = admin.clerks.create(clerk_params)
-    AdminMailer.clerk_registration(clerk, admin).deliver_now
+    # AdminMailer.clerk_registration(clerk, admin).deliver_now
     render json: clerk, status: :created
     else  
         render json: {message:"unprocessible"}, status: :unprocessable_entity
@@ -48,9 +48,9 @@ end
     if clerk
         clerk.update(clerk_params)
         if clerk.access == "DEACTIVATED"
-            AdminMailer.clerk_deactivation(clerk).deliver_now
+            # AdminMailer.clerk_deactivation(clerk).deliver_now
         elsif clerk.access == "ACTIVATED"
-            AdminMailer.clerk_activation(clerk).deliver_now
+            # AdminMailer.clerk_activation(clerk).deliver_now
         end
         render json: clerk, status: :ok
     else  

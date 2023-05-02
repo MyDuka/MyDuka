@@ -20,10 +20,11 @@ const Team = () => {
     const [access, setAccess] = useState()
 
 
+    const merchant_id = sessionStorage.getItem('merchant_id')
 
 
   useEffect(()=>{
-    fetch("http://127.0.0.1:3000/admins",{
+    fetch(`https://myduka.onrender.com/merchant/admins/${merchant_id}`,{
       method: "GET",
       headers:{
         "Content-Type": "application/json",
