@@ -108,7 +108,7 @@ const MerchantSidebar = () => {
             <Link to="/merchant/bar" className="nav_link"> <i> <BarChartOutlinedIcon /> </i> <span className="nav_name">Bar</span> </Link>
             <Link to="/merchant/pie" className="nav_link"> <i><PieChartOutlineOutlinedIcon /></i> <span class="nav_name">Pie</span> </Link>
             <Link to="/merchant/line" className="nav_link"> <i> <TimelineOutlinedIcon /> </i> <span className="nav_name">Line</span> </Link>
-            <Link to="/merchant/geography" className="nav_link"> <i> <MapIcon /> </i> <span className="nav_name">Map</span> </Link>
+            {/* <Link to="/merchant/geography" className="nav_link"> <i> <MapIcon /> </i> <span className="nav_name">Map</span> </Link> */}
              </div>
              <Typography variant="h5" >
               Profile
