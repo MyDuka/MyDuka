@@ -23,10 +23,22 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       })
     },[])
 
+    const dat = items?.map((item)=>{
+
+      return {
+        id: item.product.name,
+        data: [{
+          x: item.stocked,
+          y: item.spoilt
+        }]
+       
+      }
+    })
+
 
   return (
     <ResponsiveLine
-      data={data}
+      data={dat}
       theme={{
         axis: {
           domain: {
@@ -79,7 +91,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        legend: isDashboard ? undefined : "store", // added
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -89,7 +101,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count", // added
+        legend: isDashboard ? undefined : "stocked", // added
         legendOffset: -40,
         legendPosition: "middle",
       }}

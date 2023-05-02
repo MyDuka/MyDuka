@@ -99,7 +99,7 @@ const Team = () => {
                   handleActivation(id)
                 }else if(access==="DEACTIVATED"){
                   setAccess(0)
-                  handleActivation(0)
+                  handleActivation(id)
                 }
                
               }}
