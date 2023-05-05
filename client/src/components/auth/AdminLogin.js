@@ -29,10 +29,11 @@ export default function AdminLogin({signIn}){
                     r.json().then((user)=>{
 
                         setIsLoggedIn(true);
-                        signIn(user)
                         console.log(user)
                         const admin_id = user.id
                         sessionStorage.setItem('admin_id', admin_id);
+                        signIn(user)
+
                     })
                 }else{
                     setInvalid(true)
@@ -41,6 +42,7 @@ export default function AdminLogin({signIn}){
                 }
             })
     }
+
 
 
     if (isLoggedIn) {

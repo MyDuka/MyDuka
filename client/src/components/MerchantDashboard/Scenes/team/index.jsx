@@ -105,7 +105,7 @@ const Team = () => {
               }}
             >
               {access === "ACTIVE" && <AdminPanelSettingsOutlinedIcon />}
-              {access === "DEACTIVED" && <LockOpenOutlinedIcon />}
+              {access === "DEACTIVATED" && <LockOpenOutlinedIcon />}
               <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
                 {access}
               </Typography>
