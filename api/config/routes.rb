@@ -35,11 +35,11 @@ Rails.application.routes.draw do
 
   # clerk routes
 
-  post 'clerk/login', to: "sessions#clerk_login"
+  post '/clerk/login', to: "sessions#clerk_login"
 
   get "/admin/clerks/:id", to: "clerks#all_clerks"
 
-  delete "clerk/:id", to: "clerks#remove"
+  delete "/clerk/:id", to: "clerks#remove"
 
 
   # logout
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
   # product routes
 
-  post 'add/product/:id', to: "products#add_product"
+  post '/add/product/:id', to: "products#add_product"
 
   delete '/products/:id', to: "products#destroy"
 

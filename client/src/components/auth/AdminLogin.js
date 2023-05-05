@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import './Auth.css'
 import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
 
 
 
@@ -17,24 +18,16 @@ export default function AdminLogin({signIn}){
 
     function adminLogin(e){
         e.preventDefault();
-        fetch("https://myduka.onrender.com/admin/login",{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ email, password }),
-		})
-            .then((r) =>{
-                if(r.status === 204){
-                    r.json().then((user)=>{
-
+        axios.post("https://myduka.onrender.com/admin/login",
+		{ email, password })
+            .then((response)=>{
+                if(response.status === 200){
+                        let user = response.data
                         setIsLoggedIn(true);
                         console.log(user)
                         const admin_id = user.id
                         sessionStorage.setItem('admin_id', admin_id);
                         signIn(user)
-
-                    })
                 }else{
                     setInvalid(true)
                     setIsLoggedIn(false)

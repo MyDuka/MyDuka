@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         if admin.access == "ACTIVE"
             if admin&.authenticate(admin_param[:password])
                 session[:admin_id] = admin.id
-                render json: admin, status: :no_content
+                render json: admin, status: :ok
             else  
                 render json: {message: "Invalid username or password"}, status: :unprocessable_entity
             end
