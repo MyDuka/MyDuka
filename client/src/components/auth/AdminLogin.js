@@ -25,7 +25,7 @@ export default function AdminLogin({signIn}){
 			body: JSON.stringify({ email, password }),
 		})
             .then((r) =>{
-                if(r.status === 200){
+                if(r.status === 204){
                     r.json().then((user)=>{
 
                         setIsLoggedIn(true);
