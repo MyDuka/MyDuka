@@ -21,7 +21,7 @@ export default function AdminLogin({signIn}){
         axios.post("https://myduka.onrender.com/admin/login",
 		{ email, password })
             .then((response)=>{
-                if(response.status === 200){
+                if(response.status === 204){
                         let user = response.data
                         setIsLoggedIn(true);
                         console.log(user)
