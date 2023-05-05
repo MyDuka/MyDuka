@@ -5,7 +5,7 @@
 MyDuka is a simple inventory app designed for small retail businesses. It allows you to keep track of your products, manage your inventory levels, and generate reports on your sales and profits.
 
 - The deployed frontend for this application can be found at: https://my-duka-drab.vercel.app/
-- The deployed backend for this application can be found at: http://127.0.0.1:3000/
+- The deployed backend for this application can be found at: https://myduka.onrender.com/
 
 ## Prerequisites
 

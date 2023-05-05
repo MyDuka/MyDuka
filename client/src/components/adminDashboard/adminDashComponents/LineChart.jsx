@@ -11,7 +11,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
 
 
     useEffect(()=>{
-      fetch("https://myduka.onrender.com/received_items",{
+      fetch(" /received_items",{
         method: "GET",
         header: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
 
   return (
     <ResponsiveLine
-      data={dat}
+      data={data}
       theme={{
         axis: {
           domain: {

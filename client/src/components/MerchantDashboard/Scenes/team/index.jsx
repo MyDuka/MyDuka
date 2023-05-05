@@ -90,7 +90,7 @@ const Team = () => {
                   ? colors.blueAccent[100]
                   : access === "DEACTIVATED"
                   ? colors.greenAccent[200]
-                  : colors.greenAAccent[200]
+                  : colors.greenAccent[200]
               }
               borderRadius="4px"
               onClick={()=>{
