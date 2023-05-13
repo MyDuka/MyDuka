@@ -22,7 +22,7 @@ class AdminsController < ApplicationController
         merchant = Merchant.find(params[:id])
         admin = merchant.admins.create(admin_params)
         if admin.valid?
-            MerchantMailer.admin_registration(admin,merchant).deliver_now
+            # MerchantMailer.admin_registration(admin,merchant).deliver_now
             render json: admin, status: :created
         else 
             render json: { message: "registration failed", data: admin.errors}, status: :unprocessable_entity

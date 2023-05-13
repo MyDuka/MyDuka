@@ -9,7 +9,7 @@ class MerchantsController < ApplicationController
     def create 
         merchant = Merchant.create(merchant_param)
         if merchant.valid?
-            SignupMailer.merchant_signup(merchant).deliver_now
+            # SignupMailer.merchant_signup(merchant).deliver_now
             render json: merchant, status: :created 
         else   
             render json: {message: "unprocessable"}, status: :unprocessable_entity
